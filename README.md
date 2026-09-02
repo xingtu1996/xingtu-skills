@@ -10,6 +10,10 @@
 
 **已收录 26 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛等场景。
 
+## 🧩 DeepSeek Harness（DSH）兼容
+
+本仓技能遵循跨工具事实标准（SKILL.md：`name + description + when_to_use`），是 DeepSeek Harness「一切皆插件」模型中 **skills 插件**的直接消费格式——DSH 可将 `skills/` 目录作为技能插件加载，无需改写。同一份技能同时兼容 Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI。
+
 ## 📦 安装
 
 ```bash
