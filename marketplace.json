@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "name": "xingtu-skills",
+  "description": "XingTu AI agent skills (SKILL.md) for coding, research & ops - find-skills discoverable",
+  "items": [
+    {
+      "name": "cavecrew",
+      "description": "Decision guide for delegating to caveman-style subagents. Tells the main thread WHEN to spawn `cavecrew-investigator` (locate code), `cavecrew-builder` (1-2 file edit), or `cavecrew-reviewer` (diff review) instead of doing the work inline or using va",
+      "path": "skills/cavecrew/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-commit",
+      "description": "Ultra-compressed commit message generator. Cuts noise from commit messages while preserving intent and reasoning. Conventional Commits format. Subject ≤50 chars, body only when \"why\" isn't obvious. Use when user says \"write a commit\", \"commit message",
+      "path": "skills/caveman-commit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-compress",
+      "description": "Compress natural language memory files (CLAUDE.md, todos, preferences) into caveman format to save input tokens. Preserves all technical substance, code, URLs, and structure. Compressed version overwrites the original file. Human-readable backup save",
+      "path": "skills/caveman-compress/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-discover",
+      "description": "Find every LLM workflow in the current repository and label it, so Caveman Cloud groups spend by what the code actually does (support-reply, nightly-digest) instead of one anonymous bucket. Use when the user pastes the Caveman discovery prompt, says ",
+      "path": "skills/caveman-discover/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-evidence-review",
+      "description": "Review Caveman Cloud evidence read-only: costs, Cave Score, Cave Plan, workflows, traces, latency, errors, compression, routing, and verified savings. Use when the user asks what Caveman found, where LLM spend goes, why cost or quality changed, which",
+      "path": "skills/caveman-evidence-review/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-explore",
+      "description": "Read-only repository explorer. Use PROACTIVELY for cold-start exploration, broad cross-file localization, or when a direct search has failed and you need to find where something lives. Skip it when the issue already names the exact file or symbol, or",
+      "path": "skills/caveman-explore/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-help",
+      "description": "Quick-reference card for all caveman modes, skills, and commands. One-shot display, not a persistent mode. Trigger: /caveman-help, \"caveman help\", \"what caveman commands\", \"how do I use caveman\".",
+      "path": "skills/caveman-help/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-learn",
+      "description": "Close the loop on a Caveman learn report — review the ranked token sinks and apply cost-lowering fixes (trim config, offload recurring context to cavemem) with per-edit consent. Use when the user runs \"caveman learn\", asks to lower their agent's toke",
+      "path": "skills/caveman-learn/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-manage",
+      "description": "Inspect Caveman Cloud's eval-gated experiment lifecycle and block unsafe execution. Use when the user asks to start, approve, cancel, promote, or roll back a Caveman experiment, or asks what action an experiment's evidence supports. Read evidence fir",
+      "path": "skills/caveman-manage/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-optimize",
+      "description": "Turn Caveman's exact report-only repository observations into an operator-chosen optimization candidate with a paired baseline/candidate evaluation. Use when the user asks to inspect an optimization observation, evaluate a candidate change, or act on",
+      "path": "skills/caveman-optimize/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-review",
+      "description": "Ultra-compressed code review comments. Cuts noise from PR feedback while preserving the actionable signal. Each comment is one line: location, problem, fix. Use when user says \"review this PR\", \"code review\", \"review the diff\", \"/review\", or invokes ",
+      "path": "skills/caveman-review/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-setup",
+      "description": "Wire the current repository through the Caveman Cloud gateway so every LLM request is measured — cost, tokens, latency — with zero behavior change. Use when the user pastes the Caveman setup prompt, says \"set up caveman\", or wants LLM spend observabi",
+      "path": "skills/caveman-setup/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman-stats",
+      "description": "Show real token usage and estimated savings for the current session. Reads directly from the Claude Code session log — no AI estimation. Triggers on /caveman-stats. Output is injected by the mode-tracker hook; the model itself does not compute the nu",
+      "path": "skills/caveman-stats/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman",
+      "description": "Ultra-compressed communication mode. Cuts output tokens 65% (measured) by speaking like caveman while keeping full technical accuracy. Supports intensity levels: lite, full (default), ultra, wenyan-lite, wenyan-full, wenyan-ultra. Use when user says ",
+      "path": "skills/caveman/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "investigate-first",
+      "description": "Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or investigations needing evidence-ranked hypotheses.",
+      "path": "skills/investigate-first/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "lean-build",
+      "description": "Build feature work with high overbuilding risk. Use for new behavior, product slices, or integrations where repository reuse, strict scope, and an explicit stop condition matter.",
+      "path": "skills/lean-build/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "migration",
+      "description": "Implement reversible compatibility-safe transitions. Use for schema, data, API, protocol, configuration, or dependency migrations requiring rollback and preservation proof.",
+      "path": "skills/migration/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail-audit",
+      "description": "Whole-repo audit for over-engineering. Like ponytail-review, but scans the entire codebase instead of a diff: a ranked list of what to delete, simplify, or replace with stdlib/native equivalents. Use when the user says \"audit this codebase\", \"audit f",
+      "path": "skills/ponytail-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail-debt",
+      "description": "Harvest every `ponytail:` comment in the codebase into a debt ledger, so the deliberate shortcuts and deferrals ponytail leaves behind get tracked instead of rotting into \"later means never\". Use when the user says \"ponytail debt\", \"/ponytail-debt\", ",
+      "path": "skills/ponytail-debt/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail-gain",
+      "description": "Show ponytail's measured impact as a compact scoreboard: less code, less cost, more speed, from the benchmark medians. One-shot display, not a persistent mode, and not a per-repo number. Trigger: /ponytail-gain, \"ponytail gain\", \"what does ponytail s",
+      "path": "skills/ponytail-gain/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail-help",
+      "description": "Quick-reference card for all ponytail modes, skills, and commands. One-shot display, not a persistent mode. Trigger: /ponytail-help, \"ponytail help\", \"what ponytail commands\", \"how do I use ponytail\".",
+      "path": "skills/ponytail-help/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail-review",
+      "description": "Code review focused exclusively on over-engineering. Finds what to delete: reinvented standard library, unneeded dependencies, speculative abstractions, dead flexibility. One line per finding: location, what to cut, what replaces it. Use when the use",
+      "path": "skills/ponytail-review/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail",
+      "description": "Forces the laziest solution that actually works, simplest, shortest, most minimal. Channels a senior dev who has seen everything: question whether the task needs to exist at all (YAGNI), reach for the standard library before custom code, native platf",
+      "path": "skills/ponytail/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "safe-refactor",
+      "description": "Restructure code while preserving behavior. Use for extraction, consolidation, ownership moves, or cleanup where verification must bracket structural edits.",
+      "path": "skills/safe-refactor/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "surgical-patch",
+      "description": "Fix bugs and small behavior changes at the narrowest responsible layer. Use when regression proof, preserved surrounding behavior, and task-relevant tests matter.",
+      "path": "skills/surgical-patch/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "verify-and-stop",
+      "description": "Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof.",
+      "path": "skills/verify-and-stop/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    }
+  ]
+}
