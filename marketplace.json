@@ -262,6 +262,42 @@
         "ai-agent",
         "skill"
       ]
+    },
+    {
+      "name": "de-ai-flavor",
+      "description": "行途自媒体去AI味文案优化。把公众号文章/封面/标题/摘要中的AI腔、黑话、机械句式改成人话，保留技术准确性与关键数字。Use when: 去AI味、改自然点、别太AI、黑话太多、润色文章、文案优化。依据PUB-013去AI味5法+SignalDistilled哲学。",
+      "path": "skills/de-ai-flavor/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content",
+        "writing"
+      ]
+    },
+    {
+      "name": "adversarial-review",
+      "description": "行途自媒体多专家对抗审查。对公众号封面/标题/正文/数据/方案做怀疑论者+优化者+审计员+过滤器四角色并行审查，Round2脚本交叉验证。Use when: 对抗审查、审文章、审标题、审封面、数据核查、审查方案。依据PUB-017多专家对抗审查。",
+      "path": "skills/adversarial-review/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "review",
+        "quality"
+      ]
+    },
+    {
+      "name": "codemax-report",
+      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留CodeMax API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、CodeMax汇报、模型对比。",
+      "path": "skills/codemax-report/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "data",
+        "report"
+      ]
     }
   ]
 }

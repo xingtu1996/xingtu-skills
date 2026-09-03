@@ -1,0 +1,50 @@
+# 广分（广州子公司）在册人员名单 — 用户→姓名映射表
+# 格式: 姓名|用户名|主岗|副岗|离职标记|组织归属|参与团队
+# 备注: 许怿(PM)是 Codex 重度用户，CodeMax 无记录 ≠ 无用 AI（0请求≠0能力，见 historical_insights）
+# 备注: 邓顺来(FRONT DEV·华润万家，昵称 Devin)已注册账号 comall-10 但 request_count=0 从未使用，8/14 确认——故统计为"未使用"
+#   组织归属: 唯一值（用于聚合统计），用户确认或主要投入团队
+#   参与团队: 多值，分号分隔（合同实际投入，一人可跨多个团队）
+# 离职标记: 空=在职, LEFT=已离职
+# 用户名: 从 CodeMax 平台数据确认；空=平台暂无记录（未活跃/从未使用）
+# 来源: 李嘉成 2026-07-31 提供在册名单 + 合同参与明细 + CodeMax 平台数据交叉确认
+蒋冶|蒋冶|SA/SM|DATA||宝洁|宝洁
+张志坤|zhangzhikun|SA|TE||华润万家|华润万家
+申亮|shenliang|SA|PO||华润万家|周大福;宝洁
+刘胜灵|liushengling|SM/SA|PO||华润万家|华润万家
+何娜||TE|PO||华润万家|华润万家
+万传来|wanchuanlai|SM/SA|PO||华润万家|华润万家
+李诚|licheng|SM|DATA||宝洁|宝洁
+徐榕添|xurongtain|FRONT DEV|TE||宝洁|宝洁
+刘志谨|Akin|PO|TE/DATA||周大福|周大福
+任慧||TE|L2|LEFT|宝洁|宝洁
+许怿||PM|PO||宝洁|宝洁
+刘忠仁|Simon|SA|PO||周大福|周大福
+李嘉成|lijiacheng|SM/PO|FDE||宝洁|宝洁
+盛稚皓|shengzhihao|SRE|||周大福|周大福
+陈锦华|chenjinhua|JAVA DEV|PO||宝洁|宝洁
+陈武锋|phum|SM|PM||宝洁|宝洁
+王以权|wangyiquan|JAVA DEV|TE/PO||华润万家|华润万家
+张维广|zhangweiguang|TE|PO||华润万家|华润万家
+刘杰||PM/SM|PO||华润万家|华润万家
+柴玮|chaiwei|SM|PO||华润万家|华润万家
+李金璐|lijinlu@co-mall.com|FRONT DEV|TE||华润万家|华润万家
+吴丽娜|wulina|TE|PO||华润万家|华润万家
+陈章会|chenzhanghui|FRONT DEV|TE||华润万家|华润万家
+范仲谋|Fzm|PM/SM|PO||周大福|周大福
+路宁|luning|JAVA DEV|PO||华润万家|华润万家
+汤浩|tanghao|JAVA DEV|TE||华润万家|华润万家
+邓振祥|dzx|JAVA DEV|TE||周大福|周大福
+刘康|liukang|TE|||周大福|周大福
+李焯照|lizhuozhao|PO|UX||宝洁|宝洁
+高旭东|gaoxudong|PM/PO|||华润万家|华润万家
+熊永生|xiongyongsheng|JAVA DEV|TE/PO||华润万家|华润万家
+秦湘|qinxiang|JAVA DEV|TE||周大福|周大福
+许国才|xuguocai|JAVA DEV|PO/TE||华润万家|华润万家
+江晋锋|Ace|PO|L2||宝洁|宝洁
+邓顺来|comall-10|FRONT DEV|TE||华润万家|华润万家
+赖宣全|shijiretail-140|FRONT DEV|TE||华润万家|华润万家
+宋巍|songwei|TE|PO||宝洁|宝洁
+潘健铭|panjianming|TE|PO||宝洁|宝洁
+# 2026-08-14 补：以下为广州子公司-产品研发部支援团队（李嘉成确认）
+# 注：liwenbo 属北京卖知客-SRE团队，非广分，仅作身份记录，不参与广分聚合
+叶枫|yefeng|FRONT DEV|TE||产品研发部支援|产品研发部支援

@@ -1,6 +1,6 @@
 # XingTu Skills · 专业自述
 
-> 定位：行途开源矩阵的 AI Agent 技能聚合仓，收录 26 个生产级 SKILL.md，一份发布、多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI），find-skills 可检索。
+> 定位：行途开源矩阵的 AI Agent 技能聚合仓，收录 29 个生产级 SKILL.md，一份发布、多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI），find-skills 可检索。
 
 ## 1. 这个项目是干什么的（作用）
 
@@ -8,8 +8,8 @@
 - **解决什么问题**：Agent 的能力上限取决于它的行为方式。技能（skill）把"遇到 X 情况应该怎么处理"写成 Agent 可自动检索、按需加载的 SKILL.md，让 Agent 从"泛泛地聪明"变成"在关键场景下按正确方法干活"。
 - **核心价值**：
   1. **一套技能，多工具通用**：遵循跨工具事实标准（name + description + when_to_use），Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 都能用，不绑平台。
-  2. **26 个生产级技能**：Caveman 系列（token 压缩，实测省约 65% 输出 token）、Ponytail 系列（极简与债务）、工程实践六件套（先调查、精益构建、安全重构、精准修补、迁移、验证即止）。
-  3. **可检索**：`marketplace.json` 提供 26 条索引，find-skills 可语义检索；SKILL.md 的 description 是唯一被自动检索的字段，每个技能都按"[做什么] + Use when 关键词"写。
+  2. **29 个生产级技能**：Caveman 系列（token 压缩，实测省约 65% 输出 token）、Ponytail 系列（极简与债务）、工程实践六件套（先调查、精益构建、安全重构、精准修补、迁移、验证即止）。
+  3. **可检索**：`marketplace.json` 提供 29 条索引，find-skills 可语义检索；SKILL.md 的 description 是唯一被自动检索的字段，每个技能都按"[做什么] + Use when 关键词"写。
   4. **行为可塑**：技能改变 Agent 的**处理方式**（如"先调查再动手""验证即止不扩范围"），比单纯给工具更能提升结果质量。
   5. **与 harness 打通**：作为核心子模块被 xingtu-harness 聚合，`install.sh` 一键拉全。
 
@@ -25,7 +25,7 @@
              └──────────────────┬──────────────────────────┘
                                 │
         ┌───────────────────────┴──────────────────────────┐
-        │  xingtu-skills（本仓） 26 个技能                    │
+        │  xingtu-skills（本仓） 29 个技能                    │
         │  Caveman 系列（token 压缩/子代理）                  │
         │  Ponytail 系列（极简/债务审计）                     │
         │  工程实践六件套（调查→构建→重构→修补→迁移→验证）      │
@@ -74,7 +74,7 @@
   - 技能要被真实任务验证过：执行结果可复现、副作用可控、不破坏既有行为。
   - 保持单一职责：一个 SKILL.md 只做一件事，避免"全能技能"稀释检索命中率。
 - **演进路径**：从真实项目的"踩坑→方法"蒸馏新技能；系列内做收敛（Caveman/Ponytail 各有 help 速查卡，防止技能膨胀）；每版本核对 marketplace.json 与 skills/ 目录一致。
-- **当前状态**：26 个技能 + marketplace.json 已入库，属四个仓中完成度最高者；后续按场景补充与跨工具兼容性测试是主方向。
+- **当前状态**：29 个技能 + marketplace.json 已入库，属四个仓中完成度最高者；后续按场景补充与跨工具兼容性测试是主方向。
 
 ## 6. 基础概念
 
