@@ -25,7 +25,7 @@ done
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SELF="$SCRIPT_DIR/codemax_stats.sh"
 ***REMOVED*** 默认输出: 最近工作汇报数字目录（如 828/）
-[ -n "$OUT" ] || OUT="$(ls -d /Users/<user>/projects/tfm-ng/.report/工作汇报/[0-9]*/ 2>/dev/null | sort -rn | head -1 | tr -d '/')"
+[ -n "$OUT" ] || OUT="$(ls -d /path/to/project/.report/YYYYMMDD/ 2>/dev/null | sort -rn | head -1 | tr -d '/')"
 [ -n "$OUT" ] || OUT="."
 mkdir -p "$OUT"
 TAG="$(echo "$START-$END" | tr -d '-')"

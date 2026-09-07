@@ -1,0 +1,19 @@
+***REMOVED*** 在册人员名单 — 用户→姓名映射表（脱敏样例）
+***REMOVED***
+***REMOVED*** ⚠️ 隐私与合规（必读）
+***REMOVED*** 本文件为**结构样例**，所有字段均为虚构占位。真实花名册属于公司内部数据 +
+***REMOVED*** 个人信息，**禁止提交到任何公开仓库**。
+***REMOVED*** 使用方式：复制为 `gz_roster.txt`（该文件已加入 .gitignore），填入你自己的数据。
+***REMOVED***
+***REMOVED*** 格式: 姓名|用户名|主岗|副岗|离职标记|组织归属|参与团队
+***REMOVED***   组织归属: 唯一值（用于聚合统计），用户确认或主要投入团队
+***REMOVED***   参与团队: 多值，分号分隔（合同实际投入，一人可跨多个团队）
+***REMOVED***   离职标记: 空=在职, LEFT=已离职
+***REMOVED***   用户名: 从 CodeMax 平台数据确认；空=平台暂无记录（未活跃/从未使用）
+
+成员A|member-a|SA/SM|DATA||项目A|项目A
+成员B|member-b|SA|TE||项目B|项目B
+成员C|member-c|SM/SA|PO||项目B|项目C;项目A
+成员D||TE|PO||项目B|项目B
+成员E|member-e|PO|TE/DATA||项目C|项目C
+成员F|member-f|SM|PM|LEFT|项目A|项目A

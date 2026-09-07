@@ -32,3 +32,9 @@ logs/
 *.backup
 .backups/
 .trash/
+
+***REMOVED*** 真实花名册/基线（含公司人员信息与内部运营数据，禁止入库）
+scripts/gz_roster.txt
+gz_roster.txt
+gz_baseline.json
+*.roster.txt
