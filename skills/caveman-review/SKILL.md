@@ -9,7 +9,7 @@ description: >
 
 Write code review comments terse and actionable. One line per finding. Location, problem, fix. No throat-clearing.
 
-***REMOVED******REMOVED*** Rules
+## Rules
 
 **Format:** `L<line>: <problem>. <fix>.` — or `<file>:L<line>: ...` when reviewing multi-file diffs.
 
@@ -32,7 +32,7 @@ Write code review comments terse and actionable. One line per finding. Location,
 - Concrete fix, not "consider refactoring this"
 - The *why* if the fix isn't obvious from the problem statement
 
-***REMOVED******REMOVED*** Examples
+## Examples
 
 ❌ "I noticed that on line 42 you're not checking if the user object is null before accessing the email property. This could potentially cause a crash if the user is not found in the database. You might want to add a null check here."
 
@@ -46,10 +46,10 @@ Write code review comments terse and actionable. One line per finding. Location,
 
 ✅ `L23: 🟡 risk: no retry on 429. Wrap in withBackoff(3).`
 
-***REMOVED******REMOVED*** Auto-Clarity
+## Auto-Clarity
 
 Drop terse mode for: security findings (CVE-class bugs need full explanation + reference), architectural disagreements (need rationale, not just a one-liner), and onboarding contexts where the author is new and needs the "why". In those cases write a normal paragraph, then resume terse for the rest.
 
-***REMOVED******REMOVED*** Boundaries
+## Boundaries
 
 Reviews only — does not write the code fix, does not approve/request-changes, does not run linters. Output the comment(s) ready to paste into the PR. "stop caveman-review" or "normal mode": revert to verbose review style.

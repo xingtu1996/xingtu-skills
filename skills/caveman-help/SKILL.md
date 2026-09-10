@@ -6,11 +6,11 @@ description: >
   "caveman help", "what caveman commands", "how do I use caveman".
 ---
 
-***REMOVED*** Caveman Help
+# Caveman Help
 
 Display this reference card when invoked. One-shot — do NOT change mode, write flag files, or persist anything. Output in caveman style.
 
-***REMOVED******REMOVED*** Modes
+## Modes
 
 | Mode | Trigger | What change |
 |------|---------|-------------|
@@ -23,7 +23,7 @@ Display this reference card when invoked. One-shot — do NOT change mode, write
 
 Mode stick until changed or session end.
 
-***REMOVED******REMOVED*** Skills
+## Skills
 
 | Skill | Trigger | What it do |
 |-------|---------|-----------|
@@ -32,15 +32,15 @@ Mode stick until changed or session end.
 | **caveman-compress** | `/caveman-compress <file>` | Compress .md files to caveman prose. Saves ~46% input tokens. |
 | **caveman-help** | `/caveman-help` | This card. |
 
-***REMOVED******REMOVED*** Deactivate
+## Deactivate
 
 Say "stop caveman" or "normal mode". Resume anytime with `/caveman`.
 
-***REMOVED******REMOVED*** Language
+## Language
 
 Keep user's language by default. User write Portuguese → reply Portuguese caveman. Compress the style, not the language. Technical terms, code, commands, commit types, and exact error strings stay verbatim unless user ask for translation.
 
-***REMOVED******REMOVED*** Configure Default Mode
+## Configure Default Mode
 
 Default mode = `full`. Change it:
 
@@ -58,6 +58,6 @@ Set `"off"` to disable auto-activation on session start. User can still activate
 
 Resolution: env var > config file > `full`.
 
-***REMOVED******REMOVED*** More
+## More
 
 Full docs: https://github.com/JuliusBrussee/caveman

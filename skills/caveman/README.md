@@ -1,8 +1,8 @@
-***REMOVED*** caveman
+# caveman
 
 Talk like smart caveman. Same brain, fewer tokens.
 
-***REMOVED******REMOVED*** What it does
+## What it does
 
 Compress model responses to caveman-style prose by dropping articles, filler,
 pleasantries, and hedging. Instruction preserves technical detail, code blocks,
@@ -23,17 +23,17 @@ Six intensity levels:
 
 Auto-clarity rule: caveman drops to normal prose for security warnings, irreversible-action confirmations, multi-step sequences where fragment ambiguity risks misread, and when user repeats a question. Resumes after the clear part.
 
-***REMOVED******REMOVED*** How to invoke
+## How to invoke
 
 ```
-/caveman              ***REMOVED*** full mode (default)
-/caveman lite         ***REMOVED*** lighter compression
-/caveman ultra        ***REMOVED*** extreme compression
-/caveman wenyan       ***REMOVED*** classical Chinese
-stop caveman          ***REMOVED*** back to normal prose
+/caveman              # full mode (default)
+/caveman lite         # lighter compression
+/caveman ultra        # extreme compression
+/caveman wenyan       # classical Chinese
+stop caveman          # back to normal prose
 ```
 
-***REMOVED******REMOVED*** Example output
+## Example output
 
 Question: "Why does my React component re-render?"
 
@@ -46,7 +46,7 @@ Caveman (full):
 Caveman (ultra):
 > Inline obj prop → new ref → re-render. `useMemo`.
 
-***REMOVED******REMOVED*** See also
+## See also
 
 - [`SKILL.md`](./SKILL.md): full LLM-facing instructions
 - [Caveman README](../../README.md): repo overview, install, benchmarks

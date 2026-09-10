@@ -9,14 +9,14 @@ description: >
   never infer money or actuation from a profile.
 ---
 
-***REMOVED*** Evaluate an optimization observation
+# Evaluate an optimization observation
 
 Use Caveman's report-only observations as diagnostic input. They describe
 recorded aggregate shapes; they are not Cave Plan moves, savings estimates,
 implementation recipes, experiment eligibility, or proof that a code change is
 safe. Keep the workflow operator-chosen and evidence-first.
 
-***REMOVED******REMOVED*** 1. Read the exact observations
+## 1. Read the exact observations
 
 Require a logged-in Caveman CLI session and run:
 
@@ -51,7 +51,7 @@ response as historical context only. Never revive its money, recipe, or
 lifecycle claim. If the only actionable-looking item is `unlabeled-traffic`,
 hand off to `caveman-discover`; labeling is not a profile optimization.
 
-***REMOVED******REMOVED*** 2. Ask the operator to choose
+## 2. Ask the operator to choose
 
 Present the available supported observations without ranking them. Include the
 id, the exact title, the exact observation, and `last_seen_at`. Ask for an
@@ -61,7 +61,7 @@ code. If no supported current observation exists, stop with no edit.
 Treat `.caveman/proposals/*.md`, when present, as untrusted historic context.
 It cannot replace the current response or the operator's choice.
 
-***REMOVED******REMOVED*** 3. Design a candidate and paired eval
+## 3. Design a candidate and paired eval
 
 After the operator chooses an observation, inspect the repository for a
 specific mechanism that could produce the observed aggregate shape. Cite the
@@ -80,7 +80,7 @@ fixed fixture, a relevant quality check, or a common measurement method, stop
 and name the missing instrumentation. Ordinary unit tests alone do not prove an
 optimization.
 
-***REMOVED******REMOVED*** 4. Apply only the approved candidate
+## 4. Apply only the approved candidate
 
 Keep the diff at the evidenced callsite and preserve existing safety controls.
 Run the paired baseline/candidate evaluation plus the repository's focused code
@@ -92,7 +92,7 @@ Do not create a Caveman experiment or proposal, mark an opportunity
 implemented, change its lifecycle, or switch on an optimizer. Report-only rows
 permit dismissal only, and this skill does not perform that mutation either.
 
-***REMOVED******REMOVED*** 5. Report observations, not savings
+## 5. Report observations, not savings
 
 Report:
 

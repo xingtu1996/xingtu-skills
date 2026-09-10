@@ -1,8 +1,8 @@
-***REMOVED*** XingTu Skills · 专业自述
+# XingTu Skills · 专业自述
 
 > 定位：行途开源矩阵的 AI Agent 技能聚合仓，收录 29 个生产级 SKILL.md，一份发布、多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI），find-skills 可检索。
 
-***REMOVED******REMOVED*** 1. 这个项目是干什么的（作用）
+## 1. 这个项目是干什么的（作用）
 
 - **给谁用**：靠 AI Agent 写代码、做调研、跑工作流的工程师——想复用别人踩过坑沉淀下来的"Agent 行为方式"，而不是每个会话重新调教。
 - **解决什么问题**：Agent 的能力上限取决于它的行为方式。技能（skill）把"遇到 X 情况应该怎么处理"写成 Agent 可自动检索、按需加载的 SKILL.md，让 Agent 从"泛泛地聪明"变成"在关键场景下按正确方法干活"。
@@ -13,7 +13,7 @@
   4. **行为可塑**：技能改变 Agent 的**处理方式**（如"先调查再动手""验证即止不扩范围"），比单纯给工具更能提升结果质量。
   5. **与 harness 打通**：作为核心子模块被 xingtu-harness 聚合，`install.sh` 一键拉全。
 
-***REMOVED******REMOVED*** 2. 在行途 harness 中的定位
+## 2. 在行途 harness 中的定位
 
 - **位置**：执行层（L3）的技能供给端。harness 六层架构里，skills 与 mcps / tools 共同构成"Agent 能干活的能力面"；skills 特指**行为方式能力**——教 Agent 怎么想、怎么做、怎么收尾。
 - **协作关系**：
@@ -40,7 +40,7 @@
 
 - **与相邻仓的关系**：skills 是"**按需改变行为**"，mcps 是"**给外部工具**"，rules 是"**常驻约束**"，hooks 是"**确定性事件拦截**"——四者触发机制不同：skills 靠 LLM 检索命中，mcps 靠工具调用，rules 靠文件位置加载，hooks 靠宿主在事件时机硬触发。
 
-***REMOVED******REMOVED*** 3. 与其他项目的差异与区别
+## 3. 与其他项目的差异与区别
 
 | 对比项 | xingtu-skills | xingtu-rules | xingtu-mcps | xingtu-hooks |
 |--------|--------------|--------------|-------------|--------------|
@@ -52,21 +52,21 @@
 
 一句话：**skills 给"怎么做"，rules 给"不能做什么"，mcps 给"能操作什么"，hooks 给"什么时候强制做什么"**。Caveman/Ponytail 系列这类"行为模式类"技能，本质是把它从 prompt 口头叮嘱升级为可检索、可复用、可版本化的资产——这正是本仓区别于其它仓的核心。
 
-***REMOVED******REMOVED*** 4. 在 Agent 体系中的应用
+## 4. 在 Agent 体系中的应用
 
-***REMOVED******REMOVED******REMOVED*** 4.1 Work Agent（业务/内容工作流）
+### 4.1 Work Agent（业务/内容工作流）
 
 - **作用方法**：用 Caveman 系技能压缩沟通与输出（省 token、省上下文）、用 investigate-first 做调研、用 verify-and-stop 做交付前收敛——把"怎么干活"标准化，而不是每次靠口头要求。
 - **触发方法**：显式命令（如 `/caveman`、`/ponytail`）或自然语言关键词（"省 token""be lazy"）；也可由 marketplace.json + find-skills 被自动检索到。
 - **典型场景**：长会话省 token 保持上下文、调研类任务先调查后下结论、内容交付前只验证不扩范围、把 Agent 工作流按 Caveman 模式委派给子代理以压缩回灌上下文。
 
-***REMOVED******REMOVED******REMOVED*** 4.2 Coding Agent（编码 Agent，如 Claude Code）
+### 4.2 Coding Agent（编码 Agent，如 Claude Code）
 
 - **作用方法**：Caveman 系（commit 压缩、代码审查压缩、仓库探索由 haiku 子代理只读执行）、Ponytail 系（防过度工程、债务审计）、工程实践系（surgical-patch 精准修补、safe-refactor 行为保持重构、migration 兼容性迁移、lean-build 精益构建、verify-and-stop 验证即止）。
 - **触发方法**：`claude` 装进 `~/.claude/skills/` 或项目 `.claude/skills/` 后，Agent 按任务情境自动检索加载；部分技能（如 caveman-explore）由主线程委派给低成本子代理执行，结果压缩后回灌，主上下文占用更小。
 - **典型场景**：提交信息与 PR 评论降噪、跨文件定位代码（子代理并行探索）、重构前先定行为保持边界、修复 bug 只动最小层、迁移前先定义回滚路径、验收通过立即收手。
 
-***REMOVED******REMOVED*** 5. 升级方法与迭代开发
+## 5. 升级方法与迭代开发
 
 - **新增技能**：从 `skills/_TEMPLATE` 复制，写 SKILL.md（frontmatter 必填 name + description），再同步 `marketplace.json` 索引。
 - **质量门禁**：
@@ -76,7 +76,7 @@
 - **演进路径**：从真实项目的"踩坑→方法"蒸馏新技能；系列内做收敛（Caveman/Ponytail 各有 help 速查卡，防止技能膨胀）；每版本核对 marketplace.json 与 skills/ 目录一致。
 - **当前状态**：29 个技能 + marketplace.json 已入库，属四个仓中完成度最高者；后续按场景补充与跨工具兼容性测试是主方向。
 
-***REMOVED******REMOVED*** 6. 基础概念
+## 6. 基础概念
 
 - **Agent Skills（技能）**：一个目录 + SKILL.md，描述 Agent 在什么场景采用什么方法的可复用能力单元，由 LLM 按需加载。为什么重要：技能是"把行为方式版本化"的最小单元，是 prompt 工程的下一个进化形态。
 - **SKILL.md**：技能的主文件，头部 YAML frontmatter（name / description 等）是机器检索的依据，正文是给 Agent 的指令。
@@ -87,7 +87,7 @@
 - **上下文压缩（context compression）**：在长会话里用极简表达保留全部技术实质、只丢废话，延长主上下文可用时长。为什么重要：上下文窗口是硬约束，压缩即提效。
 - **YAGNI（You Aren't Gonna Need It）与技术债（technical debt）**：Ponytail 系列的两大支点——不预先做用不到的东西；已存在的过度设计用债务台账记下来、按优先级偿还。
 
-***REMOVED******REMOVED*** 7. 专业背书
+## 7. 专业背书
 
 - **Agent Skills 规范**：Anthropic 于 2025 年 10 月开源 Agent Skills 规范（SKILL.md + frontmatter + 可选脚本/子代理），随后被 OpenAI Codex、Cursor、Gemini CLI 等跨工具采纳，成为跨平台事实标准。本仓的 SKILL.md 结构、frontmatter 公式、marketplace.json 索引与其完全对齐。
 - **Caveman 系列的 token 压缩**呼应 Anthropic 官方 Context Engineering 实践（上下文压缩、prompt caching 的"省 token 提效"方向），压缩输出子代理（cavecrew / caveman-explore）呼应 Anthropic "Building effective agents" 中关于 subagent 委派与隔离上下文的建议。

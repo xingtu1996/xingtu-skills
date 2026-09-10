@@ -1,8 +1,8 @@
-***REMOVED*** cavecrew
+# cavecrew
 
 Decision guide. When to delegate to caveman subagents instead of doing the work inline.
 
-***REMOVED******REMOVED*** What it does
+## What it does
 
 Tells main thread when to spawn a caveman-style subagent. Compact return
 contracts can reduce repeated prose when results return to main context, but
@@ -21,11 +21,11 @@ Use vanilla `Explore` or `Code Reviewer` when you want prose, architecture comme
 
 This skill is a decision guide, not a slash command. It activates when the conversation mentions delegation.
 
-***REMOVED******REMOVED*** How to invoke
+## How to invoke
 
 Triggers on phrases like "delegate to subagent", "use cavecrew", "spawn investigator", "save context", "compressed agent output".
 
-***REMOVED******REMOVED*** Example chaining
+## Example chaining
 
 Locate → fix → verify (most common):
 
@@ -35,7 +35,7 @@ Locate → fix → verify (most common):
 
 Parallel scout: spawn 2-3 `cavecrew-investigator` calls in one message with different angles (defs, callers, tests). Aggregate in main.
 
-***REMOVED******REMOVED*** Model overrides
+## Model overrides
 
 By default, `cavecrew-reviewer` and `cavecrew-investigator` pin `model: haiku` in their frontmatter; `cavecrew-builder` has no `model:` line (uses the API session default). Set env vars in your shell before launching Claude Code to override per-agent:
 
@@ -58,7 +58,7 @@ stays untouched and continues receiving upstream updates. Only plugin installs
 have local agent files to patch. Empty variables do nothing. Patch persists until
 plugin update or reinstall.
 
-***REMOVED******REMOVED*** See also
+## See also
 
 - [`SKILL.md`](./SKILL.md): full decision matrix and output contracts
 - [`agents/cavecrew-investigator.md`](../../agents/cavecrew-investigator.md)

@@ -13,7 +13,7 @@ description: >
 Review diffs for unnecessary complexity. One line per finding: location, what
 to cut, what replaces it. The diff's best outcome is getting shorter.
 
-***REMOVED******REMOVED*** Format
+## Format
 
 `L<line>: <tag> <what>. <replacement>.`, or `<file>:L<line>: ...` for
 multi-file diffs.
@@ -26,7 +26,7 @@ Tags:
 - `yagni:` abstraction with one implementation, config nobody sets, layer with one caller.
 - `shrink:` same logic, fewer lines. Show the shorter form.
 
-***REMOVED******REMOVED*** Examples
+## Examples
 
 ❌ "This EmailValidator class might be more complex than necessary, have you
 considered whether all these validation rules are needed at this stage?"
@@ -41,13 +41,13 @@ considered whether all these validation rules are needed at this stage?"
 
 ✅ `L30-44: shrink: manual loop builds dict. dict(zip(keys, values)), 1 line.`
 
-***REMOVED******REMOVED*** Scoring
+## Scoring
 
 End with the only metric that matters: `net: -<N> lines possible.`
 
 If there is nothing to cut, say `Lean already. Ship.` and stop.
 
-***REMOVED******REMOVED*** Boundaries
+## Boundaries
 
 Scope: over-engineering and complexity only. Correctness bugs, security holes,
 and performance are explicitly out of scope. Route them to a normal review

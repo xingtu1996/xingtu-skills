@@ -1,14 +1,14 @@
-***REMOVED***!/usr/bin/env python3
+#!/usr/bin/env python3
 """Detect whether a file is natural language (compressible) or code/config (skip)."""
 
 import json
 import re
 from pathlib import Path
 
-***REMOVED*** Extensions that are natural language and compressible
+# Extensions that are natural language and compressible
 COMPRESSIBLE_EXTENSIONS = {".md", ".txt", ".markdown", ".rst", ".typ", ".typst", ".tex"}
 
-***REMOVED*** Extensions that are code/config and should be skipped
+# Extensions that are code/config and should be skipped
 SKIP_EXTENSIONS = {
     ".py", ".js", ".ts", ".tsx", ".jsx", ".json", ".yaml", ".yml",
     ".toml", ".env", ".lock", ".css", ".scss", ".html", ".xml",
@@ -17,25 +17,25 @@ SKIP_EXTENSIONS = {
     ".dockerfile", ".makefile", ".csv", ".ini", ".cfg",
 }
 
-***REMOVED*** Well-known build/config files that carry no (or a misleading) extension —
-***REMOVED*** `Dockerfile` has no suffix so `.dockerfile` above never matches it, and
-***REMOVED*** `CMakeLists.txt` would ride the compressible `.txt` rule. Checked by
-***REMOVED*** basename before any extension rule.
+# Well-known build/config files that carry no (or a misleading) extension —
+# `Dockerfile` has no suffix so `.dockerfile` above never matches it, and
+# `CMakeLists.txt` would ride the compressible `.txt` rule. Checked by
+# basename before any extension rule.
 KNOWN_CODE_FILENAMES = {
     "dockerfile", "makefile", "gnumakefile", "jenkinsfile", "vagrantfile",
     "rakefile", "gemfile", "justfile", "procfile", "brewfile",
     "cmakelists.txt",
 }
 
-***REMOVED*** Patterns that indicate a line is code
+# Patterns that indicate a line is code
 CODE_PATTERNS = [
     re.compile(r"^\s*(import |from .+ import |require\(|const |let |var )"),
     re.compile(r"^\s*(def |class |function |async function |export )"),
     re.compile(r"^\s*(if\s*\(|for\s*\(|while\s*\(|switch\s*\(|try\s*\{)"),
-    re.compile(r"^\s*[\}\]\);]+\s*$"),  ***REMOVED*** closing braces/brackets
-    re.compile(r"^\s*@\w+"),  ***REMOVED*** decorators/annotations
-    re.compile(r'^\s*"[^"]+"\s*:\s*'),  ***REMOVED*** JSON-like key-value
-    re.compile(r"^\s*\w+\s*=\s*[{\[\(\"']"),  ***REMOVED*** assignment with literal
+    re.compile(r"^\s*[\}\]\);]+\s*$"),  # closing braces/brackets
+    re.compile(r"^\s*@\w+"),  # decorators/annotations
+    re.compile(r'^\s*"[^"]+"\s*:\s*'),  # JSON-like key-value
+    re.compile(r"^\s*\w+\s*=\s*[{\[\(\"']"),  # assignment with literal
 ]
 
 
@@ -64,7 +64,7 @@ def _is_yaml_content(lines: list[str]) -> bool:
             yaml_indicators += 1
         elif stripped.startswith("- ") and ":" in stripped:
             yaml_indicators += 1
-    ***REMOVED*** If most non-empty lines look like YAML
+    # If most non-empty lines look like YAML
     non_empty = sum(1 for l in lines[:30] if l.strip())
     return non_empty > 0 and yaml_indicators / non_empty > 0.6
 
@@ -77,17 +77,17 @@ def detect_file_type(filepath: Path) -> str:
     """
     ext = filepath.suffix.lower()
 
-    ***REMOVED*** Known code filenames win over any extension rule
+    # Known code filenames win over any extension rule
     if filepath.name.lower() in KNOWN_CODE_FILENAMES:
         return "code"
 
-    ***REMOVED*** Extension-based classification
+    # Extension-based classification
     if ext in COMPRESSIBLE_EXTENSIONS:
         return "natural_language"
     if ext in SKIP_EXTENSIONS:
         return "code" if ext not in {".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".env"} else "config"
 
-    ***REMOVED*** Extensionless files (like CLAUDE.md, TODO) — check content
+    # Extensionless files (like CLAUDE.md, TODO) — check content
     if not ext:
         try:
             text = filepath.read_text(encoding="utf-8", errors="ignore")
@@ -96,8 +96,8 @@ def detect_file_type(filepath: Path) -> str:
 
         lines = text.splitlines()[:50]
 
-        ***REMOVED*** Shebang means executable script, never prose
-        if text.startswith("***REMOVED***!"):
+        # Shebang means executable script, never prose
+        if text.startswith("#!"):
             return "code"
 
         if _is_json_content(text[:10000]):
@@ -119,7 +119,7 @@ def should_compress(filepath: Path) -> bool:
     """Return True if the file is natural language and should be compressed."""
     if not filepath.is_file():
         return False
-    ***REMOVED*** Skip backup files
+    # Skip backup files
     if filepath.name.endswith(".original.md"):
         return False
     return detect_file_type(filepath) == "natural_language"

@@ -26,7 +26,7 @@ infer that telemetry selected a callsite or authorized an edit. Independently
 inventory the repository, present the labeling table, and wait for the user's
 approval before changing code.
 
-***REMOVED******REMOVED*** Step 1 — Inventory the workflows
+## Step 1 — Inventory the workflows
 
 Walk the repo from its entry points, not from its imports:
 
@@ -42,7 +42,7 @@ One workflow = one job a human would name. Ten callsites inside the same
 request handler are one workflow; one shared `llm.ts` helper used by three
 jobs is three workflows (label at the callers, never the shared helper).
 
-***REMOVED******REMOVED*** Step 2 — Name them
+## Step 2 — Name them
 
 Slug grammar (the gateway enforces this): lowercase `[a-z0-9_-]`, 1–96 chars.
 Name the job, not the tech:
@@ -56,7 +56,7 @@ Names are forever-ish — renaming later splits the spend history. When a job's
 purpose isn't clear from the code, derive the slug from the file name and mark
 it `review` in the table rather than inventing a purpose.
 
-***REMOVED******REMOVED*** Step 3 — Propose, then apply
+## Step 3 — Propose, then apply
 
 Present this table and ask to proceed:
 
@@ -87,7 +87,7 @@ callsite is not routed through the Caveman gateway at all, don't label it —
 list it under "not wired" in the report (labels only travel on gateway
 traffic; wiring is the caveman-setup skill's job).
 
-***REMOVED******REMOVED*** Step 4 — Verify
+## Step 4 — Verify
 
 Run whatever the repo already uses to exercise one labeled path (a test, a
 dev script, one curl). Then confirm: the request still succeeds (the gateway
@@ -96,10 +96,10 @@ if so). Labeled spend appears on the dashboard at `/activity?tab=workflows` as
 each workflow next runs; jobs on a schedule show up when the schedule fires,
 and that's worth saying in the report rather than pretending they're live.
 
-***REMOVED******REMOVED*** Step 5 — Report
+## Step 5 — Report
 
 ```
-***REMOVED******REMOVED*** Workflows labeled
+## Workflows labeled
 
 | workflow | job | where |
 |---|---|---|

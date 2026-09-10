@@ -16,7 +16,7 @@ preferences) into caveman format, reducing repeated input size.
 Claude loads `CLAUDE.md` on every session start, so large files add repeated
 input tokens. Caveman shortens supported natural-language files.
 
-***REMOVED******REMOVED*** What It Do
+## What It Do
 
 ```
 /caveman-compress CLAUDE.md
@@ -33,7 +33,7 @@ auto-loaders do not read it twice. Path is
 or `%LOCALAPPDATA%\caveman-compress\backups\<parent-dir-name>\` on Windows. Edit
 `.original.md` there, then run skill again to re-compress.
 
-***REMOVED******REMOVED*** Benchmarks
+## Benchmarks
 
 Real results on real project files:
 
@@ -49,20 +49,20 @@ Real results on real project files:
 All fixture validations passed: headings, code blocks, URLs, and file paths were
 preserved exactly.
 
-***REMOVED******REMOVED*** Before / After
+## Before / After
 
 <table>
 <tr>
 <td width="50%">
 
-***REMOVED******REMOVED******REMOVED*** Original (706 tokens)
+### Original (706 tokens)
 
 > "I strongly prefer TypeScript with strict mode enabled for all new code. Please don't use `any` type unless there's genuinely no way around it, and if you do, leave a comment explaining the reasoning. I find that taking the time to properly type things catches a lot of bugs before they ever make it to runtime."
 
 </td>
 <td width="50%">
 
-***REMOVED******REMOVED******REMOVED*** <img src="../../docs/assets/dancing-rock.svg" width="20" height="20" alt="rock"/> Caveman (285 tokens)
+### <img src="../../docs/assets/dancing-rock.svg" width="20" height="20" alt="rock"/> Caveman (285 tokens)
 
 > "Prefer TypeScript strict mode always. No `any` unless unavoidable; comment why if used. Proper types catch bugs early."
 
@@ -73,13 +73,13 @@ preserved exactly.
 This fixture produced 59.6% fewer counted tokens. Structural validation passed;
 result does not prove semantic equivalence on other files or models.
 
-***REMOVED******REMOVED*** Security
+## Security
 
 `caveman-compress` is flagged as Snyk High Risk due to subprocess and file I/O
 patterns detected by static analysis. See [SECURITY.md](./SECURITY.md) for why
 these operations exist and how paths are constrained.
 
-***REMOVED******REMOVED*** Install
+## Install
 
 Compress is built in with the `caveman` plugin. Install `caveman` once, then use `/caveman-compress`.
 
@@ -91,7 +91,7 @@ skills/caveman-compress/
 
 Requires Python 3.10 or newer.
 
-***REMOVED******REMOVED*** Usage
+## Usage
 
 ```
 /caveman-compress <filepath>
@@ -104,7 +104,7 @@ Examples:
 /caveman-compress todos.md
 ```
 
-***REMOVED******REMOVED******REMOVED*** What files work
+### What files work
 
 | Type | Compress? |
 |------|-----------|
@@ -113,7 +113,7 @@ Examples:
 | `.py`, `.js`, `.ts`, `.json`, `.yaml` | ❌ Skip (code/config) |
 | `*.original.md` | ❌ Skip (backup files) |
 
-***REMOVED******REMOVED*** How It Work
+## How It Work
 
 ```
 /caveman-compress CLAUDE.md
@@ -136,7 +136,7 @@ write original   → CLAUDE.original.md
 
 Only two things use tokens: initial compression + targeted fix if validation fails. Everything else is local Python.
 
-***REMOVED******REMOVED*** What Is Preserved
+## What Is Preserved
 
 Caveman compress natural language. It never touch:
 
@@ -150,7 +150,7 @@ Caveman compress natural language. It never touch:
 - Tables (structure preserved, cell text compressed)
 - Dates, version numbers, numeric values
 
-***REMOVED******REMOVED*** Why This Matter
+## Why This Matter
 
 `CLAUDE.md` loads on every session start. A 1,000-token project memory file adds
 1,000 input tokens each time project opens, or 100,000 across 100 sessions.
@@ -168,7 +168,7 @@ general semantic or task-quality equivalence.
 └────────────────────────────────────────────┘
 ```
 
-***REMOVED******REMOVED*** Part of Caveman
+## Part of Caveman
 
 This skill is part of the [caveman](https://github.com/JuliusBrussee/caveman) toolkit.
 

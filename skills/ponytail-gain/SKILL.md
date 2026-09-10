@@ -8,7 +8,7 @@ description: >
   "ponytail scoreboard".
 ---
 
-***REMOVED*** Ponytail Gain
+# Ponytail Gain
 
 Display this scoreboard when invoked. One-shot: do NOT change mode, write flag
 files, or persist anything.
@@ -18,7 +18,7 @@ validator, debounce, CSV sum, countdown timer, rate limiter; three models:
 Haiku, Sonnet, Opus). They are measured, not computed from the current repo.
 Source: `benchmarks/` and the README.
 
-***REMOVED******REMOVED*** Scoreboard
+## Scoreboard
 
 Render plain ASCII bars. The bar length shows the measured range; the label
 carries the exact figure:
@@ -36,7 +36,7 @@ carries the exact figure:
               /ponytail-audit (what's still cuttable)
 ```
 
-***REMOVED******REMOVED*** Honesty boundary
+## Honesty boundary
 
 These are benchmark medians, not this repo. NEVER print a per-repo savings
 number ("you saved X lines/tokens here"): the unbuilt version was never
@@ -44,7 +44,7 @@ written, so there is no real baseline to subtract from in a live repo. The
 only real per-repo figures come from `/ponytail-debt` (a counted ledger), and
 this card points there instead of inventing one.
 
-***REMOVED******REMOVED*** Boundaries
+## Boundaries
 
 One-shot display. Edits nothing, changes no mode.
 "stop ponytail" or "normal mode": revert.

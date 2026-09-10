@@ -6,12 +6,12 @@ description: >
   "ponytail help", "what ponytail commands", "how do I use ponytail".
 ---
 
-***REMOVED*** Ponytail Help
+# Ponytail Help
 
 Display this reference card when invoked. One-shot, do NOT change mode,
 write flag files, or persist anything.
 
-***REMOVED******REMOVED*** Levels
+## Levels
 
 | Level | Trigger | What change |
 |-------|---------|-------------|
@@ -21,7 +21,7 @@ write flag files, or persist anything.
 
 Level sticks until changed or session end.
 
-***REMOVED******REMOVED*** Skills
+## Skills
 
 | Skill | Trigger | What it does |
 |-------|---------|--------------|
@@ -36,12 +36,12 @@ Codex uses `@ponytail`, `@ponytail-review`, and `@ponytail-help`; Claude Code
 and OpenCode use the slash-command forms above (OpenCode ships all six as
 slash commands).
 
-***REMOVED******REMOVED*** Deactivate
+## Deactivate
 
 Say "stop ponytail" or "normal mode". Resume anytime with `/ponytail`.
 `/ponytail off` also works.
 
-***REMOVED******REMOVED*** Configure Default Mode
+## Configure Default Mode
 
 Default mode = `full`, auto-active every session. Change it:
 
@@ -60,12 +60,12 @@ with `/ponytail` when wanted.
 
 Resolution: env var > config file > `full`.
 
-***REMOVED******REMOVED*** Update
+## Update
 
 Enable auto-update once: open `/plugin`, go to Marketplaces, pick ponytail, Enable auto-update. Claude Code then pulls new versions at startup (run `/reload-plugins` when it prompts). Manual refresh: `/plugin marketplace update ponytail` then `/reload-plugins`.
 
 If `/plugin` is not recognized, your Claude Code is out of date. Update it (`npm install -g @anthropic-ai/claude-code@latest`, or `brew upgrade claude-code`) and restart. Other hosts use their own update flow.
 
-***REMOVED******REMOVED*** More
+## More
 
 Full docs + examples: https://github.com/DietrichGebert/ponytail
