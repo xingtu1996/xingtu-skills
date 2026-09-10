@@ -80,6 +80,11 @@ cp -r skills/<skill-name> ~/.claude/skills/
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
+## 关联项目
+
+- [xingtu-prompts](https://github.com/xingtu1996/xingtu-prompts) — 提示词库：轻场景复制即用；沉淀成 Skill 后进本仓
+- [dsh-xingtu-skills](https://github.com/xingtu1996/dsh-xingtu-skills) — DSH 插件包：本仓技能的 DSH 一键安装版
+
 ## 📄 许可证
 
 MIT License
