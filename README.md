@@ -1,41 +1,41 @@
-***REMOVED*** XingTu Skills · AI Agent 技能聚合仓
+# XingTu Skills · AI Agent 技能聚合仓
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-29-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
-***REMOVED******REMOVED*** 🎯 这是什么
+## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
 **已收录 29 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实等场景。
 
-***REMOVED******REMOVED*** 🧩 DeepSeek Harness（DSH）兼容
+## 🧩 DeepSeek Harness（DSH）兼容
 
 本仓技能遵循跨工具事实标准（SKILL.md：`name + description + when_to_use`），是 DeepSeek Harness「一切皆插件」模型中 **skills 插件**的直接消费格式——DSH 可将 `skills/` 目录作为技能插件加载，无需改写。同一份技能同时兼容 Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI。
 
-***REMOVED******REMOVED*** 📦 安装
+## 📦 安装
 
 ```bash
-***REMOVED*** 方式一：harness 一键拉全
+# 方式一：harness 一键拉全
 git clone --recurse-submodules https://github.com/xingtu1996/xingtu-harness.git
 cd xingtu-harness && ./install.sh
 
-***REMOVED*** 方式二：单独拉本仓
+# 方式二：单独拉本仓
 git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-***REMOVED******REMOVED*** 🧠 Skills 清单（29）
+## 🧠 Skills 清单（29）
 
-***REMOVED******REMOVED******REMOVED*** 内容创作 · 自媒体（3 · 2026-09-03 新增，豆包工作优化版）
+### 内容创作 · 自媒体（3 · 2026-09-03 新增，豆包工作优化版）
 | Skill | 说明 |
 |-------|------|
 | de-ai-flavor | 行途自媒体去 AI 味：公众号/封面/标题/摘要文案人话化（PUB-013 五法） |
 | adversarial-review | 行途自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 
-***REMOVED******REMOVED******REMOVED*** Caveman 系列 · token 压缩与工作流（14）
+### Caveman 系列 · token 压缩与工作流（14）
 | Skill | 说明 |
 |-------|------|
 | caveman | 极简压缩沟通模式，实测省 65% 输出 token |
@@ -53,7 +53,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | caveman-stats | 统计分析与使用情况 |
 | cavecrew | 委派给 caveman 风格子代理的决策指南 |
 
-***REMOVED******REMOVED******REMOVED*** Ponytail 系列 · 极简与债务（6）
+### Ponytail 系列 · 极简与债务（6）
 | Skill | 说明 |
 |-------|------|
 | ponytail | 懒但正确——最简可行解，质疑任务必要性 |
@@ -63,7 +63,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | ponytail-help | 速查卡 |
 | ponytail-review | 审查 |
 
-***REMOVED******REMOVED******REMOVED*** 工程实践（6）
+### 工程实践（6）
 | Skill | 说明 |
 |-------|------|
 | investigate-first | 先调查后行动 |
@@ -73,13 +73,13 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | surgical-patch | 外科手术式精准修改 |
 | verify-and-stop | 验证即止，不扩范围 |
 
-***REMOVED******REMOVED*** 🔍 AI 可检索
+## 🔍 AI 可检索
 
 - **`marketplace.json`**：29 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
-***REMOVED******REMOVED*** 📄 许可证
+## 📄 许可证
 
 MIT License
 

@@ -1,36 +1,36 @@
-***REMOVED***!/bin/bash
-***REMOVED*** ============================================================================
-***REMOVED*** codemax_db.sh — CodeMax 平台数据库（newapi）只读查询封装
-***REMOVED*** 用法:
-***REMOVED***   bash codemax_db.sh "SELECT ..."                        ***REMOVED*** 自定义 SQL
-***REMOVED***   bash codemax_db.sh users                               ***REMOVED*** 快捷: 全部用户清单
-***REMOVED***   bash codemax_db.sh user <name>                         ***REMOVED*** 快捷: 按用户名/昵称查身份
-***REMOVED***   bash codemax_db.sh tables                              ***REMOVED*** 快捷: 全部表
-***REMOVED***   bash codemax_db.sh -prod "SQL"                         ***REMOVED*** prod 只读护栏（仅 SELECT/SHOW/...）
-***REMOVED*** 连接: ${CODEX_DB_DSN}（settings.local.json env），默认 newapi 库
-***REMOVED***   DSN 格式: user:pass@tcp(host:port)/db，密码可含 @（从 @tcp( 反向定位）
-***REMOVED*** 安全: ① prod 只读护栏 ② 密码走 MYSQL_PWD 不进 ps
-***REMOVED*** ============================================================================
+#!/bin/bash
+# ============================================================================
+# codemax_db.sh — CodeMax 平台数据库（newapi）只读查询封装
+# 用法:
+#   bash codemax_db.sh "SELECT ..."                        # 自定义 SQL
+#   bash codemax_db.sh users                               # 快捷: 全部用户清单
+#   bash codemax_db.sh user <name>                         # 快捷: 按用户名/昵称查身份
+#   bash codemax_db.sh tables                              # 快捷: 全部表
+#   bash codemax_db.sh -prod "SQL"                         # prod 只读护栏（仅 SELECT/SHOW/...）
+# 连接: ${CODEX_DB_DSN}（settings.local.json env），默认 newapi 库
+#   DSN 格式: user:pass@tcp(host:port)/db，密码可含 @（从 @tcp( 反向定位）
+# 安全: ① prod 只读护栏 ② 密码走 MYSQL_PWD 不进 ps
+# ============================================================================
 set -euo pipefail
 
 DSN="${CODEX_DB_DSN:-}"
 [ -n "$DSN" ] || { echo "❌ 未配置 CODEX_DB_DSN（settings.local.json env，格式 user:pass@tcp(host:port)/db）"; exit 1; }
 
-***REMOVED*** --- 解析 DSN: user:pass@tcp(host:port)/db（密码含 @ 也正确） ---
+# --- 解析 DSN: user:pass@tcp(host:port)/db（密码含 @ 也正确） ---
 DB_USER="${DSN%%:*}"
-REST="${DSN***REMOVED****:}"
-DB_PASS="${REST%%@tcp(*}"          ***REMOVED*** 到 @tcp( 前即密码（含内部 @）
-HP="${REST***REMOVED****@tcp(}"; HP="${HP%%)*}" ***REMOVED*** host:port
+REST="${DSN#*:}"
+DB_PASS="${REST%%@tcp(*}"          # 到 @tcp( 前即密码（含内部 @）
+HP="${REST#*@tcp(}"; HP="${HP%%)*}" # host:port
 DB_HOST="${HP%%:*}"
-DB_PORT="${HP***REMOVED******REMOVED****:}"
-DB_NAME="${REST***REMOVED******REMOVED****/}"
+DB_PORT="${HP##*:}"
+DB_NAME="${REST##*/}"
 
-***REMOVED*** --- 参数 ---
+# --- 参数 ---
 PROD=0
 [ "${1:-}" = "-prod" ] && { PROD=1; shift; }
 ARG="${1:-}"
 
-***REMOVED*** --- prod 只读护栏 ---
+# --- prod 只读护栏 ---
 if [ "$PROD" = "1" ]; then
   if echo "$ARG" | grep -qiE '(insert|update|delete|drop|alter|truncate|replace|create|grant|set\s)'; then
     echo "❌ prod 只读护栏: 检测到写操作关键词"; exit 1

@@ -1,4 +1,4 @@
-***REMOVED***!/usr/bin/env python3
+#!/usr/bin/env python3
 import re
 from collections import Counter
 from pathlib import Path
@@ -6,27 +6,27 @@ from pathlib import Path
 URL_REGEX = re.compile(r"https?://[^\s)]+")
 FENCE_OPEN_REGEX = re.compile(r"^(\s{0,3})(`{3,}|~{3,})(.*)$")
 
-***REMOVED*** A line that is nothing but a fence marker plus an optional info string, at ANY
-***REMOVED*** indentation. Used ONLY to scrub leaked markers before inline-code pairing (see
-***REMOVED*** extract_inline_codes) — never for block extraction.
-***REMOVED***
-***REMOVED*** Widening FENCE_OPEN_REGEX itself to `\s*` looks like the obvious fix for ***REMOVED***820
-***REMOVED*** and is a net regression: a lone indented ``` (the natural way to SHOW a fence
-***REMOVED*** inside prose) then opens a block that runs to EOF, swallowing real code blocks
-***REMOVED*** and silently removing their inline spans from validation. That turns a
-***REMOVED*** false-failure bug into a false-PASS bug, and a false PASS overwrites the
-***REMOVED*** user's file with unvalidated output.
+# A line that is nothing but a fence marker plus an optional info string, at ANY
+# indentation. Used ONLY to scrub leaked markers before inline-code pairing (see
+# extract_inline_codes) — never for block extraction.
+#
+# Widening FENCE_OPEN_REGEX itself to `\s*` looks like the obvious fix for #820
+# and is a net regression: a lone indented ``` (the natural way to SHOW a fence
+# inside prose) then opens a block that runs to EOF, swallowing real code blocks
+# and silently removing their inline spans from validation. That turns a
+# false-failure bug into a false-PASS bug, and a false PASS overwrites the
+# user's file with unvalidated output.
 FENCE_MARKER_LINE_REGEX = re.compile(r"^\s*(?:`{3,}|~{3,})[^`~]*$")
 
-***REMOVED*** Cap on how much of a lost/added span is echoed in an error message. Unpaired
-***REMOVED*** backticks can make a "span" hundreds of characters of prose; printing it whole
-***REMOVED*** is what made ***REMOVED***820's failures undiagnosable.
+# Cap on how much of a lost/added span is echoed in an error message. Unpaired
+# backticks can make a "span" hundreds of characters of prose; printing it whole
+# is what made #820's failures undiagnosable.
 MAX_REPORTED_SPAN = 60
-HEADING_REGEX = re.compile(r"^(***REMOVED***{1,6})\s+(.*)", re.MULTILINE)
+HEADING_REGEX = re.compile(r"^(#{1,6})\s+(.*)", re.MULTILINE)
 BULLET_REGEX = re.compile(r"^\s*[-*+]\s+", re.MULTILINE)
 
-***REMOVED*** crude but effective path detection
-***REMOVED*** Requires either a path prefix (./ ../ / or drive letter) or a slash/backslash within the match
+# crude but effective path detection
+# Requires either a path prefix (./ ../ / or drive letter) or a slash/backslash within the match
 PATH_REGEX = re.compile(r"(?:\./|\.\./|/|[A-Za-z]:\\)[\w\-/\\\.]+|[\w\-\.]+[/\\][\w\-/\\\.]+")
 
 
@@ -48,7 +48,7 @@ def read_file(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
-***REMOVED*** ---------- Extractors ----------
+# ---------- Extractors ----------
 
 
 def extract_headings(text):
@@ -94,8 +94,8 @@ def extract_code_blocks(text):
             i += 1
         if closed:
             blocks.append("\n".join(block_lines))
-        ***REMOVED*** Unclosed fences are silently skipped — they indicate malformed markdown
-        ***REMOVED*** and including them would cause false-positive validation failures.
+        # Unclosed fences are silently skipped — they indicate malformed markdown
+        # and including them would cause false-positive validation failures.
     return blocks
 
 
@@ -119,7 +119,7 @@ def extract_inline_codes(text):
     (FENCE_OPEN_REGEX-based, indentation-aware) instead so an indented fence's
     body backticks don't leak into inline-code pairing.
 
-    Any fence-marker line that survives that pass is then blanked (***REMOVED***820). A
+    Any fence-marker line that survives that pass is then blanked (#820). A
     fence indented 4+ spaces — what you get from showing an example inside a
     bullet — is not matched by FENCE_OPEN_REGEX, so extract_code_blocks does
     not remove it and its OWN backticks used to leak in and shift the pairing
@@ -143,7 +143,7 @@ def extract_inline_codes(text):
     return re.findall(r"`([^`]+)`", text_without_fences)
 
 
-***REMOVED*** ---------- Validators ----------
+# ---------- Validators ----------
 
 
 def validate_headings(orig, comp, result):
@@ -200,7 +200,7 @@ def validate_inline_codes(orig, comp, result):
 
         A span may legitimately contain newlines, and an unpaired backtick can
         make one hundreds of characters of prose. Printing those whole is what
-        made ***REMOVED***820's failures undiagnosable — but the fix belongs here, in
+        made #820's failures undiagnosable — but the fix belongs here, in
         presentation, not in what counts as a span.
         """
         out = []
@@ -226,7 +226,7 @@ def validate_inline_codes(orig, comp, result):
             result.add_warning(f"Inline code added: {_render_spans(added)}")
 
 
-***REMOVED*** ---------- Main ----------
+# ---------- Main ----------
 
 
 def validate(original_path: Path, compressed_path: Path) -> ValidationResult:
@@ -245,7 +245,7 @@ def validate(original_path: Path, compressed_path: Path) -> ValidationResult:
     return result
 
 
-***REMOVED*** ---------- CLI ----------
+# ---------- CLI ----------
 
 if __name__ == "__main__":
     import sys

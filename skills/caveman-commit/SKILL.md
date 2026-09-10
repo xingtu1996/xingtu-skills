@@ -9,7 +9,7 @@ description: >
 
 Write commit messages terse and exact. Conventional Commits format. No fluff. Why over what.
 
-***REMOVED******REMOVED*** Rules
+## Rules
 
 **Subject line:**
 - `<type>(<scope>): <imperative summary>` — `<scope>` optional
@@ -24,7 +24,7 @@ Write commit messages terse and exact. Conventional Commits format. No fluff. Wh
 - Add body only for: non-obvious *why*, breaking changes, migration notes, linked issues
 - Wrap at 72 chars
 - Bullets `-` not `*`
-- Reference issues/PRs at end: `Closes ***REMOVED***42`, `Refs ***REMOVED***17`
+- Reference issues/PRs at end: `Closes #42`, `Refs #17`
 
 **What NEVER goes in:**
 - "This commit does X", "I", "we", "now", "currently" — the diff says what
@@ -33,7 +33,7 @@ Write commit messages terse and exact. Conventional Commits format. No fluff. Wh
 - Emoji (unless project convention requires)
 - Restating the file name when scope already says it
 
-***REMOVED******REMOVED*** Examples
+## Examples
 
 Diff: new endpoint for user profile with body explaining the why
 - ❌ "feat: add a new endpoint to get user profile information from the database"
@@ -44,7 +44,7 @@ Diff: new endpoint for user profile with body explaining the why
   Mobile client needs profile data without the full user payload
   to reduce LTE bandwidth on cold-launch screens.
 
-  Closes ***REMOVED***128
+  Closes #128
   ```
 
 Diff: breaking API change
@@ -56,10 +56,10 @@ Diff: breaking API change
   before 2026-06-01. Old route returns 410 after that date.
   ```
 
-***REMOVED******REMOVED*** Auto-Clarity
+## Auto-Clarity
 
 Always include body for: breaking changes, security fixes, data migrations, anything reverting a prior commit. Never compress these into subject-only — future debuggers need the context.
 
-***REMOVED******REMOVED*** Boundaries
+## Boundaries
 
 Only generates the commit message. Does not run `git commit`, does not stage files, does not amend. Output the message as a code block ready to paste. "stop caveman-commit" or "normal mode": revert to verbose commit style.

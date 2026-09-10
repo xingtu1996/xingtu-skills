@@ -12,7 +12,7 @@ description: >
 ponytail-review, repo-wide. Scan the whole tree instead of a diff. Rank
 findings biggest cut first.
 
-***REMOVED******REMOVED*** Tags
+## Tags
 
 Same as ponytail-review:
 
@@ -22,18 +22,18 @@ Same as ponytail-review:
 - `yagni:` abstraction with one implementation, config nobody sets, layer with one caller.
 - `shrink:` same logic, fewer lines. Show the shorter form.
 
-***REMOVED******REMOVED*** Hunt
+## Hunt
 
 Deps the stdlib or platform already ships, single-implementation interfaces,
 factories with one product, wrappers that only delegate, files exporting one
 thing, dead flags and config, hand-rolled stdlib.
 
-***REMOVED******REMOVED*** Output
+## Output
 
 One line per finding, ranked: `<tag> <what to cut>. <replacement>. [path]`.
 End with `net: -<N> lines, -<M> deps possible.` Nothing to cut: `Lean already. Ship.`
 
-***REMOVED******REMOVED*** Boundaries
+## Boundaries
 
 Scope: over-engineering and complexity only. Correctness bugs, security holes,
 and performance are explicitly out of scope. Route them to a normal review

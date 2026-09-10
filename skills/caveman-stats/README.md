@@ -1,8 +1,8 @@
-***REMOVED*** caveman-stats
+# caveman-stats
 
 Real session token receipts. No AI estimation.
 
-***REMOVED******REMOVED*** What it does
+## What it does
 
 Reads the current Claude Code session log directly and reports actual input/output token usage plus estimated savings versus a non-caveman baseline. Numbers come from the JSONL session log on disk — the model itself does not compute or estimate them. Output is injected by the `caveman-mode-tracker` hook, which intercepts `/caveman-stats` and returns the formatted stats as a blocked-decision reason.
 
@@ -10,13 +10,13 @@ Output also includes an `Est. rule overhead` and `Est. net` line whenever the sa
 
 Each run also writes a lifetime-savings suffix file used by the statusline badge (`⛏ 12.4k`). That badge stays a gross-savings figure on purpose — it is a glanceable summary, not a full accounting; run `/caveman-stats` for the net picture.
 
-***REMOVED******REMOVED*** How to invoke
+## How to invoke
 
 ```
 /caveman-stats
 ```
 
-***REMOVED******REMOVED*** Example output
+## Example output
 
 ```
 Session: 47 turns
@@ -30,7 +30,7 @@ Est. net: -51,394 (caveman cost more than it saved for this workload — conside
 
 (Numbers above are illustrative — see `docs/HONEST-NUMBERS.md` for why short, terse-reply sessions tend to land net-negative even at a healthy output-savings percentage.)
 
-***REMOVED******REMOVED*** See also
+## See also
 
 - [`SKILL.md`](./SKILL.md) — hook contract and mechanics
 - [Caveman README](../../README.md) — repo overview

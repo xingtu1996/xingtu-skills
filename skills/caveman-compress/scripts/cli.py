@@ -1,4 +1,4 @@
-***REMOVED***!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Caveman Compress CLI
 
@@ -8,9 +8,9 @@ Usage:
 
 import sys
 
-***REMOVED*** Force UTF-8 on stdout/stderr before any code can print. Windows consoles
-***REMOVED*** default to cp1252 and crash on the ❌ glyphs in error/validation branches,
-***REMOVED*** masking the real error and leaving the user with a half-compressed file.
+# Force UTF-8 on stdout/stderr before any code can print. Windows consoles
+# default to cp1252 and crash on the ❌ glyphs in error/validation branches,
+# masking the real error and leaving the user with a half-compressed file.
 for _stream in (sys.stdout, sys.stderr):
     reconfigure = getattr(_stream, "reconfigure", None)
     if callable(reconfigure):
@@ -36,7 +36,7 @@ def main():
 
     filepath = Path(sys.argv[1])
 
-    ***REMOVED*** Check file exists
+    # Check file exists
     if not filepath.exists():
         print(f"❌ File not found: {filepath}")
         sys.exit(1)
@@ -47,12 +47,12 @@ def main():
 
     filepath = filepath.resolve()
 
-    ***REMOVED*** Detect file type
+    # Detect file type
     file_type = detect_file_type(filepath)
 
     print(f"Detected: {file_type}")
 
-    ***REMOVED*** Check if compressible
+    # Check if compressible
     if not should_compress(filepath):
         print("Skipping: file is not natural language (code/config)")
         sys.exit(0)

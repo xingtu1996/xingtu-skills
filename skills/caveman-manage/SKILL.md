@@ -8,14 +8,14 @@ description: >
   mutations until server-authoritative transition and evidence gates ship.
 ---
 
-***REMOVED*** Manage eval-gated experiments
+# Manage eval-gated experiments
 
 Treat every lifecycle change as a production control action. Read current state
 and results, then report one supported recommendation or block.
 Current agent MCP is intentionally read-only: control-api does not yet enforce a
 complete lifecycle transition table and evidence gate atomically.
 
-***REMOVED******REMOVED*** Non-negotiable gates
+## Non-negotiable gates
 
 1. A request to review, inspect, explain, or recommend authorizes reads only.
 2. Never approve an experiment whose results are pending, whose required
@@ -30,7 +30,7 @@ complete lifecycle transition table and evidence gate atomically.
 6. Unknown states and server errors fail closed. Report exact
    `cave_snake_code`.
 
-***REMOVED******REMOVED*** Step 1 — Load project and experiment
+## Step 1 — Load project and experiment
 
 Prefer MCP:
 
@@ -52,7 +52,7 @@ caveman cloud experiments results <id>
 
 Stop if login, project, experiment, or results are unavailable.
 
-***REMOVED******REMOVED*** Step 2 — Evaluate evidence
+## Step 2 — Evaluate evidence
 
 Report:
 
@@ -67,7 +67,7 @@ Report:
 Absence is not a pass. If a required field is absent, state
 `evidence incomplete` and do not propose approval.
 
-***REMOVED******REMOVED*** Step 3 — Propose one action
+## Step 3 — Propose one action
 
 Allowed actions:
 
@@ -90,13 +90,13 @@ Execution: blocked until server-authoritative lifecycle and evidence gates ship.
 Do not treat earlier generic statements such as "manage it" or "do what is best"
 as mutation approval.
 
-***REMOVED******REMOVED*** Step 4 — Block unsafe execution
+## Step 4 — Block unsafe execution
 
 Do not emit or run an executable lifecycle command. Explain that current server
 does not yet enforce every evidence/state transition atomically. CLI and MCP
 agent surfaces therefore expose experiment reads only.
 
-***REMOVED******REMOVED*** Step 5 — Re-read after external operator action
+## Step 5 — Re-read after external operator action
 
 If operator says they executed command, read detail and results again. Report
 server-observed post-state, audit or result response, and any policy-delivery

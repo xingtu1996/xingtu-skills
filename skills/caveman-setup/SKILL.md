@@ -22,7 +22,7 @@ The prompt that sent you here provides four values. Refer to them as:
 
 If any value is missing, stop and ask for it. Do not guess a URL or mint a key.
 
-***REMOVED******REMOVED*** Rules (non-negotiable)
+## Rules (non-negotiable)
 
 1. **Coherent integration.** Wire every live LLM callsite through existing
    configuration and responsible seams. Touch each layer correctness requires.
@@ -41,7 +41,7 @@ If any value is missing, stop and ask for it. Do not guess a URL or mint a key.
    never see one. With `byok`, the app's existing provider key stays exactly
    where it already is.
 
-***REMOVED******REMOVED*** Step 1 — Find every live LLM callsite
+## Step 1 — Find every live LLM callsite
 
 Read dependency files (`package.json`, `requirements.txt`, `pyproject.toml`,
 `go.mod`, lockfiles) and search the source for LLM clients:
@@ -57,14 +57,14 @@ List what you found (file:line per callsite) before changing anything. If you
 find **no** LLM callsites, stop and report the "nothing to wire" template at
 the end of this file — do not invent an integration.
 
-***REMOVED******REMOVED*** Step 2 — Pick the app slug
+## Step 2 — Pick the app slug
 
 One slug names this app in the gateway path: `GATEWAY/w/<app>`. Derive it from
 the package/module name (e.g. `support-bot`, `acme-api`). Grammar:
 lowercase `[a-z0-9]` first, then `[a-z0-9._-]`, max 64 chars. Spend for this
 whole app groups under that slug on the dashboard.
 
-***REMOVED******REMOVED*** Step 3 — Wire each callsite
+## Step 3 — Wire each callsite
 
 The pattern is always the same: **base URL → the gateway with `/w/<app>`,
 plus one auth header.** Gateway auth is `x-cave-api-key: CAVE_API_KEY`
@@ -104,10 +104,10 @@ param rides `x-api-key`, which is not a gateway-auth header):
 ```python
 client = anthropic.Anthropic(
     base_url=f"{os.environ['CAVE_GATEWAY_URL']}/w/<app>",
-    api_key=os.environ["ANTHROPIC_API_KEY"],      ***REMOVED*** byok: unchanged · stored: use CAVE_API_KEY
+    api_key=os.environ["ANTHROPIC_API_KEY"],      # byok: unchanged · stored: use CAVE_API_KEY
     default_headers={
         "x-cave-api-key": os.environ["CAVE_API_KEY"],
-        ***REMOVED*** byok only:
+        # byok only:
         "x-cave-upstream-key": os.environ["ANTHROPIC_API_KEY"],
     },
 )
@@ -143,7 +143,7 @@ CAVE_GATEWAY_URL=<GATEWAY>
 CAVE_API_KEY=<CAVE_API_KEY>
 ```
 
-***REMOVED******REMOVED*** Step 4 — Verify with one real request
+## Step 4 — Verify with one real request
 
 The user pasted the setup prompt to authorize exactly this: one small
 verification request. Send it now — do not pause to ask permission for it.
@@ -157,13 +157,13 @@ the protocol you just wired** with the app's own model and a small cap
 (`max_tokens` ≤ 32):
 
 ```bash
-***REMOVED*** OpenAI-protocol wiring:
+# OpenAI-protocol wiring:
 curl -sS "$CAVE_GATEWAY_URL/w/<app>/v1/chat/completions" \
   -H "x-cave-api-key: $CAVE_API_KEY" \
   -H "content-type: application/json" \
   -d '{"model":"<model the repo already uses>","max_tokens":16,"messages":[{"role":"user","content":"ping"}]}'
 
-***REMOVED*** Anthropic-protocol wiring:
+# Anthropic-protocol wiring:
 curl -sS "$CAVE_GATEWAY_URL/w/<app>/v1/messages" \
   -H "x-cave-api-key: $CAVE_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
@@ -177,12 +177,12 @@ billable provider request — that is the point: real traffic, real measurement.
 Read the response. Success = HTTP 200 with a `usage` block. Anything else =
 the matching failure template below.
 
-***REMOVED******REMOVED*** Step 5 — Report
+## Step 5 — Report
 
 End with exactly this shape, values filled from what you actually did and saw:
 
 ```
-***REMOVED******REMOVED*** Caveman is live in this repo
+## Caveman is live in this repo
 
 Wired: <n> callsite(s) in <n> file(s)
   - <file> — <one-line what changed>
@@ -200,7 +200,7 @@ by app? Say "discover workflows" — I'll fetch <docs origin>/docs/discover-work
 and label every callsite by the job it does.
 ```
 
-***REMOVED******REMOVED*** Failure templates (use verbatim, filled in — never soften)
+## Failure templates (use verbatim, filled in — never soften)
 
 - **Nothing to wire**: "I found no LLM callsites in this repo (searched SDKs,
   raw provider HTTP, base-URL env vars). If this repo runs a coding agent

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema***REMOVED***",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "name": "xingtu-skills",
   "description": "XingTu AI agent skills (SKILL.md) for coding, research & ops - find-skills discoverable",
   "items": [

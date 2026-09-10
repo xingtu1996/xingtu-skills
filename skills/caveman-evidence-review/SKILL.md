@@ -8,13 +8,13 @@ description: >
   trace or analytics review. Prefer Caveman MCP tools; fall back to CLI JSON.
 ---
 
-***REMOVED*** Review Caveman evidence
+# Review Caveman evidence
 
 Act as a read-only operator. Build conclusions from current Caveman data, not
 from repository guesses. Never start, approve, cancel, or roll back an
 experiment from this skill.
 
-***REMOVED******REMOVED*** Hard rules
+## Hard rules
 
 1. Keep these buckets separate:
    - measured provider-complete list-price cost;
@@ -31,7 +31,7 @@ experiment from this skill.
 5. Cite trace ids and exact time windows used. Do not claim a cause from an
    aggregate alone.
 
-***REMOVED******REMOVED*** Step 1 — Load context
+## Step 1 — Load context
 
 Prefer MCP:
 
@@ -49,7 +49,7 @@ caveman cloud projects list
 Stop if login or project selection is missing. Ask the user to run
 `caveman login` or select a project; never guess.
 
-***REMOVED******REMOVED*** Step 2 — Establish baseline
+## Step 2 — Establish baseline
 
 Use `caveman_report` for:
 
@@ -72,7 +72,7 @@ caveman cloud plan --json
 
 State report window and basis before interpreting direction.
 
-***REMOVED******REMOVED*** Step 3 — Test the leading explanation with traces
+## Step 3 — Test the leading explanation with traces
 
 Use `caveman_trace_search`. Choose a bounded window and closed filters:
 workflow, agent, model, provider, error code, runtime mode, cache status,
@@ -101,7 +101,7 @@ caveman cloud traces search \
   --limit 25
 ```
 
-***REMOVED******REMOVED*** Step 4 — Inspect representative traces
+## Step 4 — Inspect representative traces
 
 Call `caveman_trace_get` for a small number of high-signal trace ids. Inspect
 request and span metadata, latency, status, token counts, cache state, applied
@@ -113,12 +113,12 @@ CLI fallback:
 caveman cloud traces show <trace-id> --spans
 ```
 
-***REMOVED******REMOVED*** Step 5 — Report
+## Step 5 — Report
 
 Use this shape:
 
 ```text
-***REMOVED******REMOVED*** Caveman evidence review
+## Caveman evidence review
 
 Scope: <project> · <from> to <to>
 Measured cost: <value and basis>

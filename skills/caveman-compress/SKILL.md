@@ -7,17 +7,17 @@ description: >
   Trigger: /caveman-compress FILEPATH or "compress memory file"
 ---
 
-***REMOVED*** Caveman Compress
+# Caveman Compress
 
-***REMOVED******REMOVED*** Purpose
+## Purpose
 
 Compress natural language files (CLAUDE.md, todos, preferences) into caveman-speak to reduce input tokens. Compressed version overwrites original. Human-readable backup saved as `<filename>.original.md`, but NOT beside the source file — it lives in an out-of-tree data dir (`$XDG_DATA_HOME/caveman-compress/backups/<parent-dir-name>/`, or `%LOCALAPPDATA%\caveman-compress\backups\<parent-dir-name>\` on Windows) so skill auto-loaders don't re-ingest it as a live file.
 
-***REMOVED******REMOVED*** Trigger
+## Trigger
 
 `/caveman-compress <filepath>` or when user asks to compress a memory file.
 
-***REMOVED******REMOVED*** Process
+## Process
 
 1. The compression scripts live in `scripts/` (adjacent to this SKILL.md). If the path is not immediately available, search for `scripts/__main__.py` next to this SKILL.md.
 
@@ -35,9 +35,9 @@ python3 -m scripts <absolute_filepath>
 
 4. Return result to user
 
-***REMOVED******REMOVED*** Compression Rules
+## Compression Rules
 
-***REMOVED******REMOVED******REMOVED*** Remove
+### Remove
 - Articles: a, an, the
 - Filler: just, really, basically, actually, simply, essentially, generally
 - Pleasantries: "sure", "certainly", "of course", "happy to", "I'd recommend"
@@ -45,7 +45,7 @@ python3 -m scripts <absolute_filepath>
 - Redundant phrasing: "in order to" → "to", "make sure to" → "ensure", "the reason is because" → "because"
 - Connective fluff: "however", "furthermore", "additionally", "in addition"
 
-***REMOVED******REMOVED******REMOVED*** Preserve EXACTLY (never modify)
+### Preserve EXACTLY (never modify)
 - Code blocks (fenced ``` and indented)
 - Inline code (`backtick content`)
 - URLs and links (full URLs, markdown links)
@@ -56,14 +56,14 @@ python3 -m scripts <absolute_filepath>
 - Dates, version numbers, numeric values
 - Environment variables (`$HOME`, `NODE_ENV`)
 
-***REMOVED******REMOVED******REMOVED*** Preserve Structure
+### Preserve Structure
 - All markdown headings (keep exact heading text, compress body below)
 - Bullet point hierarchy (keep nesting level)
 - Numbered lists (keep numbering)
 - Tables (compress cell text, keep structure)
 - Frontmatter/YAML headers in markdown files
 
-***REMOVED******REMOVED******REMOVED*** Compress
+### Compress
 - Use short synonyms: "big" not "extensive", "fix" not "implement a solution for", "use" not "utilize"
 - Fragments OK: "Run tests before commit" not "You should always run tests before committing"
 - Drop "you should", "make sure to", "remember to" — just state the action
@@ -87,7 +87,7 @@ If file contains code blocks:
 - Only compress text outside them
 - Do not merge sections around code
 
-***REMOVED******REMOVED*** Pattern
+## Pattern
 
 Original:
 > You should always make sure to run the test suite before pushing any changes to the main branch. This is important because it helps catch bugs early and prevents broken builds from being deployed to production.
@@ -101,7 +101,7 @@ Original:
 Compressed:
 > Microservices architecture. API gateway route all requests to services. Auth service manage user sessions + JWT tokens.
 
-***REMOVED******REMOVED*** Boundaries
+## Boundaries
 
 - ONLY compress natural language files (.md, .txt, .typ, .typst, .tex, extensionless)
 - NEVER modify: .py, .js, .ts, .json, .yaml, .yml, .toml, .env, .lock, .css, .html, .xml, .sql, .sh

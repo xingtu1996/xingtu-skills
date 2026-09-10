@@ -1,18 +1,18 @@
-***REMOVED***!/bin/bash
-***REMOVED*** ============================================================================
-***REMOVED*** codemax_pull.sh — 一键拉取 CodeMax 全维度数据（替代下载 CSV）
-***REMOVED*** 用法:
-***REMOVED***   bash codemax_pull.sh                    ***REMOVED*** 本期(默认 8/14~今天) + 各期趋势 + 项目级
-***REMOVED***   bash codemax_pull.sh -s 2026-08-01 -e 2026-08-28
-***REMOVED***   bash codemax_pull.sh -s 2026-08-14 -e 2026-08-28 -o /path/to/dir
-***REMOVED*** 认证: 复用 settings.local.json env（CODEMAX_ADMIN_TOKEN + CODEMAX_ADMIN_USER）
-***REMOVED*** 输出: JSON 存 <输出目录>/  + 控制台摘要（直接用于汇报）
-***REMOVED*** ============================================================================
+#!/bin/bash
+# ============================================================================
+# codemax_pull.sh — 一键拉取 CodeMax 全维度数据（替代下载 CSV）
+# 用法:
+#   bash codemax_pull.sh                    # 本期(默认 8/14~今天) + 各期趋势 + 项目级
+#   bash codemax_pull.sh -s 2026-08-01 -e 2026-08-28
+#   bash codemax_pull.sh -s 2026-08-14 -e 2026-08-28 -o /path/to/dir
+# 认证: 复用 settings.local.json env（CODEMAX_ADMIN_TOKEN + CODEMAX_ADMIN_USER）
+# 输出: JSON 存 <输出目录>/  + 控制台摘要（直接用于汇报）
+# ============================================================================
 set -euo pipefail
 
-***REMOVED*** --- 参数 ---
+# --- 参数 ---
 START=""; END=""; OUT=""
-while [ $***REMOVED*** -gt 0 ]; do
+while [ $# -gt 0 ]; do
   case "$1" in
     -s) START="$2"; shift 2;;
     -e) END="$2";   shift 2;;
@@ -24,7 +24,7 @@ done
 [ -n "$END" ]   || END="$(date +%Y-%m-%d)"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SELF="$SCRIPT_DIR/codemax_stats.sh"
-***REMOVED*** 默认输出: 最近工作汇报数字目录（如 828/）
+# 默认输出: 最近工作汇报数字目录（如 828/）
 [ -n "$OUT" ] || OUT="$(ls -d /path/to/project/.report/YYYYMMDD/ 2>/dev/null | sort -rn | head -1 | tr -d '/')"
 [ -n "$OUT" ] || OUT="."
 mkdir -p "$OUT"
@@ -32,15 +32,15 @@ TAG="$(echo "$START-$END" | tr -d '-')"
 
 echo "🔌 拉取 CodeMax 数据 [$START ~ $END] → $OUT/"
 
-***REMOVED*** --- 本期核心 ---
+# --- 本期核心 ---
 bash "$SELF" summary -s "$START" -e "$END" > "$OUT/codemax_summary_$TAG.json"
 bash "$SELF" users   -s "$START" -e "$END" > "$OUT/codemax_users_$TAG.json"
 bash "$SELF" models  -s "$START" -e "$END" > "$OUT/codemax_models_$TAG.json"
 
-***REMOVED*** --- 项目级（半年） ---
+# --- 项目级（半年） ---
 bash "$SELF" pm-projects --sort-cost -s 2026-03-01 -e "$END" > "$OUT/codemax_projects_$TAG.json"
 
-***REMOVED*** --- 趋势各期（对齐四期趋势图；curl 输出无换行，需补 \n） ---
+# --- 趋势各期（对齐四期趋势图；curl 输出无换行，需补 \n） ---
 TREND="$OUT/codemax_trend_$TAG.jsonl"
 : > "$TREND"
 for r in "2026-07-01 2026-07-15" "2026-07-15 2026-07-30" "2026-07-30 2026-08-14" "$START $END"; do
@@ -49,7 +49,7 @@ for r in "2026-07-01 2026-07-15" "2026-07-15 2026-07-30" "2026-07-30 2026-08-14"
   echo >> "$TREND"
 done
 
-***REMOVED*** --- 摘要 ---
+# --- 摘要 ---
 python3 - "$START" "$END" "$OUT" "$TAG" "$SCRIPT_DIR" <<'PY'
 import json,sys,os,glob
 START,END,OUT,TAG,SCRIPT_DIR=sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5]
@@ -82,12 +82,12 @@ if pi:
     for x in pi[:5]:
         print(f"  {x.get('project_name','?')[:28]:28} {x.get('total_tokens',0)/1e6:6.0f}M tok  ¥{x.get('total_cost',0):7.0f}")
 
-***REMOVED*** --- 广分维度（较上次对比，维护在用/渗透/请求变化） ---
+# --- 广分维度（较上次对比，维护在用/渗透/请求变化） ---
 try:
     roster=[]
     for line in open(f"{SCRIPT_DIR}/gz_roster.txt",encoding="utf-8"):
         line=line.rstrip()
-        if line and not line.startswith("***REMOVED***") and "|" in line:
+        if line and not line.startswith("#") and "|" in line:
             p=line.split("|")
             if len(p)>=2: roster.append(p[1].strip())
     uu=u.get('data',[])
@@ -104,7 +104,7 @@ try:
 except Exception as e:
     pass
 
-***REMOVED*** --- 四期趋势（从 trend JSONL 解析，API 维护，不写死） ---
+# --- 四期趋势（从 trend JSONL 解析，API 维护，不写死） ---
 tf=f"{OUT}/codemax_trend_{TAG}.jsonl"
 labels=["7/15 一期(7/1~7/15)","7/30 二期","8/14 三期",f"{START}~{END} 四期"]
 if os.path.exists(tf):

@@ -1,16 +1,16 @@
-***REMOVED*** caveman-learn skill
+# caveman-learn skill
 
 Close the loop on `caveman learn`. The command measures where your agent's tokens
 go; this skill reviews that plan with you and applies the fixes — one approved edit
 at a time.
 
-***REMOVED******REMOVED*** Install
+## Install
 
-    caveman skills install caveman-learn            ***REMOVED*** this repo's .claude/skills
-    caveman skills install caveman-learn --user      ***REMOVED*** all repos (~/.claude/skills)
+    caveman skills install caveman-learn            # this repo's .claude/skills
+    caveman skills install caveman-learn --user      # all repos (~/.claude/skills)
     caveman skills install caveman-learn --agent codex
 
-***REMOVED******REMOVED*** What it does
+## What it does
 
 1. Runs `caveman learn report --json` and shows your Cave Score + ranked token sinks.
 2. For each sink you pick, proposes a fix and asks yes/no:
@@ -22,7 +22,7 @@ at a time.
      a confirming recall proves the content still comes back.
    - **load_bearing** → never touched.
 
-***REMOVED******REMOVED*** Honesty
+## Honesty
 
 Everything is `inferred` — no currency, no "verified". Every edit is consent-gated and
 reversible, and an offload that would leave the agent unable to recall the content is

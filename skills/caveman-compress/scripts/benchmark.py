@@ -1,8 +1,8 @@
-***REMOVED***!/usr/bin/env python3
+#!/usr/bin/env python3
 from pathlib import Path
 import sys
 
-***REMOVED*** Support both direct execution and module import
+# Support both direct execution and module import
 try:
     from .validate import validate
 except ImportError:
@@ -18,7 +18,7 @@ except ImportError:
 
 def count_tokens(text):
     if _enc is None:
-        return len(text.split())  ***REMOVED*** fallback: word count
+        return len(text.split())  # fallback: word count
     return len(_enc.encode(text))
 
 
@@ -42,7 +42,7 @@ def print_table(rows):
 
 
 def main():
-    ***REMOVED*** Direct file pair: python3 benchmark.py original.md compressed.md
+    # Direct file pair: python3 benchmark.py original.md compressed.md
     if len(sys.argv) == 3:
         orig = Path(sys.argv[1]).resolve()
         comp = Path(sys.argv[2]).resolve()
@@ -55,9 +55,9 @@ def main():
         print_table([benchmark_pair(orig, comp)])
         return
 
-    ***REMOVED*** Glob mode: repo_root/tests/caveman-compress/
-    ***REMOVED*** __file__ lives at <repo_root>/skills/caveman-compress/scripts/benchmark.py
-    ***REMOVED*** Walk up four dirs: scripts → caveman-compress → skills → repo_root.
+    # Glob mode: repo_root/tests/caveman-compress/
+    # __file__ lives at <repo_root>/skills/caveman-compress/scripts/benchmark.py
+    # Walk up four dirs: scripts → caveman-compress → skills → repo_root.
     tests_dir = Path(__file__).resolve().parents[3] / "tests" / "caveman-compress"
     if not tests_dir.exists():
         print(f"❌ Tests dir not found: {tests_dir}")
