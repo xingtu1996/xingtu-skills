@@ -298,6 +298,19 @@
         "data",
         "report"
       ]
+    },
+    {
+      "name": "fact-check-gate",
+      "description": "行途成稿事实核查门禁。把说法拆成事实/推论/价值判断三层，联网核查打五档标记（已证实/需收窄/争议/证据不足/明显错误），再查推理链漏洞，输出补强版与可信度结论，防AI幻觉防编造第三方机制。Use when: 事实核查、数字对不对、这个说法靠谱吗、核实数据、防编造、成稿前核查。依据PUB-018+BCI B-009。",
+      "path": "skills/fact-check-gate/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "review",
+        "fact-check",
+        "quality"
+      ]
     }
   ]
 }
