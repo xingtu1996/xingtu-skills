@@ -8,7 +8,7 @@ description: >
   触发：核实数字、数字对不对、缓存命中率、cc-switch 数据、token 账单、CodeMax 汇报、AI 用量分析、
   模型对比、模型切换、TTFT、卡顿排查。
   数据源：~/.cc-switch/cc-switch.db（本地 SQLite）+ CodeMax API（codemax_stats.sh）。
-  版本：豆包工作优化版 v1.0（2026-09-03）；原版归档 .backups/skills_原版归档_20260903/codemax-report_原版_{tfm-ng,ctf-gitlab}
+  版本：豆包工作优化版 v1.0（2026-09-03）；原版归档 .backups/skills_原版归档_20260903/codemax-report_原版归档（内部项目）
 ---
 
 # 数据核实 + CodeMax 汇报 Skill（行途版）
@@ -45,7 +45,7 @@ sqlite3 ~/.cc-switch/cc-switch.db \
 # ② 缓存读是输入多少倍（验证 S12 "缓存读取 36.8 倍"）
 sqlite3 ~/.cc-switch/cc-switch.db \
   "SELECT ROUND(1.0*SUM(cache_read_tokens)/SUM(input_tokens),1) ratio FROM usage_daily_rollups WHERE model='deepseek-v4-pro';"
-# → 实测 65.0 倍（与 S12 36.8 倍不同——口径不同需说明：36.8 是 tfm-ng $21.84 账单，65.0 是本人 cc-switch 全周期）
+# → 实测 65.0 倍（与 S12 36.8 倍不同——口径不同需说明：36.8 是 某内部项目月度账单（金额不公开），65.0 是本人 cc-switch 全周期）
 
 # ③ 按模型汇总（成本/请求/Token）
 sqlite3 ~/.cc-switch/cc-switch.db \
@@ -62,7 +62,7 @@ sqlite3 ~/.cc-switch/cc-switch.db \
 2. **查 cc-switch 实测**：跑上面 SQL 拿到本人真实数据
 3. **口径对比**：
    - 同一口径 → 标注"✅ 已核实：cc-switch 实测 X%"
-   - 不同口径 → 明确说明差异来源（如"36.8 倍是 tfm-ng $21.84 账单，65.0 倍是本人 cc-switch 全周期"），**不混用**
+   - 不同口径 → 明确说明差异来源（如"36.8 倍是 某内部项目月度账单（金额不公开），65.0 倍是本人 cc-switch 全周期"），**不混用**
 4. **脱敏检查（PUB-018）**：公开发布只留量级，费用金额不公开
 5. **写回**：文章数据口径标注 + 可核验背书（可选：附 SQL 或来源说明）
 
@@ -80,7 +80,7 @@ sqlite3 ~/.cc-switch/cc-switch.db \
 
 ## 第二部分：CodeMax 平台汇报（原版能力保留）
 
-> 原版 codemax-report（tfm-ng/ctf-gitlab）的 API 直拉 + HTML 汇报能力完整保留，供职场汇报/模型切换观察使用。
+> 原版 codemax-report（某内部项目/某内部代码仓库）的 API 直拉 + HTML 汇报能力完整保留，供职场汇报/模型切换观察使用。
 
 ### 数据源与脚本
 
@@ -107,7 +107,7 @@ bash scripts/codemax_stats.sh log-all -m glm-5.3-flash -s 2026-08-31 -e 2026-08-
 # ⑤ 写作纪律：脚本口径为准，负面不点名，跨期对比先确认口径清洗
 ```
 
-> 详细方法论见原版（归档 .backups/skills_原版归档_20260903/codemax-report_原版_tfm-ng）或 ctf-gitlab 版 §六 模型切换观察。
+> 详细方法论见原版（归档 .backups/skills_原版归档_20260903/codemax-report_原版归档（内部项目））或 某内部代码仓库 版 §六 模型切换观察。
 
 ---
 
@@ -125,6 +125,6 @@ bash scripts/codemax_stats.sh log-all -m glm-5.3-flash -s 2026-08-31 -e 2026-08-
 
 | 日期 | 版本 | 变更 | 来源 |
 |------|:---:|------|------|
-| 2026-09-03 | v1.0 | 豆包工作优化版：新增 cc-switch 本地库核实（第一部分）+ 保留 CodeMax API 汇报能力（第二部分） | 原版 tfm-ng + ctf-gitlab |
+| 2026-09-03 | v1.0 | 豆包工作优化版：新增 cc-switch 本地库核实（第一部分）+ 保留 CodeMax API 汇报能力（第二部分） | 原版 某内部项目 + 某内部代码仓库 |
 
 > **豆包工作优化版**：新增"数据核实"场景（行途文章数字可验证），原版已归档 `.backups/skills_原版归档_20260903/`。
