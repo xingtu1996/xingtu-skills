@@ -6,7 +6,7 @@ description: >
   触发：去 AI 味、改得自然点、别太 AI、像人话、黑话太多、措辞优化、润色文章、标题党去AI感。
   适用：行途公众号「省 token」系列及一切对外内容——只要语言太"AI 味"。
   依据：RULES.md PUB-013（去AI味5法）+ 行途成稿偏好速查 + SignalDistilled 哲学（数字第一语言）。
-  版本：豆包工作优化版 v1.0（2026-09-03）；原版归档 .backups/skills_原版归档_20260903/de-ai-flavor_原版_tfm-ng
+  版本：豆包工作优化版 v1.0（2026-09-03）；原版归档 .backups/skills_原版归档_20260903/de-ai-flavor_原版归档（内部项目）
 ---
 
 # 去 AI 味（de-ai-flavor · 行途版）
