@@ -85,6 +85,14 @@ cp -r skills/<skill-name> ~/.claude/skills/
 - [xingtu-prompts](https://github.com/xingtu1996/xingtu-prompts) — 提示词库：轻场景复制即用；沉淀成 Skill 后进本仓
 - [dsh-xingtu-skills](https://github.com/xingtu1996/dsh-xingtu-skills) — DSH 插件包：本仓技能的 DSH 一键安装版
 
+## 关于作者 · 行途
+
+一线 AI 工程化实践者 · FDE 方向。这些技能不是写出来的，是每天真用、用完回炉改的。
+
+- 公众号「**行途技术手记**」（长文首发，微信搜索关注）
+- GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
+- 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
+
 ## 📄 许可证
 
 MIT License
