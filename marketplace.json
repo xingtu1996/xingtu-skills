@@ -311,6 +311,28 @@
         "fact-check",
         "quality"
       ]
+    },
+    {
+      "name": "writing-guidelines",
+      "description": "Review docs/prose for Writing Guidelines compliance. Fetches the latest rules from the vercel-labs writing-guidelines source, reads target files, and outputs findings in terse file:line format.",
+      "path": "skills/writing-guidelines/SKILL.md",
+      "tags": [
+        "claude-code",
+        "writing",
+        "review",
+        "skill"
+      ]
+    },
+    {
+      "name": "discernment-nudge",
+      "description": "After a substantive answer the user may act on, append 2-3 specific follow-up questions to help verify facts, probe reasoning, and notice missing context. Once per conversation; skip rules included.",
+      "path": "skills/discernment-nudge/SKILL.md",
+      "tags": [
+        "claude-code",
+        "verification",
+        "reasoning",
+        "skill"
+      ]
     }
   ]
 }
