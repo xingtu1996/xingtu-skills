@@ -140,6 +140,11 @@ cp -r skills/<skill-name> ~/.claude/skills/
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
+## 📊 技能体系统筹页（Insights）
+
+- **[docs/index.html](docs/index.html)** — 纵观全仓：三层引擎架构 · 孵化决策树与提示词模板 · 实践感触 · 实践指标（desc 预算/完整度/触发命中率）· 脱敏方法论 · 待办看板
+- **[INSIGHTS.md](INSIGHTS.md)** — 统筹页的活文档数据源，随每批技能进仓/回炉滚动追加
+
 ## 关联项目
 
 - [xingtu-prompts](https://github.com/xingtu1996/xingtu-prompts) — 提示词库：轻场景复制即用；沉淀成 Skill 后进本仓
@@ -149,7 +154,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 一线 AI 工程化实践者 · FDE 方向。这些技能不是写出来的，是每天真用、用完回炉改的。
 
-- 公众号「**行途技术手记**」（长文首发，微信搜索关注）
+- 公众号「**行途**」（长文首发，微信搜索关注）
 - GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
 - 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
 
