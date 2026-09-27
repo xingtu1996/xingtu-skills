@@ -2,13 +2,13 @@
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-50-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-77-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 50 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 77 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -26,7 +26,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（50）
+## 🧠 Skills 清单（77）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -35,6 +35,37 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | adversarial-review | 行途自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
+
+### 内容工程 · 发布运营（27 · 🆕 2026-09-27 第三批 +27）
+| Skill | 说明 |
+|-------|------|
+| conference-archive | 会议/论坛/行业大会素材归档与蒸馏。当用户参加完线下会议、行业论坛、技术大会后，要求"整理一下""归档""沉淀素材""把录音和拍图整理成文章素材库"时使用。输入：录音 record_id、现场拍图、口述观点、官方议程 PDF、系统纪要。输出 |
+| content-matrix-channel-audit | 全渠道内容矩阵环境审计（周期性战略盘点，只读不动手）：以资深全平台内容运营操盘手视角，实地核实固定数据源（materials_library.json + 今日调度_*.json + 分发凭证 glob + 变现盘点 README + 各分 |
+| legal-compliance-baseline | 法律合规基线维护与出书适配性延伸检查。Use when 用户说跑合规扫描/合规门禁/法律基线、极限词误报太多/精度调整/白名单迭代、content_gate 第⑦门禁接入/维护、AI标识义务/人工智能生成合成内容标识办法待办、🟡人工核清单管 |
+| mp-daily-ops-report | 行途每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了"时触发。以资深全平台 IP 操盘手角色预 |
+| mp-distribution-evidence-loop | 行途分发闭环回填傻瓜流程：发出去之后把凭证收进闭环。当用户说"发出去了/截图给你/回填凭证/闭环率怎么涨/丢进投放口/今天分发算不算数/闭环转起来了吗"时触发。截图规范命名 `分发凭证_<平台>_<日期>` 入 `outputs/多平台分发 |
+| mp-group-push-copy | 公众号发布配套的群推话术四版 + 置顶评论生成管线。当用户说"给我群推话术/置顶评论/怎么转发到群里/帮我写推荐语/这篇往哪个群发/发出去没人看/群里发了带来关注了再来要/话术缺活人味/置顶像空气对话/留言区要不要带#"时触发。读家族存档与 |
+| mp-sentiment-tracker | > |
+| mp-title-collision-rename | 公众号标题撞题核查与换题执行闭环：WebSearch 双查取并集 → 撞题判定（同题含大媒体 ≥3 篇 = 换题）→ 规则出三候选交 boss 拍板 → 六载体同步替换（先数后改、assert 实测计数）→ 封面改文案 + 字号断行自检 + |
+| xingtu-expression-logic | > |
+| xingtu-ingest | 素材入库总控（行途）——当用户说"入库/收入素材库/存到素材库/记一下这条素材/把这个收进选题池/分析并入库"并给出内容（文本/链接/对话/想法/截图描述）时使用。自动分析内容价值分级（黄金/关键/重点/高知），按类型落到素材卡/选题池/黄 |
+| xingtu-orchestrate | > |
+| audio-friendly-adapt | 听友好版改编 skill——把图文成稿派生为适合语音朗读/播客/视频号语音的纯文本版本。自动执行 PUB-024 六条铁律（砍元信息/编号口语化/数字口语化/图表口述/加问候道别/命名规范），改编后过 PUB-026 完结检查。触发词：听友 |
+| certification-submission-kit | 平台个人/职业认证提交包生成流水线。Use when 用户说 公众号认证/视频号认证/知乎认证/掘金认证/百家号认证/CSDN认证/小红书认证/职业认证/身份认证/兴趣认证/认证描述/公众称谓/主体姓名/职业身份/认证材料/认证驳回/认证额 |
+| concept-anchor-figure | Turn one article's core idea into a single watermark-free vector infographic (HTML -> PNG via fig_fit), in the workspace |
+| content-format-audit | 内容格式策略评估管线（阶段性复跑、跨篇策略级，只评估不动稿）：提取正文格式元素清单（blockquote 摘要/我是谁/目录/信息说明/标签行/合集块/延伸阅读/图注等 + 首屏结构检查）→ 对标双参照系（机构媒体 APPSO/机器之心 v |
+| mp-group-audience-check | 微信群熟人密度安检——在群里推公众号内容前，先查该群成员中有多少是你的微信好友（通过单聊消息表验证真好友，排除群里见过但没加的人），输出熟人密度评级和"能不能推"建议。触发词：查群里有多少好友、群里有没有熟人、能不能在这个群发公众号、群熟人 |
+| mp-publish-sop | 公众号「成稿→草稿箱」十步一条龙 SOP 编排层（🆕 09-16，v1.8.0 TOKEN-09 复盘）：串联事实回源/标题撞题/图文密度/法律合规/排版重渲/封面三检/门禁/建稿回查/回收/配套件，含本轮全部实测坑位与回查凭证模板，供任意 |
+| pub-infographic-supplement | 公众号长文图文密度补齐管线：按 PUB-048 做图/千字密度对标 → 定位文字墙节 → 素材只取正文原文写信息图 HTML（家族配色：纯白 #FFFFFF 底、黑红灰主色，DESIGN.md §四；1080px 视口 @2x）→ fig_ |
+| session-sediment | 会话即刻沉淀 xingtu 版——自动盘点成果/决策链/AI协作模式/沉淀资产/纠偏偏好/踩坑教训，反哺到行途素材库（xingtu-vault）+ 会话复盘 + 选题池 + 元宝素材库，产出继续会话提示词。触发词：沉淀会话/会话沉淀/记录会 |
+| wechat-channel | 本地微信通道（行途）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微 |
+| wechat-mp-analytics | 公众号后台只读数据分析（行途）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixi |
+| wechat-mp-publish | 微信公众号后台自动化发布 Skill。发前核查（群发额度/发表记录/草稿箱）→ 把一篇成稿（HTML/PM doc JSON/官方草稿 API）导入公众号草稿箱、设置标题/摘要/原创/封面/合集/公众号名片，最终引导人工群发的全流程自动化  |
+| x-auto-publish | 行途品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简 |
+| xingtu-blue-ocean-strategy | 蓝海市场与受众战略分析（行途）——当用户要求为自己/公司/产品/内容账号/app/创业项目做市场调研、蓝海判断、受众与变现人群分析、需求缺口识别、定位与主方向锁定、90 天战略路线图时使用。也适用于「帮我分析下这个方向/赛道/人群」「这个市 |
+| xingtu-multiplatform-distribution | 公众号首发后的多平台分发流水线——按平台规格生成变体（掘金/知乎/CSDN/小红书/抖音/X）+ 变体过 de_ai_flavor_check 去AI味 + 配图（HTML→PNG 卡片；母稿非表格信息图按本地绝对路径内嵌进变体 MD 并出 |
+| xingtu-workspace-context | 行途工作空间上下文桥接（豆包/通用版）——当用户在行途(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途工作空间、开始行途工作、xingtu上下文、行途空间规则、了解 |
+| yuanbao-archive-pipeline | 元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。 |
 
 ### 工具链 · 工程化实战（18 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |

@@ -6,7 +6,7 @@ xingtu-role-audit — AI 头衔定位自查（三数检查）v1.0
 口径诚实标注：能自动测的自动测，测不到的引导自评，绝不给假数字。
 
 用法:
-  python3 audit.py --dir ~/projects/ctf-gitlab
+  python3 audit.py --dir ~/projects/<COMPANY_GITLAB>
   python3 audit.py --dir . --sessions-dir ~/.claude/projects --out ./audit_report.html
 """
 import os, sys, json, glob, html, argparse, datetime, re

@@ -9,9 +9,9 @@ metadata:
 
 # xingtu-oss-guard · 开源矩阵守卫
 
-> **工作空间锚点**：本 Skill 的服务对象是 `/Users/lijiacheng/xingtu`（唯一工作区根）。
+> **工作空间锚点**：本 Skill 的服务对象是 `${WORKSPACE}`（唯一工作区根）。
 > 文中所有相对路径（如 `tools/oss_guard.py`）均以该根为基准。
-> ⚠️ 曾出现 `/Users/lijiacheng/工作室/xingtu` 残留目录导致自动化任务读到残缺数据，
+> ⚠️ 曾出现 `${STALE_WORKSPACE}` 残留目录导致自动化任务读到残缺数据，
 > 动手前先确认根路径，不要在两个 xingtu 之间反复横跳。
 
 ## 它属于哪一层（避免误用）
@@ -67,7 +67,7 @@ bash tools/oss_history_purge.sh --confirm --repo X --push # 连带强推
 
 ## 判级口径
 
-- 🔴 致命：公开可见的真名 / 英文名 Justin Li / 公司项目代号 / 本地绝对路径 → 拦截
+- 🔴 致命：公开可见的真名 / 英文名 行途 / 公司项目代号 / 本地绝对路径 → 拦截
 - 🟠 高危：公开仓缺 LICENSE、remote 是 SSH、无 origin → 拦截
 - 🟡 提示：私有仓敏感串、本地领先远程、缺 description → 不拦截
 
@@ -88,8 +88,8 @@ bash tools/oss_history_purge.sh --confirm --repo X --push # 连带强推
 5. **扫描器自己会静默失效。** privacy_scan v1 只扫 3 个目录却报全绿；v2 的 EXEMPT 用精确相等匹配全路径，
    豁免表永远匹配不上。覆盖不完整比不检查更危险，因为它**造安全感**。
    新增规则后，拿一个已知样例反验一次生效。
-6. **本地目录可能分裂。** 曾出现 `/Users/lijiacheng/xingtu`（主，2.1G）与
-   `/Users/lijiacheng/工作室/xingtu`（残留，4M）并存，自动化任务 cwd 指向残留目录 →
+6. **本地目录可能分裂。** 曾出现 `${WORKSPACE}`（主，2.1G）与
+   `${STALE_WORKSPACE}`（残留，4M）并存，自动化任务 cwd 指向残留目录 →
    飞轮读到 5.6KB 残缺 JSON（主库有 1161 张卡）。修路径前先 `du -sh` 两边对比。
 
 ## 工具清单
@@ -122,7 +122,7 @@ bash tools/oss_history_purge.sh --confirm --repo X --push # 连带强推
 - **force-push / 转可见性 = 不可逆对外动作 → 必须 boss 点头**，脚本只打印命令不自动推
 - 清洗前必有 `--mirror` 备份，备份失败则中止（宁可不动，不可无退路）
 - 一周内新建的仓如需清历史，优先**删仓重建**（省去 GC 等待，代价是丢建仓时间）
-- 公司项目代号（tfm-ng / ctf-gitlab / 客户名）属 SAF-006 红线，**任何形态不得进公开仓**
+- 公司项目代号（<COMPANY_PROJECT> / <COMPANY_GITLAB> / 客户名）属 SAF-006 红线，**任何形态不得进公开仓**
 
 ## 网络约束（本机实测，决定了"能用什么手段"）
 

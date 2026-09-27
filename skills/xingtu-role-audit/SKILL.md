@@ -17,7 +17,7 @@ description: AI 头衔定位自查（三数审计）——把自治度、护栏�
 ## 快速开始
 
 ```bash
-python3 ~/.workbuddy/skills/xingtu-role-audit/scripts/audit.py --dir ~/projects/ctf-gitlab
+python3 ~/.workbuddy/skills/xingtu-role-audit/scripts/audit.py --dir ~/projects/<COMPANY_GITLAB>
 ```
 
 输出：`<项目目录>/ai_role_audit_report.html`（自包含 HTML，可截图分享）。
@@ -56,7 +56,7 @@ python3 ~/.workbuddy/skills/xingtu-role-audit/scripts/audit.py --dir ~/projects/
 
 免费三数报告 = 信任漏斗第一层。报告尾部 CTA 把「想深入」的人接到后续交流（**脱敏：不开源版本放私人微信/付费链接**，开源并入版只留站内引导）：
 - **本地自用版**：报告 CTA 引导到公众号站内关键词「角色」领自查卡；深度咨询走公众号后台会话承接，不在开源资产里留私人联系方式（合规红线，见坏例 B-007）。
-- **开源并入版**（xingtu-skills 仓）：CTA 只写"更多方法论见作者公众号「行途技术手记」"，不留任何私人微信/付费链接。
+- **开源并入版**（xingtu-skills 仓）：CTA 只写"更多方法论见作者公众号「行途」"，不留任何私人微信/付费链接。
 - 原则：**先给可验证价值，再接付费**；CTA 里写明"不想付费，自查卡 + 原文也够先动手"，不硬推。
 
 ## 关联

@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1280px;background:#FFFFFF;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",Arial,sans-serif;padding:56px 64px 48px}
+.hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px}
+.hdr h1{font-size:40px;font-weight:800;color:#141414;letter-spacing:-1px}
+.hdr h1 .r{color:#d71a1b}
+.hdr .tag{font-size:15px;color:#9AA0A6;font-weight:600}
+.stage{position:relative;display:flex;align-items:center;gap:26px;margin-bottom:14px}
+.stage .start{width:118px;text-align:center}
+.stage .start .dot{width:58px;height:58px;border-radius:50%;background:#141414;color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.stage .start .lb{font-size:15px;font-weight:700;color:#333}
+.arrowline{position:absolute;left:150px;right:132px;top:29px;height:6px;background:linear-gradient(90deg,#056DE8 0%,#2f8bff 100%);border-radius:3px}
+.arrowline::after{content:"";position:absolute;right:-14px;top:-9px;border:12px solid transparent;border-left:16px solid #2f8bff}
+.gates{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative;z-index:2;padding-top:4px}
+.gate{background:#fff;border:2.5px solid #d71a1b;border-radius:10px;padding:26px 20px 22px;position:relative;box-shadow:0 3px 14px rgba(215,26,27,.10)}
+.gate .no{position:absolute;top:-20px;left:18px;background:#d71a1b;color:#fff;font-weight:800;font-size:17px;padding:5px 13px;border-radius:6px}
+.gate .nm{font-size:24px;font-weight:800;color:#141414;margin:8px 0 6px}
+.gate .sym{font-size:14.5px;color:#555B62;line-height:1.55}
+.gate .key{margin-top:12px;font-size:13.5px;font-weight:700;color:#056DE8;border-top:1px dashed #E2E5E9;padding-top:10px}
+.gate.done{background:#F4F6F8}
+.finish{position:absolute;right:0;top:2px;width:112px;text-align:center}
+.finish .flag{width:64px;height:64px;margin:0 auto 8px;border-radius:12px;background:#141414;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px}
+.finish .lb{font-size:15px;font-weight:800;color:#141414}
+.foot{margin-top:34px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E6E8EA;padding-top:16px}
+.foot .motto{font-size:18px;font-weight:800;color:#141414}
+.foot .motto .r{color:#d71a1b}
+.foot .src{font-size:13px;color:#A8ADB3}
+</style></head><body>
+
+<div class="hdr">
+  <h1>AI 落地最后一公里：<span class="r">四道关卡</span>，一把钥匙</h1>
+  <div class="tag">概念锚点图 · 无水印矢量渲染</div>
+</div>
+
+<div class="stage">
+  <div class="start"><div class="dot">AI 应用</div><div class="lb">要落地</div></div>
+  <div class="arrowline"></div>
+  <div class="finish"><div class="flag">🏁</div><div class="lb">跑进业务</div></div>
+</div>
+
+<div class="gates">
+  <div class="gate">
+    <div class="no">关卡 1</div>
+    <div class="nm">数据治理</div>
+    <div class="sym">数据散在多系统、口径打架，AI 没有干净料可用</div>
+    <div class="key">钥匙：从业务场景倒推，小范围先跑通</div>
+  </div>
+  <div class="gate">
+    <div class="no">关卡 2</div>
+    <div class="nm">业务信任</div>
+    <div class="sym">演示时叫好，回到工位没人用</div>
+    <div class="key">钥匙：让业务方参与，用小赢换信任</div>
+  </div>
+  <div class="gate">
+    <div class="no">关卡 3</div>
+    <div class="nm">组织协同</div>
+    <div class="sym">部门墙 + 激励不一致，需求原地打转</div>
+    <div class="key">钥匙：做翻译官，当面拉通</div>
+  </div>
+  <div class="gate">
+    <div class="no">关卡 4</div>
+    <div class="nm">能力断层</div>
+    <div class="sym">工具买了没人会用，停在演示层</div>
+    <div class="key">钥匙：结对工作，留下可复用资产</div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="motto">破法就三个词：<span class="r">扎根现场 · 理解业务 · 对结果负责</span></div>
+  <div class="src">行途 · 看懂FDE</div>
+</div>
+
+</body></html>
