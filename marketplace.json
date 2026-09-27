@@ -333,6 +333,62 @@
         "reasoning",
         "skill"
       ]
+    },
+    {
+      "name": "git-push-in-sandbox",
+      "description": "Diagnose and work around `git push` failures inside sandboxed shells (502 CONNECT tunnel failed, ssh timeout) when `gh api` works fine. Trigger words: push failed, 502 CONNECT tunnel, push timeout, sandboxed network.",
+      "path": "skills/git-push-in-sandbox/SKILL.md",
+      "tags": [
+        "git",
+        "network",
+        "sandbox",
+        "skill"
+      ]
+    },
+    {
+      "name": "python-cli-to-macos-app",
+      "description": "Package a local Python/CLI project into a zero-dependency macOS .app users can double-click. Covers size budgeting, three fatal-check lines (relocatable python, otool -L external deps, static binary detection), launcher design and distribution format comparison.",
+      "path": "skills/python-cli-to-macos-app/SKILL.md",
+      "tags": [
+        "macos",
+        "packaging",
+        "python",
+        "distribution",
+        "skill"
+      ]
+    },
+    {
+      "name": "zero-cost-visuals-iconify",
+      "description": "Add a visual layer to generated content (video/cards/reports) using Iconify open-source icons: keyword lookup, brand-color recoloring, rsvg-convert render, offline cache. Zero API cost, clean licensing. Includes the controlled-vocabulary lesson (LLM free-form keywords give 6/12 semantic hits).",
+      "path": "skills/zero-cost-visuals-iconify/SKILL.md",
+      "tags": [
+        "icons",
+        "visual",
+        "svg",
+        "zero-cost",
+        "skill"
+      ]
+    },
+    {
+      "name": "xingtu-token-saver",
+      "description": "Audit a workspace's token-saving maturity across eight layers (requirement/retrieval/protocol/input-compression/prose/generation/prompt/config) and emit an HTML/JSON report with patch suggestions. Diagnose only, never mutates user settings.",
+      "path": "skills/xingtu-token-saver/SKILL.md",
+      "tags": [
+        "token",
+        "cost",
+        "audit",
+        "skill"
+      ]
+    },
+    {
+      "name": "skill-vetter",
+      "description": "Security-first vetting for AI agent skills before install. Checks red flags, permission scope and suspicious patterns in skills from community, GitHub, or other sources.",
+      "path": "skills/skill-vetter/SKILL.md",
+      "tags": [
+        "security",
+        "vetting",
+        "skill"
+      ]
     }
   ]
 }
