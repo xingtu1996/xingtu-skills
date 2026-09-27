@@ -2,13 +2,13 @@
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-77-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-78-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 77 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 78 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -26,7 +26,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（77）
+## 🧠 Skills 清单（78）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -36,7 +36,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
 
-### 内容工程 · 发布运营（27 · 🆕 2026-09-27 第三批 +27）
+### 内容工程 · 发布运营（28 · 🆕 2026-09-27 第三批 +27，含首批范式 wechat-draft-api）
 | Skill | 说明 |
 |-------|------|
 | conference-archive | 会议/论坛/行业大会素材归档与蒸馏。当用户参加完线下会议、行业论坛、技术大会后，要求"整理一下""归档""沉淀素材""把录音和拍图整理成文章素材库"时使用。输入：录音 record_id、现场拍图、口述观点、官方议程 PDF、系统纪要。输出 |
@@ -66,6 +66,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | xingtu-multiplatform-distribution | 公众号首发后的多平台分发流水线——按平台规格生成变体（掘金/知乎/CSDN/小红书/抖音/X）+ 变体过 de_ai_flavor_check 去AI味 + 配图（HTML→PNG 卡片；母稿非表格信息图按本地绝对路径内嵌进变体 MD 并出 |
 | xingtu-workspace-context | 行途工作空间上下文桥接（豆包/通用版）——当用户在行途(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途工作空间、开始行途工作、xingtu上下文、行途空间规则、了解 |
 | yuanbao-archive-pipeline | 元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。 |
+| wechat-draft-api | 微信公众号官方 API 建稿：token 获取/草稿增删查/永久素材/封面图安全压缩，凭据全部参数化（环境变量+CLI），零第三方依赖。Use when: 草稿箱建稿、API 传图、发前 dry-run。 |
 
 ### 工具链 · 工程化实战（18 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |
