@@ -4,9 +4,31 @@
   "description": "XingTu AI agent skills (SKILL.md) for coding, research & ops - find-skills discoverable",
   "items": [
     {
+      "name": "adversarial-review",
+      "description": "行途自媒体多专家对抗审查。对公众号封面/标题/正文/数据/方案做怀疑论者+优化者+审计员+过滤器四角色并行审查，Round2脚本交叉验证。Use when: 对抗审查、审文章、审标题、审封面、数据核查、审查方案。依据PUB-017多专家对抗审查。",
+      "path": "skills/adversarial-review/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "review",
+        "quality"
+      ]
+    },
+    {
       "name": "cavecrew",
       "description": "Decision guide for delegating to caveman-style subagents. Tells the main thread WHEN to spawn `cavecrew-investigator` (locate code), `cavecrew-builder` (1-2 file edit), or `cavecrew-reviewer` (diff review) instead of doing the work inline or using va",
       "path": "skills/cavecrew/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "caveman",
+      "description": "Ultra-compressed communication mode. Cuts output tokens 65% (measured) by speaking like caveman while keeping full technical accuracy. Supports intensity levels: lite, full (default), ultra, wenyan-lite, wenyan-full, wenyan-ultra. Use when user says ",
+      "path": "skills/caveman/SKILL.md",
       "tags": [
         "claude-code",
         "ai-agent",
@@ -134,12 +156,71 @@
       ]
     },
     {
-      "name": "caveman",
-      "description": "Ultra-compressed communication mode. Cuts output tokens 65% (measured) by speaking like caveman while keeping full technical accuracy. Supports intensity levels: lite, full (default), ultra, wenyan-lite, wenyan-full, wenyan-ultra. Use when user says ",
-      "path": "skills/caveman/SKILL.md",
+      "name": "codemax-report",
+      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留CodeMax API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、CodeMax汇报、模型对比。",
+      "path": "skills/codemax-report/SKILL.md",
       "tags": [
         "claude-code",
         "ai-agent",
+        "skill",
+        "data",
+        "report"
+      ]
+    },
+    {
+      "name": "constitution-amendment",
+      "description": "Turn verbal principles into project constitution entries (CONSTITUTION.md / rules/) with backup, sync and changelog steps.",
+      "path": "skills/constitution-amendment/SKILL.md",
+      "tags": [
+        "governance",
+        "sop",
+        "skill"
+      ]
+    },
+    {
+      "name": "de-ai-flavor",
+      "description": "行途自媒体去AI味文案优化。把公众号文章/封面/标题/摘要中的AI腔、黑话、机械句式改成人话，保留技术准确性与关键数字。Use when: 去AI味、改自然点、别太AI、黑话太多、润色文章、文案优化。依据PUB-013去AI味5法+SignalDistilled哲学。",
+      "path": "skills/de-ai-flavor/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content",
+        "writing"
+      ]
+    },
+    {
+      "name": "discernment-nudge",
+      "description": "After a substantive answer the user may act on, append 2-3 specific follow-up questions to help verify facts, probe reasoning, and notice missing context. Once per conversation; skip rules included.",
+      "path": "skills/discernment-nudge/SKILL.md",
+      "tags": [
+        "claude-code",
+        "verification",
+        "reasoning",
+        "skill"
+      ]
+    },
+    {
+      "name": "fact-check-gate",
+      "description": "行途成稿事实核查门禁。把说法拆成事实/推论/价值判断三层，联网核查打五档标记（已证实/需收窄/争议/证据不足/明显错误），再查推理链漏洞，输出补强版与可信度结论，防AI幻觉防编造第三方机制。Use when: 事实核查、数字对不对、这个说法靠谱吗、核实数据、防编造、成稿前核查。依据PUB-018+BCI B-009。",
+      "path": "skills/fact-check-gate/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "review",
+        "fact-check",
+        "quality"
+      ]
+    },
+    {
+      "name": "git-push-in-sandbox",
+      "description": "Diagnose and work around `git push` failures inside sandboxed shells (502 CONNECT tunnel failed, ssh timeout) when `gh api` works fine. Trigger words: push failed, 502 CONNECT tunnel, push timeout, sandboxed network.",
+      "path": "skills/git-push-in-sandbox/SKILL.md",
+      "tags": [
+        "git",
+        "network",
+        "sandbox",
         "skill"
       ]
     },
@@ -167,6 +248,16 @@
       "name": "migration",
       "description": "Implement reversible compatibility-safe transitions. Use for schema, data, API, protocol, configuration, or dependency migrations requiring rollback and preservation proof.",
       "path": "skills/migration/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ponytail",
+      "description": "Forces the laziest solution that actually works, simplest, shortest, most minimal. Channels a senior dev who has seen everything: question whether the task needs to exist at all (YAGNI), reach for the standard library before custom code, native platf",
+      "path": "skills/ponytail/SKILL.md",
       "tags": [
         "claude-code",
         "ai-agent",
@@ -224,12 +315,25 @@
       ]
     },
     {
-      "name": "ponytail",
-      "description": "Forces the laziest solution that actually works, simplest, shortest, most minimal. Channels a senior dev who has seen everything: question whether the task needs to exist at all (YAGNI), reach for the standard library before custom code, native platf",
-      "path": "skills/ponytail/SKILL.md",
+      "name": "python-cli-to-macos-app",
+      "description": "Package a local Python/CLI project into a zero-dependency macOS .app users can double-click. Covers size budgeting, three fatal-check lines (relocatable python, otool -L external deps, static binary detection), launcher design and distribution format comparison.",
+      "path": "skills/python-cli-to-macos-app/SKILL.md",
       "tags": [
-        "claude-code",
-        "ai-agent",
+        "macos",
+        "packaging",
+        "python",
+        "distribution",
+        "skill"
+      ]
+    },
+    {
+      "name": "repo-rename-desensitize",
+      "description": "One-stop repo rename + real-name desensitization SOP: impact scan, bulk replace, exposure check, artifact repack.",
+      "path": "skills/repo-rename-desensitize/SKILL.md",
+      "tags": [
+        "opensource",
+        "privacy",
+        "sop",
         "skill"
       ]
     },
@@ -240,6 +344,27 @@
       "tags": [
         "claude-code",
         "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "skill-vetter",
+      "description": "Security-first vetting for AI agent skills before install. Checks red flags, permission scope and suspicious patterns in skills from community, GitHub, or other sources.",
+      "path": "skills/skill-vetter/SKILL.md",
+      "tags": [
+        "security",
+        "vetting",
+        "skill"
+      ]
+    },
+    {
+      "name": "sqlcipher-offline-verify",
+      "description": "Offline SQLCipher 4 key verification via HMAC-SHA512 page check for databases you own; crypto-only, no hooking or injection.",
+      "path": "skills/sqlcipher-offline-verify/SKILL.md",
+      "tags": [
+        "security",
+        "database",
+        "verification",
         "skill"
       ]
     },
@@ -264,55 +389,6 @@
       ]
     },
     {
-      "name": "de-ai-flavor",
-      "description": "行途自媒体去AI味文案优化。把公众号文章/封面/标题/摘要中的AI腔、黑话、机械句式改成人话，保留技术准确性与关键数字。Use when: 去AI味、改自然点、别太AI、黑话太多、润色文章、文案优化。依据PUB-013去AI味5法+SignalDistilled哲学。",
-      "path": "skills/de-ai-flavor/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content",
-        "writing"
-      ]
-    },
-    {
-      "name": "adversarial-review",
-      "description": "行途自媒体多专家对抗审查。对公众号封面/标题/正文/数据/方案做怀疑论者+优化者+审计员+过滤器四角色并行审查，Round2脚本交叉验证。Use when: 对抗审查、审文章、审标题、审封面、数据核查、审查方案。依据PUB-017多专家对抗审查。",
-      "path": "skills/adversarial-review/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "review",
-        "quality"
-      ]
-    },
-    {
-      "name": "codemax-report",
-      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留CodeMax API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、CodeMax汇报、模型对比。",
-      "path": "skills/codemax-report/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "data",
-        "report"
-      ]
-    },
-    {
-      "name": "fact-check-gate",
-      "description": "行途成稿事实核查门禁。把说法拆成事实/推论/价值判断三层，联网核查打五档标记（已证实/需收窄/争议/证据不足/明显错误），再查推理链漏洞，输出补强版与可信度结论，防AI幻觉防编造第三方机制。Use when: 事实核查、数字对不对、这个说法靠谱吗、核实数据、防编造、成稿前核查。依据PUB-018+BCI B-009。",
-      "path": "skills/fact-check-gate/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "review",
-        "fact-check",
-        "quality"
-      ]
-    },
-    {
       "name": "writing-guidelines",
       "description": "Review docs/prose for Writing Guidelines compliance. Fetches the latest rules from the vercel-labs writing-guidelines source, reads target files, and outputs findings in terse file:line format.",
       "path": "skills/writing-guidelines/SKILL.md",
@@ -324,48 +400,12 @@
       ]
     },
     {
-      "name": "discernment-nudge",
-      "description": "After a substantive answer the user may act on, append 2-3 specific follow-up questions to help verify facts, probe reasoning, and notice missing context. Once per conversation; skip rules included.",
-      "path": "skills/discernment-nudge/SKILL.md",
+      "name": "xingtu-collab-evolution-loop",
+      "description": "Self-evolving AI collaboration preference loop: investigate, attribute, sediment into SSoT, feed constraints back.",
+      "path": "skills/xingtu-collab-evolution-loop/SKILL.md",
       "tags": [
-        "claude-code",
-        "verification",
-        "reasoning",
-        "skill"
-      ]
-    },
-    {
-      "name": "git-push-in-sandbox",
-      "description": "Diagnose and work around `git push` failures inside sandboxed shells (502 CONNECT tunnel failed, ssh timeout) when `gh api` works fine. Trigger words: push failed, 502 CONNECT tunnel, push timeout, sandboxed network.",
-      "path": "skills/git-push-in-sandbox/SKILL.md",
-      "tags": [
-        "git",
-        "network",
-        "sandbox",
-        "skill"
-      ]
-    },
-    {
-      "name": "python-cli-to-macos-app",
-      "description": "Package a local Python/CLI project into a zero-dependency macOS .app users can double-click. Covers size budgeting, three fatal-check lines (relocatable python, otool -L external deps, static binary detection), launcher design and distribution format comparison.",
-      "path": "skills/python-cli-to-macos-app/SKILL.md",
-      "tags": [
-        "macos",
-        "packaging",
-        "python",
-        "distribution",
-        "skill"
-      ]
-    },
-    {
-      "name": "zero-cost-visuals-iconify",
-      "description": "Add a visual layer to generated content (video/cards/reports) using Iconify open-source icons: keyword lookup, brand-color recoloring, rsvg-convert render, offline cache. Zero API cost, clean licensing. Includes the controlled-vocabulary lesson (LLM free-form keywords give 6/12 semantic hits).",
-      "path": "skills/zero-cost-visuals-iconify/SKILL.md",
-      "tags": [
-        "icons",
-        "visual",
-        "svg",
-        "zero-cost",
+        "methodology",
+        "ai-collaboration",
         "skill"
       ]
     },
@@ -381,12 +421,14 @@
       ]
     },
     {
-      "name": "skill-vetter",
-      "description": "Security-first vetting for AI agent skills before install. Checks red flags, permission scope and suspicious patterns in skills from community, GitHub, or other sources.",
-      "path": "skills/skill-vetter/SKILL.md",
+      "name": "zero-cost-visuals-iconify",
+      "description": "Add a visual layer to generated content (video/cards/reports) using Iconify open-source icons: keyword lookup, brand-color recoloring, rsvg-convert render, offline cache. Zero API cost, clean licensing. Includes the controlled-vocabulary lesson (LLM free-form keywords give 6/12 semantic hits).",
+      "path": "skills/zero-cost-visuals-iconify/SKILL.md",
       "tags": [
-        "security",
-        "vetting",
+        "icons",
+        "visual",
+        "svg",
+        "zero-cost",
         "skill"
       ]
     }

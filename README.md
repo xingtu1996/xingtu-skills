@@ -2,13 +2,13 @@
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-37-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-41-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 37 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉等场景。
+**已收录 41 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -26,7 +26,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（37）
+## 🧠 Skills 清单（41）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -36,7 +36,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
 
-### 工具链 · 工程化实战（5 · 🆕 2026-09-27 新增）
+### 工具链 · 工程化实战（9 · 🆕 2026-09-27 新增）
 | Skill | 说明 |
 |-------|------|
 | git-push-in-sandbox | 沙箱内 `git push` 失败（502 CONNECT tunnel / ssh 超时）的诊断与绕行：`gh api` 通而 push 不通时的四条通道选型 |
@@ -44,6 +44,10 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | zero-cost-visuals-iconify | 零成本画面层：Iconify 20 万+ 开源图标按关键词取图 + 品牌色上色 + 离线缓存；含受控词表前置的核心教训 |
 | xingtu-token-saver | 省 Token 成熟度八层诊断（需求/检索/协议/输入压缩/散文/生成/prompt/config），只诊断不改配置 |
 | skill-vetter | 安装前安全审查：装任何社区/第三方 skill 之前先查红旗、权限范围与可疑模式 |
+| constitution-amendment | 把口述定调落成项目宪法条目（CONSTITUTION.md / rules/）的 SOP：找缺口→备份→入宪→联动同步→CHANGELOG |
+| repo-rename-desensitize | 项目/仓库全库更名 + 真名脱敏一体式 SOP：影响面盘点→批量替换→分类脱敏→历史暴露面核查→产物重打包 |
+| sqlcipher-offline-verify | 离线验证 SQLCipher 4 数据库密钥（HMAC-SHA512 页校验筛真密钥），仅密码学校验，不涉及逆向/注入 |
+| xingtu-collab-evolution-loop | AI 协作偏好自我进化闭环：调研取证→复盘归因→沉淀 SSoT→反哺约束 四环工作流 + 四不防错自检 |
 
 ### 交付质量 · 通用（2）
 | Skill | 说明 |
