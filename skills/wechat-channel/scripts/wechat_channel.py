@@ -23,7 +23,7 @@ wechat_channel.py — 微信通道统一 CLI（行途 · 跨 Agent 复用）
 
 用法示例：
   python wechat_channel.py list
-  python wechat_channel.py search 许怿 海庭          # 多关键词 OR 搜索，反查 wxid
+  python wechat_channel.py search <COLLEAGUE> <PROJECT>          # 多关键词 OR 搜索，反查 wxid
   python wechat_channel.py search "AI Work" --top 5  # 搜群聊
   python wechat_channel.py read wxid_xxxx
   python wechat_channel.py extract elzev80 -o ~/xingtu/outputs/wechat_channel

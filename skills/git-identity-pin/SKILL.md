@@ -27,7 +27,7 @@ PY=<工作区根>/.workbuddy/binaries/python/versions/3.13.12/bin/python3
 # 1. 审计：列出 ROOT 下所有仓库的 local/全局身份 + 历史 email
 $PY scripts/scan_and_pin.py --root <工作区根>/projects --audit
 
-# 2. 干跑：把非 skip 仓钉成全局默认身份(<真名>/co-mall)，只报告不改
+# 2. 干跑：把非 skip 仓钉成全局默认身份(<PERSONA_NAME>/<COMPANY_DOMAIN>)，只报告不改
 $PY scripts/scan_and_pin.py --root <工作区根>/projects --pin --skip open --dry-run
 
 # 3. 执行：跳过 open 子目录，其余钉成全局默认身份
@@ -43,7 +43,7 @@ $PY scripts/scan_and_pin.py --root <工作区根>/projects --audit --report /tmp
 # 6. 按业务域映射文件钉死（推荐：支持多身份，防前司仓被误覆盖）
 $PY scripts/scan_and_pin.py --root <工作区根>/projects --pin \
    --mapfile maps/boss_identity_map.json
-# 映射含 default(全局company) + rules: crv系→crv.com.cn / xingtu→品牌身份 / open→skip
+# 映射含 default(全局company) + rules: <prev_project>系→<prev_project>.com.cn / xingtu→品牌身份 / open→skip
 ```
 
 ## 参数
@@ -52,14 +52,14 @@ $PY scripts/scan_and_pin.py --root <工作区根>/projects --pin \
 - `--pin`：钉死模式（把 local 身份写成目标）
 - `--name / --email`：模式A 目标身份；省略读全局 `~/.gitconfig` 的 user.name/email
 - `--skip REL...`：模式A 跳过前缀（如 `open` `kds`）
-- `--mapfile PATH`：模式B 业务域映射 JSON（含 `default` + `rules[]`）；`match` 既匹配路径前缀也匹配仓库名/basename 前缀（如 `crv-` / `crv-local/` 都命中 crv 系）
+- `--mapfile PATH`：模式B 业务域映射 JSON（含 `default` + `rules[]`）；`match` 既匹配路径前缀也匹配仓库名/basename 前缀（如 `<prev_project>-` / `<prev_project>-local/` 都命中 <prev_project> 系）
 - `--dry-run`：只报告计划改动，不写 .git/config
 - `--report PATH`：把审计/结果写 JSON
 
 ## 隔离模型（boss 2026-09-11 拍板）
-全局=公司邮箱(默认) / xingtu=行途 XingTu(local 覆盖，唯一例外) / crv 系=前司 crv.com.cn(local 钉死，前司项目不伪装现雇主) / 其他项目=继承全局。
+全局=公司邮箱(默认) / xingtu=行途 XingTu(local 覆盖，唯一例外) / <prev_project> 系=前司 <prev_project>.com.cn(local 钉死，前司项目不伪装现雇主) / 其他项目=继承全局。
 
-⚠️ **勿用模式A"钉成全局 company"无脑覆盖**：会把手动钉成 `crv.com.cn` 的前司仓误改成现雇主邮箱。多身份并存必须用模式B `--mapfile`。
+⚠️ **勿用模式A"钉成全局 company"无脑覆盖**：会把手动钉成 `<prev_project>.com.cn` 的前司仓误改成现雇主邮箱。多身份并存必须用模式B `--mapfile`。
 
 ## 注意
 - 嵌套仓库：只取顶层 git root（父目录非 git root 的），子模块不重复处理
