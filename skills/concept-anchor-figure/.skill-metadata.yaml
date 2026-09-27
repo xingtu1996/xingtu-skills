@@ -1,0 +1,69 @@
+examples:
+  - id: make-anchor-from-package
+    title:
+      zh: 给发布包的文章做概念锚点图
+      en: Make a concept anchor figure for a package article
+    description:
+      zh: 读正文提炼一个核心隐喻，出一张无水印矢量总结图落 04_配图
+      en: Extract one core metaphor from the article and render a watermark-free vector summary figure into 04_配图
+    prompt:
+      zh: |-
+        请给这篇发布包的文章做一张概念锚点图：
+
+        发布包：{{发布包路径}}
+        隐喻偏好：{{可选，如 关卡/漏斗/传送带，留空则由你从正文提炼}}
+
+        按 .agents/skills/concept-anchor-figure/SKILL.md 执行：读正文提炼一个可转述的核心结构，用模板或同骨架自建 HTML（行途黑红灰+行途蓝），fig_fit 从工作区根渲染 PNG，Read 亲眼看图验收后落 04_配图 并回写 CHANGELOG。
+      en: |-
+        Make a concept anchor figure for this package article:
+
+        Package: {{package path}}
+        Metaphor preference: {{optional, e.g. gates/funnel/conveyor; leave empty for you to derive}}
+
+        Follow .agents/skills/concept-anchor-figure/SKILL.md: extract one retellable core structure from the article, build the HTML on the template skeleton (brand palette), render via fig_fit from the workspace root, visually verify by reading the PNG, then place it into 04_配图 and log to CHANGELOG.
+  - id: adapt-metaphor-variant
+    title:
+      zh: 改隐喻/换风格重出这张概念图
+      en: Re-render the anchor figure with a different metaphor
+    description:
+      zh: 在既有 HTML 上改隐喻结构或文案，重渲一张
+      en: Modify the metaphor structure or copy on the existing HTML and re-render
+    prompt:
+      zh: |-
+        请把这张概念锚点图改成另一种隐喻重出：
+
+        现有 HTML：{{HTML 文件路径}}
+        目标隐喻：{{如 漏斗/传送带/三层塔}}
+        要改的文案点：{{可选}}
+
+        按 concept-anchor-figure 的模板速改指引改 HTML，fig_fit 重渲 PNG 并 Read 验收，替换 04_配图 里的旧版。
+      en: |-
+        Re-render this concept anchor figure with a different metaphor:
+
+        Existing HTML: {{HTML file path}}
+        Target metaphor: {{e.g. funnel/conveyor/tower}}
+        Copy changes: {{optional}}
+
+        Follow the template quick-edit guide, re-render with fig_fit, visually verify, and replace the old version in 04_配图.
+  - id: vectorize-a-style-sample
+    title:
+      zh: 把生成图风格翻成无水印矢量版
+      en: Vectorize a generated-style sample
+    description:
+      zh: 参考生成图/手绘风的气质，用 HTML 出零水印、中文清晰的正式版
+      en: Take a generated/hand-drawn sample as style reference and produce the official watermark-free, crisp-Chinese version in HTML
+    prompt:
+      zh: |-
+        请把这张风格样张翻成正式的无水印矢量版：
+
+        风格参考图：{{图片路径}}
+        对应文章或主题：{{文章路径或主题说明}}
+
+        参考样张的构图气质，但按 concept-anchor-figure 定则用 HTML 实现（品牌色、标签级文字、零水印），fig_fit 渲染并 Read 验收后落 04_配图。
+      en: |-
+        Vectorize this style sample into the official figure:
+
+        Style reference image: {{image path}}
+        Article or topic: {{article path or topic}}
+
+        Keep the sample's compositional vibe but implement in HTML per the skill's rules (brand palette, label-level text, zero watermark), render with fig_fit, verify visually, place into 04_配图.

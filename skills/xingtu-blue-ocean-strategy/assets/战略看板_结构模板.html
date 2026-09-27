@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝海市场与受众战略分析看板 | 行途</title>
+<style>
+  :root {
+    --xingtu-blue: #056DE8;
+    --xingtu-blue-light: #4A9EFF;
+    --xingtu-cyan: #00D4FF;
+    --warn-orange: #FF6B35;
+    --growth-green: #2E8B57;
+    --purple: #8B5CF6;
+    --red: #E53935;
+    --bg: #F0F4F8;
+    --card-bg: #FFFFFF;
+    --text-primary: #1A2332;
+    --text-secondary: #5A6B7F;
+    --text-muted: #8A9BB0;
+    --border: #E2E8F0;
+    --shadow: 0 2px 12px rgba(5, 109, 232, 0.08);
+    --shadow-hover: 0 4px 20px rgba(5, 109, 232, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    background: linear-gradient(135deg, #056DE8 0%, #4A9EFF 50%, #00D4FF 100%);
+    color: #fff;
+    padding: 48px 0 40px;
+    margin-bottom: -20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+  .header-meta {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+    opacity: 0.85;
+  }
+  .header-meta span::before {
+    content: '●';
+    margin-right: 6px;
+    font-size: 8px;
+    vertical-align: middle;
+  }
+
+  /* ===== KPI Grid ===== */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 2;
+  }
+  .kpi-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--xingtu-blue);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  .kpi-card:nth-child(2) { border-left-color: var(--warn-orange); }
+  .kpi-card:nth-child(3) { border-left-color: var(--growth-green); }
+  .kpi-card:nth-child(4) { border-left-color: var(--purple); }
+  .kpi-card:nth-child(5) { border-left-color: var(--xingtu-cyan); }
+  .kpi-card:nth-child(6) { border-left-color: var(--red); }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .kpi-value {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .kpi-value .unit {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: 2px;
+  }
+  .kpi-note {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ===== Section ===== */
+  .section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 24px;
+    box-shadow: var(--shadow);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--xingtu-blue), var(--xingtu-blue-light));
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .section-badge {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: #EBF3FF;
+    color: var(--xingtu-blue);
+    font-weight: 600;
+  }
+
+  /* ===== Horizontal Bar Chart ===== */
+  .bar-chart { width: 100%; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 140px;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .bar-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+  }
+  .bar-track {
+    background: #F0F4F8;
+    border-radius: 6px;
+    height: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--xingtu-blue), var(--xingtu-blue-light));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    transition: width 0.6s ease;
+    min-width: 40px;
+  }
+  .bar-fill.projection {
+    background: linear-gradient(90deg, var(--xingtu-cyan), #4A9EFF);
+    border-left: 2px dashed rgba(255,255,255,0.5);
+  }
+  .bar-value {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .bar-chart-note {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #EBF3FF;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--xingtu-blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bar-chart-note strong { font-weight: 700; }
+
+  /* ===== Dual Bar Comparison ===== */
+  .dual-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .compare-group h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .compare-group h3 .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .compare-group.penetration h3 .dot { background: var(--xingtu-blue); }
+  .compare-group.trust h3 .dot { background: var(--warn-orange); }
+  .compare-bar-row {
+    margin-bottom: 18px;
+  }
+  .compare-bar-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .compare-bar-label .pct {
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .compare-bar-track {
+    background: #F0F4F8;
+    border-radius: 4px;
+    height: 22px;
+    overflow: hidden;
+  }
+  .compare-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+  .compare-bar-fill.blue { background: linear-gradient(90deg, #056DE8, #4A9EFF); }
+  .compare-bar-fill.orange { background: linear-gradient(90deg, #FF6B35, #FF9A6B); }
+  .scissor-note {
+    margin-top: 20px;
+    grid-column: 1 / -1;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FFF5F0, #FFEBE0);
+    border-radius: 10px;
+    border-left: 4px solid var(--warn-orange);
+    font-size: 14px;
+    color: #B85C2E;
+  }
+  .scissor-note strong { color: var(--warn-orange); font-weight: 700; }
+
+  /* ===== Funnel ===== */
+  .funnel {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .funnel-layer {
+    position: relative;
+    margin: 0 auto 2px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  .funnel-layer:hover { filter: brightness(1.1); }
+  .funnel-layer .layer-label {
+    position: absolute;
+    left: 16px;
+    white-space: nowrap;
+    z-index: 2;
+  }
+  .funnel-layer .layer-value {
+    position: absolute;
+    right: 16px;
+    white-space: nowrap;
+    z-index: 2;
+    font-weight: 700;
+  }
+  .funnel-layer .layer-conv {
+    position: absolute;
+    right: -120px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .funnel-layer.l1 { width: 100%; background: linear-gradient(90deg, #056DE8, #4A9EFF); border-radius: 8px 8px 0 0; }
+  .funnel-layer.l2 { width: 92%; background: linear-gradient(90deg, #0A7BE8, #5AA8FF); }
+  .funnel-layer.l3 { width: 72%; background: linear-gradient(90deg, #1A8BE8, #6AB2FF); }
+  .funnel-layer.l4 { width: 52%; background: linear-gradient(90deg, #2A9BE8, #7ABCFF); }
+  .funnel-layer.l5 { width: 38%; background: linear-gradient(90deg, #3AABFF, #8AC6FF); }
+  .funnel-layer.l6 { width: 88%; background: linear-gradient(90deg, #2E8B57, #4CAF7D); }
+  .funnel-layer.l7 { width: 56%; background: linear-gradient(90deg, #8B5CF6, #A78BFA); }
+  .funnel-layer.l8 { width: 18%; background: linear-gradient(90deg, #FF6B35, #FF9A6B); border-radius: 0 0 8px 8px; }
+  .funnel-legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .funnel-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .funnel-legend-item .swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+
+  /* ===== Pyramid ===== */
+  .pyramid-wrap {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .pyramid {
+    flex: 1;
+    max-width: 560px;
+  }
+  .pyramid-layer {
+    position: relative;
+    margin: 0 auto;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    clip-path: polygon(8% 0, 92% 0, 100% 100%, 0% 100%);
+  }
+  .pyramid-layer + .pyramid-layer { margin-top: -1px; }
+  .pyramid-layer.l1 { width: 30%; background: linear-gradient(90deg, #8A9BB0, #A8B8CC); }
+  .pyramid-layer.l2 { width: 48%; background: linear-gradient(90deg, #6B8DB5, #8AA8CC); }
+  .pyramid-layer.l3 { width: 68%; background: linear-gradient(90deg, #FF6B35, #FF9A6B); box-shadow: 0 0 20px rgba(255,107,53,0.4); z-index: 2; }
+  .pyramid-layer.l4 { width: 84%; background: linear-gradient(90deg, #FF8C5A, #FFB08A); }
+  .pyramid-layer.l5 { width: 100%; background: linear-gradient(90deg, #4A9EFF, #7AB8FF); border-radius: 0 0 8px 8px; clip-path: polygon(8% 0, 92% 0, 100% 100%, 0% 100%); }
+  .pyramid-layer .p-label { position: absolute; left: 20px; z-index: 2; white-space: nowrap; }
+  .pyramid-layer .p-tag {
+    position: absolute;
+    right: 20px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.25);
+    z-index: 2;
+    white-space: nowrap;
+  }
+  .pyramid-layer.core .p-tag { background: #fff; color: var(--warn-orange); font-weight: 700; }
+  .pyramid-detail {
+    flex: 1;
+  }
+  .pyramid-detail-item {
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: #F8FAFC;
+    border-left: 3px solid var(--border);
+  }
+  .pyramid-detail-item.core {
+    background: #FFF5F0;
+    border-left-color: var(--warn-orange);
+  }
+  .pyramid-detail-item.entry {
+    background: #EBF3FF;
+    border-left-color: var(--xingtu-blue);
+  }
+  .pyramid-detail-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+  .pyramid-detail-item.core .pyramid-detail-title { color: var(--warn-orange); }
+  .pyramid-detail-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .pyramid-detail-meta strong { color: var(--text-primary); }
+
+  /* ===== Matrix Table ===== */
+  .matrix-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+  }
+  .matrix-table th {
+    background: #F0F4F8;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border);
+    font-size: 12px;
+  }
+  .matrix-table th:first-child { text-align: left; border-radius: 8px 0 0 0; }
+  .matrix-table th:last-child { border-radius: 0 8px 0 0; }
+  .matrix-table td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .matrix-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .matrix-table tr.highlight td {
+    background: #FFF5F0;
+  }
+  .matrix-table tr.highlight td:first-child {
+    color: var(--warn-orange);
+  }
+  .matrix-table tr:last-child td { border-bottom: none; }
+  .score-bar-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .score-bar {
+    width: 60px;
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--xingtu-blue), var(--xingtu-blue-light));
+  }
+  .score-bar-fill.high { background: linear-gradient(90deg, var(--growth-green), #4CAF7D); }
+  .score-bar-fill.warn { background: linear-gradient(90deg, var(--warn-orange), #FF9A6B); }
+  .score-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    min-width: 16px;
+  }
+  .matrix-summary {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #FFF5F0, #FFEBE0);
+    border-radius: 10px;
+    font-size: 13px;
+    color: #B85C2E;
+  }
+  .matrix-summary strong { color: var(--warn-orange); }
+
+  /* ===== Content Gap Cards ===== */
+  .gap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .gap-card {
+    background: #F8FAFC;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    position: relative;
+  }
+  .gap-card:hover {
+    border-color: var(--xingtu-blue);
+    box-shadow: 0 2px 12px rgba(5,109,232,0.1);
+    transform: translateY(-2px);
+  }
+  .gap-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--xingtu-blue), var(--xingtu-blue-light));
+    color: #fff;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .gap-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+  .gap-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: #EBF3FF;
+    color: var(--xingtu-blue);
+    font-weight: 500;
+  }
+
+  /* ===== Pain Point Warning ===== */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .pain-card {
+    background: linear-gradient(135deg, #FFF5F0, #FFEBE0);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--warn-orange);
+    position: relative;
+  }
+  .pain-card.critical {
+    background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+    border-left-color: var(--red);
+  }
+  .pain-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .pain-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--warn-orange);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .pain-card.critical .pain-value { color: var(--red); }
+  .pain-value .unit { font-size: 14px; font-weight: 500; }
+  .pain-desc {
+    font-size: 13px;
+    color: #8B5C3E;
+    line-height: 1.5;
+  }
+  .pain-card.critical .pain-desc { color: #8B3A3A; }
+
+  /* ===== Conclusion ===== */
+  .conclusion {
+    background: linear-gradient(135deg, #056DE8 0%, #4A9EFF 60%, #00D4FF 100%);
+    border-radius: 16px;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .conclusion::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .conclusion-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+  }
+  .conclusion-main {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+  .conclusion-main .highlight {
+    background: rgba(255,255,255,0.2);
+    padding: 2px 10px;
+    border-radius: 6px;
+  }
+  .conclusion-sub {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .conclusion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .conclusion-block h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .conclusion-block h4::before {
+    content: '';
+    width: 4px;
+    height: 16px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 2px;
+  }
+  .ratio-bars {
+    display: flex;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .ratio-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .ratio-seg.c { background: #FF6B35; }
+  .ratio-seg.b { background: #FF8C5A; }
+  .ratio-seg.tool { background: #4A9EFF; }
+  .ratio-seg.view { background: #8B5CF6; }
+  .ratio-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .ratio-legend span::before {
+    content: '■';
+    margin-right: 4px;
+  }
+  .reason-list {
+    list-style: none;
+  }
+  .reason-list li {
+    font-size: 13px;
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 6px;
+    opacity: 0.95;
+  }
+  .reason-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: #00D4FF;
+  }
+
+  /* ===== Footer / Sources ===== */
+  .footer {
+    margin-top: 32px;
+    padding: 28px 32px;
+    background: #1A2332;
+    border-radius: 16px;
+    color: #A8B8CC;
+  }
+  .footer-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-title::before {
+    content: '📊';
+  }
+  .footer-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .source-tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: #C8D4E0;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-note {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #6B7B8F;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 14px;
+  }
+  .footer-note strong { color: #A8B8CC; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .dual-compare { grid-template-columns: 1fr; }
+    .gap-grid { grid-template-columns: repeat(2, 1fr); }
+    .pain-grid { grid-template-columns: repeat(2, 1fr); }
+    .conclusion-grid { grid-template-columns: 1fr; }
+    .pyramid-wrap { flex-direction: column; }
+    .bar-row { grid-template-columns: 80px 1fr 100px; }
+  }
+  @media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: 1fr; }
+    .gap-grid { grid-template-columns: 1fr; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 26px; }
+    .conclusion-main { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="header-inner">
+    <span class="header-tag">行途 · 自媒体复利工程</span>
+    <h1>蓝海市场与受众战略分析看板</h1>
+    <p class="subtitle">AI编程时代的内容机会窗口、可变现人群量化与主方向锁定</p>
+    <div class="header-meta">
+      <span>分析周期：2023 — 2034E</span>
+      <span>核心市场：全球 + 中国</span>
+      <span>输出日期：2026-09-03</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ===== 1. KPI区 ===== -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">全球AI编程市场 2030E</div>
+      <div class="kpi-value">$260<span class="unit">亿</span></div>
+      <div class="kpi-note">CAGR 27.1% · 高速增长赛道</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">开发者AI工具渗透率</div>
+      <div class="kpi-value">90<span class="unit">%</span></div>
+      <div class="kpi-note">但信任度仅 29% · 剪刀差显著</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Vibe Coder 全球规模</div>
+      <div class="kpi-value">1500-3000<span class="unit">万</span></div>
+      <div class="kpi-note">新兴人群 · 工程化能力空白</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">行途核心目标人群（中国）</div>
+      <div class="kpi-value">1300-2100<span class="unit">万</span></div>
+      <div class="kpi-note">有基础技术 + Vibe Coder 合计</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">中国知识付费用户</div>
+      <div class="kpi-value">6.4<span class="unit">亿</span></div>
+      <div class="kpi-note">付费意愿基础雄厚 · 变现土壤肥沃</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">内容缺口</div>
+      <div class="kpi-value">12<span class="unit">个</span></div>
+      <div class="kpi-note">普惠普世选题方向零系统覆盖</div>
+    </div>
+  </div>
+
+  <!-- ===== 2. 市场规模趋势图 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">02</span>全球AI编程市场规模趋势（2023—2034E）</h2>
+      <span class="section-badge">CAGR 27.1%</span>
+    </div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">2023</div>
+        <div class="bar-track"><div class="bar-fill" style="width:8.4%">8.4%</div></div>
+        <div class="bar-value">$39.7亿</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2024</div>
+        <div class="bar-track"><div class="bar-fill" style="width:14.2%">14.2%</div></div>
+        <div class="bar-value">$61-67亿</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2025</div>
+        <div class="bar-track"><div class="bar-fill" style="width:23.3%">23.3%</div></div>
+        <div class="bar-value">企业级 $98-110亿</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2026E（中国）</div>
+        <div class="bar-track"><div class="bar-fill projection" style="width:3.5%">3.5%</div></div>
+        <div class="bar-value">¥11.73亿（+194%）</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2030E</div>
+        <div class="bar-track"><div class="bar-fill projection" style="width:55%">55%</div></div>
+        <div class="bar-value">$260亿</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2034E</div>
+        <div class="bar-track"><div class="bar-fill projection" style="width:100%">100%</div></div>
+        <div class="bar-value">$473亿</div>
+      </div>
+    </div>
+    <div class="bar-chart-note">
+      <strong>关键洞察：</strong>2025年企业级年化已达$98-110亿，中国市场2026年同比暴增194%，AI编程正从"工具试用"进入"企业级规模化采购"阶段。
+    </div>
+  </section>
+
+  <!-- ===== 3. 渗透率vs信任度 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">03</span>渗透率 vs 信任度："用得多、信不过"的剪刀差</h2>
+      <span class="section-badge">核心矛盾</span>
+    </div>
+    <div class="dual-compare">
+      <div class="compare-group penetration">
+        <h3><span class="dot"></span>AI工具渗透率（使用率）</h3>
+        <div class="compare-bar-row">
+          <div class="compare-bar-label"><span>2024</span><span class="pct">76%</span></div>
+          <div class="compare-bar-track"><div class="compare-bar-fill blue" style="width:76%"></div></div>
+        </div>
+        <div class="compare-bar-row">
+          <div class="compare-bar-label"><span>2025</span><span class="pct">84%</span></div>
+          <div class="compare-bar-track"><div class="compare-bar-fill blue" style="width:84%"></div></div>
+        </div>
+        <div class="compare-bar-row">
+          <div class="compare-bar-label"><span>2026</span><span class="pct">90%</span></div>
+          <div class="compare-bar-track"><div class="compare-bar-fill blue" style="width:90%"></div></div>
+        </div>
+      </div>
+      <div class="compare-group trust">
+        <h3><span class="dot"></span>AI输出信任度（可靠性认可）</h3>
+        <div class="compare-bar-row">
+          <div class="compare-bar-label"><span>2024</span><span class="pct">43%</span></div>
+          <div class="compare-bar-track"><div class="compare-bar-fill orange" style="width:43%"></div></div>
+        </div>
+        <div class="compare-bar-row">
+          <div class="compare-bar-label"><span>2025</span><span class="pct">~35%</span></div>
+          <div class="compare-bar-track"><div class="compare-bar-fill orange" style="width:35%"></div></div>
+        </div>
+        <div class="compare-bar-row">
+          <div class="compare-bar-label"><span>2026</span><span class="pct">29%</span></div>
+          <div class="compare-bar-track"><div class="compare-bar-fill orange" style="width:29%"></div></div>
+        </div>
+      </div>
+      <div class="scissor-note">
+        <strong>剪刀差结论：</strong>渗透率从76%→90%（+14pp），信任度却从43%→29%（-14pp）。越多人用AI，越多人发现AI"不靠谱"。<strong>这正是"工程化启蒙"内容的黄金窗口期</strong>——用户需要的不是更多工具教程，而是"怎么让AI产出可信、可用、可维护"的方法论。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 可变现人群漏斗 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">04</span>可变现人群漏斗（8层量化）</h2>
+      <span class="section-badge">从全球到行途</span>
+    </div>
+    <div class="funnel">
+      <div class="funnel-layer l1">
+        <span class="layer-label">L1 全球人口</span>
+        <span class="layer-value">83.1亿</span>
+      </div>
+      <div class="funnel-layer l2">
+        <span class="layer-label">L2 全球互联网用户</span>
+        <span class="layer-value">60.4亿</span>
+        <span class="layer-conv">转化率 72.7%</span>
+      </div>
+      <div class="funnel-layer l3">
+        <span class="layer-label">L3 全球开发者</span>
+        <span class="layer-value">1.8亿（专业3000-4000万）</span>
+        <span class="layer-conv">转化率 3.0%</span>
+      </div>
+      <div class="funnel-layer l4">
+        <span class="layer-label">L4 使用过AI编程工具</span>
+        <span class="layer-value">5000万-1亿</span>
+        <span class="layer-conv">转化率 27.8%-55.6%</span>
+      </div>
+      <div class="funnel-layer l5">
+        <span class="layer-label">L5 Vibe Coder</span>
+        <span class="layer-value">1500-3000万</span>
+        <span class="layer-conv">转化率 30%</span>
+      </div>
+      <div class="funnel-layer l6">
+        <span class="layer-label">L6 中国知识付费用户</span>
+        <span class="layer-value">6.4亿</span>
+        <span class="layer-conv">付费基础盘</span>
+      </div>
+      <div class="funnel-layer l7">
+        <span class="layer-label">L7 公众号科技/AI可触达</span>
+        <span class="layer-value">3000-5000万</span>
+        <span class="layer-conv">触达率 4.7%-7.8%</span>
+      </div>
+      <div class="funnel-layer l8">
+        <span class="layer-label">L8 行途可实际触达付费</span>
+        <span class="layer-value">月15-50人 → 300-800人（1万粉）</span>
+        <span class="layer-conv">当前→目标</span>
+      </div>
+    </div>
+    <div class="funnel-legend">
+      <div class="funnel-legend-item"><span class="swatch" style="background:#056DE8"></span>全球大盘层</div>
+      <div class="funnel-legend-item"><span class="swatch" style="background:#2E8B57"></span>中国付费基础</div>
+      <div class="funnel-legend-item"><span class="swatch" style="background:#8B5CF6"></span>内容平台触达</div>
+      <div class="funnel-legend-item"><span class="swatch" style="background:#FF6B35"></span>行途实际变现</div>
+    </div>
+  </section>
+
+  <!-- ===== 5. 人群分层金字塔 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">05</span>人群分层金字塔（5层 · 目标定位）</h2>
+      <span class="section-badge">核心目标高亮</span>
+    </div>
+    <div class="pyramid-wrap">
+      <div class="pyramid">
+        <div class="pyramid-layer l1">
+          <span class="p-label">L1 资深/专家开发者</span>
+          <span class="p-tag">非目标</span>
+        </div>
+        <div class="pyramid-layer l2">
+          <span class="p-label">L2 普通专业开发者</span>
+          <span class="p-tag">次要目标</span>
+        </div>
+        <div class="pyramid-layer l3 core">
+          <span class="p-label">L3 有基础技术但非资深</span>
+          <span class="p-tag">★ 核心目标</span>
+        </div>
+        <div class="pyramid-layer l4 core">
+          <span class="p-label">L4 Vibe Coder / 非技术出身</span>
+          <span class="p-tag">★ 核心目标</span>
+        </div>
+        <div class="pyramid-layer l5">
+          <span class="p-label">L5 纯小白 / AI编程兴趣者</span>
+          <span class="p-tag">流量入口</span>
+        </div>
+      </div>
+      <div class="pyramid-detail">
+        <div class="pyramid-detail-item">
+          <div class="pyramid-detail-title">L1 资深/专家开发者</div>
+          <div class="pyramid-detail-meta">全球 <strong>500-800万</strong> · 中国 <strong>150-200万</strong><br>已有成熟工程化能力，非行途内容目标人群</div>
+        </div>
+        <div class="pyramid-detail-item">
+          <div class="pyramid-detail-title">L2 普通专业开发者</div>
+          <div class="pyramid-detail-meta">全球 <strong>2500-3000万</strong> · 中国 <strong>700-800万</strong><br>有工程基础但AI转型期，次要目标，可做深度内容</div>
+        </div>
+        <div class="pyramid-detail-item core">
+          <div class="pyramid-detail-title">★ L3 有基础技术但非资深</div>
+          <div class="pyramid-detail-meta">全球 <strong>5000-8000万</strong> · 中国 <strong>1000-1500万</strong><br>懂代码但缺工程化体系，AI时代最焦虑、最愿付费的人群</div>
+        </div>
+        <div class="pyramid-detail-item core">
+          <div class="pyramid-detail-title">★ L4 Vibe Coder / 非技术出身</div>
+          <div class="pyramid-detail-meta">全球 <strong>1500-3000万</strong> · 中国 <strong>300-600万</strong><br>能用AI写代码但完全不懂工程化，蓝海中的蓝海</div>
+        </div>
+        <div class="pyramid-detail-item entry">
+          <div class="pyramid-detail-title">L5 纯小白 / AI编程兴趣者</div>
+          <div class="pyramid-detail-meta">全球 <strong>1-2亿</strong> · 中国 <strong>2000-4000万</strong><br>流量入口层，用普惠科普内容吸引，逐步向上转化</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. 五方向对比矩阵 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">06</span>五方向对比矩阵（6维度评分 · 1-5分）</h2>
+      <span class="section-badge">C方向高亮</span>
+    </div>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>方向</th>
+          <th>市场规模</th>
+          <th>竞争烈度<br><span style="font-weight:400;font-size:10px">（越低越好）</span></th>
+          <th>行途匹配度</th>
+          <th>变现潜力</th>
+          <th>内容可持续性</th>
+          <th>进入壁垒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A 工具教程</td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill warn" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:40%"></div></div><span class="score-num">2</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill warn" style="width:40%"></div></div><span class="score-num">2</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill warn" style="width:20%"></div></div><span class="score-num">1</span></div></td>
+        </tr>
+        <tr>
+          <td>B 工程化实战</td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+        </tr>
+        <tr class="highlight">
+          <td>★ C vibe coder工程化启蒙</td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:20%"></div></div><span class="score-num">1</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+        </tr>
+        <tr>
+          <td>D 一人公司</td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+        </tr>
+        <tr>
+          <td>E AI普惠科普</td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill high" style="width:100%"></div></div><span class="score-num">5</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill warn" style="width:80%"></div></div><span class="score-num">4</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill warn" style="width:40%"></div></div><span class="score-num">2</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div><span class="score-num">3</span></div></td>
+          <td><div class="score-bar-wrap"><div class="score-bar"><div class="score-bar-fill warn" style="width:20%"></div></div><span class="score-num">1</span></div></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="matrix-summary">
+      <strong>矩阵结论：</strong>C方向（vibe coder工程化启蒙）在市场规模(5)、竞争烈度(1=最低)、行途匹配度(5)、变现潜力(5)四项均为最优，综合得分 <strong>24/30</strong>，是唯一"高市场+低竞争+高匹配"的黄金交叉点。B方向（工程化实战）综合得分 <strong>26/30</strong>，作为深度支撑层。
+    </div>
+  </section>
+
+  <!-- ===== 7. 12个内容缺口选题 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">07</span>12个内容缺口选题（零系统覆盖 · 普惠普世）</h2>
+      <span class="section-badge">蓝海选题库</span>
+    </div>
+    <div class="gap-grid">
+      <div class="gap-card">
+        <div class="gap-num">01</div>
+        <div class="gap-title">AI写的代码怎么验收？非技术出身者的代码审查清单</div>
+        <span class="gap-tag">质量验收</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">02</div>
+        <div class="gap-title">从"能跑"到"能用"：AI项目的7个质量关卡</div>
+        <span class="gap-tag">工程化</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">03</div>
+        <div class="gap-title">上下文管理术：怎么让AI不"失忆"、项目不"死亡螺旋"</div>
+        <span class="gap-tag">上下文</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">04</div>
+        <div class="gap-title">一个人+AI的项目管理法：没有团队怎么做工程化</div>
+        <span class="gap-tag">一人公司</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">05</div>
+        <div class="gap-title">AI生成代码的安全避坑指南</div>
+        <span class="gap-tag">安全</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">06</div>
+        <div class="gap-title">技术债是什么？为什么你的AI项目越改越乱</div>
+        <span class="gap-tag">技术债</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">07</div>
+        <div class="gap-title">Prompt不是全部：需求拆解才是AI编程的核心能力</div>
+        <span class="gap-tag">需求拆解</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">08</div>
+        <div class="gap-title">AI项目的"70%墙"：为什么做到一大半就卡住了</div>
+        <span class="gap-tag">项目瓶颈</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">09</div>
+        <div class="gap-title">不会写测试？让AI帮你写测试的正确姿势</div>
+        <span class="gap-tag">测试</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">10</div>
+        <div class="gap-title">从玩具到生产力：AI项目的部署、运维与监控入门</div>
+        <span class="gap-tag">部署运维</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">11</div>
+        <div class="gap-title">AI编程中的"能力幻觉"：怎么判断自己是真会了</div>
+        <span class="gap-tag">认知升级</span>
+      </div>
+      <div class="gap-card">
+        <div class="gap-num">12</div>
+        <div class="gap-title">一人公司的技术选型：什么该自己做、什么该用AI、什么该买SaaS</div>
+        <span class="gap-tag">技术选型</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. 核心痛点数据 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span class="num">08</span>核心痛点数据（AI代码质量警示区）</h2>
+      <span class="section-badge" style="background:#FFF0EB;color:#FF6B35">痛点即机会</span>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card critical">
+        <div class="pain-icon">🔥</div>
+        <div class="pain-value">44<span class="unit">%</span></div>
+        <div class="pain-desc">AI Token消耗用于修复AI自己生成的错误——近一半算力在"改错"而非"创造"</div>
+      </div>
+      <div class="pain-card critical">
+        <div class="pain-icon">⚠️</div>
+        <div class="pain-value">8<span class="unit">倍</span></div>
+        <div class="pain-desc">AI生成代码千行缺陷率是人工的8倍——"能跑"不等于"能上线"</div>
+      </div>
+      <div class="pain-card critical">
+        <div class="pain-icon">🔓</div>
+        <div class="pain-value">2.74<span class="unit">倍</span></div>
+        <div class="pain-desc">AI生成代码安全漏洞是人工的2.74倍——安全是AI编程的隐形地雷</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🐌</div>
+        <div class="pain-value">45<span class="unit">%</span></div>
+        <div class="pain-desc">的人觉得调试AI代码比自己写还慢——"AI提速"在调试阶段可能反向</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🏢</div>
+        <div class="pain-value">16/18</div>
+        <div class="pain-desc">个CTO经历过AI代码导致的生产事故——企业级信任危机正在蔓延</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔑</div>
+        <div class="pain-value">27<span class="unit">%</span></div>
+        <div class="pain-desc">的泄露密钥来自AI生成代码——AI正在成为数据泄露的新通道</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. 主方向推荐 ===== -->
+  <section class="conclusion" style="margin-top:24px">
+    <div class="conclusion-label">★ 战略结论</div>
+    <div class="conclusion-main">
+      主方向 = <span class="highlight">C（vibe coder工程化启蒙）</span> + <span class="highlight">B（AI工程化实战）</span> 组合
+    </div>
+    <div class="conclusion-sub">以C为差异化锚点，以B为深度支撑——做"没人讲的工程化"，不做"人人都在讲的工具教程"</div>
+    <div class="conclusion-grid">
+      <div class="conclusion-block">
+        <h4>内容占比规划</h4>
+        <div class="ratio-bars">
+          <div class="ratio-seg c" style="width:30%">C 30%</div>
+          <div class="ratio-seg b" style="width:30%">B 30%</div>
+          <div class="ratio-seg tool" style="width:20%">工具 20%</div>
+          <div class="ratio-seg view" style="width:20%">观点 20%</div>
+        </div>
+        <div class="ratio-legend">
+          <span style="color:#FF6B35">C vibe coder启蒙</span>
+          <span style="color:#FF8C5A">B 工程化实战</span>
+          <span style="color:#4A9EFF">工具教程</span>
+          <span style="color:#A78BFA">观点/一人公司</span>
+        </div>
+      </div>
+      <div class="conclusion-block">
+        <h4>7条推荐理由</h4>
+        <ul class="reason-list">
+          <li>C方向是唯一"高市场+低竞争+高匹配"的黄金交叉点（综合24/30）</li>
+          <li>渗透率90% vs 信任度29%的剪刀差，催生"工程化启蒙"刚性需求</li>
+          <li>Vibe Coder人群1500-3000万且高速增长，但工程化内容零系统覆盖</li>
+          <li>行途"技术经理+非科班"背景与C方向人群高度共情，信任成本低</li>
+          <li>B方向（工程化实战）变现潜力5/5、可持续性5/5，是深度付费产品基石</li>
+          <li>12个普惠选题已验证内容缺口，可立即启动、无需等待市场教育</li>
+          <li>C+B组合形成"引流→信任→深度付费"完整闭环，客单价逐层提升</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. 数据来源脚注 ===== -->
+  <footer class="footer">
+    <div class="footer-title">数据来源与可信度说明</div>
+    <div class="footer-sources">
+      <span class="source-tag">GitHub Octoverse</span>
+      <span class="source-tag">Stack Overflow Developer Survey</span>
+      <span class="source-tag">JetBrains Developer Ecosystem</span>
+      <span class="source-tag">IDC</span>
+      <span class="source-tag">Gartner</span>
+      <span class="source-tag">Grand View Research</span>
+      <span class="source-tag">艾媒咨询</span>
+      <span class="source-tag">Reddit r/LocalLLaMA</span>
+      <span class="source-tag">arXiv</span>
+      <span class="source-tag">Snyk</span>
+      <span class="source-tag">GitGuardian</span>
+      <span class="source-tag">麦肯锡</span>
+      <span class="source-tag">BCG</span>
+    </div>
+    <div class="footer-note">
+      <strong>可信度分级：</strong>市场规模数据（$260亿/CAGR 27.1%）来自 Grand View Research / IDC 等机构报告，可信度较高；渗透率与信任度数据来自 Stack Overflow / JetBrains 年度调研，样本量充足；Vibe Coder人群规模为基于多源交叉估算的区间值，属推断性数据；痛点数据（缺陷率8倍/漏洞2.74倍）来自 Snyk / GitGuardian 安全报告，可信度较高。<br>
+      <strong>免责声明：</strong>本看板为行途自媒体内容战略内部分析使用，所有数据均标注来源，区间值表示估算范围，不构成投资建议。部分2025-2034年数据为预测值（E），实际结果可能存在偏差。
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
