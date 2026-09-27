@@ -1,0 +1,30 @@
+{
+  "default": { "name": "<真名>", "email": "<邮箱>@co-mall.com" },
+  "rules": [
+    {
+      "match": ["crv", "crv-local", "crvapp", "crvole", "vgdt", "crv-"],
+      "name": "<真名>",
+      "email": "<邮箱>@crv.com.cn",
+      "note": "前司 CRV 项目，保持前司邮箱，勿伪装现雇主"
+    },
+    {
+      "match": ["open"],
+      "name": "行途 XingTu",
+      "email": "274853659+xingtu1996@users.noreply.github.com",
+      "skip": true,
+      "note": "网络下载开源玩具，保留品牌身份，不钉公司邮箱"
+    },
+    {
+      "match": [
+        "xingtu1996", "xingtu-github-io", "xingtu-vault", "xingtu-site", "xingtu-skills",
+        "xingtu-cli", "xingtu-articles", "xingtu-video", "xingtu-book", "xingtu-hooks",
+        "xingtu-mcps", "xingtu-prompts", "xingtu-rules", "xingtu-sdd", "xingtu-tools",
+        "xingtu-harness", "xingtu-ai-engineering", "dsh-xingtu-skills", "harness-kit",
+        "tokenhub-bench-restore"
+      ],
+      "name": "行途 XingTu",
+      "email": "274853659+xingtu1996@users.noreply.github.com",
+      "note": "xingtu 品牌空间，唯一例外用品牌身份"
+    }
+  ]
+}

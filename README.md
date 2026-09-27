@@ -2,13 +2,13 @@
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-41-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-50-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 41 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉等场景。
+**已收录 50 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -26,7 +26,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（41）
+## 🧠 Skills 清单（50）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -36,7 +36,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
 
-### 工具链 · 工程化实战（9 · 🆕 2026-09-27 新增）
+### 工具链 · 工程化实战（18 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |
 |-------|------|
 | git-push-in-sandbox | 沙箱内 `git push` 失败（502 CONNECT tunnel / ssh 超时）的诊断与绕行：`gh api` 通而 push 不通时的四条通道选型 |
@@ -48,6 +48,15 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | repo-rename-desensitize | 项目/仓库全库更名 + 真名脱敏一体式 SOP：影响面盘点→批量替换→分类脱敏→历史暴露面核查→产物重打包 |
 | sqlcipher-offline-verify | 离线验证 SQLCipher 4 数据库密钥（HMAC-SHA512 页校验筛真密钥），仅密码学校验，不涉及逆向/注入 |
 | xingtu-collab-evolution-loop | AI 协作偏好自我进化闭环：调研取证→复盘归因→沉淀 SSoT→反哺约束 四环工作流 + 四不防错自检 |
+| git-identity-pin | 跨仓 Git 身份钉定：审计/钉定/干跑三模式，把非 skip 仓统一成全局默认提交身份（示例映射，无真实信息） |
+| github-repo-gallery | 把 GitHub 仓库清单生成可检索画廊/索引：分类、语言、描述归档，便于复看与分享 |
+| hidden-contract-audit | 隐藏契约审计：扫描代码/配置里未声明的行为（隐藏副作用、越权调用），输出红旗清单 |
+| ip-platform-fit-audit | IP 平台适配审计：评估内容/项目与发布平台的契合度，给出适配建议 |
+| svgtopng-cn-fonts | SVG→PNG 中文渲染：本地 cairosvg 管线 + 中文字体嵌入，零水印矢量转位图 |
+| xingtu-oss-guard | 开源矩阵健康度巡检：隐私复扫/未推送/文章闭环/skills 同步/harness 跟进/门面一致性 六维自动化防线 |
+| xingtu-role-audit | 角色审计：检查 AI 协作中的角色定义是否与项目实际职责对齐 |
+| xingtu-rule-keeper | 规则守护：比对 rules/ 与 skill 引用，发现漂移/断链/过期条目 |
+| zcode-session-export | ZCode 会话导出：把本地 AI 会话整理成可归档/可分享的结构化文档 |
 
 ### 交付质量 · 通用（2）
 | Skill | 说明 |

@@ -214,6 +214,16 @@
       ]
     },
     {
+      "name": "git-identity-pin",
+      "description": "Cross-repo Git identity pinning: audit/pin/dry-run modes to unify commit identity across non-skip repos (example map, no real info).",
+      "path": "skills/git-identity-pin/SKILL.md",
+      "tags": [
+        "git",
+        "ops",
+        "skill"
+      ]
+    },
+    {
       "name": "git-push-in-sandbox",
       "description": "Diagnose and work around `git push` failures inside sandboxed shells (502 CONNECT tunnel failed, ssh timeout) when `gh api` works fine. Trigger words: push failed, 502 CONNECT tunnel, push timeout, sandboxed network.",
       "path": "skills/git-push-in-sandbox/SKILL.md",
@@ -225,12 +235,42 @@
       ]
     },
     {
+      "name": "github-repo-gallery",
+      "description": "Turn a GitHub repo list into a searchable gallery/index: category, language, description archive.",
+      "path": "skills/github-repo-gallery/SKILL.md",
+      "tags": [
+        "github",
+        "catalog",
+        "skill"
+      ]
+    },
+    {
+      "name": "hidden-contract-audit",
+      "description": "Hidden-contract audit: scan code/config for undeclared behavior (hidden side effects, privilege creep), output a red-flag list.",
+      "path": "skills/hidden-contract-audit/SKILL.md",
+      "tags": [
+        "security",
+        "audit",
+        "skill"
+      ]
+    },
+    {
       "name": "investigate-first",
       "description": "Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or investigations needing evidence-ranked hypotheses.",
       "path": "skills/investigate-first/SKILL.md",
       "tags": [
         "claude-code",
         "ai-agent",
+        "skill"
+      ]
+    },
+    {
+      "name": "ip-platform-fit-audit",
+      "description": "IP-platform fit audit: evaluate how well content/projects fit publishing platforms, give adaptation advice.",
+      "path": "skills/ip-platform-fit-audit/SKILL.md",
+      "tags": [
+        "audit",
+        "content",
         "skill"
       ]
     },
@@ -379,6 +419,16 @@
       ]
     },
     {
+      "name": "svgtopng-cn-fonts",
+      "description": "SVG to PNG with Chinese fonts: local cairosvg pipeline + CJK font embedding, watermark-free vector-to-bitmap.",
+      "path": "skills/svgtopng-cn-fonts/SKILL.md",
+      "tags": [
+        "visual",
+        "convert",
+        "skill"
+      ]
+    },
+    {
       "name": "verify-and-stop",
       "description": "Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof.",
       "path": "skills/verify-and-stop/SKILL.md",
@@ -410,6 +460,37 @@
       ]
     },
     {
+      "name": "xingtu-oss-guard",
+      "description": "OSS matrix health guard: privacy re-scan / unpushed / article closure / skills sync / harness follow-up / facade six-dimension auto defense.",
+      "path": "skills/xingtu-oss-guard/SKILL.md",
+      "tags": [
+        "opensource",
+        "automation",
+        "privacy",
+        "skill"
+      ]
+    },
+    {
+      "name": "xingtu-role-audit",
+      "description": "Role audit: check whether AI collaboration role definitions align with the project's actual responsibilities.",
+      "path": "skills/xingtu-role-audit/SKILL.md",
+      "tags": [
+        "audit",
+        "ai-collaboration",
+        "skill"
+      ]
+    },
+    {
+      "name": "xingtu-rule-keeper",
+      "description": "Rule keeper: diff rules/ against skill references, surface drift/broken-links/stale entries.",
+      "path": "skills/xingtu-rule-keeper/SKILL.md",
+      "tags": [
+        "governance",
+        "rules",
+        "skill"
+      ]
+    },
+    {
       "name": "xingtu-token-saver",
       "description": "Audit a workspace's token-saving maturity across eight layers (requirement/retrieval/protocol/input-compression/prose/generation/prompt/config) and emit an HTML/JSON report with patch suggestions. Diagnose only, never mutates user settings.",
       "path": "skills/xingtu-token-saver/SKILL.md",
@@ -417,6 +498,16 @@
         "token",
         "cost",
         "audit",
+        "skill"
+      ]
+    },
+    {
+      "name": "zcode-session-export",
+      "description": "ZCode session export: tidy local AI sessions into archivable/shareable structured docs.",
+      "path": "skills/zcode-session-export/SKILL.md",
+      "tags": [
+        "export",
+        "session",
         "skill"
       ]
     },
