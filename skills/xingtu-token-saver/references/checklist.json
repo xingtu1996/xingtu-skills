@@ -1,0 +1,80 @@
+{
+  "skill": "xingtu-token-saver",
+  "version": "0.1.0",
+  "updated": "2026-09-06",
+  "layers": [
+    {
+      "id": "L1",
+      "name": "需求层",
+      "checks": [
+        {"key": "specs_dir", "desc": "specs/ 目录存在", "type": "dir_exists", "target": "specs"},
+        {"key": "rules_file", "desc": "rules/RULES.md 等编号护栏存在", "type": "dir_or_file_exists", "target": "rules"},
+        {"key": "agents_md", "desc": "AGENTS.md / CLAUDE.md 入口指引存在", "type": "any_file_exists", "targets": ["AGENTS.md", "CLAUDE.md", ".claude/CLAUDE.md"]}
+      ]
+    },
+    {
+      "id": "L2",
+      "name": "检索层",
+      "checks": [
+        {"key": "cbm_hook", "desc": "CBM hook（~/.claude/hooks/cbm-*）已挂", "type": "settings_contains", "target": "~/.claude/settings.json", "pattern": "cbm"},
+        {"key": "no_blind_grep_note", "desc": "工作空间有检索规范（CBM/CodeGraph 提及）", "type": "grep_any", "targets": ["AGENTS.md", "CLAUDE.md", "HARNESS.md", ".workbuddy/memory/MEMORY.md"], "pattern": "CBM|CodeGraph|codebase-memory|检索"}
+      ]
+    },
+    {
+      "id": "L3",
+      "name": "协议层",
+      "checks": [
+        {"key": "rtk_hook", "desc": "rtk 输出压缩 hook 已挂", "type": "settings_contains", "target": "~/.claude/settings.json", "pattern": "rtk"}
+      ]
+    },
+    {
+      "id": "L4",
+      "name": "输入压缩层",
+      "checks": [
+        {"key": "memory_layered", "desc": "分层记忆（MEMORY.md / memory/）代替整库粘贴", "type": "any_file_exists", "targets": [".workbuddy/memory", "memory", "CLAUDE-memory.md"]},
+        {"key": "index_docs", "desc": "有索引类文档（索引/INDEX/DIRECTORY）", "type": "glob_any", "targets": ["*索引*.md", "*INDEX*.md", "DIRECTORY.md", "产出索引.md"]}
+      ]
+    },
+    {
+      "id": "L5",
+      "name": "散文层",
+      "checks": [
+        {"key": "output_style", "desc": "outputStyle = Concise（非 default）", "type": "settings_contains", "target": "~/.claude/settings.json", "pattern": "\"outputStyle\": \"Concise\""},
+        {"key": "caveman_installed", "desc": "caveman 类精简 skill 已装", "type": "any_file_exists", "targets": ["~/.workbuddy/skills/caveman", ".agents/skills/caveman"]}
+      ]
+    },
+    {
+      "id": "L6",
+      "name": "生成层",
+      "checks": [
+        {"key": "ponytail_installed", "desc": "ponytail（YAGNI）skill 已装", "type": "any_file_exists", "targets": ["~/.workbuddy/skills/ponytail", ".agents/skills/ponytail"]},
+        {"key": "ponytail_reminder", "desc": "ponytail reminder hook 已挂", "type": "settings_contains", "target": "~/.claude/settings.json", "pattern": "ponytail"}
+      ]
+    },
+    {
+      "id": "L7",
+      "name": "prompt层",
+      "checks": [
+        {"key": "soul_exists", "desc": "SOUL.md / 身份文件存在", "type": "any_file_exists", "targets": ["~/.workbuddy/SOUL.md", ".workbuddy/SOUL.md"]},
+        {"key": "soul_economy", "desc": "身份文件含省 token 三段论关键词（反例/自问/简短）", "type": "grep_any", "targets": ["~/.workbuddy/SOUL.md", ".workbuddy/SOUL.md"], "pattern": "自问|反例|简短|省 token|省token"},
+        {"key": "agents_rules", "desc": "入口指引含工作铁律/规则", "type": "grep_any", "targets": ["AGENTS.md", "CLAUDE.md", ".claude/CLAUDE.md"], "pattern": "铁律|规则|红线"}
+      ]
+    },
+    {
+      "id": "L8",
+      "name": "config层",
+      "checks": [
+        {"key": "auto_compact_set", "desc": "AUTO_COMPACT_WINDOW 已显式设置", "type": "settings_contains", "target": "~/.claude/settings.json", "pattern": "AUTO_COMPACT_WINDOW"},
+        {"key": "model_routing", "desc": "模型路由显式固定（缓存友好）", "type": "settings_contains", "target": "~/.claude/settings.json", "pattern": "ANTHROPIC_MODEL|\"model\""}
+      ]
+    }
+  ],
+  "score_rule": {"per_layer_max": 100, "pass": 100, "partial": 50, "fail": 0},
+  "thresholds": {"healthy": 80, "patchable": 60},
+  "red_lines": [
+    "只诊断不修改用户配置（SAF-006 衍生）",
+    "不发明新命令，只用 /clear /compact /model 原生命令",
+    "opt-in 手动触发，不挂自动 hook",
+    "金额类结论必须标注来源与实测日期（BUL-003）"
+  ]
+}

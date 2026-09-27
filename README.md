@@ -2,13 +2,13 @@
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-32-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-37-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-4-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 30 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁等场景。
+**已收录 37 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -26,7 +26,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（30）
+## 🧠 Skills 清单（37）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -35,6 +35,21 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | adversarial-review | 行途自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
+
+### 工具链 · 工程化实战（5 · 🆕 2026-09-27 新增）
+| Skill | 说明 |
+|-------|------|
+| git-push-in-sandbox | 沙箱内 `git push` 失败（502 CONNECT tunnel / ssh 超时）的诊断与绕行：`gh api` 通而 push 不通时的四条通道选型 |
+| python-cli-to-macos-app | Python/CLI → 零依赖 macOS `.app`：体积账算法 + 三条生死线检测（relocate / `otool -L` / 静态二进制）+ launcher 设计 |
+| zero-cost-visuals-iconify | 零成本画面层：Iconify 20 万+ 开源图标按关键词取图 + 品牌色上色 + 离线缓存；含受控词表前置的核心教训 |
+| xingtu-token-saver | 省 Token 成熟度八层诊断（需求/检索/协议/输入压缩/散文/生成/prompt/config），只诊断不改配置 |
+| skill-vetter | 安装前安全审查：装任何社区/第三方 skill 之前先查红旗、权限范围与可疑模式 |
+
+### 交付质量 · 通用（2）
+| Skill | 说明 |
+|-------|------|
+| discernment-nudge | 交付后追加核验追问，防盲从 |
+| writing-guidelines | 单篇文风与写作规范审查 |
 
 ### Caveman 系列 · token 压缩与工作流（14）
 | Skill | 说明 |
@@ -76,7 +91,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：30 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：37 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
