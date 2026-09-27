@@ -846,6 +846,54 @@
         "content-engineering",
         "wechat"
       ]
+    },
+    {
+      "name": "evolve-skills",
+      "description": ">- 技能建议 / 技能体检 / 要不要做成技能 / 这个该沉淀成技能吗 / 技能该升级了 / 技能老化了 / 技能没人用 / 技能触发不了 / 技能该淘汰 / 库太肥了要淘 / skill hygiene / skill evolution —— 在干活的过程中主动产出**技能建议**：① 建议*",
+      "path": "skills/evolve-skills/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "harness-governance",
+      "description": "对 harness 常驻配置层做减法治理闭环：审计→报告→人审→执行→回归。标尺：常驻<窗口5%、入口<200行、单文件<16KB；五分类 KEEP/SIMPLIFY/MOVE/DELETE/CONFLICT；只移不删、人审不可跳过。触发词：harness 治理/瘦身/审计/配置减法/上下文超标/s",
+      "path": "skills/harness-governance/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "cross-repo-skill-curation",
+      "description": "跨仓技能策展蒸馏 playbook。当用户让另一个仓/项目的 .claude（skills/agents/hooks/CLAUDE.md/settings）里\"有什么值得蒸馏/借鉴/搬过来\"，或要把某仓成熟资产收进技能池时使用。流程：只读侦察 → 四分类分级（GENERIC-KEEP / SKIP-",
+      "path": "skills/cross-repo-skill-curation/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "egress-allowlist",
+      "description": "给环境做外网放通清单（白名单域名）——适用于\"给客户做外网放通清单\"\"这个环境要放通哪些域名\"\"外网访问需求\"\"白名单怎么列\"\"依赖库下载源有哪些\"。核心是查清每个服务的真实下载域名（含 CDN），避免只列主域名导致\"能查询、不能下载\"。",
+      "path": "skills/egress-allowlist/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
     }
   ]
 }

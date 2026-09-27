@@ -2,13 +2,13 @@
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-78-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-82-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 78 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 82 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -26,7 +26,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（78）
+## 🧠 Skills 清单（82）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -35,6 +35,14 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | adversarial-review | 行途自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
 | codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
+
+### 技能治理（4 · 🆕 2026-09-27 第四批）
+| Skill | 说明 |
+|-------|------|
+| evolve-skills | >- 技能建议 / 技能体检 / 要不要做成技能 / 这个该沉淀成技能吗 / 技能该升级了 / 技能老化了 / 技能没人用 / 技能触发不了 / 技能该淘汰 / 库太肥了要淘 / skill hygiene / skill evolution —— 在干活的过程中主动产出**技能建议**：① 建议* |
+| harness-governance | 对 harness 常驻配置层做减法治理闭环：审计→报告→人审→执行→回归。标尺：常驻<窗口5%、入口<200行、单文件<16KB；五分类 KEEP/SIMPLIFY/MOVE/DELETE/CONFLICT；只移不删、人审不可跳过。触发词：harness 治理/瘦身/审计/配置减法/上下文超标/s |
+| cross-repo-skill-curation | 跨仓技能策展蒸馏 playbook。当用户让另一个仓/项目的 .claude（skills/agents/hooks/CLAUDE.md/settings）里"有什么值得蒸馏/借鉴/搬过来"，或要把某仓成熟资产收进技能池时使用。流程：只读侦察 → 四分类分级（GENERIC-KEEP / SKIP- |
+| egress-allowlist | 给环境做外网放通清单（白名单域名）——适用于"给客户做外网放通清单""这个环境要放通哪些域名""外网访问需求""白名单怎么列""依赖库下载源有哪些"。核心是查清每个服务的真实下载域名（含 CDN），避免只列主域名导致"能查询、不能下载"。 |
 
 ### 内容工程 · 发布运营（28 · 🆕 2026-09-27 第三批 +27，含首批范式 wechat-draft-api）
 | Skill | 说明 |
