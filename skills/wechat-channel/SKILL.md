@@ -23,15 +23,15 @@ $PY $WC search "<PROJECT>" --top 10   # 搜项目关键词
 # 1) 枚举所有会话（拿到 wxid + 消息数 + 最近时间）
 $PY $WC list
 
-# 2) 读取指定会话（wxid 或自定义微信号，如 elzev80 / zhang1065473396）
-$PY $WC read wxid_wi_1d142z0zdj03
-$PY $WC read elzev80 --limit 50
+# 2) 读取指定会话（wxid 或自定义微信号，如 custom_id_example1 / custom_id_example2）
+$PY $WC read wxid_xxxxxxxxxxxx
+$PY $WC read custom_id_example1 --limit 50
 
 # 3) 萃取完整原稿（Markdown + CSV + JSON）
-$PY $WC extract elzev80 -o ~/xingtu/outputs/wechat_channel
+$PY $WC extract custom_id_example1 -o ~/xingtu/outputs/wechat_channel
 
 # 4) AI 蒸馏（分支总结 → 主题/金句提炼）
-$PY $WC distill wxid_wi_1d142z0zdj03 --model deepseek-v4-pro
+$PY $WC distill wxid_xxxxxxxxxxxx --model deepseek-v4-pro
 
 # 5) 获取：元宝分享全文增量抓取 + 归档入库（水位线驱动）
 $PY $WC fetch
@@ -51,12 +51,12 @@ $PY $WC decrypt
 - `search <关键词1> [关键词2 ...] [--top N]`，多关键词为 OR 逻辑。
 - 跨所有消息表搜索（自动 zstd 解压），返回命中的会话：`命中数 / 最近消息 / wxid / 单聊or群 / 命中样例`。
 - **典型场景**：用户只给备注名（"某同事别名"）、群名（"AI Work"）、或某句话，不知道 wxid 时，先用 search 定位，再用 read/extract/distill 操作。
-- **样例即证据**：输出包含命中的消息片段，可直接确认身份（如群消息里 `elzev80: 项目：某同事(广州)` 即证明 elzev80 是某同事）。
+- **样例即证据**：输出包含命中的消息片段，可直接确认身份（如群消息里 `custom_id_example1: 项目：某同事(广州)` 即证明 custom_id_example1 是某同事）。
 - 搜索遍历全库，耗时约 30-60 秒；命中为 0 时换关键词或先 `decrypt` 更新库。
 
 ### read — 读取
 - `read <wxid> [--since YYYY-MM-DD] [--limit N] [-o <输出根>]`
-- `<wxid>` 支持三种格式：`wxid_xxx`（系统ID）、自定义微信号（如 `elzev80`、`zhang1065473396`）、`xxx@chatroom`（群）。自定义微信号会先试读消息表确认，有消息即视为有效。
+- `<wxid>` 支持三种格式：`wxid_xxx`（系统ID）、自定义微信号（如 `custom_id_example1`、`custom_id_example2`）、`xxx@chatroom`（群）。自定义微信号会先试读消息表确认，有消息即视为有效。
 - 导出 Markdown + CSV（`outputs/wechat_channel/<wxid>/read_<时间戳>/`）。
 - `--limit N` 取最近 N 条；`--since` 从指定日期起。
 
@@ -85,7 +85,7 @@ $PY $WC decrypt
 
 1. 用户给名字/群名/关键词 → `search <关键词>` 反查，从命中样例确认身份和 wxid。
 2. 用户直接给 wxid → 跳过 search，直接 `read/extract/distill <wxid>`。
-3. wxid 三种格式都支持：`wxid_xxx`（系统ID）、自定义微信号（`elzev80` 等）、`xxx@chatroom`（群）。
+3. wxid 三种格式都支持：`wxid_xxx`（系统ID）、自定义微信号（`custom_id_example1` 等）、`xxx@chatroom`（群）。
 4. 若 search 无命中：换同义词/简称（如"某同事别名"也可搜"另一别名""<PROJECT> PM"）；或确认消息是否在解密库时间范围内（见数据新鲜度自检）。
 5. 当前解密库缺 `contact.db`（密钥未覆盖），无法直接"昵称→wxid"查表；search 是不依赖 contact.db 的可靠替代方案。
 
@@ -99,7 +99,7 @@ $PY $WC decrypt
 | "张硕那边项目有啥进展" / "张硕最新项目动向" | `search 张硕` → `read <wxid> --limit 100` → 按项目/时间线提炼进展 |
 | "AI Work 群今天聊了啥" / "群聊总结" | `search "AI Work"` → `read <wxid> --since 今天` → 按话题聚类总结 |
 | "把我和郭总的聊天全部导出" | `search 郭总` → `extract <wxid> -o <目录>` → 告知产物路径 |
-| "蒸馏一下元宝的对话" / "提炼金句" | `distill wxid_wi_1d142z0zdj03` → 按 distill-standards 分级落素材库 |
+| "蒸馏一下元宝的对话" / "提炼金句" | `distill wxid_xxxxxxxxxxxx` → 按 distill-standards 分级落素材库 |
 | "微信里搜一下<PROJECT>相关的" | `search <PROJECT> --top 10` → 列出命中会话，等用户指定再深入 |
 | "有谁找我" / "未读消息摘要" | `list --top 20` → 按最近消息时间排序，标注需要回复的会话 |
 

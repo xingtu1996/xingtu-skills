@@ -26,7 +26,7 @@ wechat_channel.py — 微信通道统一 CLI（行途 · 跨 Agent 复用）
   python wechat_channel.py search <COLLEAGUE> <PROJECT>          # 多关键词 OR 搜索，反查 wxid
   python wechat_channel.py search "AI Work" --top 5  # 搜群聊
   python wechat_channel.py read wxid_xxxx
-  python wechat_channel.py extract elzev80 -o ~/xingtu/outputs/wechat_channel
+  python wechat_channel.py extract custom_id_example1 -o ~/xingtu/outputs/wechat_channel
   python wechat_channel.py distill wxid_xxxx --model deepseek-v4-pro
   python wechat_channel.py fetch
   python wechat_channel.py decrypt
@@ -331,7 +331,7 @@ def cmd_search(args):
 
 
 def _need_wxid(dbdir, session):
-    """传入 wxid 直接用；自定义微信号（elzev80 等）先试读消息表确认；传入名字则尽力从 FTS 提示。"""
+    """传入 wxid 直接用；自定义微信号（custom_id_example1 等）先试读消息表确认；传入名字则尽力从 FTS 提示。"""
     if session.startswith("wxid_") or "@" in session:
         return session
     # 自定义微信号（不以 wxid_ 开头、不含 @）：先试读，有消息即视为有效 wxid

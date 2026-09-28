@@ -27,7 +27,7 @@
 > 2. **FTS search_key 正则提取**（尽力而为）：`contact_fts.db` 的 search_key 拼接了备注名+微信号+地区，可提取部分映射，但格式不统一、非全覆盖。
 > 补解密 `contact.db` 后可获得完整映射。
 > **微信 4.x 表结构**：消息表为按会话 hash 命名的 `Msg_<hash>`，同一会话可跨多个 message 库（如元宝在 message_0 与 message_5），读取/统计须跨库累加。
-> **自定义微信号**：部分联系人的 user_name 不是 `wxid_` 开头而是自定义 ID（如 `elzev80`、`zhang1065473396`），CLI 会先试读消息表确认，有消息即视为有效 wxid。
+> **自定义微信号**：部分联系人的 user_name 不是 `wxid_` 开头而是自定义 ID（如 `custom_id_example1`、`custom_id_example2`），CLI 会先试读消息表确认，有消息即视为有效 wxid。
 
 ## 二、工具脚本（行途既有，复用不重写）
 
@@ -37,7 +37,7 @@
 | 会话消息解析（zstd+appmsg） | `tools/wechat_chat_analyzer/yuanbao_full_extract.py` | `extract(wxid, dbdir)`，返回结构化消息 |
 | AI 蒸馏总结 | `tools/wechat_chat_analyzer/wechat_summary.py` | `--input <csv/json> -o <out>`（MD 解析格式不同，走 CSV 最稳） |
 | 元宝增量抓取管道 | `tools/wechat_chat_analyzer/run_pipeline.sh` | `bash run_pipeline.sh`（解密→提取→增量抓取→归档） |
-| 元宝卡片提取 | `tools/wechat_chat_analyzer/yuanbao_full_extract.py` | `--dbdir <解密库> --wxid wxid_wi_1d142z0zdj03 -o outputs/yuanbao_inventory` |
+| 元宝卡片提取 | `tools/wechat_chat_analyzer/yuanbao_full_extract.py` | `--dbdir <解密库> --wxid wxid_xxxxxxxxxxxx -o outputs/yuanbao_inventory` |
 | 元宝增量抓取 | `tools/yuanbao_incremental_fetch.py` | 水位线驱动，产物按日归档 |
 | 元宝归档入库 | `tools/wechat_chat_analyzer/ingest_yuanbao_archive.py` | `ingest_yuanbao_archive.py yuanbao` |
 
