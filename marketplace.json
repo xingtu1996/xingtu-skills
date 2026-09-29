@@ -966,6 +966,30 @@
         "wechat",
         "publishing"
       ]
+    },
+    {
+      "name": "brand-icon-sourcing",
+      "description": "Source and verify real official brand icons/logos for covers, illustrations, and publish packages. Primary channel is the iTunes Search API (term+country=cn, 512px artworkUrl); ImageSearch only yields article illustrations, never clean logos. Use when the user asks for a product's official logo/icon, brand icons for a cover, or verifying which icon belongs to which product.",
+      "path": "skills/brand-icon-sourcing/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "publishing",
+        "methodology"
+      ]
+    },
+    {
+      "name": "spec-driven-adversarial-workflow",
+      "description": "> 复杂/多维/强耦合任务的「侦察→Spec→红队对抗→修订收口→留痕→执行委派与磁盘核对验收」六阶段标准流程（工作区无关方法论）。 先派侦察子代理摸工作区事实地基（既有引擎/字段/台账/命名惯例/红线，修正口头假设），再按工作区惯例建 spec（00 总纲含复用地图与待拍板默认值 + 01 任务分解依赖 DAG + 02 决策模型），然后起独立上下文红队 代理攻击设计（引用证伪/单一信号绑架/平行系统/口径污染/副本腐烂五类靶），写 03 修订决议并给 00 挂 「以 03 为准」指针防双份腐烂，回写工作区时间轴留痕；spec 定稿并放行后 Step 5 把各 Phase 交**后台执行 子代理**落地（自包含 brief：spec 唯一真相源 + 红线复述 + 辖区排他 + DoD 要求 ls/grep/实跑自证），主代理 完成后必须对**磁盘产物**独立验收（实跑工具、grep 关键",
+      "path": "skills/spec-driven-adversarial-workflow/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "publishing",
+        "methodology"
+      ]
     }
   ]
 }

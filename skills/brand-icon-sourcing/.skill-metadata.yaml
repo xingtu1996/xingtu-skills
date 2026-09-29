@@ -1,0 +1,62 @@
+examples:
+  - id: fetch-single-icon
+    title:
+      zh: 找单个产品官方图标
+      en: Fetch One Official Icon
+    description:
+      zh: 为封面/配图找某产品的真实官方 logo 并核验来源
+      en: Find and verify the real official logo of one product for a cover or illustration
+    prompt:
+      zh: |-
+        帮我找「{{产品名}}」的真实官方图标：
+
+        先用 iTunes Search API（country=cn）取 512px 图标并核对卖家名，拿不到再走官网。
+        下载后渲染探针图让我眼见为实，确认无误后保存到 {{落盘目录}}。
+      en: |-
+        Find the real official icon for "{{product name}}":
+
+        Use the iTunes Search API (country=cn) for a 512px icon and verify the seller name;
+        fall back to the official site if not found. Render a probe image for visual
+        verification, then save the confirmed icon to {{destination folder}}.
+
+  - id: batch-icons-publish-package
+    title:
+      zh: 多产品图标批量入发布包
+      en: Batch Icons into Publish Package
+    description:
+      zh: 对比类内容需要多家产品图标，同源同尺寸取齐并核验后入资产目录
+      en: Fetch matched-size icons for several products side by side, verify, then place into assets
+    prompt:
+      zh: |-
+        这篇内容封面要放以下 {{N}} 家产品的官方图标：{{产品名列表}}。
+
+        用 iTunes Search API 一次拿齐（同源 512px），逐家核对 artistName 归属；
+        把候选并排渲染成一张探针图逐张核验，警惕同名异产品。
+        通过后入 {{发布包路径}}/03_封面/_assets/ 并在 HTML 用相对路径引用。
+      en: |-
+        The cover needs official icons for these {{N}} products: {{product list}}.
+
+        Fetch all via the iTunes Search API (same source, 512px) and check artistName for
+        each; render candidates into one side-by-side probe image and verify each, watching
+        for same-name different-product traps. Then save into {{package path}}/03_cover/_assets/
+        and reference via relative paths in the HTML.
+
+  - id: verify-icon-attribution
+    title:
+      zh: 核验图标归属防拿错
+      en: Verify Icon Attribution
+    description:
+      zh: 手上有图标/域名候选，确认它到底属于哪个产品
+      en: Confirm which product an icon or domain candidate really belongs to
+    prompt:
+      zh: |-
+        我拿到一个候选图标：{{图标路径或来源 URL}}，准备用在「{{产品名}}」上。
+
+        请核验它是否真是该产品的官方图标：查卖家归属、渲染探针图逐张看、
+        排查同名异产品（如相似域名的其他产品），给出可用/弃用结论和依据。
+      en: |-
+        I have a candidate icon: {{icon path or source URL}}, to be used for "{{product name}}".
+
+        Verify whether it is truly this product's official icon: check seller attribution,
+        render a probe image, rule out same-name different-product look-alikes, and give a
+        use/drop verdict with evidence.
