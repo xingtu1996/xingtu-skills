@@ -75,6 +75,12 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | xingtu-workspace-context | 行途工作空间上下文桥接（豆包/通用版）——当用户在行途(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途工作空间、开始行途工作、xingtu上下文、行途空间规则、了解 |
 | yuanbao-archive-pipeline | 元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。 |
 | wechat-draft-api | 微信公众号官方 API 建稿：token 获取/草稿增删查/永久素材/封面图安全压缩，凭据全部参数化（环境变量+CLI），零第三方依赖。Use when: 草稿箱建稿、API 传图、发前 dry-run。 |
+| mp-prepublish-draft-verify | 公众号发文前凭证闭环核验：事实回源→图文同步→建稿前五查（占位/灰框/主题色/图文密度/撞题）→dry-run「嵌图 N/N」→API 回查字节比对→回收缺陷稿。专治「看似就绪实则错名/漏榜/图静默消失」。 |
+| publish-pack-planning | 发布包规划层总纲：动笔前把一个论点规划成整套发布包。Step 0 论证溯源（论点→论证→论据三段论+证伪）→基础素材→发布操作素材→分发话术→六目录验收。只规划不执行。 |
+| daily-judgment-brief | 发布综合判断基线+每日对账：读判断土壤 reference.md→拉 stats/publish_board→排期与 48h 分诊对账→假设台账 H-* 逐条结算→落每日判断简报。发后评估与口径守卫，只读。 |
+| wechat-cover-gen | 公众号封面生成管线（真人剪影路线）：image_gen 出无文字场景图→curl 下载→HTML 右侧压字→fig_fit 渲 900×383→Read 看图 OCR 回查。黑/白严格交替，三原色黑#1a1a1a/白#fff/橙红#F2644F。 |
+| xingtu-article-sync | 文章库发布同步总控：发文后一条命令完成新文章收编→prev/next 与开源仓互链→index.json→三处展示层→Data API 推三仓。幂等。 |
+| xiaobot-ops | 小报童平台运营专家：定位/定价/调价/买断制/内容公约/提现官方规范 + 行途双轨定价策略 + 申请专栏表单实战提示 + 运营 checklist。 |
 
 ### 工具链 · 工程化实战（18 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |
