@@ -6,7 +6,7 @@ description: 会话即刻沉淀 xingtu 版——自动盘点成果/决策链/AI�
 # 会话即刻沉淀（Session Sediment）— xingtu 版
 
 > 定位：会话结束/阶段性完成时，把**本次会话的全部价值**沉淀进行途素材库，便于后续复用与跨会话断点续传。
-> 来源：磐石 harness 版（session-sediment ultracode）+ 行途素材库实践（元宝对话挖掘/黄金会话萃取）本地化适配。
+> 来源：内部 harness 版（session-sediment ultracode）+ 行途素材库实践（元宝对话挖掘/黄金会话萃取）本地化适配。
 > 原则：**先查后写**｜**单一事实源**｜**增量沉淀**｜**不破坏**（禁 rm，追加式）。
 
 ## 跨会话通用沉淀偏好（写记录时遵循）
@@ -218,7 +218,7 @@ grep 已有 04_会话与复盘 + 素材库/黄金会话萃取* 相关 → 判断
 
 | 日期 | 变更 |
 |------|------|
-| 2026-09-02 | V1.0 xingtu 版：基于磐石 harness 版本地化，落点改为 xingtu-vault/素材库，新增脱敏铁律 |
+| 2026-09-02 | V1.0 xingtu 版：基于内部 harness 版本地化，落点改为 xingtu-vault/素材库，新增脱敏铁律 |
 | 2026-09-04 | V2.0 体系化升级：新增内容创作专项沉淀（Step 10）+ 每日 memory 维护（Step 11）+ 多工具 session 对接（WorkBuddy/豆包/Claude Code）+ 断更修复铁律 + 对齐 PUB-026 完结检查 |
 
 <!-- public-sync: 2026-09-27 | 脱敏版本 | 源 .agents/skills/session-sediment -->
