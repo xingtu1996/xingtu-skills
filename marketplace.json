@@ -990,6 +990,38 @@
         "publishing",
         "methodology"
       ]
+    },
+    {
+      "name": "book2vido-video",
+      "description": "把 PDF / Markdown / 长文转成竖屏短视频（本地运行、零 API key）",
+      "path": "skills/book2vido-video",
+      "tags": [
+        "productivity"
+      ]
+    },
+    {
+      "name": "boss-autopilot",
+      "description": "全自动协作契约：综合理解不碎问、可自查证直接给结论、三类动作才停下拍板",
+      "path": "skills/boss-autopilot",
+      "tags": [
+        "productivity"
+      ]
+    },
+    {
+      "name": "exam-prep-pmp",
+      "description": "为在职备考者搭建可运行、可验收的备考系统",
+      "path": "skills/exam-prep-pmp",
+      "tags": [
+        "productivity"
+      ]
+    },
+    {
+      "name": "wechat-draft-api",
+      "description": ">",
+      "path": "skills/wechat-draft-api",
+      "tags": [
+        "productivity"
+      ]
     }
   ]
 }
