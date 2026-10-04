@@ -1022,6 +1022,18 @@
       "tags": [
         "productivity"
       ]
+    },
+    {
+      "name": "yuanbao-article-fetch",
+      "description": "抓取元宝（腾讯 Yuanbao）AI 分享文章全文并留存为 Markdown。伪装微信 iOS User-Agent 绕过微信客户端围栏，无需登录；从服务端渲染 HTML 提取可见文本（非 __NEXT_DATA__），按 6 位短 ID 去重。Use when: 元宝文章、元宝链接、yb.tencent.com、抓取 AI 分享文章、提取元宝对话。",
+      "path": "skills/yuanbao-article-fetch/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "scraping",
+        "content-pipeline"
+      ]
     }
   ]
 }
