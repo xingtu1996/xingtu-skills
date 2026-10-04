@@ -6,13 +6,13 @@
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-93-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-94-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 93 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 94 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -30,7 +30,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（93）
+## 🧠 Skills 清单（94）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -151,17 +151,18 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | safe-refactor | 保持行为的重构 |
 | surgical-patch | 外科手术式精准修改 |
 | verify-and-stop | 验证即止，不扩范围 |
-### 通用协作 · 其他（3 · 2026-10-02 新增）
+### 通用协作 · 其他（4 · 2026-10-04 新增 yuanbao-article-fetch）
 | Skill | 说明 |
 |-------|------|
 | book2vido-video | 把 PDF / Markdown / 长文转成竖屏短视频（本地运行、零 API key）。驱动本地 book2vido GUI 的 HTTP API，全流程在本机完成 |
 | boss-autopilot | 全自动协作契约：综合理解不碎问、可自查证的直接查证给结论、仅对外/不可逆/删能力三类停下拍板 |
 | exam-prep-pmp | 为在职备考者搭建可运行、可验收的备考系统（已验证于北邮 MEM 2027） |
+| yuanbao-article-fetch | 抓取元宝（腾讯 Yuanbao）AI 分享文章全文：伪装微信 iOS UA 绕过客户端围栏，无需登录；HTML 可见文本提取 + 6 位短 ID 去重 |
 
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：37 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：94 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
