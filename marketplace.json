@@ -1034,6 +1034,39 @@
         "scraping",
         "content-pipeline"
       ]
+    },
+    {
+      "name": "automation-resurrection",
+      "description": "从本地历史会话中全量回捞\"消失的定时任务\"并复现重建。当定时任务看似被删/失联、需要找回历史自动化配置、或迁移工作区后任务空转时使用。触发词：找回定时任务、定时任务回捞、历史自动化恢复、automation 重建、之前那些定时任务呢、定时任务不见了。",
+      "path": "skills/automation-resurrection/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "xingtu"
+      ]
+    },
+    {
+      "name": "free-token-channel-audit",
+      "description": "免费 token/算力渠道周期审计（2026-09-27 建）。免费渠道强时效（限时免费、 新人包、滚动下架），本 skill 固化「复查→验证→分级→更新清单」的标准化流程， 避免每次从零搜索。触发词：免费token复查、渠道审计、算力告急、白嫖渠道、 额度还够不够、渠道时效检查、免费模型盘点。跨项目通用。",
+      "path": "skills/free-token-channel-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "xingtu"
+      ]
+    },
+    {
+      "name": "wechat-tuitu-publish",
+      "description": "用 bsk 接管已登录浏览器，代发微信公众号「贴图」（小绿书/图片消息）：上传本地图卡、填标题描述、挂原文链接、核验平台推荐开关，发表或存草稿。触发词：发贴图、发小绿书、贴图发布、公众号图片消息、一图一观点发布。",
+      "path": "skills/wechat-tuitu-publish/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "xingtu"
+      ]
     }
   ]
 }
