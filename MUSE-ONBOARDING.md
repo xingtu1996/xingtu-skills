@@ -1,7 +1,7 @@
 # Muse 接入手册 + 工作流提示词包
 
-> 本文件是给云端 Agent「Muse」的**可直接投喂提示词**。用途：Muse 只凭 GitHub 仓库就能理解「行途」公众号全域运营，并独立上手选题与后续工作流。
-> 读取顺序：① 先读 `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ② 读 `MUSE-ONBOARDING.md`（本文件，定位与提示词）→ ③ 按需 Read 本仓 `skills/<名称>/SKILL.md`。
+> 本文件是给云端 Agent「Muse」的**可直接投喂提示词**。用途：Muse 只凭GitHub 仓库就能理解「行途」公众号全域运营，并独立上手选题与后续工作流。
+> 读取顺序：① 先读 `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ② 读 `MUSE-ONBOARDING.md`（本文件，定位与提示词）→ ③ **读 `MUSE-COLLAB.md`（双向协作通道：你怎么接单、怎么交差）** → ④ 按需 Read 本仓 `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（素材库/specs/台账/日历），需授权后读 `云端AGENT入口.md` 取导航。
 
 ---
