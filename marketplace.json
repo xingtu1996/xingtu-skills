@@ -156,9 +156,9 @@
       ]
     },
     {
-      "name": "codemax-report",
-      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留CodeMax API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、CodeMax汇报、模型对比。",
-      "path": "skills/codemax-report/SKILL.md",
+      "name": "ai-usage-report",
+      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留内部 AI 平台 API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、内部 AI 平台汇报、模型对比。",
+      "path": "skills/ai-usage-report/SKILL.md",
       "tags": [
         "claude-code",
         "ai-agent",

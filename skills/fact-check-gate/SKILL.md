@@ -85,7 +85,7 @@ description: >
 
 ## 与其它技能联动
 
-- `codemax-report`：本地 cc-switch 数据核实（缓存命中率/倍率/token 账单），数字类核查优先走本地真实数据
+- `ai-usage-report`：本地 cc-switch 数据核实（缓存命中率/倍率/token 账单），数字类核查优先走本地真实数据
 - `adversarial-review`：对抗审查的"数据核查"角色可调用本技能做数字专项
 - `de-ai-flavor`：去 AI 味时发现的存疑数字，交回本技能核查
 

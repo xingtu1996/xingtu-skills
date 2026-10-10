@@ -1,26 +1,26 @@
 ---
-name: codemax-report
+name: ai-usage-report
 description: >
   行途自媒体"数据核实 + 用量分析"技能（豆包工作优化版）。两大能力：
   ① cc-switch 本地库核实（~/.cc-switch/cc-switch.db）：核实文章数字——缓存命中率、
   缓存读倍数、成本、Token 量级，防编造（对齐 PUB-018 脱敏 + "凭印象硬编是大忌"红线）。
-  ② CodeMax 平台汇报（保留原版 API 直拉能力）：用户/模型/项目/趋势 + 阶段对比 HTML + 模型切换观察。
-  触发：核实数字、数字对不对、缓存命中率、cc-switch 数据、token 账单、CodeMax 汇报、AI 用量分析、
+  ② 内部 AI 平台 平台汇报（保留原版 API 直拉能力）：用户/模型/项目/趋势 + 阶段对比 HTML + 模型切换观察。
+  触发：核实数字、数字对不对、缓存命中率、cc-switch 数据、token 账单、内部 AI 平台 汇报、AI 用量分析、
   模型对比、模型切换、TTFT、卡顿排查。
-  数据源：~/.cc-switch/cc-switch.db（本地 SQLite）+ CodeMax API（codemax_stats.sh）。
-  版本：豆包工作优化版 v1.0（2026-09-03）；原版归档 .backups/skills_原版归档_20260903/codemax-report_原版归档（内部项目）
+  数据源：~/.cc-switch/cc-switch.db（本地 SQLite）+ 内部 AI 平台 API（ai_usage_stats.sh）。
+  版本：豆包工作优化版 v1.0（2026-09-03）；原版归档 .backups/skills_原版归档_20260903/ai-usage-report_原版归档（内部项目）
 ---
 
-# 数据核实 + CodeMax 汇报 Skill（行途版）
+# 数据核实 + 内部 AI 平台 汇报 Skill（行途版）
 
 ## 一句话
 
-**行途文章里的每个数字都要经得起核实。** 本 skill 用 cc-switch 本地真实数据 + CodeMax API，验证"缓存命中率 97.7%""缓存读是输入 36.8 倍""30 天省 8880 万"这类数字，防止编造和口径混乱。
+**行途文章里的每个数字都要经得起核实。** 本 skill 用 cc-switch 本地真实数据 + 内部 AI 平台 API，验证"缓存命中率 97.7%""缓存读是输入 36.8 倍""30 天省 8880 万"这类数字，防止编造和口径混乱。
 
 ## 触发条件
 
 - 用户说"核实数字""数字对不对""缓存命中率""cc-switch 数据""token 账单" → 走 **cc-switch 核实**
-- 用户说"CodeMax 汇报""AI 用量分析""模型对比""模型切换" → 走 **CodeMax 汇报**（原版能力）
+- 用户说"内部 AI 平台 汇报""AI 用量分析""模型对比""模型切换" → 走 **内部 AI 平台 汇报**（原版能力）
 
 ---
 
@@ -70,7 +70,7 @@ sqlite3 ~/.cc-switch/cc-switch.db \
 
 | # | 铁律 |
 |---|------|
-| 1 | **cc-switch 数据只到 60 天滚动窗口**——超过窗口的历史数字（如 8 个月账单）需用素材矿/CodeMax 补 |
+| 1 | **cc-switch 数据只到 60 天滚动窗口**——超过窗口的历史数字（如 8 个月账单）需用素材矿/内部 AI 平台 补 |
 | 2 | **缓存命中率口径** = cache_read/(input+cache_read)，与平台显示可能不同，先确认口径 |
 | 3 | **rtk gain 节省量 ≠ cc-switch 真实消耗**——rtk 是"省下的"，cc-switch 是"实际花的"，两者不同维度不互比 |
 | 4 | 口径不一致 → 回数据源核对，不猜（对齐原版写作纪律 #8） |
@@ -78,36 +78,36 @@ sqlite3 ~/.cc-switch/cc-switch.db \
 
 ---
 
-## 第二部分：CodeMax 平台汇报（原版能力保留）
+## 第二部分：内部 AI 平台 平台汇报（原版能力保留）
 
-> 原版 codemax-report（某内部项目/某内部代码仓库）的 API 直拉 + HTML 汇报能力完整保留，供职场汇报/模型切换观察使用。
+> 原版 ai-usage-report（某内部项目/某内部代码仓库）的 API 直拉 + HTML 汇报能力完整保留，供职场汇报/模型切换观察使用。
 
 ### 数据源与脚本
 
 | 资源 | 路径 | 用途 |
 |------|------|------|
-| **一键拉取（主）** | `scripts/codemax_pull.sh` | **API 直拉全维度**：summary/users/models/projects/趋势 |
-| 单接口拉取 | `scripts/codemax_stats.sh` | summary/users/models/pm-options/pm-projects/pm-staffs/log-stat/api-models |
-| 数据库查询 | `scripts/codemax_db.sh` | users/logs 表直查（身份/注册数/流水） |
-| 认证配置 | `settings.local.json` env | CODEMAX_ADMIN_TOKEN + CODEMAX_ADMIN_USER（admin 全解锁） |
+| **一键拉取（主）** | `scripts/ai_usage_pull.sh` | **API 直拉全维度**：summary/users/models/projects/趋势 |
+| 单接口拉取 | `scripts/ai_usage_stats.sh` | summary/users/models/pm-options/pm-projects/pm-staffs/log-stat/api-models |
+| 数据库查询 | `scripts/ai_usage_db.sh` | users/logs 表直查（身份/注册数/流水） |
+| 认证配置 | `settings.local.json` env | AI_PLATFORM_ADMIN_TOKEN + AI_PLATFORM_ADMIN_USER（admin 全解锁） |
 | 广分名单映射 | `scripts/gz_roster.txt` | 用户→姓名/岗位/团队（核心资产，改这里） |
 
 ### 工作流程（简要）
 
 ```bash
 # ① 拉取权威数据（API 直拉，替代 CSV）
-bash scripts/codemax_pull.sh -s 2026-08-14 -e 2026-08-28 -o .report/工作汇报/828
+bash scripts/ai_usage_pull.sh -s 2026-08-14 -e 2026-08-28 -o .report/工作汇报/828
 
 # ② 单接口
-bash scripts/codemax_stats.sh pm-staffs -p 952 -s 2026-08-14 -e 2026-08-28
-bash scripts/codemax_stats.sh log-all -m glm-5.3-flash -s 2026-08-31 -e 2026-08-31
+bash scripts/ai_usage_stats.sh pm-staffs -p 952 -s 2026-08-14 -e 2026-08-28
+bash scripts/ai_usage_stats.sh log-all -m glm-5.3-flash -s 2026-08-31 -e 2026-08-31
 
 # ③ 计算核心维度：次均费用 / 每请求 Token / token工时密度 / 帕累托集中度 / 效率分层
 # ④ 生成两套 HTML（阶段对比版 1200px + 同事版速览 780px）
 # ⑤ 写作纪律：脚本口径为准，负面不点名，跨期对比先确认口径清洗
 ```
 
-> 详细方法论见原版（归档 .backups/skills_原版归档_20260903/codemax-report_原版归档（内部项目））或 某内部代码仓库 版 §六 模型切换观察。
+> 详细方法论见原版（归档 .backups/skills_原版归档_20260903/ai-usage-report_原版归档（内部项目））或 某内部代码仓库 版 §六 模型切换观察。
 
 ---
 
@@ -115,7 +115,7 @@ bash scripts/codemax_stats.sh log-all -m glm-5.3-flash -s 2026-08-31 -e 2026-08-
 
 | Skill | 联动 |
 |-------|------|
-| **de-ai-flavor** | 去 AI 味时数字来源存疑 → 回 codemax-report 核实 |
+| **de-ai-flavor** | 去 AI 味时数字来源存疑 → 回 ai-usage-report 核实 |
 | **adversarial-review** | 审计员角色核数字 → 调用本 skill 的 cc-switch SQL |
 | **check_cover_consistency.py** | 封面 vs 正文数字一致性校验（a1 产线） |
 
@@ -125,6 +125,6 @@ bash scripts/codemax_stats.sh log-all -m glm-5.3-flash -s 2026-08-31 -e 2026-08-
 
 | 日期 | 版本 | 变更 | 来源 |
 |------|:---:|------|------|
-| 2026-09-03 | v1.0 | 豆包工作优化版：新增 cc-switch 本地库核实（第一部分）+ 保留 CodeMax API 汇报能力（第二部分） | 原版 某内部项目 + 某内部代码仓库 |
+| 2026-09-03 | v1.0 | 豆包工作优化版：新增 cc-switch 本地库核实（第一部分）+ 保留 内部 AI 平台 API 汇报能力（第二部分） | 原版 某内部项目 + 某内部代码仓库 |
 
 > **豆包工作优化版**：新增"数据核实"场景（行途文章数字可验证），原版已归档 `.backups/skills_原版归档_20260903/`。

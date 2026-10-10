@@ -101,7 +101,7 @@ description: >
 
 ## 与数据核实联动（豆包工作优化版新增）
 
-> 行途内容的数字必须可验证。去 AI 味时若发现数字来源存疑，联动 `codemax-report`（cc-switch/codemax 数据核实）：
+> 行途内容的数字必须可验证。去 AI 味时若发现数字来源存疑，联动 `ai-usage-report`（cc-switch/内部 AI 平台 数据核实）：
 > - 封面数字 vs 正文主数字口径是否一致（跑 `check_cover_consistency.py`）
 > - 官方口径 vs 实测口径是否分开标注（对齐 S05 三数口径对比范式）
 > - 脱敏铁律 PUB-018：公司/团队数字公开发布一律脱敏到量级

@@ -1,11 +1,11 @@
 #!/bin/bash
 # ============================================================================
-# codemax_pull.sh — 一键拉取 CodeMax 全维度数据（替代下载 CSV）
+# ai_usage_pull.sh — 一键拉取 内部 AI 平台 全维度数据（替代下载 CSV）
 # 用法:
-#   bash codemax_pull.sh                    # 本期(默认 8/14~今天) + 各期趋势 + 项目级
-#   bash codemax_pull.sh -s 2026-08-01 -e 2026-08-28
-#   bash codemax_pull.sh -s 2026-08-14 -e 2026-08-28 -o /path/to/dir
-# 认证: 复用 settings.local.json env（CODEMAX_ADMIN_TOKEN + CODEMAX_ADMIN_USER）
+#   bash ai_usage_pull.sh                    # 本期(默认 8/14~今天) + 各期趋势 + 项目级
+#   bash ai_usage_pull.sh -s 2026-08-01 -e 2026-08-28
+#   bash ai_usage_pull.sh -s 2026-08-14 -e 2026-08-28 -o /path/to/dir
+# 认证: 复用 settings.local.json env（AI_PLATFORM_ADMIN_TOKEN + AI_PLATFORM_ADMIN_USER）
 # 输出: JSON 存 <输出目录>/  + 控制台摘要（直接用于汇报）
 # ============================================================================
 set -euo pipefail
@@ -23,25 +23,25 @@ done
 [ -n "$START" ] || START="$(date -v-14d +%Y-%m-%d)"
 [ -n "$END" ]   || END="$(date +%Y-%m-%d)"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SELF="$SCRIPT_DIR/codemax_stats.sh"
+SELF="$SCRIPT_DIR/ai_usage_stats.sh"
 # 默认输出: 最近工作汇报数字目录（如 828/）
 [ -n "$OUT" ] || OUT="$(ls -d /path/to/project/.report/YYYYMMDD/ 2>/dev/null | sort -rn | head -1 | tr -d '/')"
 [ -n "$OUT" ] || OUT="."
 mkdir -p "$OUT"
 TAG="$(echo "$START-$END" | tr -d '-')"
 
-echo "🔌 拉取 CodeMax 数据 [$START ~ $END] → $OUT/"
+echo "🔌 拉取 内部 AI 平台 数据 [$START ~ $END] → $OUT/"
 
 # --- 本期核心 ---
-bash "$SELF" summary -s "$START" -e "$END" > "$OUT/codemax_summary_$TAG.json"
-bash "$SELF" users   -s "$START" -e "$END" > "$OUT/codemax_users_$TAG.json"
-bash "$SELF" models  -s "$START" -e "$END" > "$OUT/codemax_models_$TAG.json"
+bash "$SELF" summary -s "$START" -e "$END" > "$OUT/内部 AI 平台_summary_$TAG.json"
+bash "$SELF" users   -s "$START" -e "$END" > "$OUT/内部 AI 平台_users_$TAG.json"
+bash "$SELF" models  -s "$START" -e "$END" > "$OUT/内部 AI 平台_models_$TAG.json"
 
 # --- 项目级（半年） ---
-bash "$SELF" pm-projects --sort-cost -s 2026-03-01 -e "$END" > "$OUT/codemax_projects_$TAG.json"
+bash "$SELF" pm-projects --sort-cost -s 2026-03-01 -e "$END" > "$OUT/内部 AI 平台_projects_$TAG.json"
 
 # --- 趋势各期（对齐四期趋势图；curl 输出无换行，需补 \n） ---
-TREND="$OUT/codemax_trend_$TAG.jsonl"
+TREND="$OUT/内部 AI 平台_trend_$TAG.jsonl"
 : > "$TREND"
 for r in "2026-07-01 2026-07-15" "2026-07-15 2026-07-30" "2026-07-30 2026-08-14" "$START $END"; do
   s=$(echo $r|cut -d' ' -f1); e=$(echo $r|cut -d' ' -f2)
@@ -56,12 +56,12 @@ START,END,OUT,TAG,SCRIPT_DIR=sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys
 def load(f):
     try:return json.load(open(f,encoding='utf-8'))
     except:return None
-s=load(f"{OUT}/codemax_summary_{TAG}.json") or {}
-u=load(f"{OUT}/codemax_users_{TAG}.json") or {}
-m=load(f"{OUT}/codemax_models_{TAG}.json") or {}
-p=load(f"{OUT}/codemax_projects_{TAG}.json") or {}
+s=load(f"{OUT}/内部 AI 平台_summary_{TAG}.json") or {}
+u=load(f"{OUT}/内部 AI 平台_users_{TAG}.json") or {}
+m=load(f"{OUT}/内部 AI 平台_models_{TAG}.json") or {}
+p=load(f"{OUT}/内部 AI 平台_projects_{TAG}.json") or {}
 d=s.get('data',{})
-print("\n========== CodeMax 数据摘要 ==========")
+print("\n========== 内部 AI 平台 数据摘要 ==========")
 print(f"区间: {START} ~ {END}")
 if d:
     print(f"活跃用户: {d.get('total_users')} | 请求: {d.get('total_count'):,} | token: {d.get('total_tokens')/1e8:.1f}亿 | 费用: ¥{d.get('total_cost'):,.0f} | 次均: ¥{d.get('total_cost')/d.get('total_count',1):.4f}")
@@ -105,7 +105,7 @@ except Exception as e:
     pass
 
 # --- 四期趋势（从 trend JSONL 解析，API 维护，不写死） ---
-tf=f"{OUT}/codemax_trend_{TAG}.jsonl"
+tf=f"{OUT}/内部 AI 平台_trend_{TAG}.jsonl"
 labels=["7/15 一期(7/1~7/15)","7/30 二期","8/14 三期",f"{START}~{END} 四期"]
 if os.path.exists(tf):
     print("\n四期趋势（API 取数）:")
@@ -115,6 +115,6 @@ if os.path.exists(tf):
         except: continue
         lbl=labels[i] if i<len(labels) else f"区间{i}"
         print(f"{lbl:22} {d.get('total_users',0):>4} {d.get('total_count',0):>10,} {d.get('total_tokens',0)/1e8:>6.1f}亿 ¥{d.get('total_cost',0):>6,.0f} ¥{d.get('total_cost',0)/d.get('total_count',1):>6.4f}")
-print("\nJSON 已存:", [f for f in ['codemax_summary','codemax_users','codemax_models','codemax_projects','codemax_trend'] if os.path.exists(f"{OUT}/{f}_{TAG}.json") or os.path.exists(f"{OUT}/{f}_{TAG}.jsonl")])
+print("\nJSON 已存:", [f for f in ['内部 AI 平台_summary','内部 AI 平台_users','内部 AI 平台_models','内部 AI 平台_projects','内部 AI 平台_trend'] if os.path.exists(f"{OUT}/{f}_{TAG}.json") or os.path.exists(f"{OUT}/{f}_{TAG}.jsonl")])
 print("========== 完 ==========")
 PY

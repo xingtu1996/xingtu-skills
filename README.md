@@ -37,7 +37,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 |-------|------|
 | de-ai-flavor | 行途自媒体去 AI 味：公众号/封面/标题/摘要文案人话化（PUB-013 五法） |
 | adversarial-review | 行途自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
-| codemax-report | 行途数据核实：cc-switch 本地库核实文章数字 + CodeMax API 汇报 |
+| ai-usage-report | 行途数据核实：cc-switch 本地库核实文章数字 + 内部 AI 平台 API 汇报 |
 | fact-check-gate | 行途成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
 
 ### 技能治理（4 · 🆕 2026-09-27 第四批）

@@ -144,7 +144,7 @@ Round 2b: Filter 误报过滤（拦截低质量发现）
 
 ### 审计员检查要点（必须用工具验证）
 - 封面数字 = 正文主数字？（跑 `check_cover_consistency.py`）
-- 数据来源真实吗？（cc-switch 库 / codemax API / 素材矿报告）
+- 数据来源真实吗？（cc-switch 库 / 内部 AI 平台 API / 素材矿报告）
 - 官方口径 vs 实测口径是否分开标注？（对齐 S05 三数口径对比）
 - 文件路径/引用真实存在吗？（`ls`/`test -f`）
 - 日期/版本号准确吗？
@@ -225,9 +225,9 @@ Round 2b: Filter 误报过滤（拦截低质量发现）
 |-------|---------|---------|
 | **adversarial-review** | 逻辑 + 一致性 + 数据口径 + 脱敏 | 文章/封面/方案完成 / "审查" |
 | **de-ai-flavor** | 去 AI 味 / 文案 | "去 AI 味" / 润色 |
-| **codemax-report** | 数据核实 / 统计 | "核实数字" / "看账单" |
+| **ai-usage-report** | 数据核实 / 统计 | "核实数字" / "看账单" |
 
-> adversarial-review 是发布前的质量门禁——在 de-ai-flavor（去味）和内容定稿之后运行，数据问题交给 codemax-report 核实。
+> adversarial-review 是发布前的质量门禁——在 de-ai-flavor（去味）和内容定稿之后运行，数据问题交给 ai-usage-report 核实。
 
 ---
 
