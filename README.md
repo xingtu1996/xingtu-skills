@@ -183,7 +183,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 一线 AI 工程化实践者 · FDE 方向。这些技能不是写出来的，是每天真用、用完回炉改的。
 
-- 公众号「**行途**」（长文首发，微信搜索关注）
+- 公众号「**行途技术手记**」（长文首发，微信搜索关注）
 - GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
 - 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
 
