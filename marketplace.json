@@ -16,6 +16,107 @@
       ]
     },
     {
+      "name": "ai-repo-engineering-layout",
+      "description": "\"给 AI 项目补「工程化分区」的可复用 SOP：tests/ vs tools/ 分界、models/ 模型台账、logs/ 默认不写盘、doc/learn/ 教学层、以及 src/→core/ 这类改名的裁决框架。同时含「AI 项目该往 README 放什么图 / 视频怎么链」的平台事实。",
+      "path": "skills/ai-repo-engineering-layout/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "repo",
+        "layout",
+        "engineering"
+      ]
+    },
+    {
+      "name": "ai-session-material-miner",
+      "description": "> 从 AI 与会话痕迹里系统化采集、识别、脱敏、入库可发布自媒体素材的方法论。 核心洞察：**任何 AI agent（Claude Code / OpenCode / Codex / 各类 work agent） 的工作都会在项目里留下三类痕迹——①提示词（用户让它做什么，即选题意图） ②计划/规格（它打算怎么做，",
+      "path": "skills/ai-session-material-miner/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "mining",
+        "sessions",
+        "materials"
+      ]
+    },
+    {
+      "name": "ai-usage-report",
+      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留内部 AI 平台 API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、内部 AI 平台汇报、模型对比。",
+      "path": "skills/ai-usage-report/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "data",
+        "report"
+      ]
+    },
+    {
+      "name": "ardot-effect-fallback",
+      "description": "在 Ardot 画布上实现光晕/毛玻璃效果时，若当前 schema 不支持 LAYER_BLUR/BACKGROUND_BLUR，改用 GRADIENT_RADIAL 填充 + 透明度达成柔光。适用于海报、banner、AI 产品揭秘页等需要极光/辉光/玻璃质感的视觉设计任务。",
+      "path": "skills/ardot-effect-fallback/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "design",
+        "ardot"
+      ]
+    },
+    {
+      "name": "audio-friendly-adapt",
+      "description": "听友好版改编 skill——把图文成稿派生为适合语音朗读/播客/视频号语音的纯文本版本。自动执行 PUB-024 六条铁律（砍元信息/编号口语化/数字口语化/图表口述/加问候道别/命名规范），改编后过 PUB-026 完结检查。触发词：听友",
+      "path": "skills/audio-friendly-adapt/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "automation-resurrection",
+      "description": "从本地历史会话中全量回捞\"消失的定时任务\"并复现重建。当定时任务看似被删/失联、需要找回历史自动化配置、或迁移工作区后任务空转时使用。触发词：找回定时任务、定时任务回捞、历史自动化恢复、automation 重建、之前那些定时任务呢、定时任务不见了。",
+      "path": "skills/automation-resurrection/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "xingtu"
+      ]
+    },
+    {
+      "name": "book2vido-video",
+      "description": "把 PDF / Markdown / 长文转成竖屏短视频（本地运行、零 API key）",
+      "path": "skills/book2vido-video",
+      "tags": [
+        "productivity"
+      ]
+    },
+    {
+      "name": "boss-autopilot",
+      "description": "全自动协作契约：综合理解不碎问、可自查证直接给结论、三类动作才停下拍板",
+      "path": "skills/boss-autopilot",
+      "tags": [
+        "productivity"
+      ]
+    },
+    {
+      "name": "brand-icon-sourcing",
+      "description": "Source and verify real official brand icons/logos for covers, illustrations, and publish packages. Primary channel is the iTunes Search API (term+country=cn, 512px artworkUrl); ImageSearch only yields article illustrations, never clean logos. Use when the user asks for a product's official logo/icon, brand icons for a cover, or verifying which icon belongs to which product.",
+      "path": "skills/brand-icon-sourcing/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "publishing",
+        "methodology"
+      ]
+    },
+    {
       "name": "cavecrew",
       "description": "Decision guide for delegating to caveman-style subagents. Tells the main thread WHEN to spawn `cavecrew-investigator` (locate code), `cavecrew-builder` (1-2 file edit), or `cavecrew-reviewer` (diff review) instead of doing the work inline or using va",
       "path": "skills/cavecrew/SKILL.md",
@@ -156,15 +257,52 @@
       ]
     },
     {
-      "name": "ai-usage-report",
-      "description": "行途数据核实+用量分析。用cc-switch本地库核实文章数字（缓存命中率/缓存读倍数/成本/Token），保留内部 AI 平台 API汇报能力。Use when: 核实数字、数字对不对、缓存命中率、cc-switch数据、token账单、内部 AI 平台汇报、模型对比。",
-      "path": "skills/ai-usage-report/SKILL.md",
+      "name": "cc-switch-usage-audit",
+      "description": "从 CC Switch 本地数据库聚合真实 API 用量（token / 成本 / 缓存命中率 / 模型分布），产出可入内容的成本评估与配图素材。当用户说「看看我们的 token 消耗」「实际用量统计」「CC Switch 的记录」「成本评估/背书」「一次真实的账单」时使用。",
+      "path": "skills/cc-switch-usage-audit/SKILL.md",
       "tags": [
         "claude-code",
         "ai-agent",
         "skill",
-        "data",
-        "report"
+        "usage",
+        "cost",
+        "audit"
+      ]
+    },
+    {
+      "name": "certification-submission-kit",
+      "description": "平台个人/职业认证提交包生成流水线。Use when 用户说 公众号认证/视频号认证/知乎认证/掘金认证/百家号认证/CSDN认证/小红书认证/职业认证/身份认证/兴趣认证/认证描述/公众称谓/主体姓名/职业身份/认证材料/认证驳回/认证额",
+      "path": "skills/certification-submission-kit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "concept-anchor-figure",
+      "description": "Turn one article's core idea into a single watermark-free vector infographic (HTML -> PNG via fig_fit), in the workspace",
+      "path": "skills/concept-anchor-figure/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "conference-archive",
+      "description": "会议/论坛/行业大会素材归档与蒸馏。当用户参加完线下会议、行业论坛、技术大会后，要求\"整理一下\"\"归档\"\"沉淀素材\"\"把录音和拍图整理成文章素材库\"时使用。输入：录音 record_id、现场拍图、口述观点、官方议程 PDF、系统纪要。输出",
+      "path": "skills/conference-archive/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
       ]
     },
     {
@@ -175,6 +313,66 @@
         "governance",
         "sop",
         "skill"
+      ]
+    },
+    {
+      "name": "content-format-audit",
+      "description": "内容格式策略评估管线（阶段性复跑、跨篇策略级，只评估不动稿）：提取正文格式元素清单（blockquote 摘要/我是谁/目录/信息说明/标签行/合集块/延伸阅读/图注等 + 首屏结构检查）→ 对标双参照系（机构媒体 APPSO/机器之心 v",
+      "path": "skills/content-format-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "content-matrix-channel-audit",
+      "description": "全渠道内容矩阵环境审计（周期性战略盘点，只读不动手）：以资深全平台内容运营操盘手视角，实地核实固定数据源（materials_library.json + 今日调度_*.json + 分发凭证 glob + 变现盘点 README + 各分",
+      "path": "skills/content-matrix-channel-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "cross-repo-skill-curation",
+      "description": "跨仓技能策展蒸馏 playbook。当用户让另一个仓/项目的 .claude（skills/agents/hooks/CLAUDE.md/settings）里\"有什么值得蒸馏/借鉴/搬过来\"，或要把某仓成熟资产收进技能池时使用。流程：只读侦察 → 四分类分级（GENERIC-KEEP / SKIP-",
+      "path": "skills/cross-repo-skill-curation/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "daily-judgment-brief",
+      "description": "发布综合判断基线 + 每日对账评估器（土壤→落点）：土壤 = `reference.md` 判断基线（口径铁律/选稿 heuristics/价值门禁 v2/阅读双峰律/假设台账，蒸馏自 2026-09-22~27 数据复盘）；落点 = `outputs/每日判断对账_YYYY-MM-DD.md`。五步：读土壤 → 拉事实（stats 一级事实源 + publish_board + 排期 SSoT）→ 对账（排期 vs 实际 / 48h 分诊 / Δ≥+3 信号）→ 假设台账结算（H-* 逐条 ✅/❌/⏸）→ 落简报。当用户说\"综合判断/今天判断一下/复盘结论对账/假设结算/这条结论还成立吗/数据怎么看才对/口径对一下/判断依据是什么\"时触发。与 `mp-daily-ops-report` 互补不重叠：彼管**晨间决策输出**（发什么/怎么发，09:30 管线）；本技能是**判断准则层与对账",
+      "path": "skills/daily-judgment-brief/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "wechat",
+        "publishing"
+      ]
+    },
+    {
+      "name": "daily-report",
+      "description": "把当日工作整理成钉钉日报并落盘打包——固定格式（今日工作/明日工作/相关截图）+ 附稿目录 + zip。触发词：写日报/工作日报/日报/今天做了什么/日报附稿/日报打包/daily report/居家办公日报。",
+      "path": "skills/daily-report/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "report",
+        "daily"
       ]
     },
     {
@@ -190,6 +388,18 @@
       ]
     },
     {
+      "name": "desktop-ai-forensics",
+      "description": "对桌面 AI 应用（豆包工作 / WorkBuddy / 千问办公 QwenWorkCN / CherryStudio / Trae 等基于 Electron+Chromium 的客户端）做本地数据取证——解析 IndexedDB LevelDB 存储、还原会话元数据与行为痕迹、审计定时任务健康度与技能自进化记录、审计沙箱产物与浏览器页面快照；",
+      "path": "skills/desktop-ai-forensics/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "forensics",
+        "desktop"
+      ]
+    },
+    {
       "name": "discernment-nudge",
       "description": "After a substantive answer the user may act on, append 2-3 specific follow-up questions to help verify facts, probe reasoning, and notice missing context. Once per conversation; skip rules included.",
       "path": "skills/discernment-nudge/SKILL.md",
@@ -198,6 +408,74 @@
         "verification",
         "reasoning",
         "skill"
+      ]
+    },
+    {
+      "name": "doc-translate",
+      "description": "把文档看懂并翻译成中英对照——PDF / Word / Excel / PPT / 图片。适用于任何\"这份文档讲了什么\"\"翻译一下\"\"解析这个文件\"\"中英对照\"\"这合同/表单什么条款\"\"扫描件里写了啥\"\"外文资料帮我看看\"\"Word/Excel 里写了什么\"\"这个 PDF 怎么打开\"的请求。提取全自动，用户不需要装任何东西。**默认 1:1 完整翻译**，脱敏 / 对照模式可选。",
+      "path": "skills/doc-translate/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "translate",
+        "documents"
+      ]
+    },
+    {
+      "name": "effort-accounting",
+      "description": "核算一段时间内的工作投入并产出可填报的工时明细——适用于\"算一下我这个月投入\"\"工时填报\"\"我要填报公司系统\"\"我这个月干了多少小时\"\"在某项目投了多少人天\"\"工时怎么分摊\"\"投入核算\"\"effort accounting\"\"这个月做了什么、多少工时\"等请求。",
+      "path": "skills/effort-accounting/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "effort",
+        "timesheet"
+      ]
+    },
+    {
+      "name": "ego-browser",
+      "description": "Chromium browser automation that reuses the user's logged-in sessions. Use when: open websites, fill forms, click buttons, screenshots, extract page data, sign in,",
+      "path": "skills/ego-browser/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "browser",
+        "automation"
+      ]
+    },
+    {
+      "name": "egress-allowlist",
+      "description": "给环境做外网放通清单（白名单域名）——适用于\"给客户做外网放通清单\"\"这个环境要放通哪些域名\"\"外网访问需求\"\"白名单怎么列\"\"依赖库下载源有哪些\"。核心是查清每个服务的真实下载域名（含 CDN），避免只列主域名导致\"能查询、不能下载\"。",
+      "path": "skills/egress-allowlist/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "evolve-skills",
+      "description": ">- 技能建议 / 技能体检 / 要不要做成技能 / 这个该沉淀成技能吗 / 技能该升级了 / 技能老化了 / 技能没人用 / 技能触发不了 / 技能该淘汰 / 库太肥了要淘 / skill hygiene / skill evolution —— 在干活的过程中主动产出**技能建议**：① 建议*",
+      "path": "skills/evolve-skills/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "exam-prep-pmp",
+      "description": "为在职备考者搭建可运行、可验收的备考系统",
+      "path": "skills/exam-prep-pmp",
+      "tags": [
+        "productivity"
       ]
     },
     {
@@ -211,6 +489,29 @@
         "review",
         "fact-check",
         "quality"
+      ]
+    },
+    {
+      "name": "fanout-mainline-ledger",
+      "description": "Keep ONE mainline ledger for parallel work: register each fanout (task/artifact/eta), reconcile on collect, alert on silent loss. Use when: dispatching 2+ parallel agents/background tasks,",
+      "path": "skills/fanout-mainline-ledger/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "ledger",
+        "parallel"
+      ]
+    },
+    {
+      "name": "free-token-channel-audit",
+      "description": "免费 token/算力渠道周期审计（2026-09-27 建）。免费渠道强时效（限时免费、 新人包、滚动下架），本 skill 固化「复查→验证→分级→更新清单」的标准化流程， 避免每次从零搜索。触发词：免费token复查、渠道审计、算力告急、白嫖渠道、 额度还够不够、渠道时效检查、免费模型盘点。跨项目通用。",
+      "path": "skills/free-token-channel-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "xingtu"
       ]
     },
     {
@@ -242,6 +543,30 @@
         "github",
         "catalog",
         "skill"
+      ]
+    },
+    {
+      "name": "harness-governance",
+      "description": "对 harness 常驻配置层做减法治理闭环：审计→报告→人审→执行→回归。标尺：常驻<窗口5%、入口<200行、单文件<16KB；五分类 KEEP/SIMPLIFY/MOVE/DELETE/CONFLICT；只移不删、人审不可跳过。触发词：harness 治理/瘦身/审计/配置减法/上下文超标/s",
+      "path": "skills/harness-governance/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality"
+      ]
+    },
+    {
+      "name": "harness-model-upgrade-audit",
+      "description": "模型换代后对 harness（CLAUDE.md / AGENTS.md / rules / skills / memory / hooks）做「减法」审计与精简，删掉为旧模型能力不足而写的兜底规则。触发词：模型换代、新模型上线、harness 精简、删规则、旧的 prompts skills 是负资产、prompt 迁移、模型升级后优化、harness 减肥、unhobbling、model u…",
+      "path": "skills/harness-model-upgrade-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "harness",
+        "audit"
       ]
     },
     {
@@ -285,6 +610,42 @@
       ]
     },
     {
+      "name": "legal-compliance-baseline",
+      "description": "法律合规基线维护与出书适配性延伸检查。Use when 用户说跑合规扫描/合规门禁/法律基线、极限词误报太多/精度调整/白名单迭代、content_gate 第⑦门禁接入/维护、AI标识义务/人工智能生成合成内容标识办法待办、🟡人工核清单管",
+      "path": "skills/legal-compliance-baseline/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "library-dashboard-workbench",
+      "description": "把本地结构化数据（JSON/CSV/MD 台账）或静态看板升级为 WorkBuddy 资料库的「在线数据工作台」——建数据表 + 写动态 dashboard page（SDK 关联）+ 发布拿公开链接。触发词：工作台、数据工作台、看板在线化、资料库建表、把台账做成在线表、dashboard、改表即刷新。",
+      "path": "skills/library-dashboard-workbench/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "dashboard",
+        "library"
+      ]
+    },
+    {
+      "name": "meeting-archive",
+      "description": "把会议材料规范归档进文档仓的 meeting/ 目录——适用于\"把这次会归档\"\"整理一下会议纪要\"\"纪要传一下\"\"这个会记录放哪\"\"飞书文档归档\"\"豆包链接归档\"\"导出的纪要存一下\"\"微信收到/Teams 下载的会议文档整理\"\"会议记录上传 GitLab\"这类请求。**定位：会议材料（逐字稿 / 纪要 / 音频 / 原件）的规范落库。",
+      "path": "skills/meeting-archive/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "meeting",
+        "archive"
+      ]
+    },
+    {
       "name": "migration",
       "description": "Implement reversible compatibility-safe transitions. Use for schema, data, API, protocol, configuration, or dependency migrations requiring rollback and preservation proof.",
       "path": "skills/migration/SKILL.md",
@@ -292,6 +653,115 @@
         "claude-code",
         "ai-agent",
         "skill"
+      ]
+    },
+    {
+      "name": "mp-daily-ops-report",
+      "description": "行途每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说\"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了\"时触发。以资深全平台 IP 操盘手角色预",
+      "path": "skills/mp-daily-ops-report/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "mp-distribution-evidence-loop",
+      "description": "行途分发闭环回填傻瓜流程：发出去之后把凭证收进闭环。当用户说\"发出去了/截图给你/回填凭证/闭环率怎么涨/丢进投放口/今天分发算不算数/闭环转起来了吗\"时触发。截图规范命名 `分发凭证_<平台>_<日期>` 入 `outputs/多平台分发",
+      "path": "skills/mp-distribution-evidence-loop/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "mp-group-audience-check",
+      "description": "微信群熟人密度安检——在群里推公众号内容前，先查该群成员中有多少是你的微信好友（通过单聊消息表验证真好友，排除群里见过但没加的人），输出熟人密度评级和\"能不能推\"建议。触发词：查群里有多少好友、群里有没有熟人、能不能在这个群发公众号、群熟人",
+      "path": "skills/mp-group-audience-check/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "mp-group-push-copy",
+      "description": "公众号发布配套的群推话术四版 + 置顶评论生成管线。当用户说\"给我群推话术/置顶评论/怎么转发到群里/帮我写推荐语/这篇往哪个群发/发出去没人看/群里发了带来关注了再来要/话术缺活人味/置顶像空气对话/留言区要不要带#\"时触发。读家族存档与",
+      "path": "skills/mp-group-push-copy/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "mp-prepublish-draft-verify",
+      "description": "公众号发文前凭证闭环核验：事实回源 → 图文同步修正 → 建稿前 dry-run 预检（嵌图 N/N）→ 建稿入草稿箱 → API 回查 → 回收缺陷稿。当用户说\"检查这篇文章能不能发/发前核验/确认配图和封面有没有错/重建草稿/稿子里产品名对不对/榜单数据有没有漏/dry-run/建稿前预检/嵌图几张对不对/排版主题对不对/图文密度够不够/法律合规扫描/有没有极限词或侵权/标题撞题/标题重名核查/封面主标断行溢出孤字\"时触发。建稿前预检含 md2wechat 灰框占位卡还原（@@PH@@）、排版主题判定（数 d71a1b）、PUB-048 图文密度门禁、legal_compliance_scan 第⑦法律门禁。专治\"稿件看似就绪、实则名字错/榜单漏/图会静默消失/图变灰框卡/主题不对/密度不达标/带法律风险\"，补齐 PUB-051 只核事件时效、不核产品名与榜单位次的缺口。与 wecha",
+      "path": "skills/mp-prepublish-draft-verify/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "wechat",
+        "publishing"
+      ]
+    },
+    {
+      "name": "mp-publish-sop",
+      "description": "公众号「成稿→草稿箱」十步一条龙 SOP 编排层（🆕 09-16，v1.8.0 TOKEN-09 复盘）：串联事实回源/标题撞题/图文密度/法律合规/排版重渲/封面三检/门禁/建稿回查/回收/配套件，含本轮全部实测坑位与回查凭证模板，供任意",
+      "path": "skills/mp-publish-sop/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "mp-sentiment-tracker",
+      "description": ">",
+      "path": "skills/mp-sentiment-tracker/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "mp-title-collision-rename",
+      "description": "公众号标题撞题核查与换题执行闭环：WebSearch 双查取并集 → 撞题判定（同题含大媒体 ≥3 篇 = 换题）→ 规则出三候选交 boss 拍板 → 六载体同步替换（先数后改、assert 实测计数）→ 封面改文案 + 字号断行自检 +",
+      "path": "skills/mp-title-collision-rename/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "ollama-local-ops",
+      "description": "\"回答「本地模型装好了，有界面吗？性能怎么样？我这台机器能不能跑？输出质量行不行？能拿来做 Agent 吗？」这类问题的一体化做法：①用 /api/generate 自报的 eval_count/eval_duration 算真实 tok/s（别用秒表）；②必测「思考模式」这笔隐形税——qwen3 在 Ollama 里默认开思考，同一任务差 2–3.4 倍；",
+      "path": "skills/ollama-local-ops/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "llm",
+        "local",
+        "benchmark"
       ]
     },
     {
@@ -355,6 +825,67 @@
       ]
     },
     {
+      "name": "project-whitepaper",
+      "description": "> 为一个项目 / 仓库 / IP 写**对外总览白皮书**的 SOP —— 回答「这是什么、架构如何、 理念如何、跟别人差在哪、护城河在哪」这类连问，产出一份可给外人看的入口文档。 当用户问「我们架构如何 / 设计理念如何 / 我们跟别人差异化如何 / 我们的护城河如何」 「这个项目怎么介绍给别人」「开源项目需要有个扫盲」「写份项目总览/白皮书/README 升级」 或要把散在各处的项目结论收敛…",
+      "path": "skills/project-whitepaper/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "whitepaper",
+        "docs"
+      ]
+    },
+    {
+      "name": "pub-infographic-supplement",
+      "description": "公众号长文图文密度补齐管线：按 PUB-048 做图/千字密度对标 → 定位文字墙节 → 素材只取正文原文写信息图 HTML（家族配色：纯白 #FFFFFF 底、黑红灰主色，DESIGN.md §四；1080px 视口 @2x）→ fig_",
+      "path": "skills/pub-infographic-supplement/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "publish-pack-planning",
+      "description": "行途发布包「规划层」总纲技能：在动笔/发布前，先把一个内容单元从「论点」规划成「一整套可执行发布包」。覆盖 ① 论证溯源（论点-论证-论据三段论、素材库溯源、可解释性、证伪检查）② 基础素材（标题/封面/配图截图）③ 发布操作素材（归档/发布记录）④ 分发与平台内容（多平台裂变包/各平台发布内容）。当用户说\"规划发布包/这个发布包含什么/物料清单/建发布包/这个内容怎么规划成一套/论证一下/溯源/论据从哪来\"时触发。只做规划与清单，执行交棒 mp-publish-sop（公众号发布）/ xingtu-multiplatform-distribution（分发）/ mp-group-push-copy（话术）——本技能不复制它们的实现，只定顺序、清单、闸门。",
+      "path": "skills/publish-pack-planning/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "wechat",
+        "publishing"
+      ]
+    },
+    {
+      "name": "publish-package-review",
+      "description": "发布包「审校轮」SOP——在定时发布前对整包做交叉事实核查与版本漂移对账，产出单文件 HTML 审校看板 + 长图 PNG 截图。适用于任何内容发布包（公众号/知乎/掘金/开源文档）的发布前审核、AI 生成内容的可视化审核、多版迭代后的配套文档对账。触发词：审校、审核发布包、发布前检查、继续审查、对账、版本漂移、数字溯源。",
+      "path": "skills/publish-package-review/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content",
+        "review",
+        "publishing"
+      ]
+    },
+    {
+      "name": "published-article-archive",
+      "description": "已发布文章入库闭环（行途）——当 boss 发来公众号后台「发表记录」截图/链接/标题，说\"昨天发布的入库\"\"这篇回填一下\"\"已发文章归档\"时使用。完成识别文章→核对本地发布包→回填三处台账（发布日历/发布日志/已发布档案）→镜像开源仓 xingtu-articles→敏感扫描→git 提交（push 需拍板）。",
+      "path": "skills/published-article-archive/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content",
+        "archive"
+      ]
+    },
+    {
       "name": "python-cli-to-macos-app",
       "description": "Package a local Python/CLI project into a zero-dependency macOS .app users can double-click. Covers size budgeting, three fatal-check lines (relocatable python, otool -L external deps, static binary detection), launcher design and distribution format comparison.",
       "path": "skills/python-cli-to-macos-app/SKILL.md",
@@ -364,6 +895,18 @@
         "python",
         "distribution",
         "skill"
+      ]
+    },
+    {
+      "name": "readme-frontpage-audit",
+      "description": "开源项目 README「门面体检 + 拆读者重构」——当 boss 说「这个 README 看着奇怪 / 引用块太多 / 大 V 都不这么写 / 一句话总结和目录是不是该删」时使用。核心手法：抓同类头部项目 README 做结构实测对比（不凭感觉），分离「访客内容」与「维护者内容」，保差异化内容、砍维护者内容、改形式不删骨头。含 6 步流程、诊断三问、重装机检清单与反直觉证据。",
+      "path": "skills/readme-frontpage-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "readme",
+        "audit"
       ]
     },
     {
@@ -388,6 +931,30 @@
       ]
     },
     {
+      "name": "session-sediment",
+      "description": "会话即刻沉淀 xingtu 版——自动盘点成果/决策链/AI协作模式/沉淀资产/纠偏偏好/踩坑教训，反哺到行途素材库（xingtu-vault）+ 会话复盘 + 选题池 + 元宝素材库，产出继续会话提示词。触发词：沉淀会话/会话沉淀/记录会",
+      "path": "skills/session-sediment/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "skill-inbox-triage",
+      "description": "跨 Agent 技能建议收件箱双模式：Mode A 分诊拍板落盘（查收件箱/技能拍板/清 inbox）；Mode B 复盘提名建卡（技能复盘/复盘提名）。人审闸门不可旁路：AI 只提名不自我批准。协议唯一权威=PROTOCOL.md。",
+      "path": "skills/skill-inbox-triage/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "skill",
+        "governance"
+      ]
+    },
+    {
       "name": "skill-vetter",
       "description": "Security-first vetting for AI agent skills before install. Checks red flags, permission scope and suspicious patterns in skills from community, GitHub, or other sources.",
       "path": "skills/skill-vetter/SKILL.md",
@@ -395,6 +962,31 @@
         "security",
         "vetting",
         "skill"
+      ]
+    },
+    {
+      "name": "spec-driven-adversarial-workflow",
+      "description": "> 复杂/多维/强耦合任务的「侦察→Spec→红队对抗→修订收口→留痕→执行委派与磁盘核对验收」六阶段标准流程（工作区无关方法论）。 先派侦察子代理摸工作区事实地基（既有引擎/字段/台账/命名惯例/红线，修正口头假设），再按工作区惯例建 spec（00 总纲含复用地图与待拍板默认值 + 01 任务分解依赖 DAG + 02 决策模型），然后起独立上下文红队 代理攻击设计（引用证伪/单一信号绑架/平行系统/口径污染/副本腐烂五类靶），写 03 修订决议并给 00 挂 「以 03 为准」指针防双份腐烂，回写工作区时间轴留痕；spec 定稿并放行后 Step 5 把各 Phase 交**后台执行 子代理**落地（自包含 brief：spec 唯一真相源 + 红线复述 + 辖区排他 + DoD 要求 ls/grep/实跑自证），主代理 完成后必须对**磁盘产物**独立验收（实跑工具、grep 关键",
+      "path": "skills/spec-driven-adversarial-workflow/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "publishing",
+        "methodology"
+      ]
+    },
+    {
+      "name": "specs-engine",
+      "description": "Spec 驱动开发(SDD)方法论引擎——意图路由、先规格后编码(三铁律 No Spec No Code/五阶段/深度裁减)。用户说\"按 specs 标准推进/走 spec/需求澄清固化/写 analysis~validator/收口 0 draft/按宪法推进/拆子 Spec/父 Spec 下细分/批量同类改造逐项落地\"等时用，把需求固化为结构化 Spec 再写代码；",
+      "path": "skills/specs-engine/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "sdd",
+        "spec",
+        "methodology"
       ]
     },
     {
@@ -406,6 +998,18 @@
         "database",
         "verification",
         "skill"
+      ]
+    },
+    {
+      "name": "stakeholder-register",
+      "description": "人名先核后写——建干系人清单、按清单校对材料里的人名、扫全仓存量错名。适用于\"建个干系人清单\"\"人员登记册\"\"这个人名对不对\"\"材料里的人名核一下\"\"同一个人的名字有好几种写法\"\"XX 是不是写错了\"\"全仓人名查错\"\"别把人名写错了\"\"这封邮件里的人是谁\"等请求。名字错了后面所有材料都跟着错，这个技能管的就是这件事。",
+      "path": "skills/stakeholder-register/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "stakeholders",
+        "names"
       ]
     },
     {
@@ -429,6 +1033,29 @@
       ]
     },
     {
+      "name": "token-audit",
+      "description": "给 AI 工作区做 token 体检并对常驻配置做可逆瘦身——适用于\"省 token\"\"上下文太满了\"\"配置太肥了\"\"诊断一下消耗\"\"多 agent 怎么这么贵\"\"会话成本\"\"优化 harness\"\"裁剪一下规则\"\"token 都花在哪了\"这类请求。**定位：常驻上下文与多 Agent 成本的诊断 + 可逆治理。",
+      "path": "skills/token-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "token",
+        "audit"
+      ]
+    },
+    {
+      "name": "ubiquitous-language",
+      "description": "术语先定后写——建/更新项目统一语言文档（术语表 + 业务本体）、按词表校对材料口径、改术语后扫全仓影响面。适用于\"建个术语表\"\"统一一下叫法\"\"这个词到底叫什么\"\"抽一下业务本体\"\"这块业务有哪些对象和规则\"\"两份文档口径不一致\"\"改了术语要同步哪些地方\"\"全仓查一下旧叫法\"等请求。术语散落无主从、改一处忘 N 处，这个技能管的就是这件事。",
+      "path": "skills/ubiquitous-language/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "terminology"
+      ]
+    },
+    {
       "name": "verify-and-stop",
       "description": "Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof.",
       "path": "skills/verify-and-stop/SKILL.md",
@@ -436,6 +1063,99 @@
         "claude-code",
         "ai-agent",
         "skill"
+      ]
+    },
+    {
+      "name": "wb-usage-cost-audit",
+      "description": "> 从本机取证 WorkBuddy/CodeBuddy 的真实用量（积分 + Token + 缓存命中率）， 并把它折算成人民币，与「模型官方直充价」「WorkBuddy 订阅积分单价」做成本对撞， 最后产出单文件 HTML 看板 + 路线建议。",
+      "path": "skills/wb-usage-cost-audit/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "usage",
+        "cost",
+        "audit"
+      ]
+    },
+    {
+      "name": "wechat-channel",
+      "description": "本地微信通道（行途）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微",
+      "path": "skills/wechat-channel/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "wechat-cover-gen",
+      "description": "> 公众号封面生成管线（真人剪影场景化路线）：image_gen 出无文字场景图（工程师背影+橙红轮廓光，不露脸，右侧留暗部负空间） → curl 下载 scene.png → HTML 右侧压字（渐变遮罩+主词+橙红强调）→ fig_fit.py 渲 900×383 → Read 看图+OCR 回查 → 落 03_封面/。触发：出封面、换封面、封面重渲、封面没真人感、封面太纯图形、黑白交替、引子图同步。 视觉 SSoT = DESIGN.md §二/§二·补；本 skill 只承载\"怎么一键出图\"的流程，不改规范。",
+      "path": "skills/wechat-cover-gen/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "wechat",
+        "publishing"
+      ]
+    },
+    {
+      "name": "wechat-draft-api",
+      "description": ">",
+      "path": "skills/wechat-draft-api",
+      "tags": [
+        "productivity"
+      ]
+    },
+    {
+      "name": "wechat-mp-analytics",
+      "description": "公众号后台只读数据分析（行途）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixi",
+      "path": "skills/wechat-mp-analytics/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "wechat-mp-publish",
+      "description": "微信公众号后台自动化发布 Skill。发前核查（群发额度/发表记录/草稿箱）→ 把一篇成稿（HTML/PM doc JSON/官方草稿 API）导入公众号草稿箱、设置标题/摘要/原创/封面/合集/公众号名片，最终引导人工群发的全流程自动化 ",
+      "path": "skills/wechat-mp-publish/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "wechat-tuitu-publish",
+      "description": "用 bsk 接管已登录浏览器，代发微信公众号「贴图」（小绿书/图片消息）：上传本地图卡、填标题描述、挂原文链接、核验平台推荐开关，发表或存草稿。触发词：发贴图、发小绿书、贴图发布、公众号图片消息、一图一观点发布。",
+      "path": "skills/wechat-tuitu-publish/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "xingtu"
+      ]
+    },
+    {
+      "name": "worktree-parallel",
+      "description": "并行开发的工作树隔离机制（工具无关）。当出现「多 agent 同时改同一批文件会互相覆盖」「要并行推进 2+ 独立需求但文件重叠」「需要隔离工作区」「worktree 怎么建/怎么清」「并行分支怎么合流」「agent 隔离级别怎么选」时使用。先判「文件级切分能否切开」——能切开就别开 worktree；切不开才用，且必须做合流对账。",
+      "path": "skills/worktree-parallel/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "git",
+        "worktree",
+        "parallel"
       ]
     },
     {
@@ -450,6 +1170,67 @@
       ]
     },
     {
+      "name": "x-auto-publish",
+      "description": "行途品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简",
+      "path": "skills/x-auto-publish/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "xiaobot-ops",
+      "description": "小报童平台运营专家 Skill。当 boss 需要小报童相关操作（申请专栏、定价调价、发布内容、运营决策、平台规则查询、提现服务费）时使用。沉淀平台官方规范（定位/定价/调价/买断制/内容公约/提现）、行途双轨定价策略、申请表单填写提示与运营 checklist。数据源以官方帮助文档为准（每月更新）。",
+      "path": "skills/xiaobot-ops/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "wechat",
+        "publishing"
+      ]
+    },
+    {
+      "name": "xingtu-article-archive",
+      "description": "把公众号已发布文章归档同步到 GitHub 公开仓（xingtu-articles）+ 个人站（xingtu-site）并维护封面。当用户说\"归档已发布文章\"\"同步文章到 GitHub\"\"补文章镜像\"\"更新个人站文章列表\"\"维护封面\"\"其他文章排版/配图/素材没做好\"时使用。",
+      "path": "skills/xingtu-article-archive/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content",
+        "archive",
+        "github"
+      ]
+    },
+    {
+      "name": "xingtu-article-sync",
+      "description": "行途文章库发布同步总控——发文后一条命令完成：新文章收编（年月归位/素材包/frontmatter 规范化）→ prev/next 与开源仓互链 → index.json → 三处展示层（articles README / 个人主页最新10 / 文章星图页）→ Data API 推送三仓。触发词：文章归档、发文同步、article sync、收编文章、文章库更新、星图页更新、主页文章同步。",
+      "path": "skills/xingtu-article-sync/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "wechat",
+        "publishing"
+      ]
+    },
+    {
+      "name": "xingtu-blue-ocean-strategy",
+      "description": "蓝海市场与受众战略分析（行途）——当用户要求为自己/公司/产品/内容账号/app/创业项目做市场调研、蓝海判断、受众与变现人群分析、需求缺口识别、定位与主方向锁定、90 天战略路线图时使用。也适用于「帮我分析下这个方向/赛道/人群」「这个市",
+      "path": "skills/xingtu-blue-ocean-strategy/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
       "name": "xingtu-collab-evolution-loop",
       "description": "Self-evolving AI collaboration preference loop: investigate, attribute, sediment into SSoT, feed constraints back.",
       "path": "skills/xingtu-collab-evolution-loop/SKILL.md",
@@ -457,6 +1238,67 @@
         "methodology",
         "ai-collaboration",
         "skill"
+      ]
+    },
+    {
+      "name": "xingtu-content-craft",
+      "description": "行途成稿总装技能：从选题素材到可排版正文 v1 的全流程（起草→de-ai-flavor→脱敏三查→PUB-027 量化门禁→信源独立成节）。当用户说\"写稿/改稿/成稿/起草这篇/正文 v1/开始写\"时触发。",
+      "path": "skills/xingtu-content-craft/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content",
+        "writing",
+        "xingtu"
+      ]
+    },
+    {
+      "name": "xingtu-expression-logic",
+      "description": ">",
+      "path": "skills/xingtu-expression-logic/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "xingtu-ingest",
+      "description": "素材入库总控（行途）——当用户说\"入库/收入素材库/存到素材库/记一下这条素材/把这个收进选题池/分析并入库\"并给出内容（文本/链接/对话/想法/截图描述）时使用。自动分析内容价值分级（黄金/关键/重点/高知），按类型落到素材卡/选题池/黄",
+      "path": "skills/xingtu-ingest/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "xingtu-multiplatform-distribution",
+      "description": "公众号首发后的多平台分发流水线——按平台规格生成变体（掘金/知乎/CSDN/小红书/抖音/X）+ 变体过 de_ai_flavor_check 去AI味 + 配图（HTML→PNG 卡片；母稿非表格信息图按本地绝对路径内嵌进变体 MD 并出",
+      "path": "skills/xingtu-multiplatform-distribution/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "xingtu-orchestrate",
+      "description": ">",
+      "path": "skills/xingtu-orchestrate/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
       ]
     },
     {
@@ -502,6 +1344,67 @@
       ]
     },
     {
+      "name": "xingtu-workspace-context",
+      "description": "行途工作空间上下文桥接（豆包/通用版）——当用户在行途(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途工作空间、开始行途工作、xingtu上下文、行途空间规则、了解",
+      "path": "skills/xingtu-workspace-context/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "xt-automation-ops",
+      "description": "\"行途空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸\"",
+      "path": "skills/xt-automation-ops/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "automation",
+        "ops"
+      ]
+    },
+    {
+      "name": "yuanbao-archive-pipeline",
+      "description": "元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。",
+      "path": "skills/yuanbao-archive-pipeline/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "wechat"
+      ]
+    },
+    {
+      "name": "yuanbao-article-fetch",
+      "description": "抓取元宝（腾讯 Yuanbao）AI 分享文章全文并留存为 Markdown。伪装微信 iOS User-Agent 绕过微信客户端围栏，无需登录；从服务端渲染 HTML 提取可见文本（非 __NEXT_DATA__），按 6 位短 ID 去重。Use when: 元宝文章、元宝链接、yb.tencent.com、抓取 AI 分享文章、提取元宝对话。",
+      "path": "skills/yuanbao-article-fetch/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "scraping",
+        "content-pipeline"
+      ]
+    },
+    {
+      "name": "zcode-client-ops",
+      "description": "> ZCode（智谱 Z.ai 的 ADE 桌面客户端）的安装、可回退升级，以及「活动卡片不显示 / 领不到免费额度 / 提示没有可用模型」的诊断。核心手法是从 ~/.zcode/v2/logs 日志实证定位，而非猜测或翻应用二进制。 触发词：装 ZCode、升级 ZCode、ZCode 没有领取入口、活动卡片不显示、weekend build 领不到、 ZCode 没有可用模型、zcode 套餐…",
+      "path": "skills/zcode-client-ops/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "zcode",
+        "client",
+        "ops"
+      ]
+    },
+    {
       "name": "zcode-session-export",
       "description": "ZCode session export: tidy local AI sessions into archivable/shareable structured docs.",
       "path": "skills/zcode-session-export/SKILL.md",
@@ -521,551 +1424,6 @@
         "svg",
         "zero-cost",
         "skill"
-      ]
-    },
-    {
-      "name": "conference-archive",
-      "description": "会议/论坛/行业大会素材归档与蒸馏。当用户参加完线下会议、行业论坛、技术大会后，要求\"整理一下\"\"归档\"\"沉淀素材\"\"把录音和拍图整理成文章素材库\"时使用。输入：录音 record_id、现场拍图、口述观点、官方议程 PDF、系统纪要。输出",
-      "path": "skills/conference-archive/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "content-matrix-channel-audit",
-      "description": "全渠道内容矩阵环境审计（周期性战略盘点，只读不动手）：以资深全平台内容运营操盘手视角，实地核实固定数据源（materials_library.json + 今日调度_*.json + 分发凭证 glob + 变现盘点 README + 各分",
-      "path": "skills/content-matrix-channel-audit/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "legal-compliance-baseline",
-      "description": "法律合规基线维护与出书适配性延伸检查。Use when 用户说跑合规扫描/合规门禁/法律基线、极限词误报太多/精度调整/白名单迭代、content_gate 第⑦门禁接入/维护、AI标识义务/人工智能生成合成内容标识办法待办、🟡人工核清单管",
-      "path": "skills/legal-compliance-baseline/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-daily-ops-report",
-      "description": "行途每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说\"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了\"时触发。以资深全平台 IP 操盘手角色预",
-      "path": "skills/mp-daily-ops-report/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-distribution-evidence-loop",
-      "description": "行途分发闭环回填傻瓜流程：发出去之后把凭证收进闭环。当用户说\"发出去了/截图给你/回填凭证/闭环率怎么涨/丢进投放口/今天分发算不算数/闭环转起来了吗\"时触发。截图规范命名 `分发凭证_<平台>_<日期>` 入 `outputs/多平台分发",
-      "path": "skills/mp-distribution-evidence-loop/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-group-push-copy",
-      "description": "公众号发布配套的群推话术四版 + 置顶评论生成管线。当用户说\"给我群推话术/置顶评论/怎么转发到群里/帮我写推荐语/这篇往哪个群发/发出去没人看/群里发了带来关注了再来要/话术缺活人味/置顶像空气对话/留言区要不要带#\"时触发。读家族存档与",
-      "path": "skills/mp-group-push-copy/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-sentiment-tracker",
-      "description": ">",
-      "path": "skills/mp-sentiment-tracker/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-title-collision-rename",
-      "description": "公众号标题撞题核查与换题执行闭环：WebSearch 双查取并集 → 撞题判定（同题含大媒体 ≥3 篇 = 换题）→ 规则出三候选交 boss 拍板 → 六载体同步替换（先数后改、assert 实测计数）→ 封面改文案 + 字号断行自检 +",
-      "path": "skills/mp-title-collision-rename/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "xingtu-expression-logic",
-      "description": ">",
-      "path": "skills/xingtu-expression-logic/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "xingtu-ingest",
-      "description": "素材入库总控（行途）——当用户说\"入库/收入素材库/存到素材库/记一下这条素材/把这个收进选题池/分析并入库\"并给出内容（文本/链接/对话/想法/截图描述）时使用。自动分析内容价值分级（黄金/关键/重点/高知），按类型落到素材卡/选题池/黄",
-      "path": "skills/xingtu-ingest/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "xingtu-orchestrate",
-      "description": ">",
-      "path": "skills/xingtu-orchestrate/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "audio-friendly-adapt",
-      "description": "听友好版改编 skill——把图文成稿派生为适合语音朗读/播客/视频号语音的纯文本版本。自动执行 PUB-024 六条铁律（砍元信息/编号口语化/数字口语化/图表口述/加问候道别/命名规范），改编后过 PUB-026 完结检查。触发词：听友",
-      "path": "skills/audio-friendly-adapt/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "certification-submission-kit",
-      "description": "平台个人/职业认证提交包生成流水线。Use when 用户说 公众号认证/视频号认证/知乎认证/掘金认证/百家号认证/CSDN认证/小红书认证/职业认证/身份认证/兴趣认证/认证描述/公众称谓/主体姓名/职业身份/认证材料/认证驳回/认证额",
-      "path": "skills/certification-submission-kit/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "concept-anchor-figure",
-      "description": "Turn one article's core idea into a single watermark-free vector infographic (HTML -> PNG via fig_fit), in the workspace",
-      "path": "skills/concept-anchor-figure/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "content-format-audit",
-      "description": "内容格式策略评估管线（阶段性复跑、跨篇策略级，只评估不动稿）：提取正文格式元素清单（blockquote 摘要/我是谁/目录/信息说明/标签行/合集块/延伸阅读/图注等 + 首屏结构检查）→ 对标双参照系（机构媒体 APPSO/机器之心 v",
-      "path": "skills/content-format-audit/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-group-audience-check",
-      "description": "微信群熟人密度安检——在群里推公众号内容前，先查该群成员中有多少是你的微信好友（通过单聊消息表验证真好友，排除群里见过但没加的人），输出熟人密度评级和\"能不能推\"建议。触发词：查群里有多少好友、群里有没有熟人、能不能在这个群发公众号、群熟人",
-      "path": "skills/mp-group-audience-check/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "mp-publish-sop",
-      "description": "公众号「成稿→草稿箱」十步一条龙 SOP 编排层（🆕 09-16，v1.8.0 TOKEN-09 复盘）：串联事实回源/标题撞题/图文密度/法律合规/排版重渲/封面三检/门禁/建稿回查/回收/配套件，含本轮全部实测坑位与回查凭证模板，供任意",
-      "path": "skills/mp-publish-sop/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "pub-infographic-supplement",
-      "description": "公众号长文图文密度补齐管线：按 PUB-048 做图/千字密度对标 → 定位文字墙节 → 素材只取正文原文写信息图 HTML（家族配色：纯白 #FFFFFF 底、黑红灰主色，DESIGN.md §四；1080px 视口 @2x）→ fig_",
-      "path": "skills/pub-infographic-supplement/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "session-sediment",
-      "description": "会话即刻沉淀 xingtu 版——自动盘点成果/决策链/AI协作模式/沉淀资产/纠偏偏好/踩坑教训，反哺到行途素材库（xingtu-vault）+ 会话复盘 + 选题池 + 元宝素材库，产出继续会话提示词。触发词：沉淀会话/会话沉淀/记录会",
-      "path": "skills/session-sediment/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "wechat-channel",
-      "description": "本地微信通道（行途）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微",
-      "path": "skills/wechat-channel/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "wechat-mp-analytics",
-      "description": "公众号后台只读数据分析（行途）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixi",
-      "path": "skills/wechat-mp-analytics/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "wechat-mp-publish",
-      "description": "微信公众号后台自动化发布 Skill。发前核查（群发额度/发表记录/草稿箱）→ 把一篇成稿（HTML/PM doc JSON/官方草稿 API）导入公众号草稿箱、设置标题/摘要/原创/封面/合集/公众号名片，最终引导人工群发的全流程自动化 ",
-      "path": "skills/wechat-mp-publish/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "x-auto-publish",
-      "description": "行途品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简",
-      "path": "skills/x-auto-publish/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "xingtu-blue-ocean-strategy",
-      "description": "蓝海市场与受众战略分析（行途）——当用户要求为自己/公司/产品/内容账号/app/创业项目做市场调研、蓝海判断、受众与变现人群分析、需求缺口识别、定位与主方向锁定、90 天战略路线图时使用。也适用于「帮我分析下这个方向/赛道/人群」「这个市",
-      "path": "skills/xingtu-blue-ocean-strategy/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "xingtu-multiplatform-distribution",
-      "description": "公众号首发后的多平台分发流水线——按平台规格生成变体（掘金/知乎/CSDN/小红书/抖音/X）+ 变体过 de_ai_flavor_check 去AI味 + 配图（HTML→PNG 卡片；母稿非表格信息图按本地绝对路径内嵌进变体 MD 并出",
-      "path": "skills/xingtu-multiplatform-distribution/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "xingtu-workspace-context",
-      "description": "行途工作空间上下文桥接（豆包/通用版）——当用户在行途(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途工作空间、开始行途工作、xingtu上下文、行途空间规则、了解",
-      "path": "skills/xingtu-workspace-context/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "yuanbao-archive-pipeline",
-      "description": "元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。",
-      "path": "skills/yuanbao-archive-pipeline/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
-      "name": "evolve-skills",
-      "description": ">- 技能建议 / 技能体检 / 要不要做成技能 / 这个该沉淀成技能吗 / 技能该升级了 / 技能老化了 / 技能没人用 / 技能触发不了 / 技能该淘汰 / 库太肥了要淘 / skill hygiene / skill evolution —— 在干活的过程中主动产出**技能建议**：① 建议*",
-      "path": "skills/evolve-skills/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "governance",
-        "quality"
-      ]
-    },
-    {
-      "name": "harness-governance",
-      "description": "对 harness 常驻配置层做减法治理闭环：审计→报告→人审→执行→回归。标尺：常驻<窗口5%、入口<200行、单文件<16KB；五分类 KEEP/SIMPLIFY/MOVE/DELETE/CONFLICT；只移不删、人审不可跳过。触发词：harness 治理/瘦身/审计/配置减法/上下文超标/s",
-      "path": "skills/harness-governance/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "governance",
-        "quality"
-      ]
-    },
-    {
-      "name": "cross-repo-skill-curation",
-      "description": "跨仓技能策展蒸馏 playbook。当用户让另一个仓/项目的 .claude（skills/agents/hooks/CLAUDE.md/settings）里\"有什么值得蒸馏/借鉴/搬过来\"，或要把某仓成熟资产收进技能池时使用。流程：只读侦察 → 四分类分级（GENERIC-KEEP / SKIP-",
-      "path": "skills/cross-repo-skill-curation/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "governance",
-        "quality"
-      ]
-    },
-    {
-      "name": "egress-allowlist",
-      "description": "给环境做外网放通清单（白名单域名）——适用于\"给客户做外网放通清单\"\"这个环境要放通哪些域名\"\"外网访问需求\"\"白名单怎么列\"\"依赖库下载源有哪些\"。核心是查清每个服务的真实下载域名（含 CDN），避免只列主域名导致\"能查询、不能下载\"。",
-      "path": "skills/egress-allowlist/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "governance",
-        "quality"
-      ]
-    },
-    {
-      "name": "daily-judgment-brief",
-      "description": "发布综合判断基线 + 每日对账评估器（土壤→落点）：土壤 = `reference.md` 判断基线（口径铁律/选稿 heuristics/价值门禁 v2/阅读双峰律/假设台账，蒸馏自 2026-09-22~27 数据复盘）；落点 = `outputs/每日判断对账_YYYY-MM-DD.md`。五步：读土壤 → 拉事实（stats 一级事实源 + publish_board + 排期 SSoT）→ 对账（排期 vs 实际 / 48h 分诊 / Δ≥+3 信号）→ 假设台账结算（H-* 逐条 ✅/❌/⏸）→ 落简报。当用户说\"综合判断/今天判断一下/复盘结论对账/假设结算/这条结论还成立吗/数据怎么看才对/口径对一下/判断依据是什么\"时触发。与 `mp-daily-ops-report` 互补不重叠：彼管**晨间决策输出**（发什么/怎么发，09:30 管线）；本技能是**判断准则层与对账",
-      "path": "skills/daily-judgment-brief/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "wechat",
-        "publishing"
-      ]
-    },
-    {
-      "name": "publish-pack-planning",
-      "description": "行途发布包「规划层」总纲技能：在动笔/发布前，先把一个内容单元从「论点」规划成「一整套可执行发布包」。覆盖 ① 论证溯源（论点-论证-论据三段论、素材库溯源、可解释性、证伪检查）② 基础素材（标题/封面/配图截图）③ 发布操作素材（归档/发布记录）④ 分发与平台内容（多平台裂变包/各平台发布内容）。当用户说\"规划发布包/这个发布包含什么/物料清单/建发布包/这个内容怎么规划成一套/论证一下/溯源/论据从哪来\"时触发。只做规划与清单，执行交棒 mp-publish-sop（公众号发布）/ xingtu-multiplatform-distribution（分发）/ mp-group-push-copy（话术）——本技能不复制它们的实现，只定顺序、清单、闸门。",
-      "path": "skills/publish-pack-planning/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "wechat",
-        "publishing"
-      ]
-    },
-    {
-      "name": "wechat-cover-gen",
-      "description": "> 公众号封面生成管线（真人剪影场景化路线）：image_gen 出无文字场景图（工程师背影+橙红轮廓光，不露脸，右侧留暗部负空间） → curl 下载 scene.png → HTML 右侧压字（渐变遮罩+主词+橙红强调）→ fig_fit.py 渲 900×383 → Read 看图+OCR 回查 → 落 03_封面/。触发：出封面、换封面、封面重渲、封面没真人感、封面太纯图形、黑白交替、引子图同步。 视觉 SSoT = DESIGN.md §二/§二·补；本 skill 只承载\"怎么一键出图\"的流程，不改规范。",
-      "path": "skills/wechat-cover-gen/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "wechat",
-        "publishing"
-      ]
-    },
-    {
-      "name": "xiaobot-ops",
-      "description": "小报童平台运营专家 Skill。当 boss 需要小报童相关操作（申请专栏、定价调价、发布内容、运营决策、平台规则查询、提现服务费）时使用。沉淀平台官方规范（定位/定价/调价/买断制/内容公约/提现）、行途双轨定价策略、申请表单填写提示与运营 checklist。数据源以官方帮助文档为准（每月更新）。",
-      "path": "skills/xiaobot-ops/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "wechat",
-        "publishing"
-      ]
-    },
-    {
-      "name": "xingtu-article-sync",
-      "description": "行途文章库发布同步总控——发文后一条命令完成：新文章收编（年月归位/素材包/frontmatter 规范化）→ prev/next 与开源仓互链 → index.json → 三处展示层（articles README / 个人主页最新10 / 文章星图页）→ Data API 推送三仓。触发词：文章归档、发文同步、article sync、收编文章、文章库更新、星图页更新、主页文章同步。",
-      "path": "skills/xingtu-article-sync/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "wechat",
-        "publishing"
-      ]
-    },
-    {
-      "name": "mp-prepublish-draft-verify",
-      "description": "公众号发文前凭证闭环核验：事实回源 → 图文同步修正 → 建稿前 dry-run 预检（嵌图 N/N）→ 建稿入草稿箱 → API 回查 → 回收缺陷稿。当用户说\"检查这篇文章能不能发/发前核验/确认配图和封面有没有错/重建草稿/稿子里产品名对不对/榜单数据有没有漏/dry-run/建稿前预检/嵌图几张对不对/排版主题对不对/图文密度够不够/法律合规扫描/有没有极限词或侵权/标题撞题/标题重名核查/封面主标断行溢出孤字\"时触发。建稿前预检含 md2wechat 灰框占位卡还原（@@PH@@）、排版主题判定（数 d71a1b）、PUB-048 图文密度门禁、legal_compliance_scan 第⑦法律门禁。专治\"稿件看似就绪、实则名字错/榜单漏/图会静默消失/图变灰框卡/主题不对/密度不达标/带法律风险\"，补齐 PUB-051 只核事件时效、不核产品名与榜单位次的缺口。与 wecha",
-      "path": "skills/mp-prepublish-draft-verify/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "wechat",
-        "publishing"
-      ]
-    },
-    {
-      "name": "brand-icon-sourcing",
-      "description": "Source and verify real official brand icons/logos for covers, illustrations, and publish packages. Primary channel is the iTunes Search API (term+country=cn, 512px artworkUrl); ImageSearch only yields article illustrations, never clean logos. Use when the user asks for a product's official logo/icon, brand icons for a cover, or verifying which icon belongs to which product.",
-      "path": "skills/brand-icon-sourcing/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "publishing",
-        "methodology"
-      ]
-    },
-    {
-      "name": "spec-driven-adversarial-workflow",
-      "description": "> 复杂/多维/强耦合任务的「侦察→Spec→红队对抗→修订收口→留痕→执行委派与磁盘核对验收」六阶段标准流程（工作区无关方法论）。 先派侦察子代理摸工作区事实地基（既有引擎/字段/台账/命名惯例/红线，修正口头假设），再按工作区惯例建 spec（00 总纲含复用地图与待拍板默认值 + 01 任务分解依赖 DAG + 02 决策模型），然后起独立上下文红队 代理攻击设计（引用证伪/单一信号绑架/平行系统/口径污染/副本腐烂五类靶），写 03 修订决议并给 00 挂 「以 03 为准」指针防双份腐烂，回写工作区时间轴留痕；spec 定稿并放行后 Step 5 把各 Phase 交**后台执行 子代理**落地（自包含 brief：spec 唯一真相源 + 红线复述 + 辖区排他 + DoD 要求 ls/grep/实跑自证），主代理 完成后必须对**磁盘产物**独立验收（实跑工具、grep 关键",
-      "path": "skills/spec-driven-adversarial-workflow/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "publishing",
-        "methodology"
-      ]
-    },
-    {
-      "name": "book2vido-video",
-      "description": "把 PDF / Markdown / 长文转成竖屏短视频（本地运行、零 API key）",
-      "path": "skills/book2vido-video",
-      "tags": [
-        "productivity"
-      ]
-    },
-    {
-      "name": "boss-autopilot",
-      "description": "全自动协作契约：综合理解不碎问、可自查证直接给结论、三类动作才停下拍板",
-      "path": "skills/boss-autopilot",
-      "tags": [
-        "productivity"
-      ]
-    },
-    {
-      "name": "exam-prep-pmp",
-      "description": "为在职备考者搭建可运行、可验收的备考系统",
-      "path": "skills/exam-prep-pmp",
-      "tags": [
-        "productivity"
-      ]
-    },
-    {
-      "name": "wechat-draft-api",
-      "description": ">",
-      "path": "skills/wechat-draft-api",
-      "tags": [
-        "productivity"
-      ]
-    },
-    {
-      "name": "yuanbao-article-fetch",
-      "description": "抓取元宝（腾讯 Yuanbao）AI 分享文章全文并留存为 Markdown。伪装微信 iOS User-Agent 绕过微信客户端围栏，无需登录；从服务端渲染 HTML 提取可见文本（非 __NEXT_DATA__），按 6 位短 ID 去重。Use when: 元宝文章、元宝链接、yb.tencent.com、抓取 AI 分享文章、提取元宝对话。",
-      "path": "skills/yuanbao-article-fetch/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "scraping",
-        "content-pipeline"
-      ]
-    },
-    {
-      "name": "automation-resurrection",
-      "description": "从本地历史会话中全量回捞\"消失的定时任务\"并复现重建。当定时任务看似被删/失联、需要找回历史自动化配置、或迁移工作区后任务空转时使用。触发词：找回定时任务、定时任务回捞、历史自动化恢复、automation 重建、之前那些定时任务呢、定时任务不见了。",
-      "path": "skills/automation-resurrection/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "xingtu"
-      ]
-    },
-    {
-      "name": "free-token-channel-audit",
-      "description": "免费 token/算力渠道周期审计（2026-09-27 建）。免费渠道强时效（限时免费、 新人包、滚动下架），本 skill 固化「复查→验证→分级→更新清单」的标准化流程， 避免每次从零搜索。触发词：免费token复查、渠道审计、算力告急、白嫖渠道、 额度还够不够、渠道时效检查、免费模型盘点。跨项目通用。",
-      "path": "skills/free-token-channel-audit/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "xingtu"
-      ]
-    },
-    {
-      "name": "wechat-tuitu-publish",
-      "description": "用 bsk 接管已登录浏览器，代发微信公众号「贴图」（小绿书/图片消息）：上传本地图卡、填标题描述、挂原文链接、核验平台推荐开关，发表或存草稿。触发词：发贴图、发小绿书、贴图发布、公众号图片消息、一图一观点发布。",
-      "path": "skills/wechat-tuitu-publish/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "xingtu"
       ]
     }
   ]

@@ -45,6 +45,8 @@ version: 1.0.0
 
 ## 红线
 
+- **🔴 文字精确一律 HTML 覆字，不用 AI 生图（boss 10-12 ADV-02 沉淀）**：ADV-02 三版 AI 封面候选 OCR 抓出「杠精→红娘」「红哨错字」三次文字硬伤。本技能本来就是 HTML→PNG 管线（天然符合），但要强化：**图上任何文字（标题/标签/数字/引语）都在 HTML 里用 CSS 精确写，再 fig_fit 渲**；AI 生图只可做简笔画人物/场景构图参考，绝不承担最终文字。与 `wechat-cover-gen` v1.1.0 铁律 1/2、`pub-infographic-supplement` v1.2.3 引子图段同口径。
+- **🔴 若本图被选为引子图/封面底图，必须与封面同步**（坑位 67/72）：定稿后 `cp <本图>.png → 04_配图/00-封面引子图.png`，并确认 `03_封面/封面.png` 视觉同源；改封面必同步本图。
 - 禁用生成模型出最终稿（水印/糊中文风险）；生成图只允许做风格参考。
 - 不放公司/项目真名与内部数据（与正文同一脱敏标准，过 `privacy_scan.py` 口径）。
 - 每张图交付前必须 Read 自看（视觉验收不可跳过）。
@@ -53,4 +55,4 @@ version: 1.0.0
 
 `python3 tools/changelog_append.py --type "🎨" --path "<产物png路径>" --desc "概念锚点图：<文章>·<隐喻>·fig_fit 无水印渲染" --tool qwenwork`（或按所在工作区惯例）。
 
-<!-- public-sync: 2026-09-27 | 脱敏版本 | 源 .agents/skills/concept-anchor-figure -->
+<!-- public-sync: 2026-09-27, 2026-10-12 | 脱敏版本 | 源 .agents/skills/concept-anchor-figure（10-12 增量：文字 HTML 覆字铁律 + 引子图同步铁律） -->

@@ -6,13 +6,13 @@
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-97-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-126-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 97 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 126 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -30,7 +30,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（97）
+## 🧠 Skills 清单（126）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -48,9 +48,10 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | cross-repo-skill-curation | 跨仓技能策展蒸馏 playbook。当用户让另一个仓/项目的 .claude（skills/agents/hooks/CLAUDE.md/settings）里"有什么值得蒸馏/借鉴/搬过来"，或要把某仓成熟资产收进技能池时使用。流程：只读侦察 → 四分类分级（GENERIC-KEEP / SKIP- |
 | egress-allowlist | 给环境做外网放通清单（白名单域名）——适用于"给客户做外网放通清单""这个环境要放通哪些域名""外网访问需求""白名单怎么列""依赖库下载源有哪些"。核心是查清每个服务的真实下载域名（含 CDN），避免只列主域名导致"能查询、不能下载"。 |
 
-### 内容工程 · 发布运营（28 · 🆕 2026-09-27 第三批 +27，含首批范式 wechat-draft-api）
+### 内容工程 · 发布运营（39 · 🆕 2026-09-27 第三批 +27 +2026-10-12 补5，含首批范式 wechat-draft-api）
 | Skill | 说明 |
 |-------|------|
+| xingtu-content-craft | 行途成稿总装技能：从选题素材到可排版正文 v1 的全流程（起草→de-ai-flavor→脱敏三查→PUB-027 量化门禁→信源独立成节）。当用户说"写稿/改稿/成稿/起草这篇/正文 v1/开始写"时触发（🆕 2026-10-12 落仓） |
 | conference-archive | 会议/论坛/行业大会素材归档与蒸馏。当用户参加完线下会议、行业论坛、技术大会后，要求"整理一下""归档""沉淀素材""把录音和拍图整理成文章素材库"时使用。输入：录音 record_id、现场拍图、口述观点、官方议程 PDF、系统纪要。输出 |
 | content-matrix-channel-audit | 全渠道内容矩阵环境审计（周期性战略盘点，只读不动手）：以资深全平台内容运营操盘手视角，实地核实固定数据源（materials_library.json + 今日调度_*.json + 分发凭证 glob + 变现盘点 README + 各分 |
 | legal-compliance-baseline | 法律合规基线维护与出书适配性延伸检查。Use when 用户说跑合规扫描/合规门禁/法律基线、极限词误报太多/精度调整/白名单迭代、content_gate 第⑦门禁接入/维护、AI标识义务/人工智能生成合成内容标识办法待办、🟡人工核清单管 |
@@ -85,8 +86,11 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | wechat-cover-gen | 公众号封面生成管线（真人剪影路线）：image_gen 出无文字场景图→curl 下载→HTML 右侧压字→fig_fit 渲 900×383→Read 看图 OCR 回查。黑/白严格交替，三原色黑#1a1a1a/白#fff/橙红#F2644F。 |
 | xingtu-article-sync | 文章库发布同步总控：发文后一条命令完成新文章收编→prev/next 与开源仓互链→index.json→三处展示层→Data API 推三仓。幂等。 |
 | xiaobot-ops | 小报童平台运营专家：定位/定价/调价/买断制/内容公约/提现官方规范 + 行途双轨定价策略 + 申请专栏表单实战提示 + 运营 checklist。 |
-
-### 工具链 · 工程化实战（18 · 🆕 2026-09-27 第二批 +9）
+| publish-package-review | 发布包「审校轮」SOP——在定时发布前对整包做交叉事实核查与版本漂移对账，产出单文件 HTML 审校看板 + 长图 PNG 截图。适用于任何内容发布包（公众号/知乎/掘金/开源文档）的发布前审核、AI 生成内容的可视化审… |
+| xingtu-article-archive | 把公众号已发布文章归档同步到 GitHub 公开仓（xingtu-articles）+ 个人站（xingtu-site）并维护封面。当用户说"归档已发布文章""同步文章到 GitHub""补文章镜像""更新个人站文章列表… |
+| published-article-archive | 已发布文章入库闭环（行途）——当 boss 发来公众号后台「发表记录」截图/链接/标题，说"昨天发布的入库""这篇回填一下""已发文章归档"时使用。 |
+| specs-engine | Spec 驱动开发(SDD)方法论引擎——意图路由、先规格后编码(三铁律 No Spec No Code/五阶段/深度裁减)。用户说"按 specs 标准推进/走 spec/需求澄清固化/写 analysis~valid… |
+### 工具链 · 工程化实战（28 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |
 |-------|------|
 | git-push-in-sandbox | 沙箱内 `git push` 失败（502 CONNECT tunnel / ssh 超时）的诊断与绕行：`gh api` 通而 push 不通时的四条通道选型 |
@@ -107,7 +111,16 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | xingtu-role-audit | 角色审计：检查 AI 协作中的角色定义是否与项目实际职责对齐 |
 | xingtu-rule-keeper | 规则守护：比对 rules/ 与 skill 引用，发现漂移/断链/过期条目 |
 | zcode-session-export | ZCode 会话导出：把本地 AI 会话整理成可归档/可分享的结构化文档 |
-
+| ego-browser | Chromium browser automation that reuses the user's logged-in sessions. Use when: open websites, fill forms, |
+| ollama-local-ops | "回答「本地模型装好了，有界面吗？性能怎么样？我这台机器能不能跑？输出质量行不行？能拿来做 Agent 吗？」这类问题的一体化做法：①用 /api/generate 自报的 eval_count/eval_duratio… |
+| zcode-client-ops | > ZCode（智谱 Z.ai 的 ADE 桌面客户端）的安装、可回退升级，以及「活动卡片不显示 / 领不到免费额度 / 提示没有可用模型」的诊断。 |
+| cc-switch-usage-audit | 从 CC Switch 本地数据库聚合真实 API 用量（token / 成本 / 缓存命中率 / 模型分布），产出可入内容的成本评估与配图素材。 |
+| wb-usage-cost-audit | > 从本机取证 WorkBuddy/CodeBuddy 的真实用量（积分 + Token + 缓存命中率）， 并把它折算成人民币，与「模型官方直充价」「WorkBuddy 订阅积分单价」做成本对撞， |
+| desktop-ai-forensics | 对桌面 AI 应用（豆包工作 / WorkBuddy / 千问办公 QwenWorkCN / CherryStudio / Trae 等基于 Electron+Chromium 的客户端）做本地数据取证——解析 Inde… |
+| ai-repo-engineering-layout | "给 AI 项目补「工程化分区」的可复用 SOP：tests/ vs tools/ 分界、models/ 模型台账、logs/ 默认不写盘、doc/learn/ 教学层、以及 src/→core/ 这类改名的裁决框架。 |
+| ardot-effect-fallback | 在 Ardot 画布上实现光晕/毛玻璃效果时，若当前 schema 不支持 LAYER_BLUR/BACKGROUND_BLUR，改用 GRADIENT_RADIAL 填充 + 透明度达成柔光。 |
+| harness-model-upgrade-audit | 模型换代后对 harness（CLAUDE.md / AGENTS.md / rules / skills / memory / hooks）做「减法」审计与精简，删掉为旧模型能力不足而写的兜底规则。 |
+| brand-icon-sourcing | 官方品牌图标取源：为封面/配图/发布包获取并核验产品真实官方 logo（iTunes Search API 首选，ImageSearch 只出文章配图不可当 logo） |
 ### 交付质量 · 通用（2）
 | Skill | 说明 |
 |-------|------|
@@ -142,7 +155,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | ponytail-help | 速查卡 |
 | ponytail-review | 审查 |
 
-### 工程实践（6）
+### 工程实践（7）
 | Skill | 说明 |
 |-------|------|
 | investigate-first | 先调查后行动 |
@@ -151,6 +164,26 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | safe-refactor | 保持行为的重构 |
 | surgical-patch | 外科手术式精准修改 |
 | verify-and-stop | 验证即止，不扩范围 |
+| spec-driven-adversarial-workflow | 复杂/多维/强耦合任务的六阶段标准流（侦察→Spec→红队对抗→修订收口→留痕→执行委派与磁盘核对验收），工作区无关方法论 |
+### 工作方法 · 协作治理（15 · 🆕 2026-10-12 第五批）
+| Skill | 说明 |
+|-------|------|
+| worktree-parallel | 并行开发的工作树隔离机制（工具无关）。当出现「多 agent 同时改同一批文件会互相覆盖」「要并行推进 2+ 独立需求但文件重叠」「需要隔离工作区」「worktree 怎么建/怎么清」「并行分支怎么合流」「agent 隔… |
+| skill-inbox-triage | 跨 Agent 技能建议收件箱双模式：Mode A 分诊拍板落盘（查收件箱/技能拍板/清 inbox）；Mode B 复盘提名建卡（技能复盘/复盘提名）。人审闸门不可旁路：AI 只提名不自我批准。 |
+| fanout-mainline-ledger | Keep ONE mainline ledger for parallel work: register each fanout (task/artifact/eta), reconcile on collect, |
+| stakeholder-register | 人名先核后写——建干系人清单、按清单校对材料里的人名、扫全仓存量错名。适用于"建个干系人清单""人员登记册""这个人名对不对""材料里的人名核一下""同一个人的名字有好几种写法""XX 是不是写错了""全仓人名查错""别… |
+| ubiquitous-language | 术语先定后写——建/更新项目统一语言文档（术语表 + 业务本体）、按词表校对材料口径、改术语后扫全仓影响面。适用于"建个术语表""统一一下叫法""这个词到底叫什么""抽一下业务本体""这块业务有哪些对象和规则""两份文档… |
+| token-audit | 给 AI 工作区做 token 体检并对常驻配置做可逆瘦身——适用于"省 token""上下文太满了""配置太肥了""诊断一下消耗""多 agent 怎么这么贵""会话成本""优化 harness""裁剪一下规则""to… |
+| effort-accounting | 核算一段时间内的工作投入并产出可填报的工时明细——适用于"算一下我这个月投入""工时填报""我要填报公司系统""我这个月干了多少小时""在某项目投了多少人天""工时怎么分摊""投入核算""effort accountin… |
+| daily-report | 把当日工作整理成钉钉日报并落盘打包——固定格式（今日工作/明日工作/相关截图）+ 附稿目录 + zip。触发词：写日报/工作日报/日报/今天做了什么/日报附稿/日报打包/daily report/居家办公日报。 |
+| meeting-archive | 把会议材料规范归档进文档仓的 meeting/ 目录——适用于"把这次会归档""整理一下会议纪要""纪要传一下""这个会记录放哪""飞书文档归档""豆包链接归档""导出的纪要存一下""微信收到/Teams 下载的会议文档… |
+| doc-translate | 把文档看懂并翻译成中英对照——PDF / Word / Excel / PPT / 图片。适用于任何"这份文档讲了什么""翻译一下""解析这个文件""中英对照""这合同/表单什么条款""扫描件里写了啥""外文资料帮我看看… |
+| readme-frontpage-audit | 开源项目 README「门面体检 + 拆读者重构」——当 boss 说「这个 README 看着奇怪 / 引用块太多 / 大 V 都不这么写 / 一句话总结和目录是不是该删」时使用。 |
+| ai-session-material-miner | > 从 AI 与会话痕迹里系统化采集、识别、脱敏、入库可发布自媒体素材的方法论。 核心洞察：**任何 AI agent（Claude Code / OpenCode / Codex / 各类 work agent） 的工… |
+| library-dashboard-workbench | 把本地结构化数据（JSON/CSV/MD 台账）或静态看板升级为 WorkBuddy 资料库的「在线数据工作台」——建数据表 + 写动态 dashboard page（SDK 关联）+ 发布拿公开链接。 |
+| project-whitepaper | > 为一个项目 / 仓库 / IP 写**对外总览白皮书**的 SOP —— 回答「这是什么、架构如何、 理念如何、跟别人差在哪、护城河在哪」这类连问，产出一份可给外人看的入口文档。 |
+| xt-automation-ops | "行途空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸" |
+
 ### 通用协作 · 其他（7 · 🆕 2026-10-08 新增 automation-resurrection / free-token-channel-audit / wechat-tuitu-publish）
 | Skill | 说明 |
 |-------|------|
@@ -165,7 +198,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：97 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：126 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
@@ -183,7 +216,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 一线 AI 工程化实践者 · FDE 方向。这些技能不是写出来的，是每天真用、用完回炉改的。
 
-- 公众号「*****REMOVED*****」（长文首发，微信搜索关注）
+- 公众号「**行途**」（长文首发，微信搜索关注）
 - GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
 - 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
 
