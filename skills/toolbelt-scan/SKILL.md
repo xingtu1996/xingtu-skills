@@ -6,9 +6,9 @@ version: 1.0.0
 
 # 云中立工具带盘点（toolbelt-scan）
 
-> **定位**：云中立（cloud-neutral）理念的落地技能——不绑定任何云/厂商/工具，
-> 把散在本机各 AI 工具里的资产盘成一本地账。每周产出喂给公开仓
-> `xingtu1996/xingtu-cloud-neutral` 的 `inventory/`（理念 SSoT 在该仓 docs/）。
+> **定位**：agent 中立（不绑定任何云/厂商/工具）的落地技能——把散在本机各 AI 工具里的
+> 资产盘成一本地账。每周产出落私有金库 `xingtu-vault` 的 `定时任务产出/`（黄金仓），
+> 由既有 relay 通道push；跨工具版本漂移检测是核心运维价值（23 个技能存在漂移）。
 
 ## 红线（硬编码，不可旁路）
 
@@ -25,7 +25,7 @@ version: 1.0.0
 
 - 「盘点一下我的 AI 工具」「工具带扫描」「全机 AI 资产」
 - 「哪些技能在多个工具里重复装了」「技能版本漂移」
-- 每周一定时任务自动跑（`xingtu-cloud-neutral` 仓 automations/ 有定义）
+- 每周一 10:00 定时任务自动跑（定义在 xingtu-automations 仓 registry，slug: toolbelt-weekly-scan）
 
 ## 流程
 
@@ -43,7 +43,7 @@ python3 skills/toolbelt-scan/scripts/toolbelt_scan.py --redline-file <私有词�
 5. **产出**：
    - `data/toolbelt_inventory.json`（机器可读，增量对比用）
    - `outputs/云中立工具带盘点_<日期>.html`（单文件零依赖看板：KPI 卡 + 工具矩阵 + 漂移 Top + 僵尸清单）
-   - 如需进公开仓：复制 JSON + HTML 到 `github/xingtu-cloud-neutral/inventory/`
+   - 复制进金库：`cp` 到 `github/xingtu-vault/定时任务产出/工具带盘点_<日期>/`（黄金仓，由 relay 通道push）
 6. **增量**：与上周 `toolbelt_inventory.json` 对比，摘要报「新增工具 / 技能变动 / 数据增长 / 新漂移」。
 
 ## 看板规格（与工作区视觉律对齐）
@@ -61,6 +61,6 @@ python3 skills/toolbelt-scan/scripts/toolbelt_scan.py --redline-file <私有词�
 
 - 签名表新增工具：改 `scripts/toolbelt_scan.py` 的 `TOOLS` 列表（显示名/目录/skills 路径/会话路径/分类）。
 - 红线词表扩容：同步改脚本内 `RED` 与 `xingtu-skills` 仓 `tools/skill_library_checkup.py`（两边一致）。
-- 每周跑完如发现新工具/新漂移，在 `xingtu-cloud-neutral` 仓 inventory 周报记一笔。
+- 每周跑完如发现新工具/新漂移，在金库当周目录的周报记一笔。
 
 <!-- public-sync: 2026-10-12 | 原创首发 | SSoT: xingtu-skills -->
