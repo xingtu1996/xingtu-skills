@@ -47,7 +47,7 @@ python3 tools/articles_publish_sync.py --check
 ```
 
 数据源 = 最新 `data/stats_*.json`，已发布口径 = `msg_status==2 且 excluded_reason 为空`（`is_published` 恒 0，勿用）。
-**履历指纹忽略名单 `IGNORE_DATES`（2020-08-08/09、2026-05-08）禁删**——那几篇含「电脑城学徒/学历」等三段式履历指纹，公开归档 = SAF-010 红线。
+**履历指纹忽略名单 `IGNORE_DATES`（2020-08-08/09、2026-05-08）禁删**——那几篇含早期职业履历细节（可定位指纹），公开归档 = SAF-010 红线。
 
 ## 互链怎么长出来的
 
