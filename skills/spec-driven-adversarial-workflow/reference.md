@@ -115,11 +115,19 @@ specs/YYYYMMDD-名称/
 
 ## 附录A · 行途空间专属接入（仅工作区根 AGENTS.md 含「行途」时适用）
 
+> 🔴 spec 唯一真源 = `github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/`（2026-10-12 迁入，主区 `specs/` 已不存在）。
+> 新建 spec **一律走行途入口**，落点由 `tools/paths.py` 决定；**禁止手搓 `specs/` 目录**（手搓 = 又造一个真源）。
+
 ```bash
-# spec 脚手架引擎（分钟级前缀 {YYYYMMDDHHmm}-{工具}-{名称}，自动加索引行）
-bash ~/.claude/skills/specs-engine/scaffold.sh <名称> <工具>
+# ✅ 新建 spec（行途唯一入口；落 vault 真源，cwd 无关，分钟级前缀 YYYYMMDDHHMM）
+python3 tools/new_spec.py --owner <qwenwork|workbuddy|zcode|doubao> --title "<标题>"
+# 备用：直用 scaffold 引擎**必须显式传父目录**（旧写法缺父目录参数会报错/建错位置）
+bash ~/.claude/skills/specs-engine/scripts/scaffold.sh new github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs "<标题>" --tool qwenwork
+# 收口门禁（对 spec 目录，非父目录）
+bash ~/.claude/skills/specs-engine/scripts/validator-check.sh "github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/<spec目录>"
+python3 ~/.claude/skills/specs-engine/scripts/build-dashboard.py "github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/<spec目录>"
 # 留痕（tool 身份：qwenwork / workbuddy / zcode / doubao / cli）
-python3 tools/changelog_append.py --type "🆕" --path "specs/<目录>" --desc "…" --tool qwenwork
+python3 tools/changelog_append.py --type "🆕" --path "github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/<目录>" --desc "…" --tool qwenwork
 python3 tools/skill_ledger.py            # 涉技能/触发表变更时重生 LEDGER
 # 安全与备份
 tools/safety/backup-before-op.sh         # 改既有文件前
@@ -127,6 +135,6 @@ tools/safety/safe-delete.sh              # 替代 rm；禁 git add -A
 python3 tools/privacy_scan.py --fail-fast # 上公网前
 ```
 
-- 首实例凭证路径：`specs/20260916-运营日报升级_全矩阵调度与变现闭环/`（00-03 四件齐）。
+- 首实例凭证路径：`github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/20260916-运营日报升级_全矩阵调度与变现闭环/`（00-03 四件齐）。
 - 相邻技能分工（行途侧）：稿件审查 `adversarial-review`、执行期编排 `xingtu-orchestrate`、发前核验 `mp-prepublish-draft-verify`。
 - 行途 AGENTS.md 触发表行为本项目侧路由 SSoT；本全局技能与表行指向同一实体（本目录），**不得在 `.agents/skills/` 再留副本**。
