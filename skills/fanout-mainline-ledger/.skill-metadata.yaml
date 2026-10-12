@@ -1,0 +1,43 @@
+examples:
+  - id: fanout-with-ledger
+    title:
+      zh: 并行派发前先建/更新主线台账
+      en: Register the mainline ledger before fanning out
+    description:
+      zh: 派 2+ 路并行子任务前，把每路登记进单一主线台账（owner/任务/产物路径/预计回收）
+      en: Before dispatching 2+ parallel sub-tasks, register each into the single mainline ledger (owner/task/artifact path/eta)
+    prompt:
+      zh: |-
+        我要并行派这几路任务，请先按 fanout-mainline-ledger 建/更新主线台账再派发：
+
+        各路任务：{{每路一句话，如 A=成稿 B=配图 C=核验}}
+        台账文件：{{MAINLINE_LEDGER.md 路径，缺省则在工作区根新建}}
+
+        每路登记 id/owner/任务/预期产物路径/预计回收时间；派发后回收即核销，超时标丢失并告警。
+      en: |-
+        I'm fanning out these parallel tasks; register them in the mainline ledger first per fanout-mainline-ledger:
+
+        Tasks per lane: {{one line each, e.g. A=draft B=figures C=verify}}
+        Ledger file: {{path to MAINLINE_LEDGER.md, create at workspace root if absent}}
+
+        Register id/owner/task/expected artifact path/eta per lane; reconcile on collect, flag timeout as lost and alert.
+  - id: mainline-status
+    title:
+      zh: 现在主线到哪了（从台账答）
+      en: Current mainline status (answer from the ledger)
+    description:
+      zh: 不翻会话历史，只从主线台账回答当前在解决什么、几路在跑/回收/丢失
+      en: Answer what the mainline is solving and how many lanes are running/collected/lost, from the ledger only
+    prompt:
+      zh: |-
+        用 fanout-mainline-ledger 从台账回答我：当前主线在解决什么问题、几路在跑/已回收/丢失、下一步是什么。
+
+        台账文件：{{MAINLINE_LEDGER.md 路径}}
+
+        三句话以内，不翻会话历史、不靠记忆；有丢失的路先告警。
+      en: |-
+        Using fanout-mainline-ledger, answer from the ledger only: what the mainline is solving, lanes running/collected/lost, and next step.
+
+        Ledger file: {{path to MAINLINE_LEDGER.md}}
+
+        Within three sentences; no session-history recall; alert any lost lane first.
