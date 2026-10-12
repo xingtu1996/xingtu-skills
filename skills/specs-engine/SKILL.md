@@ -7,6 +7,7 @@ description: Spec 驱动开发(SDD)方法论引擎——意图路由、先规格
 
 > **SSOT**：本 skill 即方法论唯一事实源。改此处 → 所有项目即刻生效（全局 user-level skill）。
 > 每个 Spec 目录落盘的 `laws.md` 是该方法论的薄快照（自包含，供团队读者），冲突以本 skill 为准。
+> **真源仓 = `github/xingtu-sdd`**（本 skill 的 `specs-engine/` 是它的部署产物）。改方法论请改真源仓 → 跑同步脚本，勿在本副本直接改（防双真源）。
 
 ## 触发与路由
 
@@ -18,6 +19,8 @@ description: Spec 驱动开发(SDD)方法论引擎——意图路由、先规格
 | 单文件微调 / 配置调整 | Spec：轻量（analysis + validator 两文件） |
 | 一句话需求 → 先澄清再固化 | 需求澄清 → 人确认 → 写 requirements |
 | 批量/2+ 独立需求 | 读 orchestration.md（依赖 DAG + 契约优先） |
+| 换会话/换 agent 接着干 / 上次做到哪了 | `sdd.sh resume <dir>`（断代续传，读 state.json + log 尾部） |
+| 调研/探索（无交付代码） | research 档：analysis→findings 即可，不写 design/code |
 | 父 Spec 下的细分 / 大改造逐项落地 / N 个同类小改造 | **子 Spec**：`scaffold.sh sub` → 读 `references/subspec.md` |
 
 **铁律一**：No Spec No Code。方案未文档化（对应文件≥完成）前不写实现代码。
@@ -30,6 +33,7 @@ description: Spec 驱动开发(SDD)方法论引擎——意图路由、先规格
 | 轻量 | 单文件 Bug、配置 | 01_analysis + 05_validator | 02/03/04 可删；execution-log 并入 00_README |
 | 标准 | 功能开发、跨模块修改 | 01~05 + execution-log | 默认档 |
 | 重量 | 架构、计费/库存/权限 | 同标准 | 加方案对比 + 暂停点 |
+| research | 调研/探索/市场评估（无交付代码） | 01_analysis + findings | 不写 03/04/05；验收=结论可复现、来源可追溯 |
 
 > BDD 铁律：AI 定档并建议，**人确认后**执行。AI 不给自己当裁判。
 
@@ -47,11 +51,26 @@ description: Spec 驱动开发(SDD)方法论引擎——意图路由、先规格
 
 - spec 时读：`references/core.md`（三铁律 + 五阶段 + 文件规范 + 门禁）——唯一需读的方法论正文
 - **仅挂子 Spec 时读**：`references/subspec.md`（拆不拆 / 怎么拆 / 父子链接 / 生命周期）
-- 仅并行场景：`references/orchestration.md`（依赖 DAG + 契约优先 + **§六 子 Spec 并行**）
+- 跨会话/换 agent 接续：`references/continuity.md`（`state.json` 状态机 + 续传协议 + 假设台账）
+- 仅并行场景：`references/orchestration.md`（依赖 DAG + 契约优先 + §六 子 Spec 并行 + §七 worktree 真并行）
 - 写完 05_validator 跑：`scripts/validator-check.sh`（占位符残留 + **子 Spec 索引漂移对账**，全局单份）
 - **看板（spec 的标准组件之一）**：`python3 scripts/build-dashboard.py <spec目录>` → `<spec>/spec-dashboard.html`
   （组件填充度 / 门禁自检 / 日志时间线 / 未完任务 / 子 Spec；从目录里的 .md 生成，不手维护）
   全局列表模式：`... <specs目录> --all`
+
+## v2 命令（断代续传 / 并行 / 看板 / 复用）
+
+```bash
+scripts/sdd.sh resume   <spec_dir>     # 三行断点：上次到哪/挂什么/下一步
+scripts/sdd.sh status   <spec_dir>     # 机器可读状态总览
+scripts/sdd.sh touch    <spec_dir> --stage design --set-stage analysis=done --tail "..."
+scripts/sdd.sh start    <phase> [--worktree]   # 并行 phase（worktree 隔离）
+scripts/sdd.sh merge    <worktree_name>        # 合并回主线（先人工核对）
+scripts/sdd.sh dashboard <specs_parent>        # 跨 spec 聚合看板
+scripts/sdd.sh recall   <关键词>        # 检索 case-studies + copy-points 复用
+```
+
+派子 agent 时角色包见 `agents/README.md`（resume/scout/redteam/executor/archivist）。
 
 ## 物化 Spec（scaffold）
 
@@ -71,4 +90,4 @@ bash ~/.claude/skills/specs-engine/scripts/scaffold.sh sub <父Spec目录> <子S
 
 **项目宪法** = 项目专属护栏（企业/团队红线文件），与全局方法论铁律并行：spec 内 📜 Check 节同时对照两者。方法论铁律见 references/core.md 〇章；每个 spec 目录自带 `laws.md` 薄快照，自包含可读。
 
-<!-- public-sync: 2026-10-12 | 脱敏版本 | 源 ~/.workbuddy/skills/specs-engine -->
+<!-- public-sync: 2026-10-12 | 脱敏版本 | 源 github/xingtu-sdd/specs-engine（SSoT） -->

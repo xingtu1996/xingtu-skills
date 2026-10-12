@@ -12,7 +12,7 @@
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 127 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 127 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -210,7 +210,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 关联项目
 
-- [xingtu-prompts](https://github.com/xingtu1996/xingtu-prompts) — 提示词库：轻场景复制即用；沉淀成 Skill 后进本仓
+- [`prompts/`](./prompts/) — 精选提示词库（原 xingtu-prompts 仓，2026-10-12 合入）：轻场景复制即用；沉淀成 Skill 后进 `skills/`
 - [dsh-xingtu-skills](https://github.com/xingtu1996/dsh-xingtu-skills) — DSH 插件包：本仓技能的 DSH 一键安装版
 
 ## 关于作者 · 行途

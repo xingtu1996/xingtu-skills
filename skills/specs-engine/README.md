@@ -24,13 +24,13 @@
 cp -r specs-engine ~/.claude/skills/     # 或 symlink
 
 # 1. 每个新任务（AI 也可自动触发：说"按 specs 标准推进"）
-bash ~/.claude/skills/specs-engine/scripts/scaffold.sh new .claude/specs {TICKET}-{简述} [--depth light|standard|heavy]
+bash ~/.claude/skills/specs-engine/scripts/scaffold.sh new <specs父目录> {TICKET}-{简述} [--depth light|standard|heavy]
 
 # 2. 按五阶段推进，05_validator 写完自查
-bash ~/.claude/skills/specs-engine/scripts/validator-check.sh .claude/specs/{TICKET}-{简述}
+bash ~/.claude/skills/specs-engine/scripts/validator-check.sh <specs父目录>/{TICKET}-{简述}
 
 # 1'. 父 Spec 下的细分（批量同类改造逐项落地）→ 建子 Spec
-bash ~/.claude/skills/specs-engine/scripts/scaffold.sh sub .claude/specs/{父Spec} {子主题}
+bash ~/.claude/skills/specs-engine/scripts/scaffold.sh sub <specs父目录>/{父Spec} {子主题}
 ```
 
 - `--depth`：`light`(单文件 Bug/配置) | `standard`(功能开发，默认) | `heavy`(架构/计费·库存/权限)
@@ -42,7 +42,7 @@ bash ~/.claude/skills/specs-engine/scripts/scaffold.sh sub .claude/specs/{父Spe
 **一个父 Spec 管全局 → 挂 N 个子 Spec 管单项。** 适用：大迁移逐项落地、N 个同类小改造、按批次推进的系列工作。
 
 ```
-.claude/specs/
+<specs父目录>/
 └── {日期}-{父Spec}/
     ├── 00_README.md … 05_validator.md        # 父管全局：架构/契约/共享清单/台账
     └── sub-specs/
