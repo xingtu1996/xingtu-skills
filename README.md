@@ -6,13 +6,13 @@
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-126-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-127-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 126 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 127 个生产级技能**，覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -30,7 +30,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（126）
+## 🧠 Skills 清单（127）
 
 ### 内容创作 · 自媒体（4 · 2026-09-11 新增 fact-check-gate）
 | Skill | 说明 |
@@ -90,7 +90,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | xingtu-article-archive | 把公众号已发布文章归档同步到 GitHub 公开仓（xingtu-articles）+ 个人站（xingtu-site）并维护封面。当用户说"归档已发布文章""同步文章到 GitHub""补文章镜像""更新个人站文章列表… |
 | published-article-archive | 已发布文章入库闭环（行途）——当 boss 发来公众号后台「发表记录」截图/链接/标题，说"昨天发布的入库""这篇回填一下""已发文章归档"时使用。 |
 | specs-engine | Spec 驱动开发(SDD)方法论引擎——意图路由、先规格后编码(三铁律 No Spec No Code/五阶段/深度裁减)。用户说"按 specs 标准推进/走 spec/需求澄清固化/写 analysis~valid… |
-### 工具链 · 工程化实战（28 · 🆕 2026-09-27 第二批 +9）
+### 工具链 · 工程化实战（29 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |
 |-------|------|
 | git-push-in-sandbox | 沙箱内 `git push` 失败（502 CONNECT tunnel / ssh 超时）的诊断与绕行：`gh api` 通而 push 不通时的四条通道选型 |
@@ -121,6 +121,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | ardot-effect-fallback | 在 Ardot 画布上实现光晕/毛玻璃效果时，若当前 schema 不支持 LAYER_BLUR/BACKGROUND_BLUR，改用 GRADIENT_RADIAL 填充 + 透明度达成柔光。 |
 | harness-model-upgrade-audit | 模型换代后对 harness（CLAUDE.md / AGENTS.md / rules / skills / memory / hooks）做「减法」审计与精简，删掉为旧模型能力不足而写的兜底规则。 |
 | brand-icon-sourcing | 官方品牌图标取源：为封面/配图/发布包获取并核验产品真实官方 logo（iTunes Search API 首选，ImageSearch 只出文章配图不可当 logo） |
+| toolbelt-scan | 云中立工具带盘点：枚举本机 ~25 个 AI 工具签名，统计技能安装/数据量/会话/最后活跃，检测跨工具同名技能版本漂移+僵尸，产出 JSON 台账+单文件 HTML 看板。只读；红线技能名只计数不列名（🆕 2026-10-12） |
 ### 交付质量 · 通用（2）
 | Skill | 说明 |
 |-------|------|
@@ -198,7 +199,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：126 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：127 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 

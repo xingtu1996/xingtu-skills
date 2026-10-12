@@ -1045,6 +1045,19 @@
       ]
     },
     {
+      "name": "toolbelt-scan",
+      "description": "云中立工具带盘点：枚举本机所有 AI 工具（~25 签名），统计技能安装/数据量/会话/活跃，检测跨工具同名技能版本漂移与僵尸，产出 JSON 台账 + HTML 看板。只读；输出过 30 词红线表。",
+      "path": "skills/toolbelt-scan/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "cloud-neutral",
+        "inventory",
+        "toolbelt"
+      ]
+    },
+    {
       "name": "ubiquitous-language",
       "description": "术语先定后写——建/更新项目统一语言文档（术语表 + 业务本体）、按词表校对材料口径、改术语后扫全仓影响面。适用于\"建个术语表\"\"统一一下叫法\"\"这个词到底叫什么\"\"抽一下业务本体\"\"这块业务有哪些对象和规则\"\"两份文档口径不一致\"\"改了术语要同步哪些地方\"\"全仓查一下旧叫法\"等请求。术语散落无主从、改一处忘 N 处，这个技能管的就是这件事。",
       "path": "skills/ubiquitous-language/SKILL.md",
