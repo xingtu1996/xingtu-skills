@@ -1438,6 +1438,18 @@
         "zero-cost",
         "skill"
       ]
+    },
+    {
+      "name": "xingtu-knowledge-compounding",
+      "description": "内容创作「价值导向+知识资产复利」方法论总装（姜胡说三次认知升维）：拍前三问→产品四要素→知识卡片提取指令+审核四问→入库五步SOP。Use when: 写/拍前自检对谁有用、内容沉淀知识资产、知识卡片提取、内容复利方法论。",
+      "path": "skills/xingtu-knowledge-compounding/SKILL.md",
+      "tags": [
+        "ai-agent",
+        "skill",
+        "knowledge",
+        "content",
+        "compounding"
+      ]
     }
   ]
 }
