@@ -1033,6 +1033,18 @@
       ]
     },
     {
+      "name": "talkinghead-trim",
+      "description": "实拍口播 A-Roll 精剪四步法：转写→剪辑决策表→无损剪→人工确认门。复刻 6:45→2:40 的 ChatCut 实战实例（删口误/重复起句/卡壳/长停顿，1.1x+重点句 5% punch-in）；云端只复刻决策逻辑，不操作 ChatCut 插件。Use when: 口播精剪、删口误、A-Roll、实拍口播剪辑。",
+      "path": "skills/talkinghead-trim/SKILL.md",
+      "tags": [
+        "ai-agent",
+        "skill",
+        "video",
+        "editing",
+        "workflow"
+      ]
+    },
+    {
       "name": "token-audit",
       "description": "给 AI 工作区做 token 体检并对常驻配置做可逆瘦身——适用于\"省 token\"\"上下文太满了\"\"配置太肥了\"\"诊断一下消耗\"\"多 agent 怎么这么贵\"\"会话成本\"\"优化 harness\"\"裁剪一下规则\"\"token 都花在哪了\"这类请求。**定位：常驻上下文与多 Agent 成本的诊断 + 可逆治理。",
       "path": "skills/token-audit/SKILL.md",
