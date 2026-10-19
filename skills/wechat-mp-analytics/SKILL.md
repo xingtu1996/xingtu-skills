@@ -1,6 +1,6 @@
 ---
 name: wechat-mp-analytics
-description: 公众号后台只读数据分析（行途）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixin 数据。与 `wechat-mp-publish`（写操作：群发/草稿）严格分离——本 skill **只读取、绝不发布**。适用于任何 Agent 需要把真实后台数据（而非平台记账或猜测）作为内容决策/选题研判/发布时间判定的事实源。
+description: 公众号后台只读数据分析（行途技术）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixin 数据。与 `wechat-mp-publish`（写操作：群发/草稿）严格分离——本 skill **只读取、绝不发布**。适用于任何 Agent 需要把真实后台数据（而非平台记账或猜测）作为内容决策/选题研判/发布时间判定的事实源。
 ---
 
 # 公众号后台数据分析（wechat-mp-analytics）
@@ -52,7 +52,7 @@ $BSK session start --no-focus   # 复用你 Chrome 的登录态/cookie，开 Age
 BSK=${HOME}/.local/bin/bsk
 ID=egwh   # 替换为实际 session id
 
-# 0) 进后台首页（已登录会直接进「行途」概览：总用户数 / 昨日阅读分享新增）
+# 0) 进后台首页（已登录会直接进「行途技术」概览：总用户数 / 昨日阅读分享新增）
 $BSK navigate "https://mp.weixin.qq.com/" --session $ID
 sleep 3; $BSK observe --session $ID
 

@@ -8,7 +8,7 @@ version: 1.6.0
 
 ## 适用前提
 
-> **范围守卫**：本技能专为「行途」工作区的发布包结构（六目录规范）与专属工具（`tools/wx_draft_api.py` 等）设计。当前工作区不存在这些工具/目录时（如公司侧仓），声明不适用并停止——不套用本流程去操作其他项目的公众号或发布链路，避免个人项目凭据路径、口径渗入非本空间会话。
+> **范围守卫**：本技能专为「行途技术」工作区的发布包结构（六目录规范）与专属工具（`tools/wx_draft_api.py` 等）设计。当前工作区不存在这些工具/目录时（如公司侧仓），声明不适用并停止——不套用本流程去操作其他项目的公众号或发布链路，避免个人项目凭据路径、口径渗入非本空间会话。
 
 - 工作区已有发布包目录（六目录规范：`01_正文/ 02_排版HTML/ 03_封面/ 04_配图/ 06_发布参考/ …`）与工具：`tools/wx_draft_api.py`、`tools/fig_fit.py`、`tools/privacy_scan.py`、`tools/legal_compliance_scan.py`、`tools/content_gate.sh`（含第⑦法律门禁）、`tools/changelog_append.py`、`tools/safety/safe-delete.sh`。
 - 上游 `pub-infographic-supplement`（工作区技能 `.agents/skills/`）持有 `@@PH@@` 占位还原脚本与图文密度补图逻辑（Step 6e / Step 1）；本技能只做发前判定与路由，**不复制其脚本**。

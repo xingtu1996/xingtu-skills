@@ -1,10 +1,10 @@
 ---
 name: xt-automation-ops
-description: "行途空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸"
+description: "行途技术空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸"
 version: 1.0.0
 ---
 
-# xt-automation-ops — 行途定时任务运维 SOP
+# xt-automation-ops — 行途技术定时任务运维 SOP
 
 触发词：定时任务、自动化、automation、每日同步、盘点任务、新建任务、任务调度、LaunchAgent、jobapi、每日 08:00。
 
@@ -34,7 +34,7 @@ version: 1.0.0
 - **单步**：`--run sync`（灌 5 表）/ `--run materials`（素材抓取）/ `--run analyze`（一键分析）
 - **查最近执行**：`tail -5 ~/xingtu/tools/xt_runs.jsonl`
 - **查服务存活**：`curl -s -m 3 http://127.0.0.1:8731/ -o /dev/null -w "%{http_code}"`（200 = 在线）
-- **HTTP 控制台**：`outputs/行途本地控制台.html` 或 http://127.0.0.1:8731/
+- **HTTP 控制台**：`outputs/行途技术本地控制台.html` 或 http://127.0.0.1:8731/
 
 ## 3. LaunchAgent（jobapi 常驻）
 

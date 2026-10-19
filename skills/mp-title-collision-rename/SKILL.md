@@ -8,7 +8,7 @@ version: 1.0.0
 
 ## 适用前提（范围守卫，必读）
 
-> **守卫规则**：本技能专为「行途」工作区的发布包结构（PUB-031 六目录）与专属工具设计。开工前先读工作区根 `AGENTS.md`，**含「行途」才继续**；否则声明不适用并停止——不拿这套流程去操作其他项目的公众号链路。
+> **守卫规则**：本技能专为「行途技术」工作区的发布包结构（PUB-031 六目录）与专属工具设计。开工前先读工作区根 `AGENTS.md`，**含「行途技术」才继续**；否则声明不适用并停止——不拿这套流程去操作其他项目的公众号链路。
 
 - 必备目录：发布包六目录 `00_标题摘要/ 01_正文/ 02_排版HTML/ 03_封面/ 04_配图/ 05_合集/ 06_发布参考/` + 工作区 `md2wechat/`。
 - 必备工具（相对工作区根）：`tools/fig_fit.py`、`tools/wx_draft_api.py`、`tools/privacy_scan.py`、`tools/legal_compliance_scan.py`、`tools/changelog_append.py`、`tools/safety/safe-delete.sh`。

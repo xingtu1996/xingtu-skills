@@ -196,7 +196,7 @@ python3 scripts/crop_tail.py /tmp/raw.png out.png --bg 247,248,250 --pad 40
 ## 输出规范
 
 - 看板：`<包>/06_发布参考/<编号>_发布包审校看板_YYYY-MM-DD.html` + 同名 `.png`
-- 风格：light 主题，行途蓝 `#056de8` 作主色，直角、细线、无阴影
+- 风格：light 主题，行途技术蓝 `#056de8` 作主色，直角、细线、无阴影
 - 证据必须**回挂到文件 + 原文片段**，禁止写"经分析认为可信"
 - 收尾必做：`CHANGELOG` 追加审校轮记录 + `待办总清单` 刷新 + daily memory 追加
 

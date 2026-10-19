@@ -69,7 +69,7 @@ $B2V stop                                   # 用完关掉
 
 ## 已知坑
 
-- **端口**：GUI 默认 8765，但本机常被其他服务（如行途工作台）占用，且 `start_server` 的兜底是 `pkill -9 -f book2vido.gui`——占用者是别的进程时它杀不掉，会直接崩。所以**脚本在客户端探测空闲端口后用 `--port` 传入**，不要裸跑 `python -m book2vido.gui`。
+- **端口**：GUI 默认 8765，但本机常被其他服务（如行途技术工作台）占用，且 `start_server` 的兜底是 `pkill -9 -f book2vido.gui`——占用者是别的进程时它杀不掉，会直接崩。所以**脚本在客户端探测空闲端口后用 `--port` 传入**，不要裸跑 `python -m book2vido.gui`。
 - **输入格式**：只支持 PDF 和纯文本/Markdown。**图片输入目前不支持**——`extractor.py` 对非 PDF 一律当文本读，`visualizer.py` 也不接受自定义图片素材。用户要给图片，先告诉他这个限制。
 - **首次跑会慢**：ollama 要先拉模型（qwen3:8b 约 5GB）。想快可用规则降级，但口播稿质量明显下降，别默默降级，要说明。
 - **历史成片在 `~/Movies/Book2Vido`**，不是仓库里。

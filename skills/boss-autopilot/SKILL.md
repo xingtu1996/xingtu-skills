@@ -10,7 +10,7 @@ description: >
   跨项目通用（WorkBuddy / Claude Code / Codex / 千问办公）。
 metadata:
   type: user-mode
-  owner: boss（行途 XingTu）
+  owner: boss（行途技术）
 ---
 
 # Boss Autopilot — 全自动协作契约

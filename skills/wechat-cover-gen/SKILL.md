@@ -126,7 +126,7 @@ h1 .row{display:block}
   <div class="redline"></div>
   <div class="sub">副标一句话</div>
 </div>
-<div class="foot">行途 XingTu</div>
+<div class="foot">行途技术</div>
 </body></html>
 ```
 

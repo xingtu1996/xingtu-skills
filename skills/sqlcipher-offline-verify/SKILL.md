@@ -65,7 +65,7 @@ def verify_candidate(db_path: str, candidate: bytes) -> bool:
 
 > 真实 `derive_mac_key` 请参考 SQLCipher 开源实现；本示意仅描述校验结构。
 
-## 五、与行途方案的关系
+## 五、与行途技术方案的关系
 
 - 完整原理 + 合规分析：`specs/微信SQLCipher密钥提取_全局方案_AI友好.md`（任务 #1）
 - 本 Skill 只承载**安全可复用**的离线验证层，是全局方案里「阶段 C」的可执行封装。
@@ -74,4 +74,4 @@ def verify_candidate(db_path: str, candidate: bytes) -> bool:
 
 | 日期 | 版本 | 变更 |
 |------|:---:|------|
-| 2026-08-26 | V1.0 | 行途版：通用离线验证 + 合规边界，剥离任何应用特定逆向代码 |
+| 2026-08-26 | V1.0 | 行途技术版：通用离线验证 + 合规边界，剥离任何应用特定逆向代码 |

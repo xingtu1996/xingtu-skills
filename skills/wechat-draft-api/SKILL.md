@@ -7,12 +7,12 @@ description: >
   触发词：微信建稿、草稿箱 API、公众号自动建稿、wx_draft_api、draft/add、把文章发到公众号草稿箱。
   依赖：用户自己的公众号 appid/appsecret（公众号后台「开发→基本配置」获取）；Python 3 标准库（零第三方依赖）。
   红线：只建草稿、绝不自动化群发；appsecret 走外部文件/环境变量，绝不写入代码。
-  版本：行途开源矩阵 v1.0（2026-09-27 从 tools/wx_draft_api.py 抽离参数化）。
+  版本：行途技术开源矩阵 v1.0（2026-09-27 从 tools/wx_draft_api.py 抽离参数化）。
 ---
 
 # 微信公众号官方 API 建稿技能（wechat-draft-api）
 
-> 来源：行途内容工程工具链 `tools/wx_draft_api.py` 抽离参数化版本。
+> 来源：行途技术内容工程工具链 `tools/wx_draft_api.py` 抽离参数化版本。
 > 定位：**确定性发布工具**，不是 AI 智能写作——同样的输入永远产生同样的草稿。
 > 设计原则：零第三方依赖（纯 Python 标准库）、凭据不落代码、群发不自动化。
 
@@ -50,14 +50,14 @@ export WX_APPID="你的appid"
 export WX_SECRET_FILE="/path/to/your/appsecret.txt"   # 文件内容=32位secret
 python3 scripts/wx_draft_api.py \
   --pkg <发布包目录> --title "标题" --desc "摘要" \
-  [--author 行途] [--cover-file <封面.png>] [--profile-card-file <名片卡.html>] \
+  [--author 行途技术] [--cover-file <封面.png>] [--profile-card-file <名片卡.html>] \
   [--dry-run]     # 干跑：构建正文但不真正建稿
 
 # 或直接传参
 python3 scripts/wx_draft_api.py --appid xxx --secret-file yyy.txt --pkg ... --title ... --desc ...
 ```
 
-**发布包结构约定**（与 `md2wechat` + 行途发布 SOP 对齐）：
+**发布包结构约定**（与 `md2wechat` + 行途技术发布 SOP 对齐）：
 
 ```
 发布包/
@@ -86,4 +86,4 @@ python3 scripts/wx_draft_api.py --appid xxx --secret-file yyy.txt --pkg ... --ti
 
 ---
 
-_行途开源矩阵 · MIT · 跨工具兼容（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI / WorkBuddy / 豆包）_
+_行途技术开源矩阵 · MIT · 跨工具兼容（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI / WorkBuddy / 豆包）_

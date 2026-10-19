@@ -11,7 +11,7 @@ metadata:
 
 ## 何时用
 - boss 拍板"全局默认公司邮箱，只有项目有要求才定制品牌身份"后的落地/巡检工具
-- 多 git 身份并存需要空间隔离：公司项目用公司邮箱、xingtu 品牌公开仓用「行途 XingTu」、个人开源玩具保留品牌身份
+- 多 git 身份并存需要空间隔离：公司项目用公司邮箱、xingtu 品牌公开仓用「行途技术」、个人开源玩具保留品牌身份
 - 批量把某根目录下 local 错配成品牌身份的仓库，重钉成全局默认身份（防未来 commit 身份漂移）
 - 审计"哪些仓 local 身份 ≠ 全局 / 残留旧身份"
 
@@ -35,7 +35,7 @@ $PY scripts/scan_and_pin.py --root <工作区根>/projects --pin --skip open
 
 # 4. xingtu 品牌空间重钉为品牌身份(指定 name/email)
 $PY scripts/scan_and_pin.py --root <工作区根>/xingtu/github \
-   --pin --name "行途 XingTu" --email "274853659+xingtu1996@users.noreply.github.com"
+   --pin --name "行途技术" --email "274853659+xingtu1996@users.noreply.github.com"
 
 # 5. 输出 JSON 报告
 $PY scripts/scan_and_pin.py --root <工作区根>/projects --audit --report /tmp/out.json
@@ -57,7 +57,7 @@ $PY scripts/scan_and_pin.py --root <工作区根>/projects --pin \
 - `--report PATH`：把审计/结果写 JSON
 
 ## 隔离模型（boss 2026-09-11 拍板）
-全局=公司邮箱(默认) / xingtu=行途 XingTu(local 覆盖，唯一例外) / <prev_project> 系=前司 <prev_project>.com.cn(local 钉死，前司项目不伪装现雇主) / 其他项目=继承全局。
+全局=公司邮箱(默认) / xingtu=行途技术(local 覆盖，唯一例外) / <prev_project> 系=前司 <prev_project>.com.cn(local 钉死，前司项目不伪装现雇主) / 其他项目=继承全局。
 
 ⚠️ **勿用模式A"钉成全局 company"无脑覆盖**：会把手动钉成 `<prev_project>.com.cn` 的前司仓误改成现雇主邮箱。多身份并存必须用模式B `--mapfile`。
 
