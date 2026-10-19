@@ -10,7 +10,7 @@ argument-hint: "[--pack=lite|full] [--format=text|json]"
 license: MIT
 ---
 
-# xingtu-token-saver（行途省 Token 聚合诊断）
+# xingtu-token-saver（行途技术省 Token 聚合诊断）
 
 把散在 6 个工具 + 2 层包装里的省 Token 实践收口成**一次诊断**。
 母题：把「不用推理的活」从模型手里拿回来。

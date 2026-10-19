@@ -6,16 +6,16 @@ description: >
   触发词：舆情、舆情日报、舆情监控、口碑调研、声量追踪、用户评价收集、原帖溯源、一手信源、全网态势。
 ---
 
-# 舆情采集与强制溯源（行途版）
+# 舆情采集与强制溯源（行途技术版）
 
 > **来源与授权**：移植自豆包工作客户端内置 skill `doubao-sentiment-tracker`（目录内附 LICENSE.txt，Apache License 2.0 全文；原文件未署名版权持有方）。
 > **改造记录（2026-09-20，WorkBuddy）**：
-> 1. `name` 由 `doubao-sentiment-tracker` 改为 `mp-sentiment-tracker`（对齐行途 `mp-*` 内容生产族命名）。
+> 1. `name` 由 `doubao-sentiment-tracker` 改为 `mp-sentiment-tracker`（对齐行途技术 `mp-*` 内容生产族命名）。
 > 2. 删除「手机端禁止触发」整节 —— WorkBuddy 无移动端形态，该限制不适用。
 > 3. 登录协助方式：原 `interaction.request_action`（`browserControl`，豆包客户端专有接口）→ 改为 `browser-skill`（接管已登录 Chromium）。原逻辑（必须让用户协助登录、禁止改用免登录平台凑数）完整保留。
 > 4. 浏览器能力引用：原 `/gui-browser-task-skill` 或 `/browser-task`（豆包 skill 名）→ 改为 `browser-skill`。
 > 5. 删除「不允许 OrganizeAgent 参与」（豆包内部 agent 名，本环境无此组件）。
-> 6. 交付物口径：「默认使用豆包文档输出」→ 改为行途口径：**单文件零依赖 HTML 看板**（落 `outputs/`），用户明确要求时才用 Markdown。
+> 6. 交付物口径：「默认使用豆包文档输出」→ 改为行途技术口径：**单文件零依赖 HTML 看板**（落 `outputs/`），用户明确要求时才用 Markdown。
 > 核心方法论（五步法 / 强制溯源 / 一手信源优先 / 输出结构 / 输出前校验）**原文保留未改**。
 
 ## 强制红线规则（违反任意一条视为不合格，必须返工）
@@ -231,7 +231,7 @@ description: >
 5. **输出结构必须遵循：先正负向归类总结，后详细列表**
 6. **每条舆情必须携带原帖链接，缺一条都算不合格**
 7. **即使用户指定了某个平台，也必须覆盖所有核心平台（微博等）**
-8. **交付物口径（行途）**：默认产出**单文件零依赖 HTML 看板**，落 `outputs/舆情日报_YYYY-MM-DD.html`；用户明确要求时才用 Markdown。
-9. **与行途既有管线的分工**：本技能管「多平台原帖溯源采集」（补位 WebSearch 只能拿二手信息的天花板）；日报的选题评分/日历建议环节沿用行途既有口径，不在本技能内重复定义。
+8. **交付物口径（行途技术）**：默认产出**单文件零依赖 HTML 看板**，落 `outputs/舆情日报_YYYY-MM-DD.html`；用户明确要求时才用 Markdown。
+9. **与行途技术既有管线的分工**：本技能管「多平台原帖溯源采集」（补位 WebSearch 只能拿二手信息的天花板）；日报的选题评分/日历建议环节沿用行途技术既有口径，不在本技能内重复定义。
 
 <!-- public-sync: 2026-09-27 | 脱敏版本 | 源 .agents/skills/mp-sentiment-tracker -->
