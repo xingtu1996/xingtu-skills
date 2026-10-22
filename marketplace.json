@@ -1475,6 +1475,30 @@
         "content",
         "compounding"
       ]
+    },
+    {
+      "name": "skill-naming-evidence",
+      "description": "技能命名查证——建技能/改技能名前，先查用户实际怎么说这件事，技能名从用户嘴里来、不从 AI 的技术词汇来。当用户要新建技能、给技能取名或改名、判断某个技能该不该建、或担心技能名用户搜不到时使用。触发词：技能命名、技能取名、改名、先查用户怎么说、命名查证、该不该建技能、技能名从用户嘴里来、技能名用户搜不到。",
+      "path": "skills/skill-naming-evidence/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "skill-creation",
+        "naming"
+      ]
+    },
+    {
+      "name": "session-distill",
+      "description": "历史会话档案批量蒸馏——从 Claude Code / WorkBuddy / 豆包等的会话转录（jsonl）中按主题挖掘选题、素材卡、方法论与真实踩坑细节，落盘选题池/素材库/会话复盘，让内容创作直接复用蒸馏产物而不用重复粘贴历史会话。当用户说分析历史会话、蒸馏会话、从会话找选题、会话挖素材、历史会话里有什么可写的、不要重复输入会话、把历史会话沉淀成技能时使用。触发词：会话蒸馏、蒸馏会话、历史会话分析、从会话找选题、会话挖素材、分析历史会话、会话档案挖掘、历史会话沉淀。",
+      "path": "skills/session-distill/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "session-mining"
+      ]
     }
   ]
 }

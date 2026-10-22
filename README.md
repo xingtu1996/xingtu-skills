@@ -1,12 +1,12 @@
 # xingtu-skills — Production Agent Skills for AI Coding Agents
 
-> 130 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
+> 132 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
 >
 > 本页上半部分为英文说明（供国际读者与评审），中文完整版在下方 — Chinese documentation follows the English overview.
 
 ## What is this?
 
-`xingtu-skills` is an actively maintained library of **130 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
+`xingtu-skills` is an actively maintained library of **132 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
 
 A curated 26-skill subset also ships on npm as a DeepSeek Harness plugin: [`dsh-xingtu-skills`](https://www.npmjs.com/package/dsh-xingtu-skills).
 
@@ -49,13 +49,13 @@ MIT — see [`LICENSE`](LICENSE).
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-130-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-132-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途技术开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 130 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 132 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -73,7 +73,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（130）
+## 🧠 Skills 清单（132）
 
 ### 内容创作 · 自媒体（5 · 🆕 2026-10-15 新增 xingtu-knowledge-compounding）
 | Skill | 说明 |
@@ -92,6 +92,12 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | harness-governance | 对 harness 常驻配置层做减法治理闭环：审计→报告→人审→执行→回归。标尺：常驻<窗口5%、入口<200行、单文件<16KB；五分类 KEEP/SIMPLIFY/MOVE/DELETE/CONFLICT；只移不删、人审不可跳过。触发词：harness 治理/瘦身/审计/配置减法/上下文超标/s |
 | cross-repo-skill-curation | 跨仓技能策展蒸馏 playbook。当用户让另一个仓/项目的 .claude（skills/agents/hooks/CLAUDE.md/settings）里"有什么值得蒸馏/借鉴/搬过来"，或要把某仓成熟资产收进技能池时使用。流程：只读侦察 → 四分类分级（GENERIC-KEEP / SKIP- |
 | egress-allowlist | 给环境做外网放通清单（白名单域名）——适用于"给客户做外网放通清单""这个环境要放通哪些域名""外网访问需求""白名单怎么列""依赖库下载源有哪些"。核心是查清每个服务的真实下载域名（含 CDN），避免只列主域名导致"能查询、不能下载"。 |
+
+### 技能方法论（2 · 🆕 2026-10-22 新增 skill-naming-evidence / session-distill）
+| Skill | 说明 |
+|-------|------|
+| skill-naming-evidence | 技能命名查证（第 0.5 步：先查用户怎么说这件事）——建技能/改技能名前，先 grep 历史会话 jsonl 查用户实际用词（用户反复说 ≥3 次=该建且用用户词当名；用户词≫技术词=改名或用户词进 description；触发词宁多勿少，用户搜口语不搜技术词），技能名从用户嘴里来、不从 AI 技术词汇来。发布前跑成本最低（本地 mv 一次，已发 npm 只能发新包+deprecate） |
+| session-distill | 历史会话档案批量蒸馏——从 Claude Code / WorkBuddy / 豆包会话转录（jsonl）按主题挖掘选题卡/素材卡/方法论/真实踩坑细节（时间点/排查时长/独有解法=内容护城河），过滤框架注入、附会话 ID 出处，落盘选题池/素材库/会话复盘。与 session-sediment 分工：彼管单次会话即刻沉淀，此管历史档案批量挖掘 |
 
 ### 内容工程 · 发布运营（39 · 🆕 2026-09-27 第三批 +27 +2026-10-12 补5，含首批范式 wechat-draft-api）
 | Skill | 说明 |
@@ -244,7 +250,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：130 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：132 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
