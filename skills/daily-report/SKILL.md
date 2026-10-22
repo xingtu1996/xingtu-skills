@@ -57,10 +57,10 @@ description: 把当日工作整理成钉钉日报并落盘打包——固定格�
 | 类型 | 真相源 | 常见错写 |
 |------|--------|---------|
 | 项目名 | 项目目录名 / AGENTS.md | 同名异写以真相源为准 |
-| 人名 | `.Codex/user-config.yaml` / 干系人清单 | 同音异写需核实 |
+| 人名 | 干系人清单 / 项目 config | 同音异写需核实 |
 | 需求名 | spec 目录名 | 同音异写以 spec 目录名为准 |
-| 工单号 | git 提交 / spec | 内部项目 ≠ ***REMOVED*** |
-| 平台名 | — | GitLab ≠ GitHub（公司用 gitlab.***REMOVED***.com） |
+| 工单号 | git 提交 / spec | 内部项目 ≠ 外部单号 |
+| 平台名 | — | GitLab ≠ GitHub（公司内网 GitLab 与公网 GitHub 是两个平台，别混写） |
 
 拿不准的**关键术语问一次**，别照抄口语错词；改过的术语在回复里**说明改动依据**。
 
@@ -103,13 +103,13 @@ PY
 
 ## 四、提交到钉钉（实测 2026-09-28）
 
-走 `dingtalk-misc` → `references/report.md`。本仓已固定的参数：
+走钉钉侧日报提交工具（`dws report` 族）。参数按当时环境解析，**不写死任何人的姓名与 user id**：
 
 | 项 | 值 |
 |---|---|
-| 模板 | **空白日志** `***REMOVED***`（单字段"内容"，type=1 / contentType=markdown） |
-| 接收人 | ***REMOVED*** `***REMOVED***`、***REMOVED*** `***REMOVED***`（`dws aisearch person --query <姓名> --dimension name` 解析，唯一命中才用） |
-| 提交 | `dws report entry submit --template-id 17432b55... --contents-file <payload.json> --to-user-ids "***REMOVED***,***REMOVED***" --format json` |
+| 模板 | 空白日志类模板（单字段"内容"，type=1 / contentType=markdown；模板 ID 以当次查询为准，勿硬编） |
+| 接收人 | 用 `dws aisearch person --query <姓名> --dimension name` 解析出 user id（**唯一命中才用**；多人就在命令里传多个 id） |
+| 提交 | `dws report entry submit --template-id <模板ID> --contents-file <payload.json> --to-user-ids "<id1,id2>" --format json` |
 
 payload（写工作目录内相对路径，避免 shell 引号问题）：
 

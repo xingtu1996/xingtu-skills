@@ -1,6 +1,6 @@
 # reference.md — 跨仓技能策展蒸馏参考
 
-> 承载：四分类判据全表、去重比对技法、hooks 单独评估细则、***REMOVED***、策展报告模板、落地验证 snippet。SKILL.md 只留流程骨架，细节查这里。
+> 承载：四分类判据全表、去重比对技法、hooks 单独评估细则、首案实录（脱敏）、策展报告模板、落地验证 snippet。SKILL.md 只留流程骨架，细节查这里。
 
 ## 一、四分类判据全表
 
@@ -63,11 +63,11 @@ head -12 ~/.qwenworkcn/skills/<候选>/SKILL.md
 3. **实拦测试正反例**（落前跑、测后清日志）：
    - 反例必含绕过变体：大写 `RM -RF`、带引号路径、`find -delete`、`git add -A`；
    - 正例（应放行）：正常构建命令如 `mvn clean package`、`.env.example` 读取；
-   - ***REMOVED***：初版只拦小写，大写绕过被蒸馏代理自查发现并补正则——**复核方仍要独立再测一遍**，不认自查结论。
+   - 实测教训：初版只拦小写，大写绕过被蒸馏代理自查发现并补正则——**复核方仍要独立再测一遍**，不认自查结论。
 4. **fail-open 约定**：hook 解析失败放行还是阻断要显式声明（xingtu ZCode 侧 = fail-open，红线兜底在规则层）。
 5. 测试触发的运行时日志（`.stats.log` 等）在交付前移出 hooks 目录。
 
-## 四、***REMOVED***（2026-09-16，策展管线首个完整凭证）
+## 四、首案实录（2026-09-16，策展管线首个完整凭证；来源仓名已脱敏）
 
 | 资产 | 分类 | 处置 | 验证 |
 |---|---|---|---|
@@ -75,7 +75,7 @@ head -12 ~/.qwenworkcn/skills/<候选>/SKILL.md
 | multi-agent"何时不并行"裁决矩阵 | DUPLICATE-部分覆盖 | **未新造 skill**：P0 串行/P1 并行≤3-5/P2 顺延 + 裁决清单增强进 `specs-engine/references/orchestration.md` §三 | grep 小节在位 |
 | 对抗审查三点（脚本交叉验证不请 LLM 法官 / Filter 拦 30-50% 误报 / 用原文片段不用行号定位） | DUPLICATE-部分覆盖 | 并入 `spec-driven-adversarial-workflow` v1.1→**1.2.0** | version 位 + 三点关键词 grep |
 | PreToolUse hooks（rm 硬删/敏感文件拦截） | 守卫类单评 | 落 `xingtu/.claude/hooks/` + README；**明确告知千问侧不生效**；未动 settings | 正反例实拦（含大写 RM 补正则）；mvn 放行 |
-| ***REMOVED***（mvn 相关红线等） | SKIP-项目专属 | 剥离不带入 | — |
+| 来源仓专属段（构建命令相关红线等） | SKIP-项目专属 | 剥离不带入 | — |
 
 收口动作：复核期 `.stats.log` 移出、CHANGELOG 各自留痕、两任务（蒸馏 + 主线 Phase1）零交叉污染。
 

@@ -65,7 +65,7 @@ POOL_LEDGER / 台账标 🔴「双副本实体×2」**不等于**可自动收敛
 对每个 GENERIC-KEEP 候选，在现有池中 grep 关键机制词（不只看名字——同名不同物、异名同物都要抓）：
 
 - 完全覆盖 → 放弃，报告注明"已有 XX 覆盖"。
-- 部分覆盖 → **增强现有**（往既有文件补小节 + version bump），不新造平行技能。实例基准：***REMOVED***"何时不并行"裁决矩阵未新造 skill，而是增强进 `specs-engine/references/orchestration.md` §三；对抗审查三点并入 `spec-driven-adversarial-workflow` v1.1→1.2.0。
+- 部分覆盖 → **增强现有**（往既有文件补小节 + version bump），不新造平行技能。实例基准：某内部仓"何时不并行"裁决矩阵未新造 skill，而是增强进 `specs-engine/references/orchestration.md` §三；对抗审查三点并入 `spec-driven-adversarial-workflow` v1.1→1.2.0。
 - 无覆盖 → 进 top-N。
 
 ### 3. top-N 深度提炼（默认 ≤5，宁缺毋滥）
@@ -84,7 +84,7 @@ POOL_LEDGER / 台账标 🔴「双副本实体×2」**不等于**可自动收敛
 ### 5. hooks / 红线守卫类单独评估（不进默认蒸馏）
 
 - 先查**目标工具是否有对应机制**：如 Claude Code PreToolUse hook 只对其宿主 agent 生效；千问办公无用户可注册 hook 层（实测结论，见 `reference.md` §三）——此类守卫只落对应 agent 侧并在 README 写明注册方式，**不擅自改 settings.json/config.yaml**。
-- 落地前实测拦截行为：正/反例各跑（含大小写绕过，***REMOVED***：大写 `RM -RF` 曾漏拦、补正则后拦截正确）。
+- 落地前实测拦截行为：正/反例各跑（含大小写绕过，实测案例：大写 `RM -RF` 曾漏拦、补正则后拦截正确）。
 - fail-open/fail-closed 策略与红线兜底层（规则层 vs 机械层）写进 README。
 
 ### 6. 脱敏剥离（落地内容必过三查）
@@ -98,7 +98,7 @@ POOL_LEDGER / 台账标 🔴「双副本实体×2」**不等于**可自动收敛
 
 ### 7. 拍板后落地 + 验证留痕
 
-- 蒸出的技能 frontmatter 注明来源仓 + 日期（如"机制源自 ***REMOVED*** .claude/skills/XX，2026-09-16 策展"），来源仓正文**不复制**、只蒸方法论。
+- 蒸出的技能 frontmatter 注明来源仓 + 日期（如"机制源自某内部仓 .claude/skills/XX，2026-09-16 策展"），来源仓正文**不复制**、只蒸方法论。
 - 双池同源时：落 `${SKILLS_DIR}/skills/<name>/` 后镜像到 `~/.qwenworkcn/skills/<name>/`（或反向），`diff -q 池A/SKILL.md 池B/SKILL.md` 验证字节相同；一池有更新另一池必须同步。
 - 增强现有技能时：version bump + 新小节可 grep 验证。
 - 清理复核期测试产物（如 hook 实拦测试触发的 `.stats.log`，含**核验者自己**跑测试二次生成的），保持交付纯净。

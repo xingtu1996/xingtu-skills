@@ -459,6 +459,19 @@
       ]
     },
     {
+      "name": "eval-skills",
+      "description": "验证技能真的会触发、产出真的对——用固定用例跑，不靠\"跑两下 demo 没报错\"。适用于\"这个技能靠谱吗\"\"技能改了会不会坏\"\"触发不了\"\"怎么证明它有用\"\"跑一下评测\"\"回归一下技能\"\"技能体检\"\"质量门禁\"\"evals\"\"这条 description 改得对不对\"\"技能老是不被调用\"这类请求。只评测、不创建、不治理体积。",
+      "path": "skills/eval-skills/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "quality",
+        "evals"
+      ]
+    },
+    {
       "name": "evolve-skills",
       "description": ">- 技能建议 / 技能体检 / 要不要做成技能 / 这个该沉淀成技能吗 / 技能该升级了 / 技能老化了 / 技能没人用 / 技能触发不了 / 技能该淘汰 / 库太肥了要淘 / skill hygiene / skill evolution —— 在干活的过程中主动产出**技能建议**：① 建议*",
       "path": "skills/evolve-skills/SKILL.md",

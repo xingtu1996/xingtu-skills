@@ -104,4 +104,4 @@ specs-engine/
 
 ## 相关
 
-- 姊妹文档：方法论演进与项目差异分析见 ***REMOVED*** `specs-harness` spec（本项目为其收敛落地）。
+- 姊妹文档：方法论演进与项目差异分析见配套 `specs-harness` 内部 spec（本项目为其收敛落地）。
