@@ -1,3 +1,46 @@
+# xingtu-skills — Production Agent Skills for AI Coding Agents
+
+> 129 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
+>
+> 本页上半部分为英文说明（供国际读者与评审），中文完整版在下方 — Chinese documentation follows the English overview.
+
+## What is this?
+
+`xingtu-skills` is an actively maintained library of **129 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
+
+A curated 26-skill subset also ships on npm as a DeepSeek Harness plugin: [`dsh-xingtu-skills`](https://www.npmjs.com/package/dsh-xingtu-skills).
+
+## Why it matters
+
+Agent Skills are becoming shared infrastructure: the same skill file is loaded by many different agents, on many machines. This repository treats skills as production software, not prompt snippets:
+
+- **Portable by design** — one open format, no vendor lock-in; skills load unchanged across Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DSH.
+- **Battle-tested** — every skill here runs in the maintainer's own daily workflows before it is published; the publishing pipeline itself (drafting, fact-check gate, pre-publish verification) is one of the skills.
+- **Maintained daily** — created September 2026, with near-daily commits, a versioned `marketplace.json` catalog kept in sync with the skill directories, and conformance checks on skill front-matter.
+
+## Quick start
+
+```bash
+git clone https://github.com/xingtu1996/xingtu-skills.git
+cp -r xingtu-skills/skills/<skill-name> ~/.claude/skills/   # Claude Code
+# Codex / OpenCode / DSH: point the tool at the skills/ directory or copy the skill folder the same way.
+```
+
+Or install the whole agent asset stack (skills, hooks, rules, specs) in one command via [`xingtu-harness`](https://github.com/xingtu1996/xingtu-harness).
+
+## Security posture
+
+Skills are executable instructions: they can direct an agent to run shell commands, edit files, call APIs, and handle credentials. This repository therefore treats a malicious or prompt-injected skill as a **supply-chain risk**, and maintainers review contributions with that threat model in mind (no hardcoded secrets, credentials only via environment or secret files, destructive actions behind human confirmation). See [`SECURITY.md`](SECURITY.md) for the reporting policy and the review principles applied to third-party skills.
+
+## Maintainer
+
+Created and maintained by XingTu (GitHub: [@xingtu1996](https://github.com/xingtu1996)), an AI-engineering practitioner who publishes the Chinese technical publication "***REMOVED***" and maintains the surrounding open-source tooling (publishing pipeline, harness scaffold, video and podcast generators). Contributions and issues are welcome; see the skill catalog in `marketplace.json`.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).
+
+---
 # 行途技术 Skills · AI Agent 技能聚合仓
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
