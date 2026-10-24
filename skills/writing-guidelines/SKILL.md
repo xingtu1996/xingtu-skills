@@ -1,6 +1,6 @@
 ---
 name: writing-guidelines
-description: Review docs/prose for Writing Guidelines compliance. Use when asked to "review my docs", "check writing style", "audit prose", "review docs voice and tone", or "check this page against the writing handbook".
+description: Review docs/prose for Writing Guidelines compliance. Use when asked to "review my docs", "check writing style", "audit prose", "review docs voice and tone", or "check this page against the writing handbook". 中文触发词：文风审查/检查写作规范/这篇文风对不对/写作规范过一遍/文章读起来像不像人写的。
 metadata:
   author: vercel
   version: "1.0.0"
