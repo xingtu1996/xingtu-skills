@@ -1,6 +1,6 @@
 # 微信通道 · 蒸馏标准（distill-standards）
 
-> 与行途技术 `xingtu-ingest` / `session-sediment` 的价值体系一致。蒸馏结果按此标准执行，保证所有 Agent 产出同格式、可入库。
+> 与行途 XingTu `xingtu-ingest` / `session-sediment` 的价值体系一致。蒸馏结果按此标准执行，保证所有 Agent 产出同格式、可入库。
 
 ## 一、蒸馏四步
 

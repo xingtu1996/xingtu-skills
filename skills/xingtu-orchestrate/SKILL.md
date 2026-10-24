@@ -1,7 +1,7 @@
 ---
 name: xingtu-orchestrate
 description: >
-  行途技术动态编排入口（ZCode 版 ultracode 语义 + BDD 自然语言驱动）——boss 说一句人话目标，
+  行途 XingTu 动态编排入口（ZCode 版 ultracode 语义 + BDD 自然语言驱动）——boss 说一句人话目标，
   主会话自动解析意图 → 匹配编排模式 → 派发子代理 → 后台并行执行 → 逐站过闸收口。
   行为规格用 Given-When-Then 场景写：人可读、AI 可执行、场景即验收标准。
   路径动态、闸门静态：编排路径运行时现定，发布/隐私/去AI味门禁一律不免检；
@@ -15,7 +15,7 @@ metadata:
   agent_created: true
 ---
 
-# xingtu-orchestrate（行途技术动态编排入口）
+# xingtu-orchestrate（行途 XingTu 动态编排入口）
 
 把「一个 AI 串行慢慢干」升级为「主会话当编排器，子代理池并行干」。
 主会话（ZCode）= 编排器：拆任务 → 定依赖 → 派发 → 收口；子代理 = worker。

@@ -29,7 +29,7 @@ T5 副本腐烂——权重数值/流程判据/触发路由/定时任务 payload
 
 ## 2. Spec 四件套骨架
 
-有 scaffold 引擎先跑引擎再裁剪填充（行途技术引擎见附录A）；无引擎手搓：
+有 scaffold 引擎先跑引擎再裁剪填充（行途 XingTu 引擎见附录A）；无引擎手搓：
 
 ```
 specs/YYYYMMDD-名称/
@@ -51,9 +51,9 @@ specs/YYYYMMDD-名称/
 
 - 探测本区时间轴/登记机制并用之；**完成判定 = 落盘凭证**（spec 文件存在 + 时间轴新行 + mtime=今天），模型自述"已完成"不作数。
 - 汇报口径：三五行 recap（真问题修正 / 红队推翻清单 / 挂着哪几个待拍板默认值）。
-- 行途技术空间的具体命令见附录A；其他空间无附录则写 `决议记录.md` 于 spec 目录内。
+- 行途 XingTu 空间的具体命令见附录A；其他空间无附录则写 `决议记录.md` 于 spec 目录内。
 
-## 4. 首案实录（2026-09-16 · 行途技术空间，校准红队力度用）
+## 4. 首案实录（2026-09-16 · 行途 XingTu 空间，校准红队力度用）
 
 任务：日报升级为"全矩阵调度+变现闭环"（`specs/20260916-运营日报升级_全矩阵调度与变现闭环/`）。
 
@@ -113,13 +113,13 @@ specs/YYYYMMDD-名称/
 - **键名坑**：验收探针猜键 `track_c` 落空，打印产物真实顶层键才知是 `track_c_decay`——核验落空先疑探针口径再下结论，别误判执行方没做。
 - **自染产物**：验收动作本身会生成副作用文件（如 hook 测试日志），收口前清出交付目录，别算进执行方遗留。
 
-## 附录A · 行途技术空间专属接入（仅工作区根 AGENTS.md 含「行途技术」时适用）
+## 附录A · 行途 XingTu 空间专属接入（仅工作区根 AGENTS.md 含「行途 XingTu」时适用）
 
 > 🔴 spec 唯一真源 = `github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/`（2026-10-12 迁入，主区 `specs/` 已不存在）。
-> 新建 spec **一律走行途技术入口**，落点由 `tools/paths.py` 决定；**禁止手搓 `specs/` 目录**（手搓 = 又造一个真源）。
+> 新建 spec **一律走行途 XingTu 入口**，落点由 `tools/paths.py` 决定；**禁止手搓 `specs/` 目录**（手搓 = 又造一个真源）。
 
 ```bash
-# ✅ 新建 spec（行途技术唯一入口；落 vault 真源，cwd 无关，分钟级前缀 YYYYMMDDHHMM）
+# ✅ 新建 spec（行途 XingTu 唯一入口；落 vault 真源，cwd 无关，分钟级前缀 YYYYMMDDHHMM）
 python3 tools/new_spec.py --owner <qwenwork|workbuddy|zcode|doubao> --title "<标题>"
 # 备用：直用 scaffold 引擎**必须显式传父目录**（旧写法缺父目录参数会报错/建错位置）
 bash ~/.claude/skills/specs-engine/scripts/scaffold.sh new github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs "<标题>" --tool qwenwork
@@ -136,5 +136,5 @@ python3 tools/privacy_scan.py --fail-fast # 上公网前
 ```
 
 - 首实例凭证路径：`github/xingtu-vault/01_战略与规章 (Strategy & Rules)/specs/20260916-运营日报升级_全矩阵调度与变现闭环/`（00-03 四件齐）。
-- 相邻技能分工（行途技术侧）：稿件审查 `adversarial-review`、执行期编排 `xingtu-orchestrate`、发前核验 `mp-prepublish-draft-verify`。
-- 行途技术 AGENTS.md 触发表行为本项目侧路由 SSoT；本全局技能与表行指向同一实体（本目录），**不得在 `.agents/skills/` 再留副本**。
+- 相邻技能分工（行途 XingTu 侧）：稿件审查 `adversarial-review`、执行期编排 `xingtu-orchestrate`、发前核验 `mp-prepublish-draft-verify`。
+- 行途 XingTu AGENTS.md 触发表行为本项目侧路由 SSoT；本全局技能与表行指向同一实体（本目录），**不得在 `.agents/skills/` 再留副本**。

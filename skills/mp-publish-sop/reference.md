@@ -5,7 +5,7 @@
 ## 一、名片 = 后台手动插（API 不插，09-16 02:1x 定）
 
 微信「账号名片」组件依赖编辑器运行时 wrapper class（`appmsg_card_context wx_profile_card wx-root wx_tap_card wx_card_root common-web` + data-weui-theme），API draft/add 只插内层 div 会**渲染错乱**（缺灰底卡片/箭头/原创数）。
-SOP 约定：排版 HTML 与草稿 content **不含**名片；boss 后台编辑器 → 工具栏「账号名片」→ 插「关于行途技术」段后（10 秒）。
+SOP 约定：排版 HTML 与草稿 content **不含**名片；boss 后台编辑器 → 工具栏「账号名片」→ 插「关于行途 XingTu」段后（10 秒）。
 若未来微信 API 支持完整组件再改回自动插，并同步 DESIGN.md §六。
 
 ## 二、Step 6 排版重渲完整 snippet（@@PH + justify + 名片一次做完）
@@ -208,7 +208,7 @@ python3 tools/wx_draft_api.py --pkg "$P" \
 ### 封面坑（6 个）
 - **"行路小人"品牌符号被否**——封面要干净直接放内容，不要抽象小人。
 - **icon 不用深色卡片包裹**——直接放原图，不要边框/卡片背景。
-- **不要右上角水印**——"公众号·行途技术"水印 boss 不要。
+- **不要右上角水印**——"公众号·行途 XingTu"水印 boss 不要。
 - **不要合集 tag**——封面不放"省 token 系列"这种 tag。
 - **icon 破损/不对**：claude.png 是竖 banner、cursor.png 是横 banner、kiro.svg 是纯紫块、pi 原来是 Google 三色块。**取官方 icon 用 iTunes Search API 或官网 favicon，不用 ImageSearch**。
 - **Google 图标不对**——pi.dev 官方 favicon 是黑色 π 形几何 logo。

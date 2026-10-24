@@ -1,6 +1,6 @@
 ---
 name: xingtu-article-sync
-description: 行途技术文章库发布同步总控——发文后一条命令完成：新文章收编（年月归位/素材包/frontmatter 规范化）→ prev/next 与开源仓互链 → index.json → 三处展示层（articles README / 个人主页最新10 / 文章星图页）→ Data API 推送三仓。触发词：文章归档、发文同步、article sync、收编文章、文章库更新、星图页更新、主页文章同步。
+description: 行途 XingTu 文章库发布同步总控——发文后一条命令完成：新文章收编（年月归位/素材包/frontmatter 规范化）→ prev/next 与开源仓互链 → index.json → 三处展示层（articles README / 个人主页最新10 / 文章星图页）→ Data API 推送三仓。触发词：文章归档、发文同步、article sync、收编文章、文章库更新、星图页更新、主页文章同步。
 version: 1.0.0
 metadata:
   author: xingtu

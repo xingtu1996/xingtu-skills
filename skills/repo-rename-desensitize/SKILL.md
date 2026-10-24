@@ -6,7 +6,7 @@ agent_created: true
 
 # 全库更名 + 真名脱敏 SOP
 
-> 动因来源：行途技术 `text2vido → book2vido` 更名（2026-09-16）。
+> 动因来源：行途 XingTu `text2vido → book2vido` 更名（2026-09-16）。
 > 那次踩到的四个真坑全部沉淀在下面 §【硬教训】里。
 
 ## 何时用
@@ -22,7 +22,7 @@ agent_created: true
    `gh search repos <新名>`（查撞名）。
    **若结论是"从未改名"，就要在交付里明确纠正，别顺着用户的假设做。**
 2. **先备份，走工作区自带脚本。**
-   `bash tools/safety/backup-before-op.sh "<描述>" <path...>`（行途技术工作区）。
+   `bash tools/safety/backup-before-op.sh "<描述>" <path...>`（行途 XingTu 工作区）。
    另加一个 tarball 兜底并 `tar -tzf` 验证可读。
 3. **删除一律走 `safe-delete.sh`（mv 到回收站），绝不 `rm -rf`。**
 

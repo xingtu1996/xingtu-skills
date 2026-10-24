@@ -2,20 +2,20 @@
 
 ---
 name: xingtu-publish-next-decision
-description: 行途技术「今天/明天发什么」排期决策 playbook。当主理人问"发什么/推荐明日发布/排期取舍/哪篇先上/待发太多不知选谁"时触发。固定四源交叉读取（CHANGELOG 顶部 + 发布日历与待发看板 + 本周发布计划 + 发布日志战绩与舆情日报）→ 对每个候选独立现跑 de_ai_flavor_check.py 与 privacy_scan.py 取凭证（不采信 CHANGELOG 或模型自述的"门禁全绿"）→ 交叉核对草稿箱 appmsgid 注入时间是否早于正文终稿 mtime → 输出主推 + 备选 + 不占公众号额度的多平台外发时序 + 待 boss 拍板项。核心红线：完成判定查凭证不问模型（B-009/B-046）。
+description: 行途 XingTu「今天/明天发什么」排期决策 playbook。当主理人问"发什么/推荐明日发布/排期取舍/哪篇先上/待发太多不知选谁"时触发。固定四源交叉读取（CHANGELOG 顶部 + 发布日历与待发看板 + 本周发布计划 + 发布日志战绩与舆情日报）→ 对每个候选独立现跑 de_ai_flavor_check.py 与 privacy_scan.py 取凭证（不采信 CHANGELOG 或模型自述的"门禁全绿"）→ 交叉核对草稿箱 appmsgid 注入时间是否早于正文终稿 mtime → 输出主推 + 备选 + 不占公众号额度的多平台外发时序 + 待 boss 拍板项。核心红线：完成判定查凭证不问模型（B-009/B-046）。
 metadata:
   author: xingtu
   version: "1.0.0"
   argument-hint: [目标发布日 YYYY-MM-DD]
 ---
 
-# 行途技术「明天发什么」排期决策 playbook
+# 行途 XingTu「明天发什么」排期决策 playbook
 
 > **本 playbook 的灵魂**：排期建议必须建立在**本轮独立重跑的门禁凭证**上，而不是 CHANGELOG 里"门禁全绿"的文字记录或模型自述。本轮实测就是靠这条抓到两处 CHANGELOG 未记的缺陷——① v5 正文有 31 个超长段落被判"需修改"，CHANGELOG 却记为"门禁全绿"；② 草稿箱 appmsgid=100000597 注入早于 v5 重构，直接定时发布会把旧立意/旧错名发出去。二者都不是"翻文件翻出来的印象"，是现跑脚本 + 比对时间戳拿到的硬凭证。
 
 ## 〇、适用范围守卫（先做，别跳）
 
-读当前工作区根 `AGENTS.md`。**含「行途技术」二字才继续**；否则本 playbook 属个人 IP 项目专属，在其他仓（如公司项目）零业务文件读取、直接停止并声明不适用。这是无 hook 兜底下的自补洞。
+读当前工作区根 `AGENTS.md`。**含「行途 XingTu」才继续**；否则本 playbook 属个人 IP 项目专属，在其他仓（如公司项目）零业务文件读取、直接停止并声明不适用。这是无 hook 兜底下的自补洞。
 
 ## 一、何时用本 playbook
 

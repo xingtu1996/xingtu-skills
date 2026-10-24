@@ -1,12 +1,12 @@
 # xingtu-skills — Production Agent Skills for AI Coding Agents
 
-> 132 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
+> 136 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
 >
 > 本页上半部分为英文说明（供国际读者与评审），中文完整版在下方 — Chinese documentation follows the English overview.
 
 ## What is this?
 
-`xingtu-skills` is an actively maintained library of **132 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
+`xingtu-skills` is an actively maintained library of **136 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
 
 A curated 26-skill subset also ships on npm as a DeepSeek Harness plugin: [`dsh-xingtu-skills`](https://www.npmjs.com/package/dsh-xingtu-skills).
 
@@ -41,21 +41,21 @@ Created and maintained by XingTu (GitHub: [@xingtu1996](https://github.com/xingt
 MIT — see [`LICENSE`](LICENSE).
 
 ---
-# 行途技术 Skills · AI Agent 技能聚合仓
+# 行途 XingTu Skills · AI Agent 技能聚合仓
 
 > 一份发布，多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI）。find-skills 可检索。
 
-> **👋 云端 Agent（Muse）从这里开始**：若你要接手行途技术公众号全域运营，按序读——
+> **👋 云端 Agent（Muse）从这里开始**：若你要接手行途 XingTu 公众号全域运营，按序读——
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-132-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-136-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
-`xingtu-skills` 是行途技术开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
+`xingtu-skills` 是行途 XingTu 开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 132 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 136 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -73,16 +73,16 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（132）
+## 🧠 Skills 清单（136）
 
 ### 内容创作 · 自媒体（5 · 🆕 2026-10-15 新增 xingtu-knowledge-compounding）
 | Skill | 说明 |
 |-------|------|
-| de-ai-flavor | 行途技术自媒体去 AI 味：公众号/封面/标题/摘要文案人话化（PUB-013 五法） |
+| de-ai-flavor | 行途 XingTu 自媒体去 AI 味：公众号/封面/标题/摘要文案人话化（PUB-013 五法） |
 | xingtu-knowledge-compounding | 内容知识复利方法论总装（姜胡说三次认知升维）：拍前三问→产品四要素→知识卡片提取+审核四问→入库五步 SOP，把一次性内容沉淀为可复利知识资产 |
-| adversarial-review | 行途技术自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
-| ai-usage-report | 行途技术数据核实：cc-switch 本地库核实文章数字 + 内部 AI 平台 API 汇报 |
-| fact-check-gate | 行途技术成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
+| adversarial-review | 行途 XingTu 自媒体多专家对抗审查：封面/标题/正文/数据四角色并行（PUB-017） |
+| ai-usage-report | 行途 XingTu 数据核实：cc-switch 本地库核实文章数字 + 内部 AI 平台 API 汇报 |
+| fact-check-gate | 行途 XingTu 成稿事实核查门禁：拆层→五档标记→推理链检查→补强版（PUB-018 + BCI B-009） |
 
 ### 技能治理（5 · 🆕 2026-09-27 第四批 + 2026-10-22 eval-skills）
 | Skill | 说明 |
@@ -99,20 +99,20 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | skill-naming-evidence | 技能命名查证（第 0.5 步：先查用户怎么说这件事）——建技能/改技能名前，先 grep 历史会话 jsonl 查用户实际用词（用户反复说 ≥3 次=该建且用用户词当名；用户词≫技术词=改名或用户词进 description；触发词宁多勿少，用户搜口语不搜技术词），技能名从用户嘴里来、不从 AI 技术词汇来。发布前跑成本最低（本地 mv 一次，已发 npm 只能发新包+deprecate） |
 | session-distill | 历史会话档案批量蒸馏——从 Claude Code / WorkBuddy / 豆包会话转录（jsonl）按主题挖掘选题卡/素材卡/方法论/真实踩坑细节（时间点/排查时长/独有解法=内容护城河），过滤框架注入、附会话 ID 出处，落盘选题池/素材库/会话复盘。与 session-sediment 分工：彼管单次会话即刻沉淀，此管历史档案批量挖掘 |
 
-### 内容工程 · 发布运营（39 · 🆕 2026-09-27 第三批 +27 +2026-10-12 补5，含首批范式 wechat-draft-api）
+### 内容工程 · 发布运营（42 · 🆕 2026-09-27 第三批 +27 +2026-10-12 补5，含首批范式 wechat-draft-api）
 | Skill | 说明 |
 |-------|------|
-| xingtu-content-craft | 行途技术成稿总装技能：从选题素材到可排版正文 v1 的全流程（起草→de-ai-flavor→脱敏三查→PUB-027 量化门禁→信源独立成节）。当用户说"写稿/改稿/成稿/起草这篇/正文 v1/开始写"时触发（🆕 2026-10-12 落仓） |
+| xingtu-content-craft | 行途 XingTu 成稿总装技能：从选题素材到可排版正文 v1 的全流程（起草→de-ai-flavor→脱敏三查→PUB-027 量化门禁→信源独立成节）。当用户说"写稿/改稿/成稿/起草这篇/正文 v1/开始写"时触发（🆕 2026-10-12 落仓） |
 | conference-archive | 会议/论坛/行业大会素材归档与蒸馏。当用户参加完线下会议、行业论坛、技术大会后，要求"整理一下""归档""沉淀素材""把录音和拍图整理成文章素材库"时使用。输入：录音 record_id、现场拍图、口述观点、官方议程 PDF、系统纪要。输出 |
 | content-matrix-channel-audit | 全渠道内容矩阵环境审计（周期性战略盘点，只读不动手）：以资深全平台内容运营操盘手视角，实地核实固定数据源（materials_library.json + 今日调度_*.json + 分发凭证 glob + 变现盘点 README + 各分 |
 | legal-compliance-baseline | 法律合规基线维护与出书适配性延伸检查。Use when 用户说跑合规扫描/合规门禁/法律基线、极限词误报太多/精度调整/白名单迭代、content_gate 第⑦门禁接入/维护、AI标识义务/人工智能生成合成内容标识办法待办、🟡人工核清单管 |
-| mp-daily-ops-report | 行途技术每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了"时触发。以资深全平台 IP 操盘手角色预 |
-| mp-distribution-evidence-loop | 行途技术分发闭环回填傻瓜流程：发出去之后把凭证收进闭环。当用户说"发出去了/截图给你/回填凭证/闭环率怎么涨/丢进投放口/今天分发算不算数/闭环转起来了吗"时触发。截图规范命名 `分发凭证_<平台>_<日期>` 入 `outputs/多平台分发 |
+| mp-daily-ops-report | 行途 XingTu 每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了"时触发。以资深全平台 IP 操盘手角色预 |
+| mp-distribution-evidence-loop | 行途 XingTu 分发闭环回填傻瓜流程：发出去之后把凭证收进闭环。当用户说"发出去了/截图给你/回填凭证/闭环率怎么涨/丢进投放口/今天分发算不算数/闭环转起来了吗"时触发。截图规范命名 `分发凭证_<平台>_<日期>` 入 `outputs/多平台分发 |
 | mp-group-push-copy | 公众号发布配套的群推话术四版 + 置顶评论生成管线。当用户说"给我群推话术/置顶评论/怎么转发到群里/帮我写推荐语/这篇往哪个群发/发出去没人看/群里发了带来关注了再来要/话术缺活人味/置顶像空气对话/留言区要不要带#"时触发。读家族存档与 |
 | mp-sentiment-tracker | > |
 | mp-title-collision-rename | 公众号标题撞题核查与换题执行闭环：WebSearch 双查取并集 → 撞题判定（同题含大媒体 ≥3 篇 = 换题）→ 规则出三候选交 boss 拍板 → 六载体同步替换（先数后改、assert 实测计数）→ 封面改文案 + 字号断行自检 + |
 | xingtu-expression-logic | > |
-| xingtu-ingest | 素材入库总控（行途技术）——当用户说"入库/收入素材库/存到素材库/记一下这条素材/把这个收进选题池/分析并入库"并给出内容（文本/链接/对话/想法/截图描述）时使用。自动分析内容价值分级（黄金/关键/重点/高知），按类型落到素材卡/选题池/黄 |
+| xingtu-ingest | 素材入库总控（行途 XingTu）——当用户说"入库/收入素材库/存到素材库/记一下这条素材/把这个收进选题池/分析并入库"并给出内容（文本/链接/对话/想法/截图描述）时使用。自动分析内容价值分级（黄金/关键/重点/高知），按类型落到素材卡/选题池/黄 |
 | xingtu-orchestrate | > |
 | audio-friendly-adapt | 听友好版改编 skill——把图文成稿派生为适合语音朗读/播客/视频号语音的纯文本版本。自动执行 PUB-024 六条铁律（砍元信息/编号口语化/数字口语化/图表口述/加问候道别/命名规范），改编后过 PUB-026 完结检查。触发词：听友 |
 | certification-submission-kit | 平台个人/职业认证提交包生成流水线。Use when 用户说 公众号认证/视频号认证/知乎认证/掘金认证/百家号认证/CSDN认证/小红书认证/职业认证/身份认证/兴趣认证/认证描述/公众称谓/主体姓名/职业身份/认证材料/认证驳回/认证额 |
@@ -121,14 +121,14 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | mp-group-audience-check | 微信群熟人密度安检——在群里推公众号内容前，先查该群成员中有多少是你的微信好友（通过单聊消息表验证真好友，排除群里见过但没加的人），输出熟人密度评级和"能不能推"建议。触发词：查群里有多少好友、群里有没有熟人、能不能在这个群发公众号、群熟人 |
 | mp-publish-sop | 公众号「成稿→草稿箱」十步一条龙 SOP 编排层（🆕 09-16，v1.8.0 TOKEN-09 复盘）：串联事实回源/标题撞题/图文密度/法律合规/排版重渲/封面三检/门禁/建稿回查/回收/配套件，含本轮全部实测坑位与回查凭证模板，供任意 |
 | pub-infographic-supplement | 公众号长文图文密度补齐管线：按 PUB-048 做图/千字密度对标 → 定位文字墙节 → 素材只取正文原文写信息图 HTML（家族配色：纯白 #FFFFFF 底、黑红灰主色，DESIGN.md §四；1080px 视口 @2x）→ fig_ |
-| session-sediment | 会话即刻沉淀 xingtu 版——自动盘点成果/决策链/AI协作模式/沉淀资产/纠偏偏好/踩坑教训，反哺到行途技术素材库（xingtu-vault）+ 会话复盘 + 选题池 + 元宝素材库，产出继续会话提示词。触发词：沉淀会话/会话沉淀/记录会 |
-| wechat-channel | 本地微信通道（行途技术）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微 |
-| wechat-mp-analytics | 公众号后台只读数据分析（行途技术）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixi |
+| session-sediment | 会话即刻沉淀 xingtu 版——自动盘点成果/决策链/AI协作模式/沉淀资产/纠偏偏好/踩坑教训，反哺到行途 XingTu 素材库（xingtu-vault）+ 会话复盘 + 选题池 + 元宝素材库，产出继续会话提示词。触发词：沉淀会话/会话沉淀/记录会 |
+| wechat-channel | 本地微信通道（行途 XingTu）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微 |
+| wechat-mp-analytics | 公众号后台只读数据分析（行途 XingTu）——用 bsk 接管已登录 Chrome，拉取阅读/分享/粉丝/图文明细，回流舆情与内容战略研判。触发词：查公众号后台、拉后台数据、阅读分析、粉丝数据、数据分析、舆情回流、图文分析、已发表内容、mp.weixi |
 | wechat-mp-publish | 微信公众号后台自动化发布 Skill。发前核查（群发额度/发表记录/草稿箱）→ 把一篇成稿（HTML/PM doc JSON/官方草稿 API）导入公众号草稿箱、设置标题/摘要/原创/封面/合集/公众号名片，最终引导人工群发的全流程自动化  |
-| x-auto-publish | 行途技术品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简 |
-| xingtu-blue-ocean-strategy | 蓝海市场与受众战略分析（行途技术）——当用户要求为自己/公司/产品/内容账号/app/创业项目做市场调研、蓝海判断、受众与变现人群分析、需求缺口识别、定位与主方向锁定、90 天战略路线图时使用。也适用于「帮我分析下这个方向/赛道/人群」「这个市 |
+| x-auto-publish | 行途 XingTu 品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简 |
+| xingtu-blue-ocean-strategy | 蓝海市场与受众战略分析（行途 XingTu）——当用户要求为自己/公司/产品/内容账号/app/创业项目做市场调研、蓝海判断、受众与变现人群分析、需求缺口识别、定位与主方向锁定、90 天战略路线图时使用。也适用于「帮我分析下这个方向/赛道/人群」「这个市 |
 | xingtu-multiplatform-distribution | 公众号首发后的多平台分发流水线——按平台规格生成变体（掘金/知乎/CSDN/小红书/抖音/X）+ 变体过 de_ai_flavor_check 去AI味 + 配图（HTML→PNG 卡片；母稿非表格信息图按本地绝对路径内嵌进变体 MD 并出 |
-| xingtu-workspace-context | 行途技术工作空间上下文桥接（豆包/通用版）——当用户在行途技术(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途技术工作空间、开始行途技术工作、xingtu上下文、行途技术空间规则、了解 |
+| xingtu-workspace-context | 行途 XingTu 工作空间上下文桥接（豆包/通用版）——当用户在行途 XingTu(xingtu)自媒体复利工程工作区协作，需要理解空间定位、六层架构、关键路径、工作铁律、Skill路由时使用。触发词：行途 XingTu 工作空间、开始行途 XingTu 工作、xingtu上下文、行途 XingTu 空间规则、了解 |
 | yuanbao-archive-pipeline | 元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。 |
 | wechat-draft-api | 微信公众号官方 API 建稿：token 获取/草稿增删查/永久素材/封面图安全压缩，凭据全部参数化（环境变量+CLI），零第三方依赖。Use when: 草稿箱建稿、API 传图、发前 dry-run。 |
 | mp-prepublish-draft-verify | 公众号发文前凭证闭环核验：事实回源→图文同步→建稿前五查（占位/灰框/主题色/图文密度/撞题）→dry-run「嵌图 N/N」→API 回查字节比对→回收缺陷稿。专治「看似就绪实则错名/漏榜/图静默消失」。 |
@@ -136,12 +136,15 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | daily-judgment-brief | 发布综合判断基线+每日对账：读判断土壤 reference.md→拉 stats/publish_board→排期与 48h 分诊对账→假设台账 H-* 逐条结算→落每日判断简报。发后评估与口径守卫，只读。 |
 | wechat-cover-gen | 公众号封面生成管线（真人剪影路线）：image_gen 出无文字场景图→curl 下载→HTML 右侧压字→fig_fit 渲 900×383→Read 看图 OCR 回查。黑/白严格交替，三原色黑#1a1a1a/白#fff/橙红#F2644F。 |
 | xingtu-article-sync | 文章库发布同步总控：发文后一条命令完成新文章收编→prev/next 与开源仓互链→index.json→三处展示层→Data API 推三仓。幂等。 |
-| xiaobot-ops | 小报童平台运营专家：定位/定价/调价/买断制/内容公约/提现官方规范 + 行途技术双轨定价策略 + 申请专栏表单实战提示 + 运营 checklist。 |
+| xiaobot-ops | 小报童平台运营专家：定位/定价/调价/买断制/内容公约/提现官方规范 + 行途 XingTu 双轨定价策略 + 申请专栏表单实战提示 + 运营 checklist。 |
 | publish-package-review | 发布包「审校轮」SOP——在定时发布前对整包做交叉事实核查与版本漂移对账，产出单文件 HTML 审校看板 + 长图 PNG 截图。适用于任何内容发布包（公众号/知乎/掘金/开源文档）的发布前审核、AI 生成内容的可视化审… |
 | xingtu-article-archive | 把公众号已发布文章归档同步到 GitHub 公开仓（xingtu-articles）+ 个人站（xingtu-site）并维护封面。当用户说"归档已发布文章""同步文章到 GitHub""补文章镜像""更新个人站文章列表… |
-| published-article-archive | 已发布文章入库闭环（行途技术）——当 boss 发来公众号后台「发表记录」截图/链接/标题，说"昨天发布的入库""这篇回填一下""已发文章归档"时使用。 |
+| published-article-archive | 已发布文章入库闭环（行途 XingTu）——当 boss 发来公众号后台「发表记录」截图/链接/标题，说"昨天发布的入库""这篇回填一下""已发文章归档"时使用。 |
 | specs-engine | Spec 驱动开发(SDD)方法论引擎——意图路由、先规格后编码(三铁律 No Spec No Code/五阶段/深度裁减)。用户说"按 specs 标准推进/走 spec/需求澄清固化/写 analysis~valid… |
-### 工具链 · 工程化实战（29 · 🆕 2026-09-27 第二批 +9）
+| comment-reply-playbook | 发布后评论区 24h~7 天维护 SOP：三层置顶评论、数据口径勘误、抬杠应对模板、读者问题沉淀成素材（专治「发完就不管」） |
+| monetization-actions | 每周推进一件 5 分钟能做完的变现动作——预售页状态检查 / 关键词配置对齐 / 转化表实填或冻结 / 付费意愿回访 / 定价 A/B 微调 |
+| topic-overlap-check | 动笔前主题级撞库（不是标题撞题）：按主题词聚簇已发与待发，输出「此角度写过 N 次 / 读者群已覆盖 / 建议差异点」 |
+### 工具链 · 工程化实战（31 · 🆕 2026-09-27 第二批 +9）
 | Skill | 说明 |
 |-------|------|
 | git-push-in-sandbox | 沙箱内 `git push` 失败（502 CONNECT tunnel / ssh 超时）的诊断与绕行：`gh api` 通而 push 不通时的四条通道选型 |
@@ -173,6 +176,8 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | harness-model-upgrade-audit | 模型换代后对 harness（CLAUDE.md / AGENTS.md / rules / skills / memory / hooks）做「减法」审计与精简，删掉为旧模型能力不足而写的兜底规则。 |
 | brand-icon-sourcing | 官方品牌图标取源：为封面/配图/发布包获取并核验产品真实官方 logo（iTunes Search API 首选，ImageSearch 只出文章配图不可当 logo） |
 | toolbelt-scan | 云中立工具带盘点：枚举本机 ~25 个 AI 工具签名，统计技能安装/数据量/会话/最后活跃，检测跨工具同名技能版本漂移+僵尸，产出 JSON 台账+单文件 HTML 看板。只读；红线技能名只计数不列名（🆕 2026-10-12） |
+| canvas-design | 用设计哲学产出 png/pdf 视觉作品——海报/封面/静态视觉件，原创构图而非模板套壳 |
+| talkinghead-trim | 实拍口播 A-Roll 精剪四步法：转写→剪辑决策表→无损剪→人工确认门（复刻 6:45→2:40 实战实例） |
 ### 交付质量 · 通用（2）
 | Skill | 说明 |
 |-------|------|
@@ -234,7 +239,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | ai-session-material-miner | > 从 AI 与会话痕迹里系统化采集、识别、脱敏、入库可发布自媒体素材的方法论。 核心洞察：**任何 AI agent（Claude Code / OpenCode / Codex / 各类 work agent） 的工… |
 | library-dashboard-workbench | 把本地结构化数据（JSON/CSV/MD 台账）或静态看板升级为 WorkBuddy 资料库的「在线数据工作台」——建数据表 + 写动态 dashboard page（SDK 关联）+ 发布拿公开链接。 |
 | project-whitepaper | > 为一个项目 / 仓库 / IP 写**对外总览白皮书**的 SOP —— 回答「这是什么、架构如何、 理念如何、跟别人差在哪、护城河在哪」这类连问，产出一份可给外人看的入口文档。 |
-| xt-automation-ops | "行途技术空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸" |
+| xt-automation-ops | "行途 XingTu 空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸" |
 
 ### 通用协作 · 其他（7 · 🆕 2026-10-08 新增 automation-resurrection / free-token-channel-audit / wechat-tuitu-publish）
 | Skill | 说明 |
@@ -250,7 +255,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：132 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：136 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 
@@ -264,13 +269,13 @@ cp -r skills/<skill-name> ~/.claude/skills/
 - [`prompts/`](./prompts/) — 精选提示词库（原 xingtu-prompts 仓，2026-10-12 合入）：轻场景复制即用；沉淀成 Skill 后进 `skills/`
 - [dsh-xingtu-skills](https://github.com/xingtu1996/dsh-xingtu-skills) — DSH 插件包：本仓技能的 DSH 一键安装版
 
-## 关于作者 · 行途技术
+## 关于作者 · 行途 XingTu
 
-- 公众号「行途技术」（长文首发，微信搜索关注）
+- 公众号「行途 XingTu」（长文首发，微信搜索关注）
 
 一线 AI 工程化实践者 · FDE 方向。这些技能不是写出来的，是每天真用、用完回炉改的。
 
-- 公众号「**行途技术**」（长文首发，微信搜索关注）
+- 公众号「**行途 XingTu**」（长文首发，微信搜索关注）
 - GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
 - 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
 

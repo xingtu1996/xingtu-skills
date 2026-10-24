@@ -1,12 +1,12 @@
 ---
 name: mp-daily-ops-report
-description: 行途技术每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了"时触发。以资深全平台 IP 操盘手角色预设（RULER.md）产出四块决策文档：①下一个档期发什么（1 主推+2 备选各配一句话理由）②怎么发（标题/封面建议+二次群推/多平台动作指令）③数据只在异常与杠杆点时说话 ④待 boss 拍板（≤2 个 A/B 选择题）。严禁"昨天做了啥/进度如何"式流水账。全程只读：不改稿不发布不建草稿不回填台账；群发永远 boss 人工。
+description: 行途 XingTu 每日晨间决策指令 + 封面交替管线（定时 09:30 / 手动补跑）。当用户说"出运营日报/跑日报/补跑今天日报/今天数据怎么样/明日封面什么底色/封面交替判定/日报简报推微信/日报定时任务挂了"时触发。以资深全平台 IP 操盘手角色预设（RULER.md）产出四块决策文档：①下一个档期发什么（1 主推+2 备选各配一句话理由）②怎么发（标题/封面建议+二次群推/多平台动作指令）③数据只在异常与杠杆点时说话 ④待 boss 拍板（≤2 个 A/B 选择题）。严禁"昨天做了啥/进度如何"式流水账。全程只读：不改稿不发布不建草稿不回填台账；群发永远 boss 人工。
 version: 2.2.1
 ---
 
 # 晨间决策指令 + 封面交替管线（mp-daily-ops-report）
 
-> **适用范围守卫**：读当前工作区根 `AGENTS.md`，含「行途技术」才继续；否则零业务文件读取、直接停止声明不适用。本管线硬依赖行途技术工作区目录结构（`tools/`、`data/stats_*.json`、`outputs/发布包_2026-09/`、`outputs/本周发布计划_*.md`），在其他项目（如公司侧仓）不可跑。
+> **适用范围守卫**：读当前工作区根 `AGENTS.md`，含「行途 XingTu」才继续；否则零业务文件读取、直接停止声明不适用。本管线硬依赖行途 XingTu 工作区目录结构（`tools/`、`data/stats_*.json`、`outputs/发布包_2026-09/`、`outputs/本周发布计划_*.md`），在其他项目（如公司侧仓）不可跑。
 
 **定位（2026-09-16 boss 重定义，勿回退）**：这不是进度汇报，是 boss 每天早上打开即知的**决策指令**。角色 = 资深全平台 IP 操盘手（`RULER.md`）：有判断、给选项、把"信息"升级成"动作"。六块数据日报已降级为**内部底座/附录**，四块决策体才是正文。
 
@@ -103,10 +103,10 @@ python3 tools/track_c_autopackage.py --date <下一档期日>  # 🆕 Phase2 轨
 
 ## 定时任务配置（verbatim payload，任务丢失/改文案时原样重建）
 
-- 名称：`行途技术晨间调度决策日报（三轨+闭环率+凭证唯一化+封面交替）`｜schedule：cron `30 9 * * *` tz `Asia/Shanghai`｜missedRunPolicy：`run_latest`｜contextDirs：xingtu 工作区根
+- 名称：`行途 XingTu 晨间调度决策日报（三轨+闭环率+凭证唯一化+封面交替）`｜schedule：cron `30 9 * * *` tz `Asia/Shanghai`｜missedRunPolicy：`run_latest`｜contextDirs：xingtu 工作区根
 
 ```
-在 <xingtu 工作区根路径> 工作区执行每日晨间调度决策日报（先读根 AGENTS.md 确认含「行途技术」，再读 .agents/skills/mp-daily-ops-report/SKILL.md 按四块口径执行，角色=资深全平台IP操盘手，禁流水账）：1) 跑 python3 tools/mp_stats_puller.py --pull 拉最新后台快照（40164 或 bsk 未登录则记录失败原因跳过拉取、用现有快照继续、简报标数据截止日）；2) 跑底座：python3 tools/mp_daily_report.py 与 python3 tools/publish_brief.py（现跑门禁，历史全绿不豁免）与 python3 tools/cover_next.py 与 python3 tools/materials_library_recalc.py（Phase2 派生字段每日重算：urgency/days_left/active_for_decay，不扫源不碰正文/手设研判）与 python3 tools/dispatch_feed.py --date <下一档期日>（喂数器产 outputs/今日调度_<date>.json+.md：轨A候选/轨B窗口/轨C去腐榜/轨C自动成包候选/外部信号反哺/变现daily_action/凭证唯一化缺口/闭环率）与 python3 tools/track_c_autopackage.py --date <下一档期日>（轨C达标去腐候选→PUB-031『待确认发布包』脚手架，只到待确认包、绝不发布，已有真实正文则 SKIP）；3) 把日报文件顶部改写为四块决策体（原六块降为附录），决策由 agent 依 feed 段综合判断（不脚本化）：①下一个未发档期·三轨合流=轨A 1主推+2备选 + 轨B 窗口到期再铺 + 轨C 每日激活1张去腐素材(Phase2 达标者生待确认包·不发布)+过期提醒+外部信号反哺(无回流则空) ②怎么发（封面底色结论+二次群推动作指令+多平台时序）③信号：仅异常/杠杆点 + 闭环率(已执行÷已给建议,累计0标红) + 分发凭证真值(唯一口径 分发凭证_<平台>_<日期>，脏前缀凭证_*不计) ④待拍板 ≤2 个 A/B 选择题（含轨D变现每日≤1动作读 monetization.daily_action，默认序 自查卡L2面包多建品→小册；私域仅企业微信/视频号私信，禁个人微信号/二维码）；4) 四块简报发送到「我的微信」，首行写明下一个档期日期；5) stat 核对 outputs/今日调度_<date>.md 与 outputs/运营日报_<date>.md mtime 均=今天、且日报顶部含「① 下一个档期」才算完成（缺今日调度=未归档=未完成，不冒充）。全程只读：不改稿不发布不建草稿；群发永远 boss 人工。
+在 <xingtu 工作区根路径> 工作区执行每日晨间调度决策日报（先读根 AGENTS.md 确认含「行途 XingTu」，再读 .agents/skills/mp-daily-ops-report/SKILL.md 按四块口径执行，角色=资深全平台IP操盘手，禁流水账）：1) 跑 python3 tools/mp_stats_puller.py --pull 拉最新后台快照（40164 或 bsk 未登录则记录失败原因跳过拉取、用现有快照继续、简报标数据截止日）；2) 跑底座：python3 tools/mp_daily_report.py 与 python3 tools/publish_brief.py（现跑门禁，历史全绿不豁免）与 python3 tools/cover_next.py 与 python3 tools/materials_library_recalc.py（Phase2 派生字段每日重算：urgency/days_left/active_for_decay，不扫源不碰正文/手设研判）与 python3 tools/dispatch_feed.py --date <下一档期日>（喂数器产 outputs/今日调度_<date>.json+.md：轨A候选/轨B窗口/轨C去腐榜/轨C自动成包候选/外部信号反哺/变现daily_action/凭证唯一化缺口/闭环率）与 python3 tools/track_c_autopackage.py --date <下一档期日>（轨C达标去腐候选→PUB-031『待确认发布包』脚手架，只到待确认包、绝不发布，已有真实正文则 SKIP）；3) 把日报文件顶部改写为四块决策体（原六块降为附录），决策由 agent 依 feed 段综合判断（不脚本化）：①下一个未发档期·三轨合流=轨A 1主推+2备选 + 轨B 窗口到期再铺 + 轨C 每日激活1张去腐素材(Phase2 达标者生待确认包·不发布)+过期提醒+外部信号反哺(无回流则空) ②怎么发（封面底色结论+二次群推动作指令+多平台时序）③信号：仅异常/杠杆点 + 闭环率(已执行÷已给建议,累计0标红) + 分发凭证真值(唯一口径 分发凭证_<平台>_<日期>，脏前缀凭证_*不计) ④待拍板 ≤2 个 A/B 选择题（含轨D变现每日≤1动作读 monetization.daily_action，默认序 自查卡L2面包多建品→小册；私域仅企业微信/视频号私信，禁个人微信号/二维码）；4) 四块简报发送到「我的微信」，首行写明下一个档期日期；5) stat 核对 outputs/今日调度_<date>.md 与 outputs/运营日报_<date>.md mtime 均=今天、且日报顶部含「① 下一个档期」才算完成（缺今日调度=未归档=未完成，不冒充）。全程只读：不改稿不发布不建草稿；群发永远 boss 人工。
 ```
 
 > 重建时把 `<xingtu 工作区根路径>` 换成实际绝对路径。与 20:30「明日稿全管线」任务关系：那条管建稿（写操作，走 `mp-publish-sop`），本技能管晨间决策（只读）；两条独立，不互触发。

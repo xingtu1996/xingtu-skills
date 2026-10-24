@@ -1,6 +1,6 @@
 ---
 name: xingtu-rule-keeper
-description: 行途技术规则管家——规则体系的「管理者」（不是又一份规则副本）。当需要①查询某项任务要守哪些规则（写稿/选题/封面/发布/复盘/数据/品牌/变现）②给规则体系做一致性体检（计数漂移、ID 孤儿悬空、档期事实源指针、冻结口径、手册状态、skill 违规复制正文）③新增/修改一条编号规则并要求分册/索引/计数/CHANGELOG 一次改齐时使用。触发词：规则体检、规则lint、规则查询、我要守哪些规则、加规则、新增规则、规则漂移、规则一致性、rule-keeper。注意：规则正文 SSoT 永远在 rules/RULES.d，本 skill 只实时抽取、检查、编排，绝不复制正文。
+description: 行途 XingTu 规则管家——规则体系的「管理者」（不是又一份规则副本）。当需要①查询某项任务要守哪些规则（写稿/选题/封面/发布/复盘/数据/品牌/变现）②给规则体系做一致性体检（计数漂移、ID 孤儿悬空、档期事实源指针、冻结口径、手册状态、skill 违规复制正文）③新增/修改一条编号规则并要求分册/索引/计数/CHANGELOG 一次改齐时使用。触发词：规则体检、规则lint、规则查询、我要守哪些规则、加规则、新增规则、规则漂移、规则一致性、rule-keeper。注意：规则正文 SSoT 永远在 rules/RULES.d，本 skill 只实时抽取、检查、编排，绝不复制正文。
 ---
 
 # xingtu-rule-keeper · 规则管家
@@ -47,4 +47,4 @@ writing 写稿=约定+SAF+PUB ｜ topic 选题 ｜ cover 封面排版 ｜ publis
 - 冻结词表：`tools/rule_keeper/frozen_terms.txt`（一行一词，# 注释）；新增/解除冻结都改这里并回写 CHANGELOG。
 - 新增任务类型路由：改 `rule_query.py` 顶部 `TASK_MAP / TASK_DESC`。
 - 新增检查类别：在 `rule_lint.py` 加 `check_lX` 并挂进 `run()`，级别只取 P0/P1/P2。
-- 实体在项目 `.agents/skills/xingtu-rule-keeper/`，`.workbuddy/skills/` 为软链；不进全局 `~/.agents/skills`（行途技术专用）。
+- 实体在项目 `.agents/skills/xingtu-rule-keeper/`，`.workbuddy/skills/` 为软链；不进全局 `~/.agents/skills`（行途 XingTu 专用）。

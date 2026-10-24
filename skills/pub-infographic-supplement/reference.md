@@ -10,13 +10,13 @@
 |---|---|---|
 | 底色 | `#FFFFFF` | **纯白**，与纯白封面 / 榜单图 / 阅读页同族（DESIGN.md §一） |
 | 主文本 | `#1A1A1A` | 纯黑，标题 / 正文 / 结论横条底 |
-| 强调 | `#d71a1b` | 行途技术红，重点数字 / 警示 / 空位框 / 卡片顶部层级线 |
+| 强调 | `#d71a1b` | 行途 XingTu 红，重点数字 / 警示 / 空位框 / 卡片顶部层级线 |
 | 次文本 | `#7A8087` | 灰阶，副标题 / 说明 |
 | 弱文本 | `#A8ADB3` | 浅灰，来源标注 / 版权行 |
 | 分隔线 | `#E6E8EA` | 中性浅灰，卡片边 / 分节线 |
 | 卡片底 | `#FFFFFF` | 纯白；**与页面同色，层次不靠底色差**——`border:1px solid #E6E8EA` 勾边，需强调层级时加 `border-top:4px solid #d71a1b`（FDE-03 实测） |
 
-**禁用**：纸白 `#F7F5F2`（偏灰，09-16 弃用）、米灰 `#E5E1DA` 与暖米 `#F0EDE7`（纸白家族衍生色，随之退场，改中性浅灰）、旧炭黑 `#1F2225`（黑一律纯黑 `#1A1A1A`）、橙红 `#F2644F`（PUB-045 OpenDesign 旧色板，DESIGN.md 定强调色为行途技术红 `#d71a1b`）；渐变、阴影堆叠、彩色图标、圆角超过 8px、emoji。
+**禁用**：纸白 `#F7F5F2`（偏灰，09-16 弃用）、米灰 `#E5E1DA` 与暖米 `#F0EDE7`（纸白家族衍生色，随之退场，改中性浅灰）、旧炭黑 `#1F2225`（黑一律纯黑 `#1A1A1A`）、橙红 `#F2644F`（PUB-045 OpenDesign 旧色板，DESIGN.md 定强调色为行途 XingTu 红 `#d71a1b`）；渐变、阴影堆叠、彩色图标、圆角超过 8px、emoji。
 
 **视口**：`body { width: 1080px }` → fig_fit `--width 1080` 出图 2160 宽（@2x）。
 
@@ -282,7 +282,7 @@ h1{font-size:34px;font-weight:800;color:#1A1A1A;margin-bottom:8px;letter-spacing
 
 > **为什么只有引子图结论前置**（boss 09-16 指令）：引子图出现在读者决定「读不读下去」的首屏 3 秒内，论点是它唯一的功能，所以结论必须在**视觉上先到手**；正文配图是读者读完所在段落才看到，论点已在上下文里给过，结论放 `.bottom` 做收束即可。**这条不对称是刻意的**，别"统一优化"把正文图的底句也搬到顶上。
 >
-> **重排凭证**：已发 AGENT-03 `00-引子图-三家生态位.html` 原结构是「标题→三栏→分层→底部 `.foot` 结论」，结论压在最下方，首屏只看到三个 logo——本模板即该实物的结论先行重排版。**色值不照抄实物**：实物用的是 PUB-045 旧橙红 `#F2644F`，`DESIGN.md` §一 已定强调色为行途技术红 `#d71a1b`，新图一律按现行值。
+> **重排凭证**：已发 AGENT-03 `00-引子图-三家生态位.html` 原结构是「标题→三栏→分层→底部 `.foot` 结论」，结论压在最下方，首屏只看到三个 logo——本模板即该实物的结论先行重排版。**色值不照抄实物**：实物用的是 PUB-045 旧橙红 `#F2644F`，`DESIGN.md` §一 已定强调色为行途 XingTu 红 `#d71a1b`，新图一律按现行值。
 
 ```html
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><style>
@@ -317,7 +317,7 @@ h1{font-size:34px;font-weight:800;color:#1A1A1A;margin-bottom:14px;letter-spacin
   <div class="e"><img src="_assets/app-qianwen.png"><div><div class="n">千问办公</div><div class="g">阿里 · 底牌 <b>钉钉</b></div></div></div>
 </div>
 
-<div class="source">全文一张图 · 行途技术 · 看懂 AI Agent · logo 来源：各产品官方</div>
+<div class="source">全文一张图 · 行途 XingTu · 看懂 AI Agent · logo 来源：各产品官方</div>
 
 </body></html>
 ```

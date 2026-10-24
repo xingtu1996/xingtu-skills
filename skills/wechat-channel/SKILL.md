@@ -1,12 +1,12 @@
 ---
 name: wechat-channel
-description: 本地微信通道（行途技术）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微信、wechat channel。适用于任何 Agent 需要读取本地微信指定会话（联系人/群）的聊天内容、萃取原稿、AI 蒸馏提炼、或增量抓取转发给元宝的分享全文。数据全部来自本地已解密微信库，不联网（仅蒸馏时调用 AI）。
+description: 本地微信通道（行途 XingTu）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微信、wechat channel。适用于任何 Agent 需要读取本地微信指定会话（联系人/群）的聊天内容、萃取原稿、AI 蒸馏提炼、或增量抓取转发给元宝的分享全文。数据全部来自本地已解密微信库，不联网（仅蒸馏时调用 AI）。
 ---
 
 # 微信通道（wechat-channel）
 
 > 定位：把本地微信变成任意 Agent 可调用的数据通道——**读取 / 萃取 / 蒸馏 / 获取**，支持按联系人/群精确定位。
-> 原则：**复用行途技术既有工具链，不重写**｜**本地零 token**｜**增量不重复**｜**路径以 references/paths.md 为准**。
+> 原则：**复用行途 XingTu 既有工具链，不重写**｜**本地零 token**｜**增量不重复**｜**路径以 references/paths.md 为准**。
 
 ## 快速开始
 
@@ -16,7 +16,7 @@ WC=${HOME}/.agents/skills/wechat-channel/scripts/wechat_channel.py
 
 # 0) 只记得名字/群名/某句话？用 search 反查 wxid（最常用的入口）
 $PY $WC search 某同事              # 搜联系人
-$PY $WC search 张硕 硕哥         # 多关键词 OR
+$PY $WC search 某同事A 某同事B      # 多关键词 OR
 $PY $WC search "AI Work"         # 搜群名
 $PY $WC search "<PROJECT>" --top 10   # 搜项目关键词
 
@@ -96,9 +96,9 @@ $PY $WC decrypt
 | 用户意图（示例） | 自动编排流程 |
 |-----------------|-------------|
 | "看看某同事最近聊了什么" / "某同事最新消息" | `search 某同事` → 确认 wxid → `read <wxid> --limit 50` → 直接在回复中摘要 |
-| "张硕那边项目有啥进展" / "张硕最新项目动向" | `search 张硕` → `read <wxid> --limit 100` → 按项目/时间线提炼进展 |
+| "某同事那边项目有啥进展" / "某同事最新项目动向" | `search 某同事` → `read <wxid> --limit 100` → 按项目/时间线提炼进展 |
 | "AI Work 群今天聊了啥" / "群聊总结" | `search "AI Work"` → `read <wxid> --since 今天` → 按话题聚类总结 |
-| "把我和郭总的聊天全部导出" | `search 郭总` → `extract <wxid> -o <目录>` → 告知产物路径 |
+| "把我和某负责人的聊天全部导出" | `search 某负责人` → `extract <wxid> -o <目录>` → 告知产物路径 |
 | "蒸馏一下元宝的对话" / "提炼金句" | `distill wxid_xxxxxxxxxxxx` → 按 distill-standards 分级落素材库 |
 | "微信里搜一下<PROJECT>相关的" | `search <PROJECT> --top 10` → 列出命中会话，等用户指定再深入 |
 | "有谁找我" / "未读消息摘要" | `list --top 20` → 按最近消息时间排序，标注需要回复的会话 |

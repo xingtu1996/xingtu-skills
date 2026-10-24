@@ -1,12 +1,12 @@
 ---
 name: x-auto-publish
-description: 行途技术品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简介、小红书发布。
+description: 行途 XingTu 品牌自动宣发：基于本地工作空间素材（发布包/推文素材包/配图/品牌台账），用 bsk 真实浏览器自动发推（Thread 接龙）、同步各平台 profile 资料、小红书图文发布框架。触发词：发推、发 X、宣发、同步 profile、换简介、小红书发布。
 version: 1.0.0
 updated: 2026-09-06
 author: 小研（WorkBuddy）
 ---
 
-# x-auto-publish：行途技术自动宣发 SOP
+# x-auto-publish：行途 XingTu 自动宣发 SOP
 
 > 前置依赖：`browser-skill`（bsk）已装且 daemon 运行；Chrome 扩展已开「允许访问文件网址」。
 > 所有浏览器命令 Bash 必须 `dangerouslyDisableSandbox: true`（否则 SIGKILL）。
@@ -78,7 +78,7 @@ bsk evaluate --session <id> --json "
 bsk click '[data-testid="Profile_Save_Button"]' --session <id>   # 成功=跳转 /home
 ```
 
-**✅ 已完成（2026-09-06，2026-09-19 清洗）**：GitHub bio → v2 Builder 标准；X 显示名 → `行途技术`、bio → en_global 标准。（原记 X 名称曾用违禁真名，SAF-004/010 于 09-13 裁决全面禁用 `行途技术` 及变体，此处按定版对外口径统一为「行途技术」。）
+**✅ 已完成（2026-09-06，2026-09-19 清洗）**：GitHub bio → v2 Builder 标准；X 显示名 → `行途 XingTu`、bio → en_global 标准。（原记 X 名称曾用违禁真名，SAF-004/010 于 09-13 裁决全面禁用 `行途 XingTu` 及变体，此处按定版对外口径统一为「行途 XingTu」。）
 **⏳ 待做**：X 头像/banner 上传（台账：v2 物料已备）；掘金/知乎/CSDN/小红书/B站 bio（各自设置页同法）。
 
 ## 3. 小红书发布框架（待首次实战）

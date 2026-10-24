@@ -1499,6 +1499,54 @@
         "content-engineering",
         "session-mining"
       ]
+    },
+    {
+      "name": "canvas-design",
+      "description": "用设计哲学的写法产出 png/pdf 视觉作品——海报、封面、静态视觉件。当用户说做一张海报/做个视觉/设计一个封面时使用；强调原创构图而非模板套壳。",
+      "path": "skills/canvas-design/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "design",
+        "visual"
+      ]
+    },
+    {
+      "name": "comment-reply-playbook",
+      "description": "公众号发布后评论区长期维护 SOP：三层置顶评论、数据口径勘误、抬杠应对模板、读者问题沉淀成素材。管发布后 24h~7 天，与 mp-group-push-copy（发布那一刻的话术）互补，专治「发完就不管」与「错数据没人改」。",
+      "path": "skills/comment-reply-playbook/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "operations"
+      ]
+    },
+    {
+      "name": "monetization-actions",
+      "description": "每周推动一件 5 分钟能做完的具体变现动作——不是盘点，是行动。动作池：预售页状态检查、关键词配置对齐、转化表实填或冻结、付费意愿私信回访、定价 A/B 微调。",
+      "path": "skills/monetization-actions/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "monetization"
+      ]
+    },
+    {
+      "name": "topic-overlap-check",
+      "description": "动笔前查历史文章主题级撞库——不是标题撞题，是「这个主题以前写过没 / 跟那篇重不重 / 这个读者群覆盖了没」。按主题词聚簇已发与待发文章，输出「此角度写过 N 次 / 此读者群已覆盖 / 建议差异点」三行结论。",
+      "path": "skills/topic-overlap-check/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "content-engineering",
+        "topic-planning"
+      ]
     }
   ]
 }

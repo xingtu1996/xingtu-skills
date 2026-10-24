@@ -1,6 +1,6 @@
-# 行途技术 Skills · 专业自述
+# 行途 XingTu Skills · 专业自述
 
-> 定位：行途技术开源矩阵的 AI Agent 技能聚合仓，收录 30 个生产级 SKILL.md，一份发布、多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI），find-skills 可检索。
+> 定位：行途 XingTu 开源矩阵的 AI Agent 技能聚合仓，收录 30 个生产级 SKILL.md，一份发布、多工具通用（Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI），find-skills 可检索。
 
 ## 1. 这个项目是干什么的（作用）
 
@@ -13,7 +13,7 @@
   4. **行为可塑**：技能改变 Agent 的**处理方式**（如"先调查再动手""验证即止不扩范围"），比单纯给工具更能提升结果质量。
   5. **与 harness 打通**：作为核心子模块被 xingtu-harness 聚合，`install.sh` 一键拉全。
 
-## 2. 在行途技术 harness 中的定位
+## 2. 在行途 XingTu harness 中的定位
 
 - **位置**：执行层（L3）的技能供给端。harness 六层架构里，skills 与 mcps / tools 共同构成"Agent 能干活的能力面"；skills 特指**行为方式能力**——教 Agent 怎么想、怎么做、怎么收尾。
 - **协作关系**：

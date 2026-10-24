@@ -12,7 +12,7 @@ description: AI 头衔定位自查（三数审计）——把自治度、护栏�
 
 - 头衔（Vibe Coder / AI Native / Harness / Agentic / Builder / FDE）定义不可证伪，谁都能对号入座。
 - 可测的是三个数：**自治度**（你给 Agent 多大自主权）、**护栏密度**（harness 常驻注入多大）、**边际收益**（护栏继续加还有没有正收益）。
-- 这套判据来自行途技术的一线实践（harness 减法 8.5x→1.09x 打脸教训：数字会骗人，量纲对齐 + 审计）。
+- 这套判据来自行途 XingTu 的一线实践（harness 减法 8.5x→1.09x 打脸教训：数字会骗人，量纲对齐 + 审计）。
 
 ## 快速开始
 
@@ -56,7 +56,7 @@ python3 ~/.workbuddy/skills/xingtu-role-audit/scripts/audit.py --dir ~/projects/
 
 免费三数报告 = 信任漏斗第一层。报告尾部 CTA 把「想深入」的人接到后续交流（**脱敏：不开源版本放私人微信/付费链接**，开源并入版只留站内引导）：
 - **本地自用版**：报告 CTA 引导到公众号站内关键词「角色」领自查卡；深度咨询走公众号后台会话承接，不在开源资产里留私人联系方式（合规红线，见坏例 B-007）。
-- **开源并入版**（xingtu-skills 仓）：CTA 只写"更多方法论见作者公众号「行途技术」"，不留任何私人微信/付费链接。
+- **开源并入版**（xingtu-skills 仓）：CTA 只写"更多方法论见作者公众号「行途 XingTu」"，不留任何私人微信/付费链接。
 - 原则：**先给可验证价值，再接付费**；CTA 里写明"不想付费，自查卡 + 原文也够先动手"，不硬推。
 
 ## 关联
@@ -64,4 +64,4 @@ python3 ~/.workbuddy/skills/xingtu-role-audit/scripts/audit.py --dir ~/projects/
 - 文章：`outputs/ai-roles/成稿_AI时代的角色_公众号版.md`
 - 引流品：`outputs/ai-roles/引流品_AI头衔定位自查卡.html`（给人手填的卡）
 - 本 skill = 把那张卡自动化。**给人手填 → 给机器审计**，同一套判据。
-- 作者：行途技术 · 开源授权 MIT（对外发布前请过安全审查）
+- 作者：行途 XingTu · 开源授权 MIT（对外发布前请过安全审查）

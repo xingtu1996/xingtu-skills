@@ -6,7 +6,7 @@ version: 1.0.0
 
 # 主题撞库核查（topic-overlap-check）
 
-> **适用范围守卫**：专为「行途技术」内容仓库设计。当前工作区不含 `github/xingtu-vault/02_内容仓库 (Content Hub)/` 时，声明不适用并停止。
+> **适用范围守卫**：专为「行途 XingTu」内容仓库设计。当前工作区不含 `github/xingtu-vault/02_内容仓库 (Content Hub)/` 时，声明不适用并停止。
 > 本 skill 管**主题撞库**（写过没），不管**标题撞题**（搜一搜被淹没）：
 
 | 要做的事 | 走哪 |

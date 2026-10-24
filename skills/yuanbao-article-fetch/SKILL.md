@@ -73,4 +73,4 @@ curl -s -A "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/6
 
 ---
 
-> 作者：行途技术（一线 AI 工程化实践者 · FDE 方向）· 开源于 [xingtu-skills](https://github.com/xingtu1996/xingtu-skills)
+> 作者：行途 XingTu（一线 AI 工程化实践者 · FDE 方向）· 开源于 [xingtu-skills](https://github.com/xingtu1996/xingtu-skills)

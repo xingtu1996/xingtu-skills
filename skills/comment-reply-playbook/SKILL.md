@@ -6,7 +6,7 @@ version: 1.0.0
 
 # 评论区长期维护 SOP（comment-reply-playbook）
 
-> **适用范围守卫**：专为「行途技术」公众号工作区设计。当前工作区不含 `outputs/发布包_*/` 与 `github/xingtu-vault/02_内容仓库 (Content Hub)/` 时（如公司侧仓），声明不适用并停止。
+> **适用范围守卫**：专为「行途 XingTu」公众号工作区设计。当前工作区不含 `outputs/发布包_*/` 与 `github/xingtu-vault/02_内容仓库 (Content Hub)/` 时（如公司侧仓），声明不适用并停止。
 > 本 skill 只负责**发布后**评论区运营。三方分工不越界：
 
 | 要做的事 | 走哪 |

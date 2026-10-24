@@ -7,7 +7,7 @@ description: >
   额度还够不够、渠道时效检查、免费模型盘点。跨项目通用。
 metadata:
   type: user-sop
-  owner: boss（行途技术）
+  owner: boss（行途 XingTu）
 ---
 
 # Free Token Channel Audit — 免费渠道周期审计
