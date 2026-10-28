@@ -1117,18 +1117,6 @@
       ]
     },
     {
-      "name": "wechat-channel",
-      "description": "本地微信通道（行途）——读取、萃取、蒸馏、获取本地微信消息，支持按联系人或群（wxid 定位），支持按名字/关键词反查 wxid。触发词：微信通道、读微信、微信消息、微信萃取、微信蒸馏、微信抓取、查微信聊天、导出聊天记录、微信会话盘点、搜微",
-      "path": "skills/wechat-channel/SKILL.md",
-      "tags": [
-        "claude-code",
-        "ai-agent",
-        "skill",
-        "content-engineering",
-        "wechat"
-      ]
-    },
-    {
       "name": "wechat-cover-gen",
       "description": "> 公众号封面生成管线（真人剪影场景化路线）：image_gen 出无文字场景图（工程师背影+橙红轮廓光，不露脸，右侧留暗部负空间） → curl 下载 scene.png → HTML 右侧压字（渐变遮罩+主词+橙红强调）→ fig_fit.py 渲 900×383 → Read 看图+OCR 回查 → 落 03_封面/。触发：出封面、换封面、封面重渲、封面没真人感、封面太纯图形、黑白交替、引子图同步。 视觉 SSoT = DESIGN.md §二/§二·补；本 skill 只承载\"怎么一键出图\"的流程，不改规范。",
       "path": "skills/wechat-cover-gen/SKILL.md",
