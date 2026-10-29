@@ -221,7 +221,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | surgical-patch | 外科手术式精准修改 |
 | verify-and-stop | 验证即止，不扩范围 |
 | spec-driven-adversarial-workflow | 复杂/多维/强耦合任务的六阶段标准流（侦察→Spec→红队对抗→修订收口→留痕→执行委派与磁盘核对验收），工作区无关方法论 |
-### 工作方法 · 协作治理（15 · 🆕 2026-10-12 第五批）
+### 工作方法 · 协作治理（16 · 🆕 2026-10-29 新增 workspace-inventory-governance）
 | Skill | 说明 |
 |-------|------|
 | worktree-parallel | 并行开发的工作树隔离机制（工具无关）。当出现「多 agent 同时改同一批文件会互相覆盖」「要并行推进 2+ 独立需求但文件重叠」「需要隔离工作区」「worktree 怎么建/怎么清」「并行分支怎么合流」「agent 隔… |
@@ -239,6 +239,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | library-dashboard-workbench | 把本地结构化数据（JSON/CSV/MD 台账）或静态看板升级为 WorkBuddy 资料库的「在线数据工作台」——建数据表 + 写动态 dashboard page（SDK 关联）+ 发布拿公开链接。 |
 | project-whitepaper | > 为一个项目 / 仓库 / IP 写**对外总览白皮书**的 SOP —— 回答「这是什么、架构如何、 理念如何、跟别人差在哪、护城河在哪」这类连问，产出一份可给外人看的入口文档。 |
 | xt-automation-ops | "行途 XingTu 空间定时任务/自动化的创建、排查、盘点 SOP——cwd 纪律、接口层入口、留痕、规模告警、SAF-010 脱敏闸" |
+| workspace-inventory-governance | 通用工作空间盘点与健康巡检：枚举本地 git 仓库矩阵（远程/分支/提交数/最近提交/ahead/behind/未提交/无远程），统计非 git 资产规模与非 git 旁路目录，识别归档遗留克隆，五级健康分级（领先/分叉仓的未提交改动另附提示）+ 上一期台账跨期对比，产出 JSON 台账与 Markdown 报告。只读盘点、处置人工拍板，可挂每日/每周定时巡检。触发词：盘点工作空间/仓库清单/资产台账/仓库巡检/漂移检查/每日盘点/仓库健康状态。 |
 
 ### 通用协作 · 其他（7 · 🆕 2026-10-08 新增 automation-resurrection / free-token-channel-audit / wechat-tuitu-publish）
 | Skill | 说明 |
@@ -270,11 +271,11 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 关于作者 · 行途 XingTu
 
-- 公众号「行途 XingTu」（长文首发，微信搜索关注）
+- 公众号「行途技术手记」（长文首发，微信搜索关注）
 
 一线 AI 工程化实践者 · FDE 方向。这些技能不是写出来的，是每天真用、用完回炉改的。
 
-- 公众号「**行途 XingTu**」（长文首发，微信搜索关注）
+- 公众号「**行途技术手记**」（长文首发，微信搜索关注）
 - GitHub / X：`@xingtu1996` ｜ 博客：https://xingtu1996.github.io
 - 方法论旗舰仓：[xingtu-ai-engineering](https://github.com/xingtu1996/xingtu-ai-engineering)
 
