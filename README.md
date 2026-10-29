@@ -1,4 +1,9 @@
-# xingtu-skills — Production Agent Skills for AI Coding Agents
+# 行途 Skills · 可复用 Agent 技能库
+
+**简体中文（主要语言）** | [English](README.en.md)
+
+> 面向 AI 编程与内容工作流的可复用技能资产库。中文说明为主要维护入口；英文入口提供国际读者快速了解与导航。
+
 
 > 136 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
 >
