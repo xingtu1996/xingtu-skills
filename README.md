@@ -266,7 +266,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 关联项目
 
-- [`prompts/`](./prompts/) — 精选提示词库（原 xingtu-prompts 仓，2026-10-12 合入）：轻场景复制即用；沉淀成 Skill 后进 `skills/`
+- [`prompts/`](./prompts/) — 精选提示词库镜像：轻场景复制即用；提示词主题独立维护于 [xingtu-prompts](https://github.com/xingtu1996/xingtu-prompts)，本仓聚合收录镜像；沉淀成 Skill 后进 `skills/`
 - [dsh-xingtu-skills](https://github.com/xingtu1996/dsh-xingtu-skills) — DSH 插件包：本仓技能的 DSH 一键安装版
 
 ## 关于作者 · 行途 XingTu
