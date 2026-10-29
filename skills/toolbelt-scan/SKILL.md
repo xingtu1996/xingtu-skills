@@ -25,7 +25,7 @@ version: 1.0.0
 
 - 「盘点一下我的 AI 工具」「工具带扫描」「全机 AI 资产」
 - 「哪些技能在多个工具里重复装了」「技能版本漂移」
-- 每周一 10:00 定时任务自动跑（定义在 xingtu-automations 仓 registry，slug: toolbelt-weekly-scan）
+- 每周一 10:00 定时任务自动跑（定义在 xingtu-scheduled 仓 registry，slug: toolbelt-weekly-scan）
 
 ## 流程
 
@@ -43,7 +43,7 @@ python3 skills/toolbelt-scan/scripts/toolbelt_scan.py --redline-file <私有词�
 5. **产出**：
    - `data/toolbelt_inventory.json`（机器可读，增量对比用）
    - `outputs/云中立工具带盘点_<日期>.html`（单文件零依赖看板：KPI 卡 + 工具矩阵 + 漂移 Top + 僵尸清单）
-   - 复制进金库：`cp` 到 `github/xingtu-vault/定时任务产出/工具带盘点_<日期>/`（黄金仓，由 relay 通道push）
+   - 归档：盘点产物按日期归档到本地私有知识金库对应目录（私有流程，不随本技能公开）
 6. **增量**：与上周 `toolbelt_inventory.json` 对比，摘要报「新增工具 / 技能变动 / 数据增长 / 新漂移」。
 
 ## 看板规格（与工作区视觉律对齐）
