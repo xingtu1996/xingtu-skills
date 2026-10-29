@@ -1535,6 +1535,19 @@
         "content-engineering",
         "topic-planning"
       ]
+    },
+    {
+      "name": "workspace-inventory-governance",
+      "description": "通用工作空间盘点与健康巡检：枚举本地 git 仓库矩阵（远程/分支/提交总数/最近提交/ahead/behind/未提交/无远程本地仓），统计非 git 资产规模，识别归档遗留克隆，按健康等级分组（🔴分叉/🟠领先未推/🟡未提交或无远程/🟢正常），与上一期台账跨期对比（仓数/提交总量/ahead 清单增删），产出 JSON 台账 + Markdown 报告。触发词：盘点工作空间/仓库盘点/家底盘点/资产台账/仓库清单/仓库矩阵/工作空间治理/仓库巡检/漂移检查/每日盘点/仓库健康状态。只读盘点，处置人工拍板，不推送不迁移不删除。",
+      "path": "skills/workspace-inventory-governance/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "governance",
+        "inventory",
+        "repo-health"
+      ]
     }
   ]
 }
