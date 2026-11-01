@@ -37,9 +37,9 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 DEFAULT_PROFILES = [
-    "/Users/lijiacheng/Library/Application Support/DoubaoWork/Profile 1",
-    "/Users/lijiacheng/Library/Application Support/DoubaoWork/Profile 2",
-    "/Users/lijiacheng/Library/Application Support/DoubaoWork/Profile 3",
+    "/Users/<user>/Library/Application Support/DoubaoWork/Profile 1",
+    "/Users/<user>/Library/Application Support/DoubaoWork/Profile 2",
+    "/Users/<user>/Library/Application Support/DoubaoWork/Profile 3",
 ]
 
 CST = timezone(timedelta(hours=8))

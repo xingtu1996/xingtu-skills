@@ -37,13 +37,13 @@ metadata:
 
 ```bash
 # 全量落档（月度/季度跑一次）
-python3 /Users/lijiacheng/xingtu/.agents/skills/doubao-app-layer-archive/scripts/scan_sessions.py \
+python3 /Users/<user>/xingtu/.agents/skills/doubao-app-layer-archive/scripts/scan_sessions.py \
   --full \
-  --out-md /Users/lijiacheng/xingtu/.harness/archive/doubao-app-layer/$(date +%Y-%m-%d).md \
-  --out-json /Users/lijiacheng/xingtu/.harness/archive/doubao-app-layer/$(date +%Y-%m-%d).json
+  --out-md /Users/<user>/xingtu/.harness/archive/doubao-app-layer/$(date +%Y-%m-%d).md \
+  --out-json /Users/<user>/xingtu/.harness/archive/doubao-app-layer/$(date +%Y-%m-%d).json
 
 # 冒烟/抽样（每 Profile 抽 N 个会话，验证脚本或快速看样）
-python3 /Users/lijiacheng/xingtu/.agents/skills/doubao-app-layer-archive/scripts/scan_sessions.py \
+python3 /Users/<user>/xingtu/.agents/skills/doubao-app-layer-archive/scripts/scan_sessions.py \
   --sample 3 \
   --out-md /tmp/sample.md --out-json /tmp/sample.json
 ```
@@ -57,7 +57,7 @@ python3 /Users/lijiacheng/xingtu/.agents/skills/doubao-app-layer-archive/scripts
 
 ## 输出落哪
 
-- 落档 MD：`/Users/lijiacheng/xingtu/.harness/archive/doubao-app-layer/YYYY-MM-DD.md`
+- 落档 MD：`/Users/<user>/xingtu/.harness/archive/doubao-app-layer/YYYY-MM-DD.md`
 - 原始 JSON：同目录同名 `.json`（保留结构化数据，供后续脚本二次加工）
 - 模板：`assets/template.md`（人工补注骨架，脚本不写第六节）
 
@@ -88,7 +88,7 @@ python3 /Users/lijiacheng/xingtu/.agents/skills/doubao-app-layer-archive/scripts
 
 ## 与既有资产的关系
 
-- `session-distill`（`/Users/lijiacheng/xingtu/.agents/skills/session-distill/`）：内容侧，从会话挖选题/素材。本档 §五.2 的路径索引是它的输入入口。
+- `session-distill`（`/Users/<user>/xingtu/.agents/skills/session-distill/`）：内容侧，从会话挖选题/素材。本档 §五.2 的路径索引是它的输入入口。
 - xingtu-vault「豆包 166 会话盘点台账」：业务维度台账（选题/产出/发布）。本档是技术维度补充，不重复建台账内容，交叉引用即可。
 - `.harness/scheduled/AUTOMATIONS.yaml`：若后续要挂定时任务（月度自动跑），在此登记；当前手动触发。
 
