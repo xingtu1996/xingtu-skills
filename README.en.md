@@ -1,20 +1,32 @@
-# XingTu Skills — Reusable Agent Skills
+# XingTu Skills — English Guide
 
-[简体中文](README.md) | English
+> Production Agent Skills for AI coding agents. Maintained by **行途 XingTu**.
 
-XingTu Skills is a public catalog of reusable Agent Skills for coding agents. Each skill is defined using the open `SKILL.md` convention. The catalog includes skills and curated prompts for AI-assisted engineering and content workflows.
+The main [README](README.md) already contains an English overview followed by detailed Chinese documentation. This page is a stable English-language entry point rather than a separate, potentially stale inventory.
 
-## Getting started
+## What is included?
 
-1. Read the [Chinese README](README.md) for the full catalog and installation guidance.
-2. Inspect [marketplace.json](marketplace.json) and the [skills directory](skills/) to discover currently available skills.
-3. Read the chosen skill's `SKILL.md`, references and scripts before installing or running it.
-4. Confirm the selected agent runtime supports the installation mechanism. Linking to a skill repository does not automatically install or load its instructions.
+- Reusable Agent Skills in the `SKILL.md` format, with scripts and references where needed.
+- Curated prompts and tooling for agent workflows.
+- Integration guidance for Claude Code, Codex, Cursor and other compatible agents.
+
+For the current skill count and catalog, use the repository's [`marketplace.json`](marketplace.json) and [`skills/`](skills/) directory; counts change as the collection evolves.
+
+## Quick start
+
+```bash
+git clone https://github.com/xingtu1996/xingtu-skills.git
+cd xingtu-skills
+# Inspect a skill before installing or running it.
+ls skills
+```
+
+Read the skill's `SKILL.md` and copy the selected skill folder into your agent's supported skills directory. Consult your agent's documentation for the destination path.
 
 ## Contributing and security
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules and [SECURITY.md](SECURITY.md) for responsible security reporting. Never submit credentials, private data, or unsafe executable instructions.
+See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR. Agent skills can execute commands or access sensitive data; review their instructions and scripts before use. Report security issues according to [SECURITY.md](SECURITY.md), not in a public issue.
 
 ## License
 
-[MIT](LICENSE). Maintained by XingTu (行途).
+[MIT](LICENSE). See the [main README](README.md) for the full bilingual project description.
