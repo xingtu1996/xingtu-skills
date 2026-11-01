@@ -778,6 +778,19 @@
       ]
     },
     {
+      "name": "pkg-healthcheck",
+      "description": "发布包健康检查/体检（发布包组件体检 + SSoT 全景，源自行途 XingTu 工作区实践）。当用户说「健康检查」「体检」「组件齐全」「检查发布包」「盘点发布包」「发布包检查」「看看发布包缺什么」、或要求对照组件基线核对成稿发布包时使用。核心职责：读组件基线 SSoT→扫工作区发布包位置→每包对照 14 项 test -f→缺项分类（可自动补齐 vs 红线待维护者）→报告落盘→可选 SSoT 全景（分布表/多真源/废弃路径）。封面缺失按维护者偏好只标记不代做。",
+      "path": "skills/pkg-healthcheck/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "publish",
+        "healthcheck",
+        "qa"
+      ]
+    },
+    {
       "name": "ponytail",
       "description": "Forces the laziest solution that actually works, simplest, shortest, most minimal. Channels a senior dev who has seen everything: question whether the task needs to exist at all (YAGNI), reach for the standard library before custom code, native platf",
       "path": "skills/ponytail/SKILL.md",
