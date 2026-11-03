@@ -122,7 +122,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | audio-friendly-adapt | 听友好版改编 skill——把图文成稿派生为适合语音朗读/播客/视频号语音的纯文本版本。自动执行 PUB-024 六条铁律（砍元信息/编号口语化/数字口语化/图表口述/加问候道别/命名规范），改编后过 PUB-026 完结检查。触发词：听友 |
 | certification-submission-kit | 平台个人/职业认证提交包生成流水线。Use when 用户说 公众号认证/视频号认证/知乎认证/掘金认证/百家号认证/CSDN认证/小红书认证/职业认证/身份认证/兴趣认证/认证描述/公众称谓/主体姓名/职业身份/认证材料/认证驳回/认证额 |
 | concept-anchor-figure | Turn one article's core idea into a single watermark-free vector infographic (HTML -> PNG via fig_fit), in the workspace |
-| xingtu-visual-storytelling | **PILOT · v0.1** 技术长文视觉编排：读事实证据、选场景分镜、Find Skill 能力审查、公众号/小红书/X/朋友圈素材策划与验收；不自动发布，尚待实机评测。 |
+| xingtu-visual-storytelling | **PILOT · v0.1** 技术长文视觉编排：文章→证据→分镜→候选动画→跨平台素材→验收。直接说「调用 xingtu-visual-storytelling 为当前文章出图（仅审稿）」。[System Design/六组 Prompt](https://github.com/xingtu1996/xingtu-design/pull/4) · [技能说明](skills/xingtu-visual-storytelling/SKILL.md)；未完成实机评测，不自动发布。 |
 | content-format-audit | 内容格式策略评估管线（阶段性复跑、跨篇策略级，只评估不动稿）：提取正文格式元素清单（blockquote 摘要/我是谁/目录/信息说明/标签行/合集块/延伸阅读/图注等 + 首屏结构检查）→ 对标双参照系（机构媒体 APPSO/机器之心 v |
 | mp-group-audience-check | 微信群熟人密度安检——在群里推公众号内容前，先查该群成员中有多少是你的微信好友（通过单聊消息表验证真好友，排除群里见过但没加的人），输出熟人密度评级和"能不能推"建议。触发词：查群里有多少好友、群里有没有熟人、能不能在这个群发公众号、群熟人 |
 | mp-publish-sop | 公众号「成稿→草稿箱」十步一条龙 SOP 编排层（🆕 09-16，v1.8.0 TOKEN-09 复盘）：串联事实回源/标题撞题/图文密度/法律合规/排版重渲/封面三检/门禁/建稿回查/回收/配套件，含本轮全部实测坑位与回查凭证模板，供任意 |
