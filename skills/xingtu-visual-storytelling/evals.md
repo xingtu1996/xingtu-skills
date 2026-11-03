@@ -1,4 +1,4 @@
-# xingtu-visual-storytelling v0.1｜最小可复测用例
+# xingtu-visual-storytelling v0.2｜最小可复测用例
 
 状态：T1–T12 设计与静态检查用例已提交；各宿主真实调用、制图、微信草稿与跨平台实测 **NOT_RUN**。通过本文件不等于生产级通过。
 
