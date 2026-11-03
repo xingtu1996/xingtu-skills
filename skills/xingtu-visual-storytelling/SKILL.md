@@ -13,6 +13,21 @@ argument-hint: "文章/发布包路径或 PR、目标平台、当前版本与是
 >
 > **执行边界**：这是可被 Agent 加载的声明式 Skill，**不是** GIF 渲染器、自动发布器，也不是“find-skills 已安装”的证明。v0.1.0 的端到端运行、实际发布平台兼容性尚未实测，不能宣称生产级就绪。需要先合并/安装到当前 Agent 可用 Skills 目录，单靠 GitHub PR 不会自动触发。
 
+## 优先读取的 System Design / 具体调用入口（v0.2）
+
+请按以下**版本显式**的顺序读取，不凭记忆补全：
+1. [xingtu-design PR #4｜04 System Design](https://github.com/xingtu1996/xingtu-design/pull/4)：架构、组件、契约、状态机、发布边界。
+2. 同 PR 的 `05_提示词与多Agent交接手册.md`：提供普通配图、专业动态图、跨平台、独立审图、Work 接力、迭代复盘的**可直接复制提示词**。
+3. 同 PR 的 `06_持续迭代_验收与版本治理.md`：每篇文章的质量反馈、回退和变更传播。
+4. 同 PR 的 `07_动态工具评估与质量基线.md`：`diagram-animation`、`diagram-animate`、Remotion、`motion-design-principles` 的源码、用途、限制；目前仅为**候选，非已安装**。
+5. 同 PR 的 `visual-asset-contract.schema.json` 与 `visual-plan.example.json`：机器可读的计划结构；填入真实 article_ref 的实例**只放授权私有包**。
+
+**权威状态**：正式已合并规范优先于 Draft 设计提案。此 Skill 也是 PR #10 的 PILOT 候选；如果只在 GitHub 能读到但并未实际安装，请明确称“按候选 Skill 文档手动执行”，不要声称自动触发或已完成安装。**双向链接**：[Design PR #4](https://github.com/xingtu1996/xingtu-design/pull/4) ↔ [Skills PR #10](https://github.com/xingtu1996/xingtu-skills/pull/10) ↔ [发布会话 Vault PR #24（持权访问）](https://github.com/xingtu1996/xingtu-vault/pull/24)。
+
+**最短路由**：
+`文章事实与现有版本 → visual-plan → 已审制图能力 → SVG/HTML静态图 → 必要时GIF/MP4 → 平台变体 → 真实验收 → 发布包回执 → Design缺陷Issue`。
+未经审核的动画候选不自动安装，不依赖微信正文运行 JS/CSS 动画。动态失效先回退静态，不让动画质量问题阻断正文。
+
 ## 0. 首先定位现有文章和授权（避免重复建稿）
 
 1. 读取当前工作区 `AGENTS.md`、出版/隐私规则；确认使用者拥有文章、资源、草稿读写权限；没有就仅输出设计计划。
@@ -21,7 +36,7 @@ argument-hint: "文章/发布包路径或 PR、目标平台、当前版本与是
 4. 输入不全时尽可能从有权访问的项目记录读取；仍缺事实来源则标 `UNVERIFIED`，不用猜测填图。
 
 **最小输入**：母稿或发布包路径/PR、目标平台集合、版本/日期、授权边界。 
-**基础输出**：`06_发布参考/视觉叙事决策与验收.md`（若当前包未规定目录，记为待落盘并说明）。已完成物料必须按现有发布包结构归档，不能另外造一套公开正文库。
+**基础输出**：`06_发布参考/视觉叙事决策与验收.md`，并按上述 System Design 的 `visual-asset-contract.schema.json` 结构组织计划（若当前包未规定目录，记为待落盘并说明）。已完成物料必须按现有发布包结构归档，不能另外造一套公开正文库。
 
 ## 1. 读取唯一设计源，处理新旧冲突
 
@@ -71,6 +86,10 @@ argument-hint: "文章/发布包路径或 PR、目标平台、当前版本与是
 - 沿用 `xingtu-multiplatform-distribution` 既有时序与分发硬门禁；本技能**只生成可审核变体，不授权外发**。
 
 具体出图由现有技能和工具完成，不能把描述文字冒充生成的 PNG/GIF。每图留可编辑 SVG/HTML/数据源、PNG/GIF/视频（如有）、配图清单、图注、哈希、真实许可、版本。
+
+### 动效高级感的最小增量
+
+只有“节点依次高亮”而没有因果、路径、并行或失败信息的 GIF，不应作为“专业动图”通过。请分别评审：`storyboard`（解释什么） / `motion`（如何动） / `renderer`（实际导出） / `wechat`（真实播放）。动图需要同一源导出的 PNG 静态回退；检查真实首/中/末帧、中文排印、循环点、长度与体积，不因浏览器或公众号后台显示 GIF 就认定微信手机持续播放通过。详细质量准则在 Design `07_动态工具评估与质量基线.md`。
 
 ## 6. 完成验收与接力
 
