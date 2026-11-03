@@ -5,13 +5,13 @@
 > 面向 AI 编程与内容工作流的可复用技能资产库。中文说明为主要维护入口；英文入口提供国际读者快速了解与导航。
 
 
-> 137 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
+> 137 production-grade Agent Skills + 1 pilot visual-storytelling Skill in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
 >
 > 本页上半部分为英文说明（供国际读者与评审），中文完整版在下方 — Chinese documentation follows the English overview.
 
 ## What is this?
 
-`xingtu-skills` is an actively maintained library of **137 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
+`xingtu-skills` is an actively maintained library of **137 existing production Agent Skills + 1 pilot Skill** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
 
 A curated 26-skill subset also ships on npm as a DeepSeek Harness plugin: [`dsh-xingtu-skills`](https://www.npmjs.com/package/dsh-xingtu-skills).
 
@@ -54,13 +54,13 @@ MIT — see [`LICENSE`](LICENSE).
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-137-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-138-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途 XingTu 开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 137 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 137 个既有生产技能 + 1 个 PILOT 技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -78,7 +78,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（137）
+## 🧠 Skills 清单（138，含 1 项 PILOT）
 
 ### 内容创作 · 自媒体（5 · 🆕 2026-10-15 新增 xingtu-knowledge-compounding）
 | Skill | 说明 |
@@ -104,7 +104,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | skill-naming-evidence | 技能命名查证（第 0.5 步：先查用户怎么说这件事）——建技能/改技能名前，先 grep 历史会话 jsonl 查用户实际用词（用户反复说 ≥3 次=该建且用用户词当名；用户词≫技术词=改名或用户词进 description；触发词宁多勿少，用户搜口语不搜技术词），技能名从用户嘴里来、不从 AI 技术词汇来。发布前跑成本最低（本地 mv 一次，已发 npm 只能发新包+deprecate） |
 | session-distill | 历史会话档案批量蒸馏——从 Claude Code / WorkBuddy / 豆包会话转录（jsonl）按主题挖掘选题卡/素材卡/方法论/真实踩坑细节（时间点/排查时长/独有解法=内容护城河），过滤框架注入、附会话 ID 出处，落盘选题池/素材库/会话复盘。与 session-sediment 分工：彼管单次会话即刻沉淀，此管历史档案批量挖掘 |
 
-### 内容工程 · 发布运营（42 · 🆕 2026-09-27 第三批 +27 +2026-10-12 补5，含首批范式 wechat-draft-api）
+### 内容工程 · 发布运营（43 · 🆕 2026-09-27 第三批 +27 +2026-10-12 补5，含首批范式 wechat-draft-api）
 | Skill | 说明 |
 |-------|------|
 | xingtu-content-craft | 行途 XingTu 成稿总装技能：从选题素材到可排版正文 v1 的全流程（起草→de-ai-flavor→脱敏三查→PUB-027 量化门禁→信源独立成节）。当用户说"写稿/改稿/成稿/起草这篇/正文 v1/开始写"时触发（🆕 2026-10-12 落仓） |
@@ -122,6 +122,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 | audio-friendly-adapt | 听友好版改编 skill——把图文成稿派生为适合语音朗读/播客/视频号语音的纯文本版本。自动执行 PUB-024 六条铁律（砍元信息/编号口语化/数字口语化/图表口述/加问候道别/命名规范），改编后过 PUB-026 完结检查。触发词：听友 |
 | certification-submission-kit | 平台个人/职业认证提交包生成流水线。Use when 用户说 公众号认证/视频号认证/知乎认证/掘金认证/百家号认证/CSDN认证/小红书认证/职业认证/身份认证/兴趣认证/认证描述/公众称谓/主体姓名/职业身份/认证材料/认证驳回/认证额 |
 | concept-anchor-figure | Turn one article's core idea into a single watermark-free vector infographic (HTML -> PNG via fig_fit), in the workspace |
+| xingtu-visual-storytelling | **PILOT · v0.2** 技术长文视觉编排：文章→证据→分镜→候选动画→跨平台素材→验收。直接说「调用 xingtu-visual-storytelling 为当前文章出图（仅审稿）」。[System Design/六组 Prompt](https://github.com/xingtu1996/xingtu-design/pull/4) · [技能说明](skills/xingtu-visual-storytelling/SKILL.md)；未完成实机评测，不自动发布。 |
 | content-format-audit | 内容格式策略评估管线（阶段性复跑、跨篇策略级，只评估不动稿）：提取正文格式元素清单（blockquote 摘要/我是谁/目录/信息说明/标签行/合集块/延伸阅读/图注等 + 首屏结构检查）→ 对标双参照系（机构媒体 APPSO/机器之心 v |
 | mp-group-audience-check | 微信群熟人密度安检——在群里推公众号内容前，先查该群成员中有多少是你的微信好友（通过单聊消息表验证真好友，排除群里见过但没加的人），输出熟人密度评级和"能不能推"建议。触发词：查群里有多少好友、群里有没有熟人、能不能在这个群发公众号、群熟人 |
 | mp-publish-sop | 公众号「成稿→草稿箱」十步一条龙 SOP 编排层（🆕 09-16，v1.8.0 TOKEN-09 复盘）：串联事实回源/标题撞题/图文密度/法律合规/排版重渲/封面三检/门禁/建稿回查/回收/配套件，含本轮全部实测坑位与回查凭证模板，供任意 |
@@ -260,7 +261,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：137 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：138 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 

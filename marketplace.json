@@ -1561,6 +1561,21 @@
         "inventory",
         "repo-health"
       ]
+    },
+    {
+      "name": "xingtu-visual-storytelling",
+      "description": "行途技术文章视觉叙事（PILOT）：读取文章事实与证据，选择架构分镜/封面/截图/图卡，通过已审 Skill 与 Find Skill 发现流程编排公众号、小红书、X、朋友圈视觉素材，做版权隐私事实和手机端验收；不自动发布。",
+      "path": "skills/xingtu-visual-storytelling/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "visual",
+        "storytelling",
+        "publishing",
+        "cross-platform",
+        "pilot"
+      ]
     }
   ]
 }
