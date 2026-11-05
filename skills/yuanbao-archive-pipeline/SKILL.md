@@ -1,178 +1,143 @@
 ---
 name: yuanbao-archive-pipeline
-description: 元宝分享内容全流程自动化抓取→解密→提取→增量抓取→蒸馏→入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。适用于用户转发给元宝AI的微信消息的自动化抓取、解析原稿、蒸馏提炼、入库到素材库。
+description: 元宝分享内容全流程自动化：本地解密提取 → 水位线增量抓全文 → vault 归档 → 蒸馏入库。触发词：抓元宝/元宝抓取/元宝入库/元宝归档/定时抓元宝/元宝全文抓取/元宝会话盘点。
 metadata:
   author: xingtu
-  version: "1.0.0"
+  version: "1.1.0"
   created: 2026-09-07
+  updated: 2026-11-05
   argument-hint: <无参数，按流程执行>
 ---
 
-# 元宝归档入库全流程 Skill（行途 XingTu 版）
+# 元宝归档入库全流程 Skill（行途版）
 
-> 定位：把用户转发给元宝 AI 的微信消息，自动化完成**解密→提取→增量抓取→蒸馏→入库**全流程，产物归入素材库供行途 XingTu 自媒体内容创作使用。
-> 原则：**增量抓取不重复**｜**水位线驱动**｜**本地零 token**｜**故障可追溯**
+> 定位：把用户转发给元宝 AI 的微信消息，自动化完成**解密→提取→增量抓取→归档→蒸馏→入库**。
+> 原则：**增量不重复**｜**水位线驱动**｜**本地采集 / 处理可上云**｜**故障可追溯**
 
 ## 触发条件
 
-以下任一触发：
 - 用户说：抓元宝 / 元宝抓取 / 元宝入库 / 元宝归档 / 定时抓元宝 / 元宝全文抓取 / 元宝会话盘点
-- 定时任务「元宝会话自动化抓取入库」到时触发（ID 11622772118274，cron `45 7 * * *`）
-- 用户说"盘点一下我跟元宝的沟通"或"把元宝分析的内容入库"
+- 本地定时任务「元宝会话自动化抓取入库」到时触发（cron `45 7 * * *`，必须本地执行）
+- 用户说「盘点一下我跟元宝的沟通」「把元宝分析的内容入库」
 
-## 核心流程（五步）
+## 双阶段分工（2026-11-05 定）
 
-### Step 1：全自动解密微信库
+| 阶段 | 能上云 | 做什么 |
+|---|---|---|
+| **阶段1 采集** | 不能 | 解密微信库 + 提取元宝卡片 → `yuanbao_cards.json` |
+| **阶段2 处理** | 能 | 增量抓全文 + 同步 vault + 归档 + 推进水位线 |
 
-```bash
-bash tools/wechat_chat_analyzer/run_pipeline.sh
-```
+上云边界 = 卡片全集是唯一跨环境契约；微信库与密钥（`data/wechat_decrypted/keys.json`）永不上云、永不入库。
+可运行的工具版本（去绝对路径、双阶段脚本、README）在 `github/xingtu-tools/yuanbao-pipeline/`（仓库 `xingtu1996/xingtu-tools` 的 `yuanbao-pipeline/` 目录）。
 
-- 内部先解密最新微信库到 `data/wechat_decrypted_latest/`
-- 再提取元宝卡片到 `outputs/yuanbao_inventory/yuanbao_cards.json`
-- **关键**：pipeline 解密前会 `rm -rf "$DECRYPT_DIR"/*` 清空旧副本，确保从原始加密库重新解密（B-008 修复）
-- 密钥文件：`data/wechat_decrypted/keys.json`
-- 微信原始库路径：`${HOME}/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/<YOUR_WECHAT_DB_DIR>/db_storage`
+## 核心流程
 
-### Step 2：增量抓取（核心，绝不重复抓全量）
+### Step 1 本地采集
 
 ```bash
-${HOME}/.workbuddy/binaries/python/envs/default/bin/python tools/yuanbao_incremental_fetch.py
+XT_ROOT=<工作区根> WECHAT_DB_DIR=<微信 db_storage> \
+  bash github/xingtu-tools/yuanbao-pipeline/stage1_local_collect.sh
 ```
 
-- 读取水位线 `outputs/yuanbao_inventory/.yuanbao_watermark.json` 中的 `last_card_time`
-- 只抓取分享时间 > `last_card_time` 的新卡片全文
-- 产物按时间归档到 `outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/`（每次运行一个文件夹）
-- 同时同步进全量主仓库 `outputs/yuanbao_inventory/元宝全文抓取/`
-- 抓取完成后自动把水位线推进到本次最新卡片时间
-- **若待抓为 0**：直接说明"水位线已到最新，无新增"，不强行抓取
+- 解密最新微信库 → `data/wechat_decrypted_latest/`（解密前清空旧副本，B-008 修复）
+- 提取卡片 → `outputs/yuanbao_inventory/yuanbao_cards.json`
+- 密钥：`data/wechat_decrypted/keys.json`；微信库在本地微信容器内（路径按机器不同，用环境变量传）
+- 阶段1 不抓全文、不推进水位线
 
-### Step 3：归档入库到 vault
+### Step 2 增量抓取（核心，绝不重抓全量）
 
 ```bash
-${HOME}/.workbuddy/binaries/python/envs/default/bin/python tools/wechat_chat_analyzer/ingest_yuanbao_archive.py yuanbao
+XT_ROOT=<工作区根> bash github/xingtu-tools/yuanbao-pipeline/stage2_cloud_process.sh
 ```
 
-- 把新增全文归档到 `xingtu-vault/02_内容仓库 (Content Hub)/06_元宝对话挖掘/`
-- 命名格式：`元宝分享文章_标题_token.md`
-- 若脚本报"无新增待归档"（已知疑似 bug），手动用 cp 归档到 vault
+- 读水位线 `github/xingtu-vault/12_工具研究室/yuanbao_inventory/.yuanbao_watermark.json` 的 `last_card_time`
+- 只抓分享时间 > `last_card_time` 的卡片全文（伪装微信 UA 直抓，零 token）
+- 按日归档 `.../yuanbao_inventory/增量批次/YYYY-MM-DD/`，同时并入 `.../元宝全文抓取/`
+- 抓完推进水位线（`last_card_time` / `last_run` / `last_batch` / `last_count`）
+- **待抓为 0** 时直接说明「水位线已到最新」，不强行抓取
 
-### Step 4：蒸馏提炼
+### Step 3 vault 归档（幂等）
 
-对本次新增卡片做：
-1. **主题归类**：按 AI工程化/WorkBuddy/知识复利/AI工具/AI商业化/技术工具/其他 等主题分类
-2. **金句/方法论提炼**：提取可复用的金句、方法论、框架
-3. **价值分级**：🥇黄金（可直接出文章/课程）/ 🟡关键（重要参考）/ 🟢重点（可复用角度）/ ⚪高知（信息储备）
-4. **生成素材卡**：高价值内容生成 `素材库/素材卡_*.md`，登记到 `素材库/素材库索引.md`
-5. **新增选题**：提炼选题建议，登记到 `xingtu-vault/02_内容仓库 (Content Hub)/01_灵感与选题池/`
+- 阶段2 脚本把增量批次新全文按 vault 命名规范 `元宝分享文章_标题_token.md` 同步到
+  `github/xingtu-vault/02_内容仓库 (Content Hub)/06_元宝对话挖掘/`（已存在则跳过）
+- 再跑 `ingest_yuanbao_archive.py yuanbao`：追加会话归档、AI 进化时间线、选题池、素材库索引
 
-蒸馏报告输出到：`outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/_蒸馏报告.md`
+### Step 4 蒸馏提炼（agent 判断，非脚本）
 
-### Step 5：输出增量摘要
+1. 主题归类（AI 工程化 / 工具实践 / 知识复利 / 商业化 / 技术选型 / 其他）
+2. 金句与方法论提炼，价值分级：🥇黄金（可直接成文）/ 🟡关键 / 🟢重点 / ⚪高知
+3. 生成 `素材卡_*.md` 落 `素材库/`，登记 `素材库/素材库索引.md`
+4. 选题建议登记 `02_内容仓库 (Content Hub)/01_灵感与选题池/`
+5. 蒸馏报告落 `.../增量批次/YYYY-MM-DD/_蒸馏报告.md`
 
-固定格式：
-```
-## 本次增量摘要
-- 新增 X 篇（跳过 Y 篇，失败 Z 篇）
-- 水位线：从 A 推进到 B
-- 归档路径：outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/
-- 主题分布：主题1 N篇 / 主题2 N篇 / ...
-- 新增素材卡：X 张（黄金 Y / 关键 Z / 重点 W）
-- 新增选题：T-xxx ~ T-xxx
-```
+### Step 5 反哺简报 + 增量摘要
 
-## 关键路径与文件
+- 简报落 **vault**：`12_工具研究室/yuanbao_inventory/反哺简报/元宝卡片反哺_YYYY-MM-DD.md`
+  （2026-11-05 起从 `outputs/` 迁入仓库：产出要能随 git 上云）
+- 内容：采集状态表 / 高价值卡清单（主题 + 反哺落位）/ 建议选题与排期（不扰动现行发布日历）
+- 对话内输出增量摘要：新增 X 篇、跳过 Y、失败 Z、水位线 A→B、主题分布、新增素材卡与选题
+
+## 路径真源表（以此为准，旧 `outputs/yuanbao_inventory/...` 口径作废）
 
 | 内容 | 路径 |
-|------|------|
-| 水位线文件 | `outputs/yuanbao_inventory/.yuanbao_watermark.json` |
-| 卡片索引 | `outputs/yuanbao_inventory/yuanbao_cards.json` |
+|---|---|
+| 水位线 | `github/xingtu-vault/12_工具研究室/yuanbao_inventory/.yuanbao_watermark.json` |
+| 卡片全集（提取产物） | `outputs/yuanbao_inventory/yuanbao_cards.json` |
 | 全量消息 | `outputs/yuanbao_inventory/yuanbao_all_messages.json` |
-| 增量批次目录 | `outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/` |
-| 全量主仓库 | `outputs/yuanbao_inventory/元宝全文抓取/` |
-| 蒸馏报告 | `outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/_蒸馏报告.md` |
-| 批次摘要 | `outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/_批次摘要.md` |
-| 素材卡输出 | `素材库/素材卡_*.md` |
-| 素材库索引 | `素材库/素材库索引.md` |
-| vault 元宝归档 | `xingtu-vault/02_内容仓库 (Content Hub)/06_元宝对话挖掘/` |
-| vault 选题池 | `xingtu-vault/02_内容仓库 (Content Hub)/01_灵感与选题池/` |
-| 解密脚本 | `tools/wechat_chat_analyzer/run_pipeline.sh` |
-| 提取脚本 | `tools/wechat_chat_analyzer/yuanbao_full_extract.py` |
-| 增量抓取脚本 | `tools/yuanbao_incremental_fetch.py` |
-| 归档脚本 | `tools/wechat_chat_analyzer/ingest_yuanbao_archive.py` |
+| 增量批次 | `github/xingtu-vault/12_工具研究室/yuanbao_inventory/增量批次/YYYY-MM-DD/` |
+| 全文主仓库 | `github/xingtu-vault/12_工具研究室/yuanbao_inventory/元宝全文抓取/` |
+| 反哺简报 | `github/xingtu-vault/12_工具研究室/yuanbao_inventory/反哺简报/` |
+| vault 元宝归档 | `github/xingtu-vault/02_内容仓库 (Content Hub)/06_元宝对话挖掘/` |
+| 素材卡 / 索引 | `素材库/素材卡_*.md`、`素材库/素材库索引.md` |
+| 工具（可独立运行） | `github/xingtu-tools/yuanbao-pipeline/`（stage1/stage2 + bin/） |
+| 任务档案 spec | `github/xingtu-vault/03_运营工具箱 (Operations Toolkit)/定时任务档案/yuanbao-archive/spec.md` |
+| 注册表镜像条目 | `github/xingtu-automations/registry/AUTOMATIONS.yaml`（slug `yuanbao-archive`，T-01） |
 
-## 水位线机制
+## 水位线与命名
 
 ```json
-{
-  "last_card_time": "2026-09-06 23:13:37",
-  "last_run": "2026-09-07 09:57:44",
-  "last_batch": "2026-09-07",
-  "last_count": 39
-}
+{"last_card_time":"2026-11-05 13:41:11","last_run":"2026-11-05 13:48:02","last_batch":"2026-11-05","last_count":17}
 ```
 
-- `last_card_time`：上次抓到的最后一张卡片分享时间，增量抓取只抓 > 此时间的卡片
-- `last_run`：上次运行时间
-- `last_batch`：上次增量批次日期
-- `last_count`：上次抓取篇数
-
-## 增量批次命名规范
-
-- 全文文件：`YYYYMMDD_HHMM_标题_token.md`（时间戳前置，IDE 自然排序即时间序）
-- 批次目录：`outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/`
-- 蒸馏报告：`_蒸馏报告.md`（下划线前置，排在目录最前）
-- 批次摘要：`_批次摘要.md`
+- 全文文件 `YYYYMMDD_HHMM_标题_token.md`（时间戳前置，IDE 排序即时间序）
+- `_蒸馏报告.md` / `_批次摘要.md` 下划线前置，排在目录最前
 
 ## 故障排查
 
-### 故障 1：连续多次"无新增"但用户确认有新内容（B-008）
-- **现象**：定时任务连续 2 次以上报告"无新增"，水位线不推进
-- **排查**：
-  1. 检查 `data/wechat_decrypted_latest/message/message_*.db` 的修改时间，确认是最新数据
-  2. 检查 `data/wechat_decrypted_latest/` 根目录是否有旧的 `message_*.db` 副本
-  3. 检查 `yuanbao_full_extract.py` 第 70 行是否同时 glob 根目录和 `message/` 子目录
-  4. 检查 `run_pipeline.sh` 解密前是否有 `rm -rf "$DECRYPT_DIR"/*`
-- **修复**：按 B-008 预防 Gate 修复脚本，重新从原始加密库解密
+**1. 连续多次「无新增」但确实有新内容（B-008）**
+- 查解密产物 `data/wechat_decrypted_latest/message/message_*.db` 的 mtime 是否为最新
+- 查根目录是否残留旧 `message_*.db` 副本；查 `yuanbao_full_extract.py` 是否同时扫根目录与 `message/`
+- 确认阶段1 解密前清空了旧目录
 
-### 故障 2：解密失败
-- **排查**：检查密钥文件 `data/wechat_decrypted/keys.json` 是否覆盖所有 message 库
-- **修复**：重新获取密钥，更新 keys.json
+**2. 解密失败 / 库被 SKIP**
+- `keys.json` 覆盖不全：`biz_message_0~4.db` 无对应密钥属**已知缺口**（SKIP 非失败），但 biz 库更新时会漏采
 
-### 故障 3：抓取失败（网络/链接格式）
-- **排查**：检查元宝分享链接格式是否为 `https://yb.tencent.com/wx/ct/f/xxx`
-- **修复**：用伪装微信 UA 直抓（本地，零 token）
+**3. 抓取失败**
+- 分享链接须为 `https://yb.tencent.com/wx/ct/f/xxx`；失败多为网络，重试即可
 
-### 故障 4：归档脚本报"无新增待归档"
-- **现象**：`ingest_yuanbao_archive.py yuanbao` 报"无新增待归档条目（已全部处理过）"
-- **已知问题**：归档脚本的水位线判断疑似有 bug
-- **临时方案**：手动用 cp 把增量批次全文归档到 vault，命名格式 `元宝分享文章_标题_token.md`
-- **后续**：单独排查修复归档脚本的水位线逻辑
+**4. ingest 报「无新增待归档（已全部处理过）」**
+- **这不是 bug，是幂等**：阶段3 已先把全文同步进 `06_元宝对话挖掘`，ingest 自然无新增
+- 判据：看增量批次篇数与 `06_元宝对话挖掘` md 增量是否对得上，对得上即正常
 
 ## 增长验证（每次运行后必做）
 
-1. 卡片总数是否比上次增长？（对比 `yuanbao_cards.json` 的卡片数）
-2. 水位线是否推进？（对比 `.yuanbao_watermark.json` 的 `last_card_time`）
-3. 若连续 2 次无增长，在输出中明确标注："⚠️ 连续 N 次无增长，请检查提取脚本是否读旧副本（B-008）"
-4. 解密后检查 `message/message_*.db` 的修改时间，确认是最新数据
+1. 卡片总数是否增长？（`yuanbao_cards.json` len）
+2. 水位线是否推进？（`.yuanbao_watermark.json` 的 `last_card_time`）
+3. 增量篇数 = 增量批次目录新文件数 = `06_元宝对话挖掘` 新增 md 数
+4. 连续 2 次无增长 → 按故障 1 排查，不静默放过
 
-## 产物清单（每次运行）
+## 产物清单（每批）
 
-- [ ] 增量批次全文：`outputs/yuanbao_inventory/增量批次/YYYY-MM-DD/*.md`
-- [ ] 批次摘要：`_批次摘要.md`
-- [ ] 蒸馏报告：`_蒸馏报告.md`
-- [ ] 素材卡：`素材库/素材卡_*.md`（高价值内容）
-- [ ] 素材库索引更新：`素材库/素材库索引.md`
-- [ ] vault 归档：`xingtu-vault/02_内容仓库 (Content Hub)/06_元宝对话挖掘/`
-- [ ] 水位线更新：`.yuanbao_watermark.json`
-- [ ] CHANGELOG 回写：`CHANGELOG.md`
+- [ ] 增量批次全文 + `_批次摘要.md` + `_蒸馏报告.md`
+- [ ] 素材卡（高价值内容）+ `素材库索引.md` 追加
+- [ ] vault `06_元宝对话挖掘` 同步 + 会话归档/时间线/选题池更新
+- [ ] 水位线推进
+- [ ] 反哺简报（vault `反哺简报/`）
+- [ ] 三仓提交推送：vault（产出）、xingtu-tools（工具改动时）、xingtu-agent-skills（技能改动时）
+- [ ] `CHANGELOG.md` 回写
 
 ## 关联
 
-- BCI 案例 B-008：提取脚本只读旧副本 → 连续 4 天误报"无新增"
-- 定时任务 ID：11622772118274（cron `45 7 * * *`）
-- 定时任务管控库：`.harness/scheduled/yuanbao-archive/`
-- Spec：`.harness/specs/SPEC-20260907-HARNESS-SCHEDULED.md`
-- 素材入库流程：AGENTS.md「素材入库流程」章节
-
-<!-- public-sync: 2026-09-27 | 脱敏版本 | 源 .agents/skills/yuanbao-archive-pipeline -->
+- BCI B-008：提取脚本只读旧副本 → 连续 4 天误报「无新增」
+- 触发方式：本地定时任务（cron `45 7 * * *`）或用户手动指名
+- 任务注册说明见工作区 `rules/AUTOMATIONS.md`；spec 真源在内容仓 `定时任务档案/yuanbao-archive/spec.md`
