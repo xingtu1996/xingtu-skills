@@ -5,13 +5,13 @@
 > 面向 AI 编程与内容工作流的可复用技能资产库。中文说明为主要维护入口；英文入口提供国际读者快速了解与导航。
 
 
-> 137 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
+> 138 production-grade Agent Skills in the open `SKILL.md` format. Write once, run in Claude Code, Codex, CodeBuddy, Cursor, Gemini CLI, OpenCode, and DeepSeek Harness (DSH). MIT License.
 >
 > 本页上半部分为英文说明（供国际读者与评审），中文完整版在下方 — Chinese documentation follows the English overview.
 
 ## What is this?
 
-`xingtu-skills` is an actively maintained library of **137 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
+`xingtu-skills` is an actively maintained library of **138 production Agent Skills** plus 87 curated prompts, distilled from a real, daily AI-engineering practice (an open-source matrix of 20+ repositories and a daily-published technical publication). Each skill is a self-contained `SKILL.md` package (`name` + `description` + `when_to_use`, plus scripts and references where needed) that teaches an AI coding agent a proven workflow: code review, adversarial review pipelines, token-efficiency tooling, research and fact-check gates, content publishing automation, repository hygiene, and more.
 
 A curated 26-skill subset also ships on npm as a DeepSeek Harness plugin: [`dsh-xingtu-skills`](https://www.npmjs.com/package/dsh-xingtu-skills).
 
@@ -54,13 +54,13 @@ MIT — see [`LICENSE`](LICENSE).
 > ① `MUSE-ONBOARDING.md`（接入手册 + 可直接投喂的选题/工作流提示词）→ ② `PUBLISHING-PIPELINE.md`（端到端流程地图 + 硬闸门）→ ③ 按需 Read `skills/<名称>/SKILL.md`。
 > 私有全量口径在 `xingtu1996/xingtu-vault`（授权后读 `云端AGENT入口.md`）。
 
-![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-137-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Skills](https://img.shields.io/badge/skills-138-blue.svg) ![Platform](https://img.shields.io/badge/platform-Claude%20%7C%20CodeBuddy%20%7C%20Codex%20%7C%20Cursor%20%7C%20Gemini%20CLI-orange.svg) ![Categories](https://img.shields.io/badge/categories-5-purple.svg) ![Last Commit](https://img.shields.io/github/last-commit/xingtu1996/xingtu-skills.svg)
 
 ## 🎯 这是什么
 
 `xingtu-skills` 是行途 XingTu 开源矩阵的**技能资产仓**。收录在真实 AI 工程实践中打磨的 SKILL.md 技能，遵循跨工具事实标准（name + description + when_to_use），一个技能全平台可用。
 
-**已收录 137 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
+**已收录 138 个生产级技能 + 87 个精选提示词**（`prompts/`），覆盖：token 压缩、代码审查、安全重构、调研、迁移、证据审查、仓库探索、验证收敛、内容去AI味、对抗审查、数据核实、事实核查门禁、沙箱网络绕行、零依赖分发、零成本视觉、开源巡检、身份钉定等场景。
 
 ## 🧩 DeepSeek Harness（DSH）兼容
 
@@ -78,7 +78,7 @@ git clone https://github.com/xingtu1996/xingtu-skills.git
 cp -r skills/<skill-name> ~/.claude/skills/
 ```
 
-## 🧠 Skills 清单（137）
+## 🧠 Skills 清单（138）
 
 ### 内容创作 · 自媒体（5 · 🆕 2026-10-15 新增 xingtu-knowledge-compounding）
 | Skill | 说明 |
@@ -260,7 +260,7 @@ cp -r skills/<skill-name> ~/.claude/skills/
 
 ## 🔍 AI 可检索
 
-- **`marketplace.json`**：137 条技能索引（name + description + tags），供 find-skills 检索
+- **`marketplace.json`**：138 条技能索引（name + description + tags），供 find-skills 检索
 - **SKILL.md frontmatter**：description 遵循 `[做什么] + [Use when: 关键词]` 公式，是唯一被自动检索的字段
 - **跨工具事实标准**：一份 SKILL.md，Claude Code / CodeBuddy / Codex / Cursor / Gemini CLI 通用
 

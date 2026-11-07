@@ -1561,6 +1561,20 @@
         "inventory",
         "repo-health"
       ]
+    },
+    {
+      "name": "doubao-app-layer-archive",
+      "description": "豆包工作（DoubaoWork）应用层全量落档：扫描多 Profile 的 .sessions 目录，输出账号使用情况、规划周期（ISO 周）、会话清单、技能/工具调用链频次与路径索引；只收元数据，不做内容挖掘。触发词：豆包落档、应用层盘点、会话元数据落档、.sessions 扫描。",
+      "path": "skills/doubao-app-layer-archive/SKILL.md",
+      "tags": [
+        "claude-code",
+        "ai-agent",
+        "skill",
+        "archive",
+        "doubao",
+        "metadata",
+        "inventory"
+      ]
     }
   ]
 }
